@@ -1,0 +1,464 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "TC lecture notes (draft)",
+    "section": "",
+    "text": "Preface\nThis is a draft of a set of lecture notes for the Theory of Computation course at UPC. The current notes are a work in progress and are meant to be used by the students of the groups 12 and 21 of the course 2026/2027 Q1.\nThe content of these notes is meant to complement the lectures given in the course and the main textbook (Sipser 2013).\nThis set of notes is organized into chapters. Each chapter covers usually a single topic and in each lecture we will usually cover several chapters.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#on-the-exercises",
+    "href": "index.html#on-the-exercises",
+    "title": "TC lecture notes (draft)",
+    "section": "On the exercises",
+    "text": "On the exercises\nThe point of view of this material is very exercise-focused. For this reason we present many exercises when they would naturally make sense (for instance to check the understanding of some definition) and not at the end of each chapter.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThe exercises in this set of notes are not the ones you are assigned to solve in the racó assignment. For them please go to the course website.\n\n\nExercises are marked in different ways to highlight some of their meta properties.\n\n\n\n\n\n\n\nMarker\nMeaning\n\n\n\n\n🌱\nStarter and warm-up exercise. You should be able to solve it in a few minutes (usually even less). If you are struggling on this type of exercises please reach out.\n\n\n🔥\nHard (but doable) exercise. If you are solving an exercise with this marker, it means you should spend more time on it and possibly reach out for help/hints.\n\n\n🔥🔥\nVery hard exercise. We might see this type of exercise in class.\n\n\n✨\nOpen ended and more philosophical exercise.\n\n\n👥\nThis exercise is an in-class activity.\n\n\n🏔️\nExercise with a lot of small steps that eventually will allow you to “climb-up” to a nice and very non-trivial result.\n\n\n\n\n\n\n\nSipser, Michael. 2013. Introduction to the Theory of Computation. 3rd ed. Cengage Learning.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "ch0/intro.html",
+    "href": "ch0/intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Goals\nIn this part of the course we\nAt the end of this part of the course you should be able to:",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "ch0/intro.html#goals",
+    "href": "ch0/intro.html#goals",
+    "title": "Introduction",
+    "section": "",
+    "text": "understand the basic mathematical jargon used in the course;\nunderstand the basic objects we study in the course (words, languages, and sets of languages);\nunderstand the basic operations we consider on words and languages and their properties.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "ch0/intro.html#references",
+    "href": "ch0/intro.html#references",
+    "title": "Introduction",
+    "section": "References",
+    "text": "References\nThe main reference for this part of the course is (Sipser 2013, chap. 0).\n\n\n\n\nSipser, Michael. 2013. Introduction to the Theory of Computation. 3rd ed. Cengage Learning.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "ch0/notation.html",
+    "href": "ch0/notation.html",
+    "title": "1  Notation",
+    "section": "",
+    "text": "1.1 Miscellaneous notation\nThis chapter recalls the standard (and non-standard) notations we use in this set of notes.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Notation</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/notation.html#miscellaneous-notation",
+    "href": "ch0/notation.html#miscellaneous-notation",
+    "title": "1  Notation",
+    "section": "",
+    "text": "Notation\nMeaning\n\n\n\n\n\\mathsf{value}_{2}(w)\nthe natural number represented by the binary string w\\in \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}^*. In particular, \\mathsf{value}_{2}(\\textcolor{darkred}{\\mathtt{0}}w)=\\mathsf{value}_{2}(w), \\mathsf{value}_{2}(w\\textcolor{darkred}{\\mathtt{0}})=2\\mathsf{value}_{2}(w), and \\mathsf{value}_{2}(w\\textcolor{darkred}{\\mathtt{1}})=2\\mathsf{value}_{2}(w)+1.\n\n\n\\lfloor x \\rfloor\nfor x\\in \\mathbb{R}, \\lfloor x \\rfloor is the largest integer smaller or equal x. For example, \\lfloor \\pi\\rfloor = 3.\n\n\n\\binom{S}{k}\nfor a set S and k\\in \\mathbb{N}, \\binom{S}{k} is the set of all subsets of S of size k. For example, \\binom{\\{1,2,3\\}}{2}=\\{\\{1,2\\},\\{1,3\\},\\{2,3\\}\\}. If |S|=n, the set \\binom{S}{k} has size \\binom{n}{k}=\\frac{n!}{k!(n-k)!}.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Notation</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/notation.html#logic",
+    "href": "ch0/notation.html#logic",
+    "title": "1  Notation",
+    "section": "1.2 Logic",
+    "text": "1.2 Logic\nIn this course we use logic formalism to describe properties of sets. You should be already familiar with the notation.\n\n\n\n\n\n\n\nNotation\nMeaning\n\n\n\n\nP\\lor Q\nP or Q: at least one between P and Q is true.\n\n\nP\\land Q\nP and Q: both P and Q are true.\n\n\n\\lnot P\nnot P: the opposite truth value of P.\n\n\nP\\to Q\nP implies Q: if P is true, the Q is also true Q. It is logically equivalent to Q\\lor \\lnot P.\n\n\nP\\leftrightarrow Q\nP if and only if Q: the same as (P\\to Q)\\land (Q\\to P).\n\n\n\\forall x\\, P(x)\nthe property P holds for every x. It is logically equivalent to \\lnot (\\exists x\\,\\lnot P(x)).\n\n\n\\exists x\\, P(x)\nthe property P holds for some x. It is logically equivalent to \\lnot (\\forall x\\,\\lnot P(x)).\n\n\n\n\nExercise 1.1 (De Morgan’s law) Argue that \n\\lnot (P\\lor Q)\\equiv \\lnot P \\land  \\lnot Q\n and \n\\lnot (P\\land Q)\\equiv \\lnot P \\lor  \\lnot Q\\ ,\n where \\equiv means the two expressions are logically equivalent, i.e. they always take the same truth values.\n\n\n\n\n\n\nAugustus De Morgan",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Notation</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/notation.html#sets",
+    "href": "ch0/notation.html#sets",
+    "title": "1  Notation",
+    "section": "1.3 Sets",
+    "text": "1.3 Sets\nThere is a whole branch of mathematics dedicated to study sets axiomatically. For this course the so-called naïve set theory is enough.\n\n\n\n\n\n\n\nNotation\nMeaning\n\n\n\n\nx\\in S\nx is an element of the set S.\n\n\n\\{x\\in S :P(x)\\}\nthe set of all elements x in S s.t. the property P holds on x.\n\n\n\\{E(x) :x\\in S\\}\nthe set of all elements of the form E(x) for x\\in S. For example \\{2n+1 :n\\in \\mathbb{N}\\} is the set of all odd natural numbers.\n\n\n\\{xy\\in A :P(x,y)\\}\nfor a set A and a predicate P, is shorthand for \\{w\\in A :\\exists x,y\\ w=xy \\land P(x,y)\\}.\n\n\n\\emptyset\nthe empty set. Please do not write the number zero as \\emptyset.\n\n\nA\\subseteq B\nthe set A is contained in B. A is a subset of B. For sets, A=B is the same as A\\subseteq B and B\\subseteq A.\n\n\nA\\subsetneq B\nthe set A is contained in B and A\\neq B.\n\n\nA\\cup B\nthe union of A and B. This set contains only elements that are either in A or in B.\n\n\nA\\cap B\nthe intersection of A and B. This set contains only elements that are both in A and in B.\n\n\nA\\setminus B\nthe difference of A and B. This set contains only elements that are in A but not in B.\n\n\nA\\Delta B\nthe symmetric difference of A and B, it is the same as (A\\setminus B)\\cup (B\\setminus A)\n\n\nA\\times B\nthe Cartesian product of A and B. This set contains only ordered pairs of elements (a,b) for all a\\in A and b\\in B.\n\n\n\\mathscr{P}(A)\nthe set of all possible subsets of A, also called power-set of A.\n\n\n\\mathbb{N}\nthe natural numbers \\{0,1,2,\\dots\\}.\n\n\nk\\mathbb{N}+\\ell\n=\\{kn+\\ell :n\\in \\mathbb{N}\\}. For example, 2\\mathbb{N}+1 is the set of odd natural numbers.\n\n\n\\mathbb{Z}\nthe integers \\{\\dots, -2,-1,0,1,2,\\dots\\}.\n\n\n\\mathbb{Q}\nthe rationals \\{\\frac{p}{q} :p,q\\in \\mathbb{Z}\\}.\n\n\n\\mathbb{R}\nthe reals: sequences of digits infinite on the right and with a single “.” somewhere, e.g. \\pi=3.141592653\\cdots.\n\n\n\n\nExercise 1.2 (De Morgan’s law for sets) Argue that \nA\\setminus (B\\cup C)=(A\\setminus B)\\cap (A\\setminus C)\n and \nA\\setminus (B\\cap C)=(A\\setminus B)\\cup (A\\setminus C)\\ .\n Since they are equalities of sets, you need to argue \\subseteq and \\supseteq.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Notation</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/notation.html#sec-functions",
+    "href": "ch0/notation.html#sec-functions",
+    "title": "1  Notation",
+    "section": "1.4 Functions and relations",
+    "text": "1.4 Functions and relations\n\n\n\n\n\n\n\nNotation\nMeaning\n\n\n\n\nR\\subseteq A\\times B\nR is a relation on A and B.\n\n\nf:A\\to B\nf is a (total) function from A to B, i.e. it associates each element of A to exactly one element of B. Formally, a relation f\\subseteq A\\times B is a function from A to B if for all a\\in A, exists exactly one b\\in B s.t. (a,b)\\in f. This b is denoted as f(a). Unless specified otherwise, functions will always be total.\n\n\n\nf is a partial function from A to B if it associates each element of A to at most one element of B.\n\n\n\\mathrm{dom}(f)\nthe domain of a partial function f:A\\to B is the set of all a\\in A that have associated one element in B.\n\n\nf(C)\nthe image of C is \\{f(c) :c\\in C\\}.\n\n\n\\mathrm{img}(f)=f(A)\nthis is the image (or range) of f:A\\to B.\n\n\nf:A\\to B is 1-to-1 (or injective)\nwhen f(a)=f(a') implies a=a'.\n\n\nf:A\\to B is onto (or surjective)\nwhen \\mathrm{img}(f)=B.\n\n\nf:A\\to B is a one-to-one correspondence (or bijective)\nif f is 1-to-1 and onto.\n\n\nf^{-1}\nthe inverse of a function f:A\\to B is the relation f^{-1}\\subseteq B\\times A given by f^{-1}=\\{(b,a) :(a,b)\\in f\\}.\n\n\nf^{-1}(S)\n=\\{a:f(a)\\in S\\}.\n\n\n\n\nExercise 1.3 Show that if a (partial) function f:A\\to B is injective, then f^{-1} is a (partial) function and also injective.\n\n\nExercise 1.4 Show that for every function f:A\\to B and every C\\subseteq B, \nf(f^{-1}(C))\\subseteq C\\subseteq f^{-1}(f(C))\\ .",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Notation</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/proofs.html",
+    "href": "ch0/proofs.html",
+    "title": "2  Proofs",
+    "section": "",
+    "text": "2.1 Tools for the pessimistic phase\nIn this chapter we revise the process of producing correct proofs.\nIn the process of producing a valid/correct proof there are usually two phases:\nMore often than not candidate proofs are neither correct nor wrong, they simply don’t contain enough details to be correct or wrong.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Proofs</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/proofs.html#tools-for-the-pessimistic-phase",
+    "href": "ch0/proofs.html#tools-for-the-pessimistic-phase",
+    "title": "2  Proofs",
+    "section": "",
+    "text": "TipHow to detect if a proof contains enough details?\n\n\n\nPut on your “pessimistic hat” and try to fill the gaps in your supposed proof as adversariarly as you can. If you can fill the gaps in such a way that your argument becomes wrong, then it is wrong (or maybe you just forgot to write down something important, so go back to the optimistic phase and write it down).\nLook for corner cases, or whether you used all assumptions or not. Look for anything that smells suspicious.\n\n\n\nExample 2.1 A common (and very powerful) strategy to detect errors is the following. Suppose you want to prove that statement A is true and you have a candidate proof \\pi of A. It is always very useful to have (or to look for) statements very similar to A (say B) but false. If you try to use your candidate proof \\pi on B then for \\pi to be correct it must fail on B. If in the proof \\pi it is not written explicitly something that makes \\pi fail on B then it is also wrong (or not written with enough details). Even if your proof \\pi fails on B it still might be wrong, but at least it passed a basic sanity check.\n\n\nExample 2.2 A very simple example of errors that can be found using the strategy above. Suppose that you are arguing about the correcteness of some C++ code that you wrote. If you never mention anything of your code then the argument is wrong. I (the reader, with the pessimistic hat) can change the code to whatever I want, some completely unrelated one, and your argument does not detect the difference, hence it is wrong.\n\n\nExercise 2.1 To exercise the pessimistic point of view, try to find the error(s) in the following proofs (the statements are all false, so the proofs must be wrong).\n\nDodgy Theorem 1. 1 is the largest integer.\nProof. By contradiction suppose the conclusion is false. Then let n&gt;1 be the largest integer. Multiplying both sides of this inequality by n, yields n^2&gt;n. This is a contradiction, because n^2 is another integer larger than n. Therefore, 1 is the largest integer. \\blacksquare\nDodgy Theorem 2. All natural numbers are even.\nProof. By induction on n. The base case is 0, which is even. For the inductive step, assume that n is even, we want to show that n+1 is even. Since n is even, there exists k\\in \\mathbb{N} such that n=2k. Then n+1=2k+1, which is odd, and this is a contradiction. Therefore, n+1 is even. \\blacksquare\nDodgy Theorem 3. All horses are black.\nProof. We prove by induction on n that in every set of horses of size n, all n horses are the same color.\nBase Case (n=1): One horse is the same color as itself. This is true by inspection.\nInduction Step: Assume that the statement holds for n=k and we prove it holds for n=k+1. Since \\{H_1, H_2, \\ldots, H_k\\} is a set of k horses, the induction hypothesis applies to this set. Thus, all the horses in this set are the same color.\nSince \\{H_2, H_3, \\ldots, H_{k+1}\\} is also a set of k horses, the induction step likewise holds for this set. Thus, all the horses in this set are the same color too.\nTherefore, all n+1 horses in \\{H_1, H_2, H_3, \\ldots, H_n, H_{n+1}\\} are the same color. \\blacksquare",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Proofs</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/proofs.html#tools-for-the-optimistic-phase",
+    "href": "ch0/proofs.html#tools-for-the-optimistic-phase",
+    "title": "2  Proofs",
+    "section": "2.2 Tools for the optimistic phase",
+    "text": "2.2 Tools for the optimistic phase\nYou should have already seen several tools to prove theorems, for example proofs by induction, by contradiction, by cases, etc.\n\n\n\n\n\n\nTip\n\n\n\nSuppose that you want to prove that “A implies B” but you really don’t know where to start. As a general rule, the following are two good strategies:\n\nproceed by contradiction: assume also that B is false and try to obtain a contradiction. Now you have two assumptions (A true and B false), or\nproceed by cases: try to find a property P such that A\\land P implies B and then try to show that A\\land \\lnot P also imply B.\n\nOne of the two strategies above might get you started!\n\n\n\nExample 2.3 Suppose you are tasked to prove that there exists two numbers r,s\\in \\mathbb{R}\\setminus \\mathbb{Q} s.t. r^s\\in \\mathbb{Q}. Try r=s=\\sqrt{2}. If \\sqrt{2}^{\\sqrt{2}}\\in \\mathbb{Q} we are done, otherwise try r=\\sqrt{2}^{\\sqrt{2}} and s=\\sqrt{2}, then r^s=2 is rational and we are also done. This is a very nice example of how to use the “proceed by cases” strategy.\n\n\nExercise 2.2 Let f: {\\mathbb N} \\rightarrow \\mathbb N be a function such that f(x+y) = f(x)+f(y) for any x, y \\in \\mathbb N. Prove that for any x \\in \\mathbb N, f(x) = f(1) \\cdot x.\n\n\n2.2.1 The Pigeonhole Principle\nA very powerful tool (that you possibly didn’t see before) is the Pigeonhole Principle. This essentially is a “fancy” way of saying that for each natural number n, n\\neq n+1:\n\nthere is no injective function from a set of size n+1 to a set of size n.\n\nThe elements of the set of size n+1 are usually called pigeons and the elements of the set of size n are called holes. The principle can then be stated pictorially saying that if you put n+1 pigeons in n holes, at least one hole will contain more than one pigeon.\n\n\n\nThis principle is very useful to prove the existence of some object without explicitly constructing it.\n\nExercise 2.3  \n\nEvery graph with two or more vertices has two vertices with the same degree.1\nGiven five points on a sphere, there is a closed hemisphere containing at least four of them.\n\n\n\nExercise 2.4 (🔥) Prove that any set of n+1 positive integers less than or equal to 2n, where n \\ge 1, contains two distinct elements a and b such that a divides b.\n\n\n\n\n\n\nTipHint\n\n\n\n\n\nA possibility is to use the pigeonhole principle: the pigeons are the n+1 numbers and the holes are the odd numbers between 1 and 2n. A pigeon of the form 2^k d with d odd flies to hole d.\nAnother option is to consider an induction proof on n and distinguish two cases in the inductive step: at least one of the elements 2n+1 and 2n+2 is not in the set or both are.\n\n\n\n\nThere is also a finite-vs-infinite version of the Pigeonhole Principle, which states that if you put infinitely many pigeons in m&lt;\\infty holes, at least one hole will contain infinitely many pigeons.\n\nExercise 2.5 For every real number r and every positive integer n, there exists a sequence of consecutive n digits that appears infinitely often in the decimal expansion of r.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Proofs</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/proofs.html#footnotes",
+    "href": "ch0/proofs.html#footnotes",
+    "title": "2  Proofs",
+    "section": "",
+    "text": "Recall that the degree of a vertex is the number of edges incident to it.↩︎",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Proofs</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/functions_cardinality.html",
+    "href": "ch0/functions_cardinality.html",
+    "title": "3  Functions and cardinality",
+    "section": "",
+    "text": "Important\n\n\n\nThis chapter is here because it is about basic mathematical notions, but for the moment you can skip it and go directly to the next chapter. You will need to come back here later in the course, when we will use these notions to prove some results about languages. All exercises in later chapters about showing that some set is countable or uncountable will require you to understand the notions in this chapter. You can come back to them on a second read.\n\n\nThe cardinality is an inherent property of sets which defines their size, roughly meaning the number of individual objects they contain.\nFor finite sets, cardinality recovers the usual concept of size as “number of elements”. A system of cardinal numbers can be developed to extend the role of natural numbers in answering “how many” elements for infinite set.\n\nDefinition 3.1 (cardinality) Two sets A and B have the same cardinality (and we write |A|=|B|) if there exists a one-to-one correspondence f: A\\to B.\n\n\nDefinition 3.2 (countable) A set S is finite if it has the same cardinality of some set A\\subsetneq \\mathbb{N}. A set is countably infinite if it has the same cardinality of \\mathbb{N}. A set is countable if it is either finite or countably infinite.\n\n\n\nThe cardinality of \\mathbb{N} is called \\aleph_0 (aleph nought or aleph zero).\n\nExercise 3.1 Show that the following sets are countable:\n\n\\mathbb{N}\\setminus\\{0\\}.\n2\\mathbb{N}.\n\\mathbb{Z}.\n\\mathbb{N}\\times \\mathbb{N}.\n\\mathscr{P}^{\\mathrm{fin}}(\\mathbb{N}), the set of all finite subsets of \\mathbb{N}.\n\\mathbb{Q}.\n(🔥) all the algebraic real numbers, i.e. the real numbers which are roots of a polynomial (in a single variable) with coefficients in \\mathbb{Z}.\n\n\nAfter Exercise 3.1, a natural question arises. Is there any set which is not countable? …Yes! (see Theorem 3.1 below).\n\nExercise 3.2 Show that \\mathbb{R} and \\mathbb{R}\\cap (0,1), i.e. the real numbers betwen 0 and 1, have the same cardinality.\n\n\n\n\n\n\nTipHint\n\n\n\n\n\nTrigonometric functions are not just useful for trigonometry.\n\n\n\n\n\nTheorem 3.1 (Cantor’s Theorem) \\mathbb{R} is not countable.\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nThanks to Exercise 3.2 it is enough to show that \\mathbb{R}\\cap (0,1) is not countable. By contradiction suppose it is countable, in other words suppose that there is a one-to-one correspondence f :\\mathbb{N}\\to \\mathbb{R}\\cap (0,1). Let f(n)_i be the i-th digit in the decimal expansion of f(n). Consider the “diagonal” f(n)_n and construct a digit different from f(n)_n, for example d_n=f(n)_n +1 \\pmod{10}. The number r=0.d_1d_2d_3\\dots is a real number, but it cannot be in the image of f: it cannot be f(1) because the first digit d_1 by construction difers from the first digit of f(1), similarly it cannot be f(2), etc.\n\n\n\n\n\n\n\n\n\nGeorg Cantor (1845–1918)\n\n\nThe argument above is called diagonalization and it is a very powerful tool that we will revise later in the course.\n\nExercise 3.3 Show that \\mathscr{P}(\\{0,1\\}) is not countable either by\n\nshowing it has the same cardinality as \\mathbb{R}, or\nadapting the diagonalization argument to this case.\n\n\nThe cardinality of \\mathbb{R} is the cardinality of the continuum (denoted as \\mathfrak{c}).\n\n\n\n\n\n\nNoteThe continuum hypothesis\n\n\n\nThe continuum hypothesis is the following statement:\n\nfor every set S s.t. \\mathbb{N}\\subseteq S\\subseteq \\mathbb{R} either S is countably infinite or it has the cardinality of the continuum, that is either there is a one-to-one correspondence between S and \\mathbb{N} or a one-to-one correspondence between S and \\mathbb{R}.\n\nThe continuum hypothesis is independent from the usually accepted axioms of mathematics (aka ZFC, the Zermelo-Frankel set theory plus the Axiom of Choice): ZFC (if consistent) cannot prove that continuum hypothesis is false (Gödel 1940) and ZFC cannot prove that the continuum hypothesis is true (Cohen 1963, 1964).\n\n\n\n\n\n\nCohen, Paul J. 1963. “THE INDEPENDENCE OF THE CONTINUUM HYPOTHESIS.” Proceedings of the National Academy of Sciences 50 (6): 1143–48. https://doi.org/10.1073/pnas.50.6.1143.\n\n\nCohen, Paul J. 1964. “THE INDEPENDENCE OF THE CONTINUUM HYPOTHESIS, II.” Proceedings of the National Academy of Sciences 51 (1): 105–10. https://doi.org/10.1073/pnas.51.1.105.\n\n\nGödel, Kurt. 1940. The Consistency of the Continuum Hypothesis. Princeton University Press.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Functions and cardinality</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/words_and_languages.html",
+    "href": "ch0/words_and_languages.html",
+    "title": "4  Words, languages, sets-of-languages",
+    "section": "",
+    "text": "4.1 Words\nWords, languages, and sets of languages are the objects we study in this course. In this chapter we define them and consider some basic properties. For the operations we consider on them see Chapter 5 and Chapter 6.\nA word is a finite sequence of symbols from a finite and non-empty set of available symbols (called alphabet). If the alphabet has only one symbol it is called unary, if it has exactly two binary. Usually the size of the alphabet will not matter much, but unary alphabets have sometimes slightly different properties than non-unary ones.\nWe are interested in words since we are interested in the meaning associated to them.\nThe length of a word w (denoted as \\lvert w \\rvert) is the number of symbols it contains. For i between 1 and \\lvert w \\rvert, we denote with w[i], the i-th symbol in w (and by convention we start counting from 1).\nThe empty word (denoted by \\varepsilon, “epsilon”) is the unique word that contains no symbols. We assume \\varepsilon is never a symbol in the alphabet \\Sigma. The length of the empty word is \\lvert \\varepsilon \\rvert=0.\nNotice that \\varepsilon is a subword of every word w, it is also a prefix of w and a suffix.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Words, languages, sets-of-languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/words_and_languages.html#words",
+    "href": "ch0/words_and_languages.html#words",
+    "title": "4  Words, languages, sets-of-languages",
+    "section": "",
+    "text": "Words are often denoted by lowercase Latin letters, such as w or x. Alphabets are often denoted by capital Greek letters, such as \\Sigma or \\Gamma. To improve readability we use a special font for symbols in alphabets, that is \\textcolor{darkred}{\\mathtt{a}}, \\textcolor{darkred}{\\mathtt{b}}, \\textcolor{darkred}{\\mathtt{0}}, \\textcolor{darkred}{\\mathtt{1}}, etc. are symbols, while a, b, 0, 1 are not.\n\nExample 4.1 \\textcolor{darkred}{\\mathtt{Hello\\ world}} is a word over the alphabet of symbols that you can find on a standard US keyboard (see Figure 4.1), \\textcolor{darkred}{\\mathtt{101}} is a word over the binary alphabet \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}, and \\textcolor{darkred}{\\mathtt{GATTACA}} is a word in the alphabet of DNA bases \\{\\textcolor{darkred}{\\mathtt{A}},\\textcolor{darkred}{\\mathtt{T}},\\textcolor{darkred}{\\mathtt{C}},\\textcolor{darkred}{\\mathtt{G}}\\}.\n\n\n\n\n\n\n\n\n\nFigure 4.1: A standard US keyboard layout.\n\n\n\n\n\nExample 4.2 Words over \\{\\textcolor{darkred}{\\mathtt{A}},\\textcolor{darkred}{\\mathtt{T}},\\textcolor{darkred}{\\mathtt{C}},\\textcolor{darkred}{\\mathtt{G}}\\} can be associated with a sequence of nucleotides and possibly diseases or amino acids. Words over \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\} can be associated to binary numbers in the natural way. For this interpretation we use the notation \\mathsf{value}_{2}(w) (see Chapter 1) and, for example, \\mathsf{value}_{2}(\\textcolor{darkred}{\\mathtt{1011}})=19.\n\n\n\nExample 4.3 The length of \\textcolor{darkred}{\\mathtt{Hello\\ world}} is \\lvert \\textcolor{darkred}{\\mathtt{Hello\\ world}} \\rvert=11, and the length of \\textcolor{darkred}{\\mathtt{101}} is \\lvert \\textcolor{darkred}{\\mathtt{101}} \\rvert=3.\n\n\nExercise 4.1 Show that the length of the binary representation of a number is logarithmic with respect to the number itself. That is, for every word w over the alphabet \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\} starting with a \\textcolor{darkred}{\\mathtt{1}},\n\n\\lvert w \\rvert=\\lfloor\\log_2(\\mathsf{value}_{2}(w))\\rfloor+1\\ .\n\n\n\n\n\nIn some books the empty word is denoted by \\lambda (“lambda”). The most common notation for the empty word is \\varepsilon, for example this is the notations used in (Sipser 2013).\n\nDefinition 4.1 (subword) x is a subword of w if there are consecutive symbols in w that form x. If x appears at the beginning of w it is a prefix, if it appears at the end it is a suffix. |w|_x denotes the number of distinct occurrences of x in w as a subword.\n\n\nExample 4.4 \\textcolor{darkred}{\\mathtt{cat}} is a subword of \\textcolor{darkred}{\\mathtt{caterpillar}}, and it is also a prefix. There are 3 occurrences of x=\\textcolor{darkred}{\\mathtt{aaa}} in w=\\textcolor{darkred}{\\mathtt{aaaaab}} (that is |w|_x=3): the occurrence of x that starts in w[1], the one that starts in w[2] and the one that starts in w[3].\n\n\n\nExercise 4.2 Write a formal definition for the following informal descriptions of a logical property P(w). To define the property P(w) formally, use universal and existential quantifiers (\\forall, \\exists), Boolean operators (\\lor, \\land, \\to, …) (see Chapter 1) and the notations about words above.\nFor instance, the property P(w) which informally is “w contains the subword \\textcolor{darkred}{\\mathtt{ab}}” can be formalized as\n\nP(w)= \\exists i\\in \\{1,\\ldots, \\lvert w \\rvert\\}\\text{ s.t. }w[i]=\\textcolor{darkred}{\\mathtt{a}}\\land w[i+1]=\\textcolor{darkred}{\\mathtt{b}}\\ .\n or equivalently as \nP(w) = |w|_{\\textcolor{darkred}{\\mathtt{ab}}}&gt;0\\ .\n\n\nTo the right of every subword \\textcolor{darkred}{\\mathtt{ab}} in w there is some subword \\textcolor{darkred}{\\mathtt{ba}}.\nWord w contains both the subword \\textcolor{darkred}{\\mathtt{ab}} and the subword \\textcolor{darkred}{\\mathtt{ba}}.\nBetween every two \\textcolor{darkred}{\\mathtt{b}}’s in w there is some \\textcolor{darkred}{\\mathtt{a}}.\nEvery occurrence of \\textcolor{darkred}{\\mathtt{b}} in w is in an even position (the first symbol of a word is in position 1).\nWord w has some prefix with at least as many \\textcolor{darkred}{\\mathtt{b}}’s as \\textcolor{darkred}{\\mathtt{a}}’s.\nIn every prefix of w, the number of \\textcolor{darkred}{\\mathtt{b}}’s is at least the number of \\textcolor{darkred}{\\mathtt{a}}’s.\nWord w has some even-length prefix with at least as many \\textcolor{darkred}{\\mathtt{b}}’s as \\textcolor{darkred}{\\mathtt{a}}’s.\nEvery even-length prefix of w has at least as many \\textcolor{darkred}{\\mathtt{b}}’s as \\textcolor{darkred}{\\mathtt{a}}’s.\nWord w has a prefix and a suffix of the same nonzero length, equal to each other, and strictly less than the length of the word.\nWord w is a palindrome, that is, w reads the same forwards as backwards, e.g. \\textcolor{darkred}{\\mathtt{madam}} or \\textcolor{darkred}{\\mathtt{rotator}} in English.\n\n\n\nExercise 4.3 Write the negation of the property P(w) for each of the properties defined in Exercise 4.2. For instance, the negation of the property P(w) that we used as an example is \n\\begin{align*}\n\\lnot P(w) &= \\lnot (\\exists i\\in \\{1,\\ldots, \\lvert w \\rvert\\}\\text{ s.t. }w[i]=\\textcolor{darkred}{\\mathtt{a}}\\land w[i+1]=\\textcolor{darkred}{\\mathtt{b}})\n\\\\\n&\\equiv \\forall i\\in \\{1,\\ldots, \\lvert w \\rvert\\}\\ w[i]\\neq \\textcolor{darkred}{\\mathtt{a}} \\lor w[i+1]\\neq \\textcolor{darkred}{\\mathtt{b}}\\ ,\n\\end{align*}\n where \\equiv means logical equivalence, that is the two logical expressions are true for the same words and false for the same words.\n\n\nExercise 4.4 Show that there is no word w\\in \\{\\textcolor{darkred}{\\mathtt{a}},\\textcolor{darkred}{\\mathtt{b}}\\}^* s.t. \\textcolor{darkred}{\\mathtt{a}}w=w\\textcolor{darkred}{\\mathtt{b}}.\n\n\nExercise 4.5 Design at least two ways to encode a graph1 as a word over a binary alphabet \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\} and compute explicitly the encoding of the complete graph on 3 vertices K_3. What is the length of the encoding of K_n for your two encodings as a function of n? Which one is more efficient?",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Words, languages, sets-of-languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/words_and_languages.html#languages",
+    "href": "ch0/words_and_languages.html#languages",
+    "title": "4  Words, languages, sets-of-languages",
+    "section": "4.2 Languages",
+    "text": "4.2 Languages\nA language is a set of words over a given alphabet. The language of all words over an alphabet \\Sigma is denoted by \\Sigma^*. On the opposite end, the language that contains no words is called the empty language and is just the empty set \\emptyset.\n\n\nLanguages are often denoted by capital Latin letters, such as L or M.\n\nExample 4.5 The set of all English words is a language over the English alphabet, and the set of all binary strings is a language over the binary alphabet.\n\nUnlike words and alphabets, languages can be infinite sets (Exercise 4.6).\n\nExercise 4.6 Show that the language \\Sigma^* is infinite for any alphabet \\Sigma. What type of infinite? Show that \\Sigma^* is countable.\n\n\n\n\n\n\n\nWarningCommon errors\n\n\n\n\nThe empty word \\varepsilon is a word, and thus \\varepsilon\\in \\Sigma^* for any alphabet \\Sigma.\nThe empty language \\emptyset is not a word, and thus \\emptyset \\notin \\Sigma^* for any alphabet \\Sigma.\nWords are always finite sequences of symbols, but languages can be infinite sets of words. Do not confuse the two.\n\n\n\n\n\nThe set of all infinite sequences of symbols over \\Sigma is denoted by \\Sigma^\\omega and it is not a language, but an object of study in other branches of theoretical computer science. We do not study \\Sigma^\\omega in this course.\n\nExercise 4.7 Prove the following equalities between languages:\n\n\\{xy\\in \\{\\textcolor{darkred}{\\mathtt{a,b}}\\}^* :|x|_{\\textcolor{darkred}{\\mathtt{a}}}=|y|_{\\textcolor{darkred}{\\mathtt{a}}}\\}=\\{w\\in \\{\\textcolor{darkred}{\\mathtt{a,b}}\\}^*:|w|_{\\textcolor{darkred}{\\mathtt{a}}}\\in 2\\mathbb N\\}.\n\\{xy\\in \\{\\textcolor{darkred}{\\mathtt{a,b}}\\}^* :|x|_{\\textcolor{darkred}{\\mathtt{a}}}=|y|_{\\textcolor{darkred}{\\mathtt{b}}}\\}=\\{\\textcolor{darkred}{\\mathtt{a,b}}\\}^*.\n\\{xy\\in \\{\\textcolor{darkred}{\\mathtt{a,b}}\\}^* :|x|_{\\textcolor{darkred}{\\mathtt{aa}}}=|y|_{\\textcolor{darkred}{\\mathtt{b}}}\\}=\\{\\textcolor{darkred}{\\mathtt{a,b}}\\}^*.\n(🔥) \\{w\\in \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}^* :\\mathtt{value}_2(ww^R)\\in 3\\mathbb N\\}=\\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}^*\n\n\n\nExercise 4.8 Let L=\\{w\\in \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}^* :|w|_{\\textcolor{darkred}{\\mathtt{00}}}=0\\}. Let Y\\subseteq \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}^* be the minimal2 set with the following properties:\n\n\\varepsilon,\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\in Y, and\nif x,y\\in Y, then x\\textcolor{darkred}{\\mathtt{1}}y\\in Y.\n\nShow that L=Y.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Words, languages, sets-of-languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/words_and_languages.html#sec-sets_languages",
+    "href": "ch0/words_and_languages.html#sec-sets_languages",
+    "title": "4  Words, languages, sets-of-languages",
+    "section": "4.3 Sets of languages",
+    "text": "4.3 Sets of languages\nIn this course we are also interested in sets of languages, i.e., sets whose elements are languages. For example the set of languages with a given property, or the set of languages that can be recognized by a given type of machine. As a first non-trivial example, we consider \\mathbf{Finite}, the set of all finite languges (over a fixed alphabet \\Sigma).\nFor the rest of this section consider fixed an alphabet \\Sigma.\n\n\n\n\n\n\nWarning\n\n\n\nSome properties of sets of languages might depend on the size of the alphabet. In particular, for unary alphabets some classes of languages might be equal, while for non-unary ones they are different. Unless stated otherwise we will always assume the classes of languages we consider are over non-unary alphabets.\n\n\n\n\nIn set theory the words set and class are not synonyms, but in this course we will use them as synonyms. In particular, we will not consider the technicalities of set theory that arise when considering classes of sets (or classes of languages) that are too large to be sets themselves.\nRoughly speaking, we will group languages L according to the computational difficulty of the Membership problem for L, that is given as input a word w\\in \\Sigma^* and a description of L, we want to decide whether w\\in L or not.\n\nExample 4.6 The set of all languages over \\Sigma is the set of all possible subsets of \\Sigma^*, that is \\mathscr{P}(\\Sigma^*).\n\n\nExercise 4.9 (🔥) Show that the set \\mathcal{P}(\\Sigma^*) is uncountable for any alphabet \\Sigma.\n\nGiven a class of languages \\mathcal{C}, a derived class we can always construct from \\mathcal{C} is the class \\mathbf{co}\\mathcal{C}: \n\\mathbf{co}\\mathcal{C}=\\{L\\subseteq \\Sigma^* :\\Sigma^*\\setminus L \\in \\mathcal{C}\\}\\ ,\n that is \\mathbf{co}\\mathcal{C} is the class of languages whose complement w.r.t. \\Sigma^* is in \\mathcal{C}.\n\n\nFor some classes of languages \\mathcal{C}, we have \\mathbf{co}\\mathcal{C}=\\mathcal{C}, for some others we will prove that they are different, while for others we simply don’t know. For example a famous open problem in complexity theory is whether \\mathbf{co}\\mathbf{NP}=\\mathbf{NP}.\n\nExercise 4.10 Show that \\mathbf{co}\\mathbf{co}\\mathcal{C}=\\mathcal{C} for any class of languages \\mathcal{C}.\n\n\n4.3.1 Finite – all the finite languages\nThe first non-trivial class of languages we consider is \\mathbf{Finite}, the set of all finite languages over \\Sigma. The Membership problem (see Section 4.3) for such languages is very easy: we just have a finite case of options to check.\n\nExample 4.7 The empty language \\emptyset is a finite language (it contains 0 words), and thus \\emptyset \\in \\mathbf{Finite}. However, the language \\Sigma^* is not a finite language, and thus \\Sigma^* \\notin \\mathbf{Finite}.\n\n\nExercise 4.11 Show that for any alphabet \\Sigma,\n\n\\mathbf{Finite} is countable.\n\\mathbf{co}\\mathbf{Finite} is countable.\n\n\n\n\nThis is a general phenomenon for the classes of languages we will see in this course, they will be always countable, and in particular (due to Exercise 4.9) never equal to \\mathscr{P}(\\Sigma^*).\n\nExercise 4.12 Show that \\mathbf{Finite} and \\mathbf{co}\\mathbf{Finite} have empty intersection.\n\n\nExercise 4.13 Give an example of language in \\mathscr{P}(\\Sigma^*) that is not in \\mathbf{Finite} and not in \\mathbf{co}\\mathbf{Finite}.\n\nOne would be tempted to say that the languages in \\mathbf{Finite} or \\mathbf{co}\\mathbf{Finite} are very easy. In some sense they are, but in some other sense it might be very hard to prove that a given language belongs to one of these classes.\n\nExercise 4.14 (Easy languages from hard conjectures) In this exercise we consider two languages that are defined in terms of famous open conjectures in number theory, and we show that they belong to \\mathbf{Finite}\\cup\\mathbf{co}\\mathbf{Finite}:\n\nL_G is connected to the famous Goldbach’s conjecture;\nL_\\pi is connected to the question of whether \\pi is a normal number.\n\n\nLet L_G be the following language over the binary alphabet \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}: \nL_G=\\{w\\in \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}^* :\\exists p\\in \\mathbb{N}\\text{ s.t. }p\\geq \\mathsf{value}_{2}(w)\\land p,p+2\\in \\mathbb{P}\\}\\ ,\n where \\mathsf{value}_{2}(w) is the natural number represented by the binary string w and \\mathbb{P} is the set of prime numbers. Show that L_G is in \\mathbf{Finite}\\cup\\mathbf{co}\\mathbf{Finite}. Does L_G belong to \\mathbf{Finite}?\nLet L_\\pi be the following language over the unary alphabet \\{\\textcolor{darkred}{\\mathtt{0}}\\}: \nL_\\pi=\\{w\\in \\{\\textcolor{darkred}{\\mathtt{0}}\\}^* :\\text{the binary expansion of $\\pi$ contains $w$}\\}\\ .\n Show that L_\\pi is in \\mathbf{Finite}\\cup\\mathbf{co}\\mathbf{Finite}.\n\n\n\n\n\n\nSipser, Michael. 2013. Introduction to the Theory of Computation. 3rd ed. Cengage Learning.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Words, languages, sets-of-languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/words_and_languages.html#footnotes",
+    "href": "ch0/words_and_languages.html#footnotes",
+    "title": "4  Words, languages, sets-of-languages",
+    "section": "",
+    "text": "Recall that a (directed) graph is a pair (V,E) where V is a set of vertices and E\\subseteq \\binom{V}{2} is a set of edges. You can assume that the vertices are numbered from 1 to n for some n\\in \\mathbb{N}.↩︎\nRecall that minimal means that it is the smallest set with the given properties. That is, any other set with the same properties must contain it.↩︎",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Words, languages, sets-of-languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_words.html",
+    "href": "ch0/operations_on_words.html",
+    "title": "5  Operations on words",
+    "section": "",
+    "text": "5.1 Concatenation\nIn this chapter we introduce some operations on words that we will use in the rest of the course. In particular we introduce the concatenation of words, the reverse of a word, and homomorphisms between sets of words.\nThe main operation on words is concatenation. The concatenation of two words w and x is the word obtained by writing w followed by x. It is denoted by wx (or w\\cdot x).\nFor example, the concatenation of \\textcolor{darkred}{\\mathtt{hello}} and \\textcolor{darkred}{\\mathtt{world}} is \\textcolor{darkred}{\\mathtt{helloworld}}, and the concatenation of \\textcolor{darkred}{\\mathtt{101}} and \\textcolor{darkred}{\\mathtt{11}} is \\textcolor{darkred}{\\mathtt{10111}}.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Operations on words</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_words.html#concatenation",
+    "href": "ch0/operations_on_words.html#concatenation",
+    "title": "5  Operations on words",
+    "section": "",
+    "text": "Exercise 5.1 (Algebraic properties) Show the following basic algebraic properties of concatenation. For all words x,y,z\\in \\Sigma^*\n\n(xy)z = x(yz), that is the concatentation is associative.\n\\varepsilon x = x\\varepsilon= w, that is the empty word is the identity element for concatenation.\nif xy = yx holds for every x,y\\in \\Sigma^*, then |\\Sigma|=1. That is if |\\Sigma|\\geq 2 then the concatenation is not commutative.\n\n\n\nExercise 5.2 Show that the length of the concatenation of two words w and x is the sum of their lengths, i.e., \\lvert wx \\rvert = \\lvert w \\rvert + \\lvert x \\rvert.\n\n\nExercise 5.3 (Cancellation law) Show that if wx = wy, then x = y (i.e., we can “cancel” w from the left), and if xw = yw, then x = y (i.e., we can “cancel” w from the right).",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Operations on words</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_words.html#n-th-power-of-a-word",
+    "href": "ch0/operations_on_words.html#n-th-power-of-a-word",
+    "title": "5  Operations on words",
+    "section": "5.2 n-th power of a word",
+    "text": "5.2 n-th power of a word\nFor n\\in \\mathbb{N} at least 1, w^n denotes the word w concatenated with itself n times and w^0=\\varepsilon.\n\n\n\n\n\n\nWarningCommon error\n\n\n\nWhen \\textcolor{darkred}{\\mathtt{1}}\\in \\Sigma, a common error is to confuse \\textcolor{darkred}{\\mathtt{1}}^n, that is the concatenation of the word \\textcolor{darkred}{\\mathtt{1}} with itself n times, with 1^n, the n-th power of the number 1.\n\n\n\nExercise 5.4 Show that for n\\in \\mathbb N, |w^n|=n|w|.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Operations on words</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_words.html#reverse",
+    "href": "ch0/operations_on_words.html#reverse",
+    "title": "5  Operations on words",
+    "section": "5.3 Reverse",
+    "text": "5.3 Reverse\nThe reverse of a word w over \\Sigma is the language word w^R obtained by writing w in reverse, that is \\varepsilon^R=\\varepsilon and (\\textcolor{darkred}{\\mathtt{s}}u)^R=u^R\\textcolor{darkred}{\\mathtt{s}} for every \\textcolor{darkred}{\\mathtt{s}}\\in \\Sigma and u\\in \\Sigma^*.\n\nExercise 5.5 Show that for every word w, (w^R)^R=w.\n\n\nExercise 5.6 Show that for every two words w and z, (wz)^R=z^Rw^R.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Operations on words</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_words.html#sec-homomorphisms",
+    "href": "ch0/operations_on_words.html#sec-homomorphisms",
+    "title": "5  Operations on words",
+    "section": "5.4 Homomorphisms",
+    "text": "5.4 Homomorphisms\nGiven two sets A,B and operations \\circ_A and \\circ_B on A and B respectively, a homomorphism from (A,\\circ_A) to (B,\\circ_B) is a function f:A\\to B that preserves the operations, that is for every x,y\\in A, f(x\\circ_A y)=f(x)\\circ_B f(y).\n\nExample 5.1 Homomorphisms are everywhere in mathematics. For instance, some examples of homomorphism (that you for sure already know) are the following:\n\nthe function n\\mapsto 2^n is a homomorphism from (\\mathbb{N},+) to (\\mathbb{N},\\cdot), since for every n,m\\in \\mathbb{N}, 2^{n+m}=2^n\\cdot 2^m.\nthe function n\\mapsto \\log_2(n) is a homomorphism from (\\mathbb{N}\\setminus\\{0\\},\\cdot) to (\\mathbb{R},+), since for every n,m\\in \\mathbb{N}\\setminus\\{0\\}, \\log_2(n\\cdot m)=\\log_2(n)+\\log_2(m).\nExercise 5.2 can be restated as the length function of words is a homomorphism from (\\Sigma^*,\\cdot) to (\\mathbb{N},+).\n\n\nIn the context of this course, we are interested in homomorphisms between (\\Sigma^*,\\cdot) and (\\Gamma^*,\\cdot), where \\Sigma and \\Gamma are alphabets and \\cdot is the concatenation operation. That is, a function \\sigma:\\Sigma^*\\to\\Gamma^* is a homomorphism if for every two words u,v\\in \\Sigma^*, \\sigma(uv)=\\sigma(u)\\sigma(v).\n\n\n\n\n\n\nWarningConvention\n\n\n\nFor the rest of this section (and the rest of this course) when we say that \\sigma is a homomorphism, we mean that \\sigma:(\\Sigma^*,\\cdot)\\to(\\Gamma^*,\\cdot) is a homomorphism for some alphabets \\Sigma and \\Gamma.\n\n\n\nExample 5.2 (The ASCII code as a homomorphism) The ASCII code is a homomorphism that maps words on the standard US keyboard to words on the binary alphabet \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\} given by the ASCII code. For example, it maps the word \\textcolor{darkred}{\\mathtt{Hello\\ world}} to the binary string 0100100001100101011011000110110001101111001000000101011101101111011100100110110001100100, which is the concatenation of the ASCII codes of the symbols in \\textcolor{darkred}{\\mathtt{Hello\\ world}}.\n\nThe homomorphism for Example 5.2 is injective (aka 1-to-1), that is different words are mapped to different binary strings. That is given a binary string, there is a unique word that maps to it. For example, what is the word represented by the binary string 010010010010000001101100011011110111011001100101001000000101010001000011?1.\nHomorphisms are functions \\sigma:(\\Sigma^*,\\cdot)\\to(\\Gamma^*,\\cdot) that are easy to describe, since it is enough to specify \\sigma(\\textcolor{darkred}{\\mathtt{s}}) for every symbol \\textcolor{darkred}{\\mathtt{s}}\\in \\Sigma, and then the value of \\sigma on any word w is determined by the homomorphism property. For example, to define the ASCII code homomorphism, it is enough to specify the binary string that corresponds to each symbol on the standard US keyboard.\nHomomorphisms in general can be non-injective, for example the homomorphism \\sigma:\\{\\textcolor{darkred}{\\mathtt{a}},\\textcolor{darkred}{\\mathtt{b}}\\}^*\\to \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}^* defined by \\sigma(\\textcolor{darkred}{\\mathtt{a}})=\\textcolor{darkred}{\\mathtt{0}} and \\sigma(\\textcolor{darkred}{\\mathtt{b}})=\\textcolor{darkred}{\\mathtt{0}} maps every word to a string of \\textcolor{darkred}{\\mathtt{0}}s, and it is easy to see that it is not injective.\n\nExercise 5.7 (Homomorphisms or not?) Which of the following functions \\sigma:\\Sigma^*\\to\\Sigma^* are homomorphisms?\n\n\\sigma(w)=w.\n\\sigma(w)=w^R.\n\\sigma(w)=\\varepsilon.\n\\sigma(w)=\\sigma_1(\\sigma_2(w)), where \\sigma_1,\\sigma_2 are homomorphisms from \\Sigma^* to \\Gamma^*.\n\\sigma(w)=ww.\n\\sigma(w)=\\textcolor{darkred}{\\mathtt{a}}^{|w|}, where \\textcolor{darkred}{\\mathtt{a}}\\in \\Sigma.\n\\sigma(w)=\\tau^{-1}(w) where \\tau is a homomorphism.2\n\\sigma(w)=|w|_{\\textcolor{darkred}{\\mathtt{s}}} where \\textcolor{darkred}{\\mathtt{s}}\\in \\Sigma.\n\\sigma(w)=|w|_{x} where x\\in \\Sigma^*.\n\\sigma(w)=w[1]w[1]w[2]w[2]\\cdots w[|w|]w[|w|]. \n\n\n\nExercise 5.8 (Words over a noisy channel) You want to transmit words w\\in \\{\\textcolor{darkred}{\\mathtt{a}},\\textcolor{darkred}{\\mathtt{b}},\\textcolor{darkred}{\\mathtt{c}}\\}^* over a noisy channel that can only transmit words over the binary alphabet \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}. You want to use a homomorphism \\sigma:\\{\\textcolor{darkred}{\\mathtt{a}},\\textcolor{darkred}{\\mathtt{b}},\\textcolor{darkred}{\\mathtt{c}}\\}^*\\to \\{\\textcolor{darkred}{\\mathtt{0}},\\textcolor{darkred}{\\mathtt{1}}\\}^* to encode the words before transmitting them in such a way that the original word can be recovered from the transmitted one if the channel introduces at most one error (a bit flipped from \\textcolor{darkred}{\\mathtt{0}} to \\textcolor{darkred}{\\mathtt{1}} or vice versa) in the transmitted string. What is a good choice of \\sigma?",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Operations on words</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_words.html#footnotes",
+    "href": "ch0/operations_on_words.html#footnotes",
+    "title": "5  Operations on words",
+    "section": "",
+    "text": "Use the ASCII code, not ASCI/UTF-8 code or something else, to decode this string.↩︎\nThe inverse of a homomorphism is often called inverse homomorphism, but is it actually a homomorphism?↩︎",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Operations on words</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_languages.html",
+    "href": "ch0/operations_on_languages.html",
+    "title": "6  Operations on languages",
+    "section": "",
+    "text": "6.1 Set-theoretic operations\nIn this chapter consider fixed an alphabet \\Sigma. We consider operations on languages over \\Sigma, that is on subsets of \\Sigma^*.\nSince languages are sets you can do on them all usual operations available on sets:",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Operations on languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_languages.html#set-theoretic-operations",
+    "href": "ch0/operations_on_languages.html#set-theoretic-operations",
+    "title": "6  Operations on languages",
+    "section": "",
+    "text": "union \\cup,\nintersection \\cap,\ncomplement \\overline{\\phantom{A}} (w.r.t. \\Sigma^*),\nthe image of a set under a function, for example a homomorphism (see Section 5.4),\nthe inverse image of a set under a function, for example a homomorphism.\n\n\nExercise 6.1 Given a homomorphism \\sigma, is it true that if \\sigma is injective then |\\sigma(L)|=|L|?",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Operations on languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_languages.html#reverse",
+    "href": "ch0/operations_on_languages.html#reverse",
+    "title": "6  Operations on languages",
+    "section": "6.2 Reverse",
+    "text": "6.2 Reverse\nThe reverse of a language L is the language \nL^R=\\{w^R:w\\in L\\}\\ .\n\n\nExercise 6.2 Show that for a finite L, |L^R|=|L|.\n\n\nExercise 6.3 Given languages L_1,L_2\\subseteq \\Sigma^*, which of the following equalities are always true?\n\n(L_1\\cup L_2)^R=L_1^R\\cup L_2^R, that is the reverse distributes over union.\n(L_1\\cap L_2)^R=L_1^R\\cap L_2^R, that is the reverse distributes over intersection.\n\\overline{L}^R=\\overline{L^R}, that is the complement and the reverse of a language commute.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Operations on languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_languages.html#concatenation",
+    "href": "ch0/operations_on_languages.html#concatenation",
+    "title": "6  Operations on languages",
+    "section": "6.3 Concatenation",
+    "text": "6.3 Concatenation\nGiven languages L_1,L_2, the language concatenation of them is \nL_1\\cdot L_2 =\\{u\\cdot v :u\\in L_1 \\land v\\in L_2 \\}\\ ,\n that is L_1\\cdot L_2 (or simply L_1 L_2) consists of all word obtained concatenating one word of L_1 followed by one word of L_2 in all the possible ways.\n\nExercise 6.4 Show that\n\nL\\emptyset=\\emptyset. (And similarly \\emptyset L=\\emptyset.)\nL\\{\\varepsilon\\}=L. (And similarly \\{\\varepsilon\\} L=L.)\n\n\n\nExercise 6.5 Give examples of languages L_1,L_2 s.t. L_1 L_2 \\neq L_2 L_1 and s.t. L_1 L_2 = L_2 L_1.\n\n\nExercise 6.6 Show that (L_1L_2)L_3=L_1(L_2L_3) for all languages L_1, L_2, and L_3.\n\n\nExercise 6.7 Give an example of finite languages L_1, L_2 s.t. |L_1L_2|\\neq |L_1|\\cdot |L_2|.\n\n\nExercise 6.8 (Concatenation vs reverse) Given two languages L_1,L_2\\subseteq \\Sigma^*, which of the following sentences are true?\n\n(L_1L_2)^R=L_2^RL_1^R.\nIf (L_1L_2)^R=L_1^R L_2^R, then L_1=L_2.\n\n\n\nExercise 6.9 (Concatenation vs union/intersection) Given languages A,B,C\\subseteq \\Sigma^*. Which of the following equalities are always true?\n\n(A\\cup B) C=AC\\cup BC and A(B\\cup C)=AB\\cup AC.\n(A\\cap B) C=AC\\cap BC and A(B\\cap C)=AB\\cap AC.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Operations on languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_languages.html#n-th-power-of-a-language",
+    "href": "ch0/operations_on_languages.html#n-th-power-of-a-language",
+    "title": "6  Operations on languages",
+    "section": "6.4 n-th power of a language",
+    "text": "6.4 n-th power of a language\nFor n\\in \\mathbb{N} at least 1, L^n denotes the language L concatenated with itself n times and L^0=\\{\\varepsilon\\}.\n\nExercise 6.10 Show that for every n,m\\in \\mathbb{N}, L^{n+m}=L^nL^m. Show that if we want this property to hold then we must define L^0=\\{\\varepsilon\\}.\n\n\nExercise 6.11 Given a language L and a positive integer n, is it true that |L^n|=|L|^n?",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Operations on languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/operations_on_languages.html#kleene-star",
+    "href": "ch0/operations_on_languages.html#kleene-star",
+    "title": "6  Operations on languages",
+    "section": "6.5 Kleene star",
+    "text": "6.5 Kleene star\nThe Kleene star of a language L is the language \n\\begin{align*}\nL^*&=\\bigcup_{n\\in \\mathbb N}L^n\n\\\\\n&=L^0\\cup L^1\\cup L^2\\cup \\cdots\n\\\\\n&= \\{\\varepsilon\\}\\cup L \\cup L^2\\cup \\cdots\\ .\n\\end{align*}\n It is always the case that \\varepsilon\\in L^* and L\\subseteq L^*. This operation is named after Stephen Cole Kleene, who introduced it in the context of regular expressions.\n\n\n\n\n\nStephen Cole Kleene (1909–1994)\n\n\n\nExercise 6.12 (Clash of notation!? 🌱) Given an alphabet \\Sigma, \\Sigma itself is also a language and hence we have a clash of notation! \\Sigma^* might denote either (1) the Kleene star of the language \\Sigma, or (2) the set of all words over \\Sigma. This is not a problem because the languages in (1) and (2) coincide. Prove this fact.\n\n\nExercise 6.13 For what languages L is L^* infinite and for which ones it is finite?\n\n\nExercise 6.14 Prove that \\{w\\in \\{\\textcolor{darkred}{\\mathtt{a}},\\textcolor{darkred}{\\mathtt{b}}\\}^* :\\textcolor{darkred}{\\mathtt{ab}}w=w\\textcolor{darkred}{\\mathtt{ab}}\\}=\\{\\textcolor{darkred}{\\mathtt{ab}}\\}^*.\n\n\n\n\n\n\n\nNoteWhy do we care about the Kleene star?\n\n\n\nLater in the course we will see that the Kleene star is a very important operation. In particular, it is one of the operations that define the class of regular languages. But, for the moment let’s try to argue why it is a natural operation to consider.\nOn the real numbers you should be very familiar with the basic operations sum + and product \\cdot. The next basic operation on the reals is the exponentiation, \\mathrm{e}^x. This function has Taylor expansion\n\n\\mathrm{e}^x=1+x+\\frac{x^2}{2\\phantom{!}}+\\frac{x^3}{3!}+\\frac{x^4}{4!}+\\cdots \\ .\n\nOn the set of all languages, the union and concatenation behave a lot like a sum and product (see Exercise 6.9), in this context then the Kleene star could be seen as an analogue of the exponentiation. But, please do not take this analogy too literally.\nSince the concatenation is not commutative, exponentiation and Kleene star have different algebraic properties. For example, \\mathrm{e}^{x+y}=\\mathrm{e}^x\\cdot \\mathrm{e}^y, but in general, (L_1\\cup L_2)^*\\neq L_1^*\\cdot L_2^* (see Exercise 6.15).\n\n\n\nExercise 6.15 (Kleene star vs union)  \n\n(🌱) Give an example of L_1,L_2\\subseteq \\Sigma^* s.t. (L_1\\cup L_2)^*\\neq L_1^*\\cup L_2^*.\n(🌱) Give an example of L_1,L_2\\subseteq \\Sigma^* s.t. (L_1\\cup L_2)^*\\neq L_1^*\\cdot L_2^*.\nShow that for every L_1,L_2\\subseteq \\Sigma^*, \n(L_1\\cup L_2)^*=L_1^*\\cdot(L_2\\cdot L_1^*)^*\\ .\n\n\n\n\nExercise 6.16 (Kleen star vs intersection)  \n\nGiven languages L_1,L_2\\subseteq \\Sigma^*, does it hold that L_1^*\\cap L_2^*= (L_1\\cap L_2)^*?\nDoes L_1\\cap L_2=\\emptyset for two languages L_1, L_2 \\not=\\emptyset imply L_1^*\\not=L_2^*?\n\n\n\nExercise 6.17 (Kleene star vs reverse) It is true that (L^*)^R=(L^R)^* for every L? That is, is it true that reverse and Kleene star commute?\n\n\nExercise 6.18 (Kleene star vs concatenation) Give an example of languages L_1,L_2\\subseteq \\Sigma^* s.t. L_1^*L_2^* \\neq (L_1L_2)^*.\n\n\nExercise 6.19 (Kleene star vs inclusion)  \n\nShow that for every two languages L_1,L_2\\subseteq \\Sigma^*, if L_1\\subseteq L_2 then L_1^*\\subseteq L_2^*.\nShow that the converse of the previous item does not hold. That is, give two languages L_1,L_2 s.t. L_1^*\\subseteq L_2^* but L_1\\not\\subseteq L_2. What if L_1=\\{\\textcolor{darkred}{\\mathtt{a}},\\textcolor{darkred}{\\mathtt{b}}\\} and L_2\\subseteq \\{\\textcolor{darkred}{\\mathtt{a}},\\textcolor{darkred}{\\mathtt{b}}\\}^*, does the converse hold in this special context?\nDoes it hold for every language L that \\overline{L^*}\\subseteq \\overline{L}\\subseteq \\overline{L}^*? What if we reverse the inclusions? Does \\overline{L^*}\\supseteq \\overline{L}\\supseteq \\overline{L}^* always hold?",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Operations on languages</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/closure_properties.html",
+    "href": "ch0/closure_properties.html",
+    "title": "7  Closure properties",
+    "section": "",
+    "text": "7.1 Closure properties of \\mathbf{Finite} and \\mathbf{co}\\mathbf{Finite}\nGiven a class of languages \\mathcal{C} (over a fixed alphabet \\Sigma) and an operation \\circ on words in \\Sigma^* (say one of the ones defined in Chapter 6), we can ask whether \\mathcal{C} is closed under the operation \\circ, that is if \\circ applied to languages in \\mathcal{C} gives a language in \\mathcal{C} too.\nFor example,\nWhat if we take the list of properties from Exercise 7.4 and we also ask for closure under Kleene star? What is the smallest (w.r.t. inclusion) class of languages with such properties? They are called regular languages (\\mathbf{Regular}), and they form a surprisingly rich class of languages.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Closure properties</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/closure_properties.html#closure-properties-of-mathbffinite-and-mathbfcomathbffinite",
+    "href": "ch0/closure_properties.html#closure-properties-of-mathbffinite-and-mathbfcomathbffinite",
+    "title": "7  Closure properties",
+    "section": "",
+    "text": "Exercise 7.3 For which of the operations defined in Chapter 6,\n\nis the set of languages \\mathbf{Finite} closed?\nis the set of languages \\mathbf{co}\\mathbf{Finite} closed?\n\n\n\n\nThis is the first time we see this type of question, but indeed this will be a constant in this course. An analogous question will exist for all the classes of languages we see in this course (\\mathbf{Regular}, \\mathbf{CFL},\\mathbf{P},\\mathbf{NP},\\mathbf{R},\\mathbf{RE}, \\dots).\n\nExercise 7.4 The set of all languages over \\Sigma^* (that is \\mathscr{P}(\\Sigma^*)) has the following properties\n\nit contains \\emptyset;\nit contains \\{\\varepsilon\\};\nit contains \\{\\textcolor{darkred}{\\mathtt{s}}\\} for each symbol \\textcolor{darkred}{\\mathtt{s}}\\in \\Sigma;\nit is closed under union;\nit is closed under concatenation.\n\nShow that \\mathbf{Finite} is the smallest (w.r.t. inclusion) set of languages with the properties above, that is show that\n\n\\mathbf{Finite} has the properties above, and\nevery class of languages with the properties above contains \\mathbf{Finite}.\n\n\n\n\nExercise 7.5 Using the definitions above, show that \\mathbf{Regular}\\supsetneq \\mathbf{Finite}.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Closure properties</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/exercises.html",
+    "href": "ch0/exercises.html",
+    "title": "8  More Exercises",
+    "section": "",
+    "text": "8.1 Shifting a language\nGiven a language L, we define the shift of L, denoted \\mathrm{S}(L), as the language that contains the words obtained by applying a circular shift to each word in L in all possible ways; formally,\n\\mathrm{S}(L) = \\{vu:uv\\in L\\}\\ .",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>More Exercises</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/exercises.html#shifting-a-language",
+    "href": "ch0/exercises.html#shifting-a-language",
+    "title": "8  More Exercises",
+    "section": "",
+    "text": "Exercise 8.5 Argue whether the following statements are true (with a justification) or false (with a counterexample) for any L.\n\n\\mathrm{S}(L)^*= \\mathrm{S}(L^*).\n\\overline{\\mathrm{S}(L)}=\\mathrm{S}(\\overline{L}).\n\\mathrm{S}(L^R)=\\mathrm{S}(L)^R.\n\\mathrm{S}(L_1\\cup L_2) = \\mathrm{S}(L_1)\\cup \\mathrm{S}(L_2).\n\\mathrm{S}(L_1\\cap L_2) = \\mathrm{S}(L_1)\\cap \\mathrm{S}(L_2).\n\\mathrm{S}(L_1L_2) = \\mathrm{S}(L_1)\\mathrm{S}(L_2).\n\\mathrm{S}(\\sigma(L)) = \\sigma(\\mathrm{S}(L)), where \\sigma is a homomorphism.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>More Exercises</span>"
+    ]
+  },
+  {
+    "objectID": "ch0/exercises.html#the-brzozowski-derivative",
+    "href": "ch0/exercises.html#the-brzozowski-derivative",
+    "title": "8  More Exercises",
+    "section": "8.2 The Brzozowski derivative",
+    "text": "8.2 The Brzozowski derivative\nThe Brzozowski derivative is basically the opposite of concatenation. Given a language L\\subseteq \\Sigma^* and a word w\\in \\Sigma^*, the Brzozowski derivative of L w.r.t. w is \n\\partial_{w}(L)=\\{z:wz\\in L\\}\\ .\n\n\n\n\n\n\nJanusz Brzozowski (1935 - 2019)\n\n\nIntuitively, \\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L) are all the words in L that start with \\textcolor{darkred}{\\mathtt{s}} but with \\textcolor{darkred}{\\mathtt{s}} removed. So \\textcolor{darkred}{\\mathtt{s}}\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L) are all the words in L that start with \\textcolor{darkred}{\\mathtt{s}}.\n\nExercise 8.6 Show that for every w,z\\in \\Sigma^* and every language L\\subseteq \\Sigma^*, \n\\partial_{wz}(L)=\\partial_{w}(\\partial_z(L))\\ .\n\n\nThanks to the previous exercise it is enough to focus on the behavior of \\partial_w(L) when w is a single symbol from \\Sigma.\n\nExercise 8.7 Show that for every language L\\subseteq \\Sigma^*, \nL=\\eta(L) \\cup \\bigcup_{\\textcolor{darkred}{\\mathtt{s}}\\in \\Sigma}\\textcolor{darkred}{\\mathtt{s}}\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L)\\ ,\n where \\eta(L)=\\begin{cases}\\{\\varepsilon\\}&\\text{if }\\varepsilon\\in L\\ ,\\\\ \\emptyset &\\text{otherwise}\\ .\\end{cases}\n\n\nExercise 8.8 Show the following properties of the Brzozowski derivative. For every \\textcolor{darkred}{\\mathtt{s}},\\textcolor{darkred}{\\mathtt{t}}\\in \\Sigma and languages L,L'\\subseteq \\Sigma^*\n\n\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(\\emptyset)=\\emptyset.\n\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(\\{\\varepsilon\\})=\\emptyset.\n\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(\\textcolor{darkred}{\\mathtt{t}})=\\begin{cases}\\{\\varepsilon\\} & \\text{if } \\textcolor{darkred}{\\mathtt{s}}=\\textcolor{darkred}{\\mathtt{t}}\\ ,\\\\ \\emptyset & \\text{otherwise}\\ .\\end{cases}\n\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L\\cup L')=\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L)\\cup \\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L').\n\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L^*)=\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L)\\cdot L^*.\n\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L\\cdot L')=\\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L)\\cdot L' \\cup \\eta(L)\\cdot \\partial_{\\textcolor{darkred}{\\mathtt{s}}}(L'), where \\eta(L)=\\begin{cases}\\{\\varepsilon\\}&\\text{if }\\varepsilon\\in L\\ ,\\\\ \\emptyset &\\text{otherwise}\\ .\\end{cases}",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>More Exercises</span>"
+    ]
+  },
+  {
+    "objectID": "ch1/intro.html",
+    "href": "ch1/intro.html",
+    "title": "Regular Languages",
+    "section": "",
+    "text": "Warning\n\n\n\nThe content of this part is still under development and will be updated during the course.",
+    "crumbs": [
+      "Regular Languages"
+    ]
+  },
+  {
+    "objectID": "ch2/intro.html",
+    "href": "ch2/intro.html",
+    "title": "Context-Free Languages",
+    "section": "",
+    "text": "Warning\n\n\n\nThe content of this part is still under development and will be updated during the course.",
+    "crumbs": [
+      "Context-Free Languages"
+    ]
+  },
+  {
+    "objectID": "ch3/intro.html",
+    "href": "ch3/intro.html",
+    "title": "Topics in Computability",
+    "section": "",
+    "text": "Warning\n\n\n\nThe content of this part is still under development and will be updated during the course.",
+    "crumbs": [
+      "Topics in Computability"
+    ]
+  },
+  {
+    "objectID": "ch4/intro.html",
+    "href": "ch4/intro.html",
+    "title": "Topics in Complexity",
+    "section": "",
+    "text": "Warning\n\n\n\nThe content of this part is still under development and will be updated during the course.",
+    "crumbs": [
+      "Topics in Complexity"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "The main references for this material is (Sipser 2013). Here is a link to the errata of the book.\nThe full list of references of books/articles mentioned in this notes are the following. Notice that they include research articles and books that are not necessarily related to the course, but that are mentioned in the notes for completeness.\n\n\nCohen, Paul J. 1963. “THE INDEPENDENCE OF THE CONTINUUM\nHYPOTHESIS.” Proceedings of the National Academy of\nSciences 50 (6): 1143–48. https://doi.org/10.1073/pnas.50.6.1143.\n\n\nCohen, Paul J. 1964. “THE INDEPENDENCE OF THE CONTINUUM\nHYPOTHESIS, II.” Proceedings of the National Academy of\nSciences 51 (1): 105–10. https://doi.org/10.1073/pnas.51.1.105.\n\n\nGödel, Kurt. 1940. The Consistency of the Continuum Hypothesis.\nPrinceton University Press.\n\n\nSipser, Michael. 2013. Introduction to the Theory of\nComputation. 3rd ed. Cengage Learning.",
+    "crumbs": [
+      "[References]{.brown}"
+    ]
+  },
+  {
+    "objectID": "credits.html",
+    "href": "credits.html",
+    "title": "Credits & Copyright",
+    "section": "",
+    "text": "This set of notes draws inspiration from various sources. Many exercises are based on exercises originally designed by Guillem Godoy, Carme Alvarez, Antoni Lozano (and possibly many other professors at UPC).\nThis work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.",
+    "crumbs": [
+      "Credits & Copyright"
+    ]
+  }
+]
