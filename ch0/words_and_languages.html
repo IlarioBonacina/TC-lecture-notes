@@ -374,7 +374,7 @@ Figure&nbsp;4.1: A standard US keyboard layout.
 <p><span class="theorem-title"><strong>Exercise 4.2</strong></span> Write a formal definition for the following informal descriptions of a logical property <span class="math inline">P(w)</span>. To define the property <span class="math inline">P(w)</span> formally, use universal and existential quantifiers (<span class="math inline">\forall</span>, <span class="math inline">\exists</span>), Boolean operators (<span class="math inline">\lor</span>, <span class="math inline">\land</span>, <span class="math inline">\to</span>, …) (see <a href="notation.html" class="quarto-xref"><span>Chapter 1</span></a>) and the notations about words above.</p>
 <p>For instance, the property <span class="math inline">P(w)</span> which informally is “<em><span class="math inline">w</span> contains the subword <span class="math inline">\textcolor{darkred}{\mathtt{ab}}</span></em>” can be formalized as</p>
 <p><span class="math display">
-P(w)= \exists i\in \{1,\ldots, \lvert w \rvert\}\text{ s.t. }w[i]=\textcolor{darkred}{\mathtt{a}}\land w[i+1]=\textcolor{darkred}{\mathtt{b}}\ .
+P(w)= \exists i\in \{1,\ldots, \lvert w \rvert-1\}\text{ s.t. }w[i]=\textcolor{darkred}{\mathtt{a}}\land w[i+1]=\textcolor{darkred}{\mathtt{b}}\ .
 </span> or equivalently as <span class="math display">
 P(w) = |w|_{\textcolor{darkred}{\mathtt{ab}}}&gt;0\ .
 </span></p>
@@ -394,9 +394,9 @@ P(w) = |w|_{\textcolor{darkred}{\mathtt{ab}}}&gt;0\ .
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.3</strong></span> Write the negation of the property <span class="math inline">P(w)</span> for each of the properties defined in <a href="#exr-formalization" class="quarto-xref">Exercise&nbsp;<span>4.2</span></a>. For instance, the negation of the property <span class="math inline">P(w)</span> that we used as an example is <span class="math display">
 \begin{align*}
-\lnot P(w) &amp;= \lnot (\exists i\in \{1,\ldots, \lvert w \rvert\}\text{ s.t. }w[i]=\textcolor{darkred}{\mathtt{a}}\land w[i+1]=\textcolor{darkred}{\mathtt{b}})
+\lnot P(w) &amp;= \lnot (\exists i\in \{1,\ldots, \lvert w \rvert-1\}\text{ s.t. }w[i]=\textcolor{darkred}{\mathtt{a}}\land w[i+1]=\textcolor{darkred}{\mathtt{b}})
 \\
-&amp;\equiv \forall i\in \{1,\ldots, \lvert w \rvert\}\ w[i]\neq \textcolor{darkred}{\mathtt{a}} \lor w[i+1]\neq \textcolor{darkred}{\mathtt{b}}\ ,
+&amp;\equiv \forall i\in \{1,\ldots, \lvert w \rvert-1\}\ w[i]\neq \textcolor{darkred}{\mathtt{a}} \lor w[i+1]\neq \textcolor{darkred}{\mathtt{b}}\ ,
 \end{align*}
 </span> where <span class="math inline">\equiv</span> means logical equivalence, that is the two logical expressions are true for the same words and false for the same words.</p>
 </div>
