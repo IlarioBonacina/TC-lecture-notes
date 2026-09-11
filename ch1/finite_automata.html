@@ -382,7 +382,7 @@ Figure&nbsp;9.3
 </div>
 <p>We associate a language to an <span class="math inline">\varepsilon</span>-NFA as follows.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9.1</strong></span> The <span class="def">language accepted</span> by a <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> is <span class="def"><span class="math inline">\mathscr{L}(A)</span></span>. A word <span class="math inline">w\in \Sigma^*</span> is in <span class="math inline">\mathscr{L}(A)</span> if and only if there exist a sequence of states <span class="math inline">q_1,\dots,q_m</span> in <span class="math inline">A</span> s.t.</p>
+<p><span class="theorem-title"><strong>Definition 9.1</strong></span> The <span class="def">language accepted</span> by an <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> is <span class="def"><span class="math inline">\mathscr{L}(A)</span></span>. A word <span class="math inline">w\in \Sigma^*</span> is in <span class="math inline">\mathscr{L}(A)</span> if and only if there exist a sequence of states <span class="math inline">q_1,\dots,q_m</span> in <span class="math inline">A</span> s.t.</p>
 <ul>
 <li><span class="math inline">q_1</span> is an initial state of <span class="math inline">A</span>;</li>
 <li><span class="math inline">q_m</span> is a final state of <span class="math inline">A</span>; and</li>
@@ -486,14 +486,14 @@ Figure&nbsp;9.4
 <li>(<span class="math inline">🌱</span>) construct a DFA accepting <span class="math inline">\overline{\mathscr{L}(A)}</span>.</li>
 <li>construct an <span class="math inline">\varepsilon</span>-NFA accepting <span class="math inline">\mathscr{L}(A)^R</span>.</li>
 <li>(<span class="math inline">🔥</span>) construct a DFA accepting <span class="math inline">\sigma(\mathscr{L}(A))</span>.</li>
-<li>(<span class="math inline">🔥</span>) construct a <span class="math inline">\varepsilon</span>-NFA accepting <span class="math inline">\sigma^{-1}(\mathscr{L}(A))</span>.</li>
+<li>(<span class="math inline">🔥</span>) construct an <span class="math inline">\varepsilon</span>-NFA accepting <span class="math inline">\sigma^{-1}(\mathscr{L}(A))</span>.</li>
 </ol>
 </div>
 </section>
 <section id="equivalence" class="level2 page-columns page-full" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="equivalence"><span class="header-section-number">9.3</span> Equivalence</h2>
 <div id="thm-equivalence-NFA-epsilon" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 9.1</strong></span> For every <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span>, there exists a <span class="math inline">\varepsilon</span>-NFA <span class="math inline">B</span> <em>without <span class="math inline">\varepsilon</span> transitions</em> s.t. <span class="math inline">\mathscr{L}(A)=\mathscr{L}(B)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 9.1</strong></span> For every <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span>, there exists an <span class="math inline">\varepsilon</span>-NFA <span class="math inline">B</span> <em>without <span class="math inline">\varepsilon</span> transitions</em> s.t. <span class="math inline">\mathscr{L}(A)=\mathscr{L}(B)</span>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -655,7 +655,7 @@ L_n=\{x\textcolor{darkred}{\mathtt{a}}y :x,y\in \{\textcolor{darkred}{\mathtt{a}
 </section>
 <section id="the-cartesian-product-construction" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="the-cartesian-product-construction"><span class="header-section-number">9.4</span> The cartesian product construction</h2>
-<p>There is another famous construction in DFA theory that is the <span class="def">cartesian product construction</span>, which given two DFAs <span class="math inline">A</span> and <span class="math inline">B</span> construct the DFA for <span class="math inline">\mathscr{L}(A)\cup \mathscr{L}(B)</span>. This is just a special case of the powerset construction (were we don’t write unnecessary states).</p>
+<p>There is another famous construction in DFA theory: the <span class="def">cartesian product construction</span>. This procedure, given two DFAs <span class="math inline">A</span> and <span class="math inline">B</span>, constructs a DFA for <span class="math inline">\mathscr{L}(A)\cup \mathscr{L}(B)</span>. It is just a special case of the powerset construction (were we don’t write unnecessary states).</p>
 <div id="exm-DFA-cartesian-product" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.7 (cartesian product construction)</strong></span> Given two DFAs <span class="math inline">A</span> and <span class="math inline">B</span> we want to construct a DFA for <span class="math inline">\mathscr{L}(A)\cup \mathscr{L}(B)</span>.</p>
 <p>First construct an NFA for <span class="math inline">\mathscr{L}(A)\cup \mathscr{L}(B)</span>: this is trivial, take the two graphs of the DFAs and write them next to each other. This looks mostly like a DFA with the exception that there are two initial states, hence it is a NFA. If we determinize it as in the proof of <a href="#thm-equivalence-NFA-DFA" class="quarto-xref">Theorem&nbsp;<span>9.2</span></a> it is easy to see that the only subsets that we will ever need have size <span class="math inline">2</span> and consists of a state of <span class="math inline">A</span> and a state of <span class="math inline">B</span>.</p>
