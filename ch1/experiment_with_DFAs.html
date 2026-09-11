@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Proofs – TC lecture notes (*draft*)</title>
+<title>10&nbsp; Experiment with Finite Automata – TC lecture notes (*draft*)</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../ch0/functions_cardinality.html" rel="next">
-<link href="../ch0/notation.html" rel="prev">
+<link href="../ch2/intro.html" rel="next">
+<link href="../ch1/finite_automata.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -45,9 +45,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-c1ef031c348a99a9edd66d94b3d1c95f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -125,7 +122,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked slimcontent quarto-light">
+<body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -134,7 +131,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch0/intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../ch0/proofs.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proofs</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/experiment_with_DFAs.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -169,11 +166,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../ch0/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ch0/notation.html" class="sidebar-item-text sidebar-link">
@@ -182,7 +179,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ch0/proofs.html" class="sidebar-item-text sidebar-link active">
+  <a href="../ch0/proofs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proofs</span></span></a>
   </div>
 </li>
@@ -228,15 +225,21 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../ch1/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regular Languages</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ch1/finite_automata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
   </div>
 </li>
       </ul>
@@ -281,20 +284,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#tools-for-the-pessimistic-phase" id="toc-tools-for-the-pessimistic-phase" class="nav-link active" data-scroll-target="#tools-for-the-pessimistic-phase"><span class="header-section-number">2.1</span> Tools for the pessimistic phase</a></li>
-  <li><a href="#tools-for-the-optimistic-phase" id="toc-tools-for-the-optimistic-phase" class="nav-link" data-scroll-target="#tools-for-the-optimistic-phase"><span class="header-section-number">2.2</span> Tools for the optimistic phase</a>
-  <ul class="collapse">
-  <li><a href="#the-pigeonhole-principle" id="toc-the-pigeonhole-principle" class="nav-link" data-scroll-target="#the-pigeonhole-principle"><span class="header-section-number">2.2.1</span> The Pigeonhole Principle</a></li>
-  </ul></li>
+  <li><a href="#dfas-for-unionintersectioncomplement" id="toc-dfas-for-unionintersectioncomplement" class="nav-link active" data-scroll-target="#dfas-for-unionintersectioncomplement"><span class="header-section-number">10.1</span> DFAs for union/intersection/complement/…</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full column-body" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch0/intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../ch0/proofs.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proofs</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/experiment_with_DFAs.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-proofs" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proofs</span></span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></h1>
 </div>
 
 
@@ -311,155 +310,51 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a draft!</p>
+</div>
+</div>
 <div class="hidden">
 
 </div>
-<p>In this chapter we revise the <span class="def">process</span> of producing correct proofs.</p>
-<p>In the process of producing a valid/correct proof there are usually two phases:</p>
-<ul>
-<li>the <span class="def">optimistic phase</span>: try to construct a correct proof.</li>
-<li>the <span class="def">pessimistic phase</span>: once you have a candidate proof, try to prove in all the ways you can imagine that your supposed proof is wrong. If you find an error go back to the optimistic phase. If you cannot find an error your proof is possibly correct (or maybe you didn’t try hard enough…). </li>
-</ul>
-<div class="no-row-height column-margin column-container"><span class="margin-aside">A logician friend of mine once told me that for him “<em>all proofs are eventually wrong, we just didn’t find an error yet</em>”. This is a very pessimistic point of view (and he was joking) but it illustrates the point on the pessimist point of view.</span></div><div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>To AI or not to AI?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try to not delegate the process of producing correct proofs to AI tools. For several reasons:</p>
-<ol type="1">
-<li>in the exam you’ll not have access to AI tools;</li>
-<li>using AI tools is mostly delegating to them the “optimistic phase”, which is the most fun;</li>
-<li>AI generated arguments on non-trivial exercises might be wrong, but the tone used might be very convincing, so you really need to have a very strong “pessimistic hat” in order to find errors.</li>
-</ol>
-<p>The goal of the exercises it <strong>not</strong> to produce correct proofs, but to learn how to produce correct proofs. If you delegate the process to AI tools, you are not learning how to produce correct proofs, but how to use AI tools, which is not the point of the exercises.</p>
-<p>On the other hand, AI tools might be useful for brainstorming. If you are really lost they might orient you in a generic direction that might be correct (or not).</p>
-
-</div>
-</div>
-<div class="no-row-height column-margin column-container"><div class="margin-aside callout-margin-content">
-<p><a href="../figures/noAI.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../figures/noAI.jpg" class="img-fluid" style="width:50.0%"></a></p>
-</div></div><section id="tools-for-the-pessimistic-phase" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="tools-for-the-pessimistic-phase"><span class="header-section-number">2.1</span> Tools for the pessimistic phase</h2>
-<p>More often than not candidate proofs are neither correct nor wrong, they simply don’t contain enough details to be correct or wrong.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>How to detect if a proof contains enough details?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Put on your “pessimistic hat” and try to fill the gaps in your supposed proof as adversariarly as you can. If you can fill the gaps in such a way that your argument becomes wrong, then <strong>it is wrong</strong> (or maybe you just forgot to write down something important, so go back to the optimistic phase and write it down).</p>
-<p>Look for corner cases, or whether you used all assumptions or not. Look for anything that smells suspicious.</p>
-</div>
-</div>
-<div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2.1</strong></span> A common (and very powerful) strategy to detect errors is the following. Suppose you want to prove that statement <span class="math inline">A</span> is true and you have a candidate proof <span class="math inline">\pi</span> of <span class="math inline">A</span>. It is always very useful to have (or to look for) statements very similar to <span class="math inline">A</span> (say <span class="math inline">B</span>) <strong>but false</strong>. If you try to use your candidate proof <span class="math inline">\pi</span> on <span class="math inline">B</span> then for <span class="math inline">\pi</span> to be correct it must fail on <span class="math inline">B</span>. If in the proof <span class="math inline">\pi</span> it is not written <em>explicitly</em> something that makes <span class="math inline">\pi</span> fail on <span class="math inline">B</span> then it is also wrong (or not written with enough details). Even if your proof <span class="math inline">\pi</span> fails on <span class="math inline">B</span> it still might be wrong, but at least it passed a basic sanity check.</p>
-</div>
-<div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2.2</strong></span> A very simple example of errors that can be found using the strategy above. Suppose that you are arguing about the correcteness of some C++ code that you wrote. If you never mention anything of your code then the argument is wrong. I (the reader, with the pessimistic hat) can change the code to whatever I want, some completely unrelated one, and your argument does not detect the difference, hence it is wrong.</p>
-</div>
+<p>In this chapter we suggest some exercises/activities to get more familar with <span class="math inline">\varepsilon</span>-NFAs and DFAs.</p>
+<section id="dfas-for-unionintersectioncomplement" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="dfas-for-unionintersectioncomplement"><span class="header-section-number">10.1</span> DFAs for union/intersection/complement/…</h2>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> To exercise the pessimistic point of view, try to find the error(s) in the following proofs (the statements are all false, so the proofs must be wrong).</p>
+<p><span class="theorem-title"><strong>Exercise 10.1</strong></span> For each of the following languages <span class="math inline">L</span> construct a DFA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span> and a DFA <span class="math inline">B</span> s.t. <span class="math inline">\mathscr{L}(B)=\overline L</span></p>
 <ol type="a">
-<li><p><strong>Dodgy Theorem 1</strong>. <span class="math inline">1</span> is the largest integer.<br>
-<em>Proof</em>. By contradiction suppose the conclusion is false. Then let <span class="math inline">n&gt;1</span> be the largest integer. Multiplying both sides of this inequality by <span class="math inline">n</span>, yields <span class="math inline">n^2&gt;n</span>. This is a contradiction, because <span class="math inline">n^2</span> is another integer larger than <span class="math inline">n</span>. Therefore, <span class="math inline">1</span> is the largest integer. <span class="math inline">\blacksquare</span></p></li>
-<li><p><strong>Dodgy Theorem 2</strong>. All natural numbers are even.<br>
-<em>Proof</em>. By induction on <span class="math inline">n</span>. The base case is <span class="math inline">0</span>, which is even. For the inductive step, assume that <span class="math inline">n</span> is even, we want to show that <span class="math inline">n+1</span> is even. Since <span class="math inline">n</span> is even, there exists <span class="math inline">k\in \mathbb{N}</span> such that <span class="math inline">n=2k</span>. Then <span class="math inline">n+1=2k+1</span>, which is odd, and this is a contradiction. Therefore, <span class="math inline">n+1</span> is even. <span class="math inline">\blacksquare</span></p></li>
-<li><p><strong>Dodgy Theorem 3</strong>. All horses are black.<br>
-<em>Proof</em>. We prove by induction on <span class="math inline">n</span> that in every set of horses of size <span class="math inline">n</span>, all <span class="math inline">n</span> horses are the same color.<br>
-Base Case (<span class="math inline">n=1</span>): One horse is the same color as itself. This is true by inspection.<br>
-Induction Step: Assume that the statement holds for <span class="math inline">n=k</span> and we prove it holds for <span class="math inline">n=k+1</span>. Since <span class="math inline">\{H_1, H_2, \ldots, H_k\}</span> is a set of <span class="math inline">k</span> horses, the induction hypothesis applies to this set. Thus, all the horses in this set are the same color.<br>
-Since <span class="math inline">\{H_2, H_3, \ldots, H_{k+1}\}</span> is also a set of <span class="math inline">k</span> horses, the induction step likewise holds for this set. Thus, all the horses in this set are the same color too.</p>
-<p>Therefore, all <span class="math inline">n+1</span> horses in <span class="math inline">\{H_1, H_2, H_3, \ldots, H_n, H_{n+1}\}</span> are the same color. <span class="math inline">\blacksquare</span></p></li>
+<li><span class="math inline">L=\{\textcolor{darkred}{\mathtt{aa}}x:x\in\{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^*\}</span>.</li>
 </ol>
-</div>
-</section>
-<section id="tools-for-the-optimistic-phase" class="level2 page-columns page-full" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="tools-for-the-optimistic-phase"><span class="header-section-number">2.2</span> Tools for the optimistic phase</h2>
-<p>You should have already seen several tools to prove theorems, for example proofs by induction, by contradiction, by cases, etc.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Suppose that you want to prove that “<em><span class="math inline">A</span> implies <span class="math inline">B</span></em>” but you really don’t know where to start. As a general rule, the following are two good strategies:</p>
-<ul>
-<li><strong>proceed by contradiction</strong>: assume also that <span class="math inline">B</span> is false and try to obtain a contradiction. Now you have two assumptions (<span class="math inline">A</span> true and <span class="math inline">B</span> false), or</li>
-<li><strong>proceed by cases</strong>: try to find a property <span class="math inline">P</span> such that <span class="math inline">A\land P</span> implies <span class="math inline">B</span> and then try to show that <span class="math inline">A\land \lnot P</span> also imply <span class="math inline">B</span>.</li>
-</ul>
-<p>One of the two strategies above might get you started!</p>
-</div>
-</div>
-<div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2.3</strong></span> Suppose you are tasked to prove that there exists two numbers <span class="math inline">r,s\in \mathbb{R}\setminus \mathbb{Q}</span> s.t. <span class="math inline">r^s\in \mathbb{Q}</span>. Try <span class="math inline">r=s=\sqrt{2}</span>. If <span class="math inline">\sqrt{2}^{\sqrt{2}}\in \mathbb{Q}</span> we are done, otherwise try <span class="math inline">r=\sqrt{2}^{\sqrt{2}}</span> and <span class="math inline">s=\sqrt{2}</span>, then <span class="math inline">r^s=2</span> is rational and we are also done. This is a very nice example of how to use the “proceed by cases” strategy.</p>
-</div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.2</strong></span> Let <span class="math inline">f: {\mathbb N} \rightarrow \mathbb N</span> be a function such that <span class="math inline">f(x+y) = f(x)+f(y)</span> for any <span class="math inline">x, y \in \mathbb N</span>. Prove that for any <span class="math inline">x \in \mathbb N</span>, <span class="math inline">f(x) = f(1) \cdot x</span>.</p>
-</div>
-<section id="the-pigeonhole-principle" class="level3 page-columns page-full" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="the-pigeonhole-principle"><span class="header-section-number">2.2.1</span> The Pigeonhole Principle</h3>
-<p>A very powerful tool (that you possibly didn’t see before) is the <span class="def">Pigeonhole Principle</span>. This essentially is a “fancy” way of saying that for each natural number <span class="math inline">n</span>, <span class="math inline">n\neq n+1</span>:</p>
-<blockquote class="blockquote">
-<p>there is no injective function from a set of size <span class="math inline">n+1</span> to a set of size <span class="math inline">n</span>.</p>
-</blockquote>
-<p>The elements of the set of size <span class="math inline">n+1</span> are usually called <span class="def">pigeons</span> and the elements of the set of size <span class="math inline">n</span> are called <span class="def">holes</span>. The principle can then be stated pictorially saying that if you put <span class="math inline">n+1</span> pigeons in <span class="math inline">n</span> holes, at least one hole will contain more than one pigeon.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p><a href="../figures/php.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../figures/php.png" class="img-fluid" style="width:80.0%"></a></p>
-</div></div><p>This principle is very useful to prove the existence of some object without explicitly constructing it.</p>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.3</strong></span> &nbsp;</p>
+<p>(a)<span class="math inline">L=\{w \in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* :|w|\in 3\mathbb N+1\}</span>.</p>
 <ol type="a">
-<li>Every graph with two or more vertices has two vertices with the same degree.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
-<li>Given five points on a sphere, there is a closed hemisphere containing at least four of them.</li>
+<li><span class="math inline">L=\{w \in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* :\mathtt{value}_2(w)\in 3\mathbb N\}</span>.</li>
 </ol>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.4 (<span class="math inline">🔥</span>)</strong></span> Prove that any set of <span class="math inline">n+1</span> positive integers less than or equal to <span class="math inline">2n</span>, where <span class="math inline">n \ge 1</span>, contains two distinct elements <span class="math inline">a</span> and <span class="math inline">b</span> such that <span class="math inline">a</span> divides <span class="math inline">b</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>A possibility is to use the pigeonhole principle: the pigeons are the <span class="math inline">n+1</span> numbers and the holes are the <em>odd</em> numbers between <span class="math inline">1</span> and <span class="math inline">2n</span>. A pigeon of the form <span class="math inline">2^k d</span> with <span class="math inline">d</span> odd flies to hole <span class="math inline">d</span>.</p>
-<p>Another option is to consider an induction proof on <span class="math inline">n</span> and distinguish two cases in the inductive step: at least one of the elements <span class="math inline">2n+1</span> and <span class="math inline">2n+2</span> is not in the set or both are.</p>
-</div>
-</div>
-</div>
-</div>
-<p>There is also a <span class="def">finite-vs-infinite version of the Pigeonhole Principle</span>, which states that if you put infinitely many pigeons in <span class="math inline">m&lt;\infty</span> holes, at least one hole will contain infinitely many pigeons.</p>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.5</strong></span> For every real number <span class="math inline">r</span> and every positive integer <span class="math inline">n</span>, there exists a sequence of consecutive <span class="math inline">n</span> digits that appears infinitely often in the decimal expansion of <span class="math inline">r</span>.</p>
-</div>
+<!--
+
+## Automata related to modular counting
+
+## Notable Finite Automata
+
+### String-matching Automaton
+
+[add material]{.TODO}
+
+### Levenshtein Automaton
+
+[add content using [wiki page](https://en.wikipedia.org/wiki/Levenshtein_automaton)]{.TODO}
+-->
 
 
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Recall that the <em>degree</em> of a vertex is the number of edges incident to it.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -867,49 +762,17 @@ Tip
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../ch0/notation.html" class="pagination-link" aria-label="Notation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notation</span></span>
+      <a href="../ch1/finite_automata.html" class="pagination-link" aria-label="Finite Automata">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../ch0/functions_cardinality.html" class="pagination-link" aria-label="Functions and cardinality">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions and cardinality</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch2/intro.html" class="pagination-link" aria-label="Context-Free Languages">
+        <span class="nav-page-text">Context-Free Languages</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

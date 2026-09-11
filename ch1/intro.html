@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -33,7 +52,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../ch2/intro.html" rel="next">
+<link href="../ch1/finite_automata.html" rel="next">
 <link href="../ch0/exercises.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -76,6 +95,49 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -178,12 +240,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch1/intro.html" class="sidebar-item-text sidebar-link active">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch1/intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Regular Languages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/finite_automata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ch2/intro.html" class="sidebar-item-text sidebar-link">
@@ -219,11 +292,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -232,7 +312,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -244,45 +324,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>In this part of the course we focus on studying <span class="def">Regular languages</span>:</p>
+<ul>
+<li>we give 3 equivalent ways of describing regular languages:
+<ul>
+<li>as the languages described by <span class="def">regular expressions</span>,</li>
+<li>as the languages recognized by <span class="def">Deterministic Finite Automata</span> (DFAs), and</li>
+<li>as the languages recognized by <span class="def">Non-deterministic Finite Automata</span> (<span class="math inline">\epsilon</span>-NFAs).</li>
+</ul></li>
+<li>we show how to convert between these different descriptions;</li>
+<li>we show how to minimize DFAs;</li>
+<li>we show how to prove that a language is not regular.</li>
+</ul>
+<section id="goals" class="level2">
+<h2 class="anchored" data-anchor-id="goals">Goals</h2>
+<p>At the end of this part of the course you should be able to:</p>
+<ul>
+<li>convert between regular expressions, DFAs, and <span class="math inline">\epsilon</span>-NFAs;</li>
+<li>minimize DFAs;</li>
+<li>given a language, either use regular expressions/DFAs/<span class="math inline">\epsilon</span>-NFAs to describe it or to prove that it is not regular.</li>
+</ul>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>The main reference for this part of the course is <span class="citation" data-cites="sipser2013introduction">(<a href="../references.html#ref-sipser2013introduction" role="doc-biblioref">Sipser 2013, chap. 1</a>)</span>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-sipser2013introduction" class="csl-entry" role="listitem">
+Sipser, Michael. 2013. <em>Introduction to the Theory of Computation</em>. 3rd ed. Cengage Learning.
 </div>
-<div class="callout-title-container flex-fill">
-Warning
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The content of this part is still under development and will be updated during the course.</p>
-</div>
-</div>
-<!--
-In this part of the course we focus on studying [Regular languages]{.def}:
-
-- we give 3 equivalent ways of describing regular languages:
-    - as the languages described by [regular expressions]{.def},
-    - as the languages recognized by [Deterministic Finite Automata]{.def} (DFAs), and
-    - as the languages recognized by [Non-deterministic Finite Automata]{.def} ($\epsilon$-NFAs).
-- we show how to convert between these different descriptions;
-- we show how to minimize DFAs;
-- we show how to prove that a language is not regular.
-
-## Goals
-At the end of this part of the course you should be able to:
-
-- convert between regular expressions, DFAs, and $\epsilon$-NFAs;
-- minimize DFAs;
-- given a language, either use regular expressions/DFAs/$\epsilon$-NFAs to describe it or to prove that it is not regular.
-
-## References   
-
-The main reference for this part of the course is [@sipser2013introduction, chapter 1].
-
-[mention that we do not use the Pumping Lemma and that Sipser does not do the minimization.]{.TODO}
--->
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -687,15 +760,15 @@ The main reference for this part of the course is [@sipser2013introduction, chap
     }
   });
   </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../ch0/exercises.html" class="pagination-link" aria-label="More Exercises">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">More Exercises</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../ch2/intro.html" class="pagination-link" aria-label="Context-Free Languages">
-        <span class="nav-page-text">Context-Free Languages</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch1/finite_automata.html" class="pagination-link" aria-label="Finite Automata">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
