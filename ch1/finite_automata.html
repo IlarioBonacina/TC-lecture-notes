@@ -472,7 +472,16 @@ Figure&nbsp;9.4
 </ul>
 <div id="exm-DFA" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.4</strong></span> As an example, let’s give a DFA accepting the same language as the <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> in <a href="#fig-NFA-lang-example" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>, that is all the words over <span class="math inline">\{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> with at least an occurrence of <span class="math inline">\textcolor{darkred}{\mathtt{ab}}</span> or the word <span class="math inline">\varepsilon</span>.</p>
-<img src="finite_automata_files/mediabag/1d5ae764357515e59ed80557a1fd26e70f74d7b9.svg" class="img-fluid">
+<div id="fig-DFA-example" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-DFA-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="ff23fbeb20e35daa3711776445e50dbe34036f3d.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;9.5: "><img src="finite_automata_files/mediabag/ff23fbeb20e35daa3711776445e50dbe34036f3d.svg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-DFA-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.5
+</figcaption>
+</figure>
+</div>
 <p>The state <span class="math inline">q_2</span> marks the fact that we have seen an <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span> and we are waiting for a <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span> to accept the word. The state <span class="math inline">q_3</span> marks the fact that we have seen an <span class="math inline">\textcolor{darkred}{\mathtt{ab}}</span> and hence we can accept any continuation of the word. The state <span class="math inline">q_1</span> marks the fact that we have seen some symbol, but an <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span> yet, or that we have seen an <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span> but it was not followed by a <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>. The state <span class="math inline">q_0</span> is just to accept <span class="math inline">\varepsilon</span>.</p>
 </div>
 <p>In an <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span>, to check whether a given word <span class="math inline">W</span> is in <span class="math inline">\mathscr{L}(A)</span> or not we might need to check exponentially many paths, but given a path that supposedly shows that <span class="math inline">w\in \mathscr{L}(A)</span> it is easy to check it is indeed a correct witness.</p>
@@ -530,10 +539,10 @@ The argument to prove this containment is similar to the previous one and left a
 <div id="fig-NFA-lang-example-no-epsilon" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-NFA-lang-example-no-epsilon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="5423eb1fb0dc9792bd5cb0c061f8b1bb4cba8283.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;9.5: "><img src="finite_automata_files/mediabag/5423eb1fb0dc9792bd5cb0c061f8b1bb4cba8283.svg" class="img-fluid figure-img"></a>
+<a href="5423eb1fb0dc9792bd5cb0c061f8b1bb4cba8283.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;9.6: "><img src="finite_automata_files/mediabag/5423eb1fb0dc9792bd5cb0c061f8b1bb4cba8283.svg" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-NFA-lang-example-no-epsilon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.5
+Figure&nbsp;9.6
 </figcaption>
 </figure>
 </div>
@@ -594,7 +603,7 @@ Figure&nbsp;9.5
 </div>
 <p>The construction in the proof of <a href="#thm-equivalence-NFA-DFA" class="quarto-xref">Theorem&nbsp;<span>9.2</span></a> is called <span class="def">powerset construction</span> or <span class="def">determinization</span>.</p>
 <div id="exm-NFA-to-DFA" class="theorem example">
-<p><span class="theorem-title"><strong>Example 9.6</strong></span> As an example let’s apply the powerset construction to the <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> in <a href="#fig-NFA-lang-example" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>. First we obtain an NFA eliminating all the <span class="math inline">\varepsilon</span>-transitions from <span class="math inline">A</span> and we obtain the NFA <span class="math inline">C</span> in <a href="#fig-NFA-lang-example-no-epsilon" class="quarto-xref">Figure&nbsp;<span>9.5</span></a>. Since <span class="math inline">C</span> has <span class="math inline">5</span> states, applying the construction of <a href="#thm-equivalence-NFA-DFA" class="quarto-xref">Theorem&nbsp;<span>9.2</span></a> to the NFA <span class="math inline">C</span> leads to a DFA <span class="math inline">B</span> with <span class="math inline">2^5=32</span> states. It is obvious that most of them will be redundant, for example already in <span class="math inline">C</span> the state <span class="math inline">q_2</span> is useless since it has no incoming transition.</p>
+<p><span class="theorem-title"><strong>Example 9.6</strong></span> As an example let’s apply the powerset construction to the <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> in <a href="#fig-NFA-lang-example" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>. First we obtain an NFA eliminating all the <span class="math inline">\varepsilon</span>-transitions from <span class="math inline">A</span> and we obtain the NFA <span class="math inline">C</span> in <a href="#fig-NFA-lang-example-no-epsilon" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>. Since <span class="math inline">C</span> has <span class="math inline">5</span> states, applying the construction of <a href="#thm-equivalence-NFA-DFA" class="quarto-xref">Theorem&nbsp;<span>9.2</span></a> to the NFA <span class="math inline">C</span> leads to a DFA <span class="math inline">B</span> with <span class="math inline">2^5=32</span> states. It is obvious that most of them will be redundant, for example already in <span class="math inline">C</span> the state <span class="math inline">q_2</span> is useless since it has no incoming transition.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -629,15 +638,15 @@ Figure&nbsp;9.5
 <div id="fig-NFA-DFA-example" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-NFA-DFA-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="697dd4400b6923a739c833932c051334f7f92bfd.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;9.6: A DFA accepting the same language of the \varepsilon-NFA of Figure&nbsp;fig-NFA-lang-example."><img src="finite_automata_files/mediabag/697dd4400b6923a739c833932c051334f7f92bfd.svg" class="img-fluid figure-img"></a>
+<a href="697dd4400b6923a739c833932c051334f7f92bfd.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;9.7: A DFA accepting the same language of the \varepsilon-NFA of Figure&nbsp;fig-NFA-lang-example."><img src="finite_automata_files/mediabag/697dd4400b6923a739c833932c051334f7f92bfd.svg" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-NFA-DFA-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.6: A DFA accepting the same language of the <span class="math inline">\varepsilon</span>-NFA of <a href="#fig-NFA-lang-example" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>.
+Figure&nbsp;9.7: A DFA accepting the same language of the <span class="math inline">\varepsilon</span>-NFA of <a href="#fig-NFA-lang-example" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>.
 </figcaption>
 </figure>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.9 (<span class="math inline">🌱</span>)</strong></span> Just looking at <a href="#fig-NFA-DFA-example" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>, construct a DFA with <span class="math inline">4</span> states that accepts the same language.</p>
+<p><span class="theorem-title"><strong>Exercise 9.9 (<span class="math inline">🌱</span>)</strong></span> Just looking at <a href="#fig-NFA-DFA-example" class="quarto-xref">Figure&nbsp;<span>9.7</span></a>, construct a DFA with <span class="math inline">4</span> states that accepts the same language. Chech that the DFA you constructed is isomorphic<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> to the one in <a href="#fig-DFA-example" class="quarto-xref">Figure&nbsp;<span>9.5</span></a>.</p>
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
@@ -673,6 +682,7 @@ L_n=\{x\textcolor{darkred}{\mathtt{a}}y :x,y\in \{\textcolor{darkred}{\mathtt{a}
 <li id="fn1"><p>In this notes, we draw the incoming arrow of initial states in <span class="red">red</span> for readability.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Notice that we are not asking for <span class="math inline">I</span> and <span class="math inline">F</span> to be disjoint, actually, often they will have a non-trivial intersection.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>This is only done to have a nice concise definition of <span class="math inline">B</span>. Algorithmically, we only add states to <span class="math inline">Q'</span> when we encounter them, that is when we have a transition to them.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Two DFAs are <span class="def">isomorphic</span> if up to renaming of vertices they are the same.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
