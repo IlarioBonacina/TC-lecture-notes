@@ -362,28 +362,38 @@ Warning
 </div>
 </div>
 </div></div><p>Notice that the minimal DFA accepting a language is unique, <strong>but</strong> in general there is not a unique minimum NFA accepting a language.</p>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11.1</strong></span> Give an example of a language <span class="math inline">L\subseteq \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}^*</span> and two NFAs <span class="math inline">A</span> and <span class="math inline">B</span> s.t.</p>
+<div id="exm-min-NFA-not-unique" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11.1</strong></span> We give an example of a language <span class="math inline">L</span> and two non-isomorphic minimal NFAs accepting <span class="math inline">L</span>. Let <span class="math inline">L=\{\textcolor{darkred}{\mathtt{ab}},\textcolor{darkred}{\mathtt{ba}},\textcolor{darkred}{\mathtt{bc}},\textcolor{darkred}{\mathtt{cb}},\textcolor{darkred}{\mathtt{ac}},\textcolor{darkred}{\mathtt{ca}}\}</span>.</p>
+<div id="fig-" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<img src="minimization_files/mediabag/7ae077cff4339c4e216c61471c5b983191a21420.svg" class="img-fluid figure-img">
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<img src="minimization_files/mediabag/4d70813774a086deabd391c94a5675e65d10b29e.svg" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Two non-isomorphic minimal NFAs accepting <span class="math inline">L</span>
+</figcaption>
+</figure>
+</div>
+<p>It should be clear that both NFAs accept <span class="math inline">L</span> and that they are not isomorphic.</p>
+<p>What is not obvious is that there is no NFA with <span class="math inline">4</span> or less states accepting <span class="math inline">L</span>. To see this, consider an NFA <span class="math inline">A=(Q,\Sigma,I,F,\delta)</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>. For <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> let <span class="math inline">X_{\textcolor{darkred}{\mathtt{s}}}</span> be the set of states reachable in <span class="math inline">A</span> from an initial state reading <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span>, that is <span class="math display">
+X_{\textcolor{darkred}{\mathtt{s}}}=\{q\in Q:\exists q_0\in I\ (q_0,\textcolor{darkred}{\mathtt{s}},q)\in \delta\}\ .
+</span> It is not hard to see that <span class="math inline">I,X_{\textcolor{darkred}{\mathtt{a}}},X_{\textcolor{darkred}{\mathtt{b}}},X_{\textcolor{darkred}{\mathtt{c}}},F</span> must be all pairwise disjoint. For example, <span class="math inline">X_{\textcolor{darkred}{\mathtt{a}}}</span> and <span class="math inline">X_{\textcolor{darkred}{\mathtt{b}}}</span> are disjoint since from the first set there must exist an edge with label <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span> leading to a final state, but if this would happen from a state in <span class="math inline">X_{\textcolor{darkred}{\mathtt{b}}}</span> then <span class="math inline">A</span> would accept <span class="math inline">\textcolor{darkred}{\mathtt{bb}}</span>, which it doesn’t. In a similar way</p>
 <ul>
-<li><span class="math inline">\mathscr{L}(A)=\mathscr{L}(B)=L</span>,</li>
-<li><span class="math inline">A</span> and <span class="math inline">B</span> have the same number of states,</li>
-<li>no other NFA <span class="math inline">C</span> with strictly less states than <span class="math inline">A</span> has <span class="math inline">\mathscr{L}(C)=L</span>,</li>
-<li><span class="math inline">A</span> and <span class="math inline">B</span> are <strong>not</strong> isomorphic.</li>
+<li>all the <span class="math inline">X_{\textcolor{darkred}{\mathtt{a}}},X_{\textcolor{darkred}{\mathtt{b}}},X_{\textcolor{darkred}{\mathtt{c}}}</span> must be disjoint;</li>
+<li><span class="math inline">I</span> and <span class="math inline">F</span> are disjoint since <span class="math inline">\varepsilon\notin L</span>;</li>
+<li>for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">I\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since otherwise <span class="math inline">A</span> would accept words of length larger than <span class="math inline">2</span>; and, finally,</li>
+<li>for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">F\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since othwerwise <span class="math inline">A</span> would accept words of length <span class="math inline">1</span>.</li>
 </ul>
+<p>Since <span class="math inline">I,X_{\textcolor{darkred}{\mathtt{a}}},X_{\textcolor{darkred}{\mathtt{b}}},X_{\textcolor{darkred}{\mathtt{c}}},F</span> are pairwise dosjoint, then, by the pigeonhole principle (see <a href="../ch0/proofs.html#sec-php" class="quarto-xref"><span>Section 2.2.1</span></a>), <span class="math inline">|Q|\geq 5</span>.</p>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Finding a minimum DFA equivalent to a given DFA is a different task than, given a DFA show that it is minimal. For example, if you just want to prove minimality sometimes it is easier/faster to construct a <span class="def">fooling set</span> (see <a href="non_regularity.html#sec-fooling-sets" class="quarto-xref"><span>Section 14.1</span></a>).</p>
-</div>
-</div>
+<p>One interesting property of DFAs is that for DFAs an analogoue of the previous <a href="#exm-min-NFA-not-unique" class="quarto-xref">Example&nbsp;<span>11.1</span></a> cannot happen! All minimum DFA accepting a given language are ismorphic. For this reason we refer to <strong>the</strong> minimum DFA accepting a given language.</p>
 <section id="the-minimum-dfa-formal-definition" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="the-minimum-dfa-formal-definition"><span class="header-section-number">11.1</span> The minimum DFA (formal definition)</h2>
 <p>Given a DFA <span class="math inline">A=(Q,\Sigma,\{q_0\},F,\delta)</span>, to find the minimum DFA for <span class="math inline">\mathscr{L}(A)</span>, first remove all unreachable states from the initial state <span class="math inline">q_0</span>: those are clearly redundant. For simplicity of notation let’s call again <span class="math inline">A</span> the DFA obtained after removing all those unreachable states.</p>
@@ -403,6 +413,19 @@ Tip
 </span></li>
 </ul>
 <p>The main difficulty in <em>computing</em> the minimum DFA is to compute <span class="math inline">Q'</span>, that is the partition of the states of <span class="math inline">Q</span> induced by the equivalence. In the next couple of sections we see two algorithms to compute <span class="math inline">\tilde A</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Finding a minimum DFA equivalent to a given DFA is a different task than, given a DFA show that it is minimal. For example, if you just want to prove minimality sometimes it is easier/faster to construct a <span class="def">fooling set</span> (see <a href="non_regularity.html#sec-fooling-sets" class="quarto-xref"><span>Section 14.1</span></a>).</p>
+</div>
+</div>
 </section>
 <section id="moores-minimization-algorithm" class="level2 page-columns page-full" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="moores-minimization-algorithm"><span class="header-section-number">11.2</span> Moore’s minimization algorithm</h2>
