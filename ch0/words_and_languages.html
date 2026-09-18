@@ -63,10 +63,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1ef031c348a99a9edd66d94b3d1c95f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -258,6 +255,42 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/minimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -340,7 +373,7 @@ window.Quarto = {
 <p>A <span class="def">word</span> is a <em>finite</em> sequence of symbols from a <em>finite and non-empty</em> set of available symbols (called <span class="def">alphabet</span>). If the alphabet has only one symbol it is called <span class="def">unary</span>, if it has exactly two <span class="def">binary</span>. Usually the size of the alphabet will not matter much, but unary alphabets have sometimes slightly different properties than non-unary ones.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Words are often denoted by lowercase Latin letters, such as <span class="math inline">w</span> or <span class="math inline">x</span>. Alphabets are often denoted by capital Greek letters, such as <span class="math inline">\Sigma</span> or <span class="math inline">\Gamma</span>. To improve readability we use a special font for symbols in alphabets, that is <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{0}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{1}}</span>, etc. are symbols, while <span class="math inline">a</span>, <span class="math inline">b</span>, <span class="math inline">0</span>, <span class="math inline">1</span> are not.</p>
+<p>Words are often denoted by lowercase Latin letters, such as <span class="math inline">w</span> or <span class="math inline">x</span>. Alphabets are often denoted by capital Greek letters, such as <span class="math inline">\Sigma</span> or <span class="math inline">\Gamma</span>. To improve readability we use a special font for symbols in alphabets, that is <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{0}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{1}}</span>, etc. are symbols, while <span class="math inline">a</span>, <span class="math inline">b</span>, <span class="math inline">0</span>, <span class="math inline">1</span> are not. We also use <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span> to denote a generic symbol from a given alphabet <span class="math inline">\Sigma</span>.</p>
 </div></div><div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4.1</strong></span> <span class="math inline">\textcolor{darkred}{\mathtt{Hello\ world}}</span> is a word over the alphabet of symbols that you can find on a standard US keyboard (see <a href="#fig-keyboard" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>), <span class="math inline">\textcolor{darkred}{\mathtt{101}}</span> is a word over the binary alphabet <span class="math inline">\{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}</span>, and <span class="math inline">\textcolor{darkred}{\mathtt{GATTACA}}</span> is a word in the alphabet of DNA bases <span class="math inline">\{\textcolor{darkred}{\mathtt{A}},\textcolor{darkred}{\mathtt{T}},\textcolor{darkred}{\mathtt{C}},\textcolor{darkred}{\mathtt{G}}\}</span>.</p>
 </div>
@@ -349,7 +382,7 @@ window.Quarto = {
 <div id="fig-keyboard" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-keyboard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/KB_United_States-NoAltGr.svg/3840px-KB_United_States-NoAltGr.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;4.1: A standard US keyboard layout."><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/KB_United_States-NoAltGr.svg/3840px-KB_United_States-NoAltGr.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" class="img-fluid figure-img"></a>
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/KB_United_States-NoAltGr.svg/3840px-KB_United_States-NoAltGr.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-keyboard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4.1: A standard US keyboard layout.
@@ -975,38 +1008,6 @@ Sipser, Michael. 2013. <em>Introduction to the Theory of Computation</em>. 3rd e
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

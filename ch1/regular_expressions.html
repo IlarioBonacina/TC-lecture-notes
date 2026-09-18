@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Closure properties – TC lecture notes (*draft*)</title>
+<title>12&nbsp; Regular expressions – TC lecture notes (*draft*)</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../ch0/exercises.html" rel="next">
-<link href="../ch0/operations_on_languages.html" rel="prev">
+<link href="../ch1/regular_languages.html" rel="next">
+<link href="../ch1/minimization.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -131,7 +131,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch0/intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../ch0/closure_properties.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Closure properties</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/regular_expressions.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -166,11 +166,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../ch0/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ch0/notation.html" class="sidebar-item-text sidebar-link">
@@ -209,7 +209,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ch0/closure_properties.html" class="sidebar-item-text sidebar-link active">
+  <a href="../ch0/closure_properties.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Closure properties</span></span></a>
   </div>
 </li>
@@ -225,11 +225,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../ch1/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regular Languages</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ch1/finite_automata.html" class="sidebar-item-text sidebar-link">
@@ -250,7 +250,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
   </div>
 </li>
@@ -314,16 +314,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#closure-properties-of-mathbffinite-and-mathbfcomathbffinite" id="toc-closure-properties-of-mathbffinite-and-mathbfcomathbffinite" class="nav-link active" data-scroll-target="#closure-properties-of-mathbffinite-and-mathbfcomathbffinite"><span class="header-section-number">7.1</span> Closure properties of <span class="math inline">\mathbf{Finite}</span> and <span class="math inline">\mathbf{co}\mathbf{Finite}</span></a></li>
+  <li><a href="#language-described-by-a-regular-expression" id="toc-language-described-by-a-regular-expression" class="nav-link active" data-scroll-target="#language-described-by-a-regular-expression"><span class="header-section-number">12.1</span> Language described by a regular expression</a></li>
+  <li><a href="#from-dfas-to-regular-expressions" id="toc-from-dfas-to-regular-expressions" class="nav-link" data-scroll-target="#from-dfas-to-regular-expressions"><span class="header-section-number">12.2</span> From DFAs to regular expressions</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch0/intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../ch0/closure_properties.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Closure properties</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/regular_expressions.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-closure" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Closure properties</span></span></h1>
+<h1 class="title"><span id="sec-regex" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></h1>
 </div>
 
 
@@ -343,53 +344,263 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>Given a class of languages <span class="math inline">\mathcal{C}</span> (over a fixed alphabet <span class="math inline">\Sigma</span>) and an operation <span class="math inline">\circ</span> on words in <span class="math inline">\Sigma^*</span> (say one of the ones defined in <a href="operations_on_languages.html" class="quarto-xref"><span>Chapter 6</span></a>), we can ask whether <span class="math inline">\mathcal{C}</span> is closed under the operation <span class="math inline">\circ</span>, that is if <span class="math inline">\circ</span> applied to languages in <span class="math inline">\mathcal{C}</span> gives a language in <span class="math inline">\mathcal{C}</span> too.</p>
-<p>For example,</p>
+<p>In this chapter we define <span class="def">regular expressions</span>, which informally give a way to describe algebraically <em>all</em> the languages for which we were able to write DFAs/NFAs. If you ever used the Linux command <code>grep</code> you have already used regular expressions (but with a different syntax than the one we use here).</p>
+<p>Given an alphabet <span class="math inline">\Sigma</span>,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> consider the language <span class="math inline">\Sigma\cup \{\textcolor{darkred}{\mathtt{(}},\textcolor{darkred}{\mathtt{)}}, \textcolor{darkred}{\mathtt{\cdot}}, \textcolor{darkred}{\mathtt{+}},\textcolor{darkred}{\mathtt{\phantom{}^*}},\textcolor{darkred}{\mathtt{\varepsilon}},\textcolor{darkred}{\mathtt{\emptyset}}\}</span>. The language of <span class="def">regular expressions</span> over <span class="math inline">\Sigma</span> is defined as follows:</p>
+<!--
+:::{.aside}
+:::{.callout-warning}
+This is a draft!
+:::
+:::
+-->
 <ul>
-<li>a set of languages <span class="math inline">\mathcal{C}</span> is <span class="def">closed under union</span> if for every two languages <span class="math inline">L_1,L_2\in \mathcal{C}</span> it holds that <span class="math inline">L_1\cup L_2\in \mathcal{C}</span>;</li>
-<li>a set of languages <span class="math inline">\mathcal{C}</span> is <span class="def">closed under homorphisms</span> if for every language <span class="math inline">L\in \mathcal{C}</span> and every homomorphism <span class="math inline">\sigma:\Sigma^*\to\Sigma^*</span> it holds that <span class="math inline">\sigma(L)\in \mathcal{C}</span>;</li>
-<li>a set of languages <span class="math inline">\mathcal{C}</span> is <span class="def">closed under inverse homorphisms</span> if for every language <span class="math inline">L\in \mathcal{C}</span> and every homomorphism <span class="math inline">\sigma:\Sigma^*\to\Sigma^*</span> it holds that <span class="math inline">\sigma^{-1}(L)\in \mathcal{C}</span>;</li>
-<li>… similarly, we can define what it means for <span class="math inline">\mathcal{C}</span> to be closed under any of the operations in <a href="operations_on_languages.html" class="quarto-xref"><span>Chapter 6</span></a>.</li>
+<li><span class="math inline">\textcolor{darkred}{\mathtt{\emptyset}}</span> is a regular expression;</li>
+<li><span class="math inline">\textcolor{darkred}{\mathtt{\varepsilon}}</span> is a regular expression;</li>
+<li><span class="math inline">\textcolor{darkred}{\mathtt{s}}</span> is a regular expression, for each symbol <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>;</li>
+<li>if <span class="math inline">r</span> and <span class="math inline">r'</span> are regular expressions, then <span class="math inline">\textcolor{darkred}{\mathtt{(}}r\textcolor{darkred}{\mathtt{)+(}}r'\textcolor{darkred}{\mathtt{)}}</span> is regular expression;</li>
+<li>if <span class="math inline">r</span> and <span class="math inline">r'</span> are regular expressions, then <span class="math inline">\textcolor{darkred}{\mathtt{(}}r\textcolor{darkred}{\mathtt{)\cdot(}}r'\textcolor{darkred}{\mathtt{)}}</span> is regular expression;</li>
+<li>if <span class="math inline">r</span> is a regular expression, then <span class="math inline">\textcolor{darkred}{\mathtt{(}}r\textcolor{darkred}{\mathtt{)^*}}</span> is a regular expression;</li>
+<li><em>nothing else is a regular expression</em>.</li>
 </ul>
-<div id="exr-union-finite" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.1</strong></span> Show that if a class of languages <span class="math inline">\mathcal{C}</span> is closed under union, then for every <em>finite</em> set of languages <span class="math inline">L_1,\dots,L_n\in \mathcal{C}</span>, then <span class="math inline">L_1\cup \cdots\cup L_n\in \mathcal{C}</span>.</p>
+<p>To avoid writing unnecessary parentheses the <span class="math inline">\textcolor{darkred}{\mathtt{\phantom{}^*}}</span> by convention has stronger precedence than <span class="math inline">\textcolor{darkred}{\mathtt{\cdot}}</span>, which, in turn, is stronger than <span class="math inline">\textcolor{darkred}{\mathtt{+}}</span>. Moreover, the <span class="math inline">\textcolor{darkred}{\mathtt{\cdot}}</span> is often omitted (as it is often omitted multiplication in arithmetic expressions).</p>
+<div id="exm-regex-simple-example" class="theorem example">
+<p><span class="theorem-title"><strong>Example 12.1</strong></span> The regular expression <span class="math inline">\textcolor{darkred}{\mathtt{a+ab^*}}</span> (over <span class="math inline">\Sigma=\{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}</span>) is <span class="math inline">\textcolor{darkred}{\mathtt{(a)+((a)\cdot(((b)^*)))}}</span>.</p>
 </div>
-<div id="exr-union-infinite" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.2 (A common error)</strong></span> Show that <a href="#exr-union-finite" class="quarto-xref">Exercise&nbsp;<span>7.1</span></a> in general does <strong>not</strong> hold when the union instead of being over a finite set is over an <em>infinite</em> set of languages in <span class="math inline">\mathcal{C}</span>.</p>
+<section id="language-described-by-a-regular-expression" class="level2 page-columns page-full" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="language-described-by-a-regular-expression"><span class="header-section-number">12.1</span> Language described by a regular expression</h2>
+<p>What is the semantics of a regular expression? To each regular expression <span class="math inline">r</span> over an alphabet <span class="math inline">\Sigma</span> we associate a language <span class="math inline">\mathscr{L}(r)\subseteq \Sigma^*</span> as follows:</p>
+<ul>
+<li><span class="math inline">\mathscr{L}(\textcolor{darkred}{\mathtt{\emptyset}})=\emptyset</span>;</li>
+<li><span class="math inline">\mathscr{L}(\textcolor{darkred}{\mathtt{\varepsilon}})=\{\varepsilon\}</span>;</li>
+<li><span class="math inline">\mathscr{L}(\textcolor{darkred}{\mathtt{s}})=\{\textcolor{darkred}{\mathtt{s}}\}</span>, for each symbol <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>;</li>
+<li>if <span class="math inline">r</span> and <span class="math inline">r'</span> are regular expressions, then <span class="math inline">\mathscr{L}(\textcolor{darkred}{\mathtt{(}}r\textcolor{darkred}{\mathtt{)+(}}r'\textcolor{darkred}{\mathtt{)}})=\mathscr{L}(r)\cup \mathscr{L}(r')</span>;</li>
+<li>if <span class="math inline">r</span> and <span class="math inline">r'</span> are regular expressions, then <span class="math inline">\mathscr{L}(\textcolor{darkred}{\mathtt{(}}r\textcolor{darkred}{\mathtt{)\cdot(}}r'\textcolor{darkred}{\mathtt{)}})=\mathscr{L}(r)\cdot\mathscr{L}(r')</span>;</li>
+<li>if <span class="math inline">r</span> is a regular expression, then <span class="math inline">\mathscr{L}(\textcolor{darkred}{\mathtt{(}}r\textcolor{darkred}{\mathtt{)^*}})=\mathscr{L}(r)^*</span>.</li>
+</ul>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.1</strong></span> What is <span class="math inline">\mathscr{L}(r)</span> when <span class="math inline">r</span> is the regular expression in <a href="#exm-regex-simple-example" class="quarto-xref">Example&nbsp;<span>12.1</span></a>? Describe it using the standard logic notation to describe sets.</p>
 </div>
-<section id="closure-properties-of-mathbffinite-and-mathbfcomathbffinite" class="level2 page-columns page-full" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="closure-properties-of-mathbffinite-and-mathbfcomathbffinite"><span class="header-section-number">7.1</span> Closure properties of <span class="math inline">\mathbf{Finite}</span> and <span class="math inline">\mathbf{co}\mathbf{Finite}</span></h2>
-<div id="exr-fin-closure" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.3</strong></span> For which of the operations defined in <a href="operations_on_languages.html" class="quarto-xref"><span>Chapter 6</span></a>,</p>
+<p>For a regular expression <span class="math inline">r</span>, we say that <span class="math inline">r</span> <span class="def">describes</span> the language <span class="math inline">\mathscr{L}(r)</span>, in the sense that <span class="math inline">r</span> describes a way to construct <span class="math inline">\mathscr{L}(r)</span> from very simple languages (<span class="math inline">\emptyset,\{\varepsilon\},\{\textcolor{darkred}{\mathtt{s}}\}</span>) using unions, concatenations and Kleene stars.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.2</strong></span> Write regular expressions describing the following languages:</p>
 <ol type="a">
-<li>is the set of languages <span class="math inline">\mathbf{Finite}</span> closed?</li>
-<li>is the set of languages <span class="math inline">\mathbf{co}\mathbf{Finite}</span> closed?</li>
+<li>The language of all words over <span class="math inline">\{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}</span> of even length;</li>
+<li>The language of all words over <span class="math inline">\{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> ending with <span class="math inline">\textcolor{darkred}{\mathtt{abba}}</span>.</li>
+<li>The language of all words over <span class="math inline">\{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> containing at least two occurrences of <span class="math inline">\textcolor{darkred}{\mathtt{bb}}</span>.</li>
+<li>The language of all words over the usual English keyboard symbols that are valid email addresses.</li>
 </ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.3 (Equivalence of regular expressions)</strong></span> This exercise is about checking the equivalence of two regular expressions using simple algebraic manipulations. We say that two regular expressions <span class="math inline">p,q</span> are equivalent (<span class="math inline">p\equiv q</span>) if the languages represented by <span class="math inline">p</span> and <span class="math inline">q</span> (resp. <span class="math inline">\mathscr{L}(p)</span> and <span class="math inline">\mathscr{L}(q)</span>) are the same.</p>
+<p>Show that for all regular expressions <span class="math inline">p</span>, <span class="math inline">q</span>, and <span class="math inline">r</span>:</p>
+<ol type="a">
+<li><span class="math inline">(p+q)^* \equiv p^*(qp^*)^*</span>.</li>
+<li><span class="math inline">p(qp)^* \equiv (pq)^*p</span>.</li>
+<li><span class="math inline">(p+q^*)^* \equiv (p+q)^*</span>.</li>
+<li>If <span class="math inline">p\equiv q</span>, then <span class="math inline">pr \equiv qr</span> and <span class="math inline">rp \equiv rq</span>.</li>
+<li>If <span class="math inline">\mathscr{L}(q) \subseteq \mathscr{L}(p)</span>, then <span class="math inline">p^*q^* \equiv q^*p^* \equiv p^*</span>.</li>
+<li><span class="math inline">p^* \equiv (\varepsilon+ p)^* \equiv (\varepsilon+ p)(p^*pp)^*</span>.</li>
+<li><span class="math inline">p^*pp + \varepsilon\equiv (p^*pp)^* \equiv (pp+ppp)^*</span>.</li>
+<li>(<span class="math inline">🔥</span>) <span class="math inline">p^*(q+rp^*)^* \equiv (p+q^*r)^*q^*</span>.</li>
+<li>(<span class="math inline">🔥</span>) <span class="math inline">(qq+qp+p)^*qpp^* \equiv p^*q(pp^*q+qp^*q)^*pp^*</span>.</li>
+<li>(<span class="math inline">🔥</span>) <span class="math inline">(\varepsilon+ \textcolor{darkred}{\mathtt{b}})\textcolor{darkred}{\mathtt{a}}^*(\textcolor{darkred}{\mathtt{b}} + \textcolor{darkred}{\mathtt{bba}}^*)^* \equiv \textcolor{darkred}{\mathtt{b}}^*(\textcolor{darkred}{\mathtt{a}} + \textcolor{darkred}{\mathtt{bb}} + \textcolor{darkred}{\mathtt{bbb}})^*\textcolor{darkred}{\mathtt{b}}^*</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To prove some of the items (especially, the last three), it is useful to apply previous equivalences.</p>
+</div>
+</div>
+</div>
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>This is the first time we see this type of question, but indeed this will be a constant in this course. An analogous question will exist for all the classes of languages we see in this course (<span class="math inline">\mathbf{Regular}, \mathbf{CFL},\mathbf{P},\mathbf{NP},\mathbf{R},\mathbf{RE}, \dots</span>).</p>
-</div></div><div id="exr-finite-generated" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.4</strong></span> The set of all languages over <span class="math inline">\Sigma^*</span> (that is <span class="math inline">\mathscr{P}(\Sigma^*)</span>) has the following properties</p>
-<ul>
-<li>it contains <span class="math inline">\emptyset</span>;</li>
-<li>it contains <span class="math inline">\{\varepsilon\}</span>;</li>
-<li>it contains <span class="math inline">\{\textcolor{darkred}{\mathtt{s}}\}</span> for each symbol <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>;</li>
-<li>it is closed under union;</li>
-<li>it is closed under concatenation.</li>
-</ul>
-<p>Show that <span class="math inline">\mathbf{Finite}</span> is the smallest (w.r.t. inclusion) set of languages with the properties above, that is show that</p>
-<ol type="a">
-<li><span class="math inline">\mathbf{Finite}</span> has the properties above, and</li>
-<li>every class of languages with the properties above contains <span class="math inline">\mathbf{Finite}</span>.</li>
+<p>Deciding whether two regular expressions are equivalent is <span class="math inline">\mathbf{PSPACE}</span>-complete, i.e., informally, it is the hardest among the decision problems solvable using a polynomial amount of memory, but no limitations on the running time.</p>
+</div></div><div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.4</strong></span> Given a regular expression <span class="math inline">r</span> and a word <span class="math inline">w</span>, give an algorithm that with input <span class="math inline">r</span> and <span class="math inline">w</span> decides whether <span class="math inline">w\in \mathscr{L}(r)</span> or not. What is the asymptotic cost of your algorithm w.r.t. the number of symbols in <span class="math inline">r</span> and <span class="math inline">w</span>?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A possibility is to use the Brzozowski derivative (see <a href="../ch0/operations_on_languages.html" class="quarto-xref"><span>Chapter 6</span></a>).</p>
+</div>
+</div>
+</div>
+</div>
+<!--
+## Regular expressions in practice
+
+[describe `grep`, why the syntax here is so limited etc]{.TODO}
+
+[add something on extended regular expressions]{.TODO}
+-->
+</section>
+<section id="from-dfas-to-regular-expressions" class="level2 page-columns page-full" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="from-dfas-to-regular-expressions"><span class="header-section-number">12.2</span> From DFAs to regular expressions</h2>
+<p>In this section we show how to associate to a DFA an equivalent regular expression. That is, given a DFA <span class="math inline">A</span>, using Arden’s lemma (<a href="#lem-arden" class="quarto-xref">Lemma&nbsp;<span>12.1</span></a> below), we show a way to construct a regular expression <span class="math inline">r</span> s.t. <span class="math inline">\mathscr{L}(r)=\mathscr{L}(A)</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div id="lem-arden" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 12.1 (Arden’s Lemma)</strong></span> Given <span class="math inline">A,B\subseteq \Sigma^*</span>, consider the equation <span id="eq-arden"><span class="math display">
+X=A X\cup B\ ,
+\tag{12.1}</span></span> then <span class="math inline">X=A^* B</span> is the smallest solution of <a href="#eq-arden" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>.<br>
+If <span class="math inline">\varepsilon\notin A</span> then, this is the only solution. If <span class="math inline">\varepsilon\in A</span>, then for every <span class="math inline">C\subseteq \Sigma^*</span>, <span class="math inline">X=A^*(B\cup C)</span> is a solution of <a href="#eq-arden" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First we check that <span class="math inline">A^* B</span> is always a solution of <a href="#eq-arden" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>: <span class="math display">
+A(A^* B)\cup B = A^+ B\cup B = (A^+\cup \{\varepsilon\}) B = A^* B\ .
+</span> If <span class="math inline">L</span> is a solution of <a href="#eq-arden" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>, we show, by induction on <span class="math inline">n</span> that <span class="math inline">L\supseteq A^nB</span>. This implies immediately that <span class="math inline">L\supseteq A^*B</span>.</p>
+<p>Base case (<span class="math inline">n=0</span>): <span class="math inline">L=AL\cup B</span>, so in particular <span class="math inline">L\supseteq B=A^0B</span>.<br>
+Inductive case: if <span class="math inline">L\supseteq A^nB</span>, then <span class="math inline">L=AL\cup B\supseteq AA^nB=A^{n+1}B</span>.</p>
+<p>Hence <span class="math inline">X=A^*B</span> is the smallest (w.r.t. inclusion) solution of <a href="#eq-arden" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>.</p>
+<p>If <span class="math inline">\varepsilon\in A</span>, then <span class="math display">
+A(A^*(B\cup C))=A^+(B\cup C)\stackrel{\varepsilon\in A}{=}A^*(B\cup C)\ ,
+</span> for every language <span class="math inline">C\subseteq \Sigma^*</span>.</p>
+<p>If <span class="math inline">\varepsilon\notin A</span>, assume <span class="math inline">L</span> is a solution of <a href="#eq-arden" class="quarto-xref">Equation&nbsp;<span>12.1</span></a> but, for sake of contradiction, <span class="math inline">L\neq A^*B</span>. Since every solution must contain <span class="math inline">A^*B</span>, it must be the case that <span class="math inline">L\not\subseteq A^*B</span>. Let <span class="math inline">w</span> be the shortest word in <span class="math inline">L</span> but not in <span class="math inline">A^*B</span>. Since <span class="math inline">L</span> is a solution of <a href="#eq-arden" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>, then <span class="math inline">w\in AL\cup B</span>. But clearly <span class="math inline">w\notin B</span> (since <span class="math inline">B\subseteq A^*B</span> and <span class="math inline">w\notin A^*B</span>), hence <span class="math inline">w\in AL</span>. This means <span class="math inline">w=w^\prime w^{\prime\prime}</span> with <span class="math inline">w^\prime\in A</span> and <span class="math inline">w^{\prime\prime}\in L</span>. Since <span class="math inline">\varepsilon\notin A</span>, then <span class="math inline">|w^\prime|&gt;0</span> and <span class="math inline">|w^{\prime\prime}|&lt;|w|</span>.</p>
+<p>We have now that <span class="math inline">w^{\prime\prime}\in L</span> but <span class="math inline">w^{\prime\prime}\notin A^*B</span>, otherwise <span class="math inline">w\in A^*B</span>. This is a contradiction, since we assumed <span class="math inline">w</span> to be the shortest word in <span class="math inline">L\setminus A^*B</span>.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/arden.jpg" class="rounded img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Dean N. Arden (1925-2018)</figcaption>
+</figure>
+</div>
+</div></div><p>Using Arden’s Lemma we can then prove the following theorem.</p>
+<div id="thm-equivalence-regex-DFAs" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 12.1</strong></span> Given a DFA <span class="math inline">A</span>, there exists a regular expression <span class="math inline">r</span> s.t. <span class="math inline">\mathscr{L}(r)=\mathscr{L}(A)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof (sketch)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">A=(Q,\Sigma,q_0,F,\delta)</span> be a DFA. For each <span class="math inline">q\in Q</span>, let <span class="math inline">X_q</span> be the language of all words that would be accepted by <span class="math inline">A</span> if <span class="math inline">q</span> were the initial state (instead of <span class="math inline">q_0</span>). Notice that <span id="eq-Xj"><span class="math display">
+X_q=
+\begin{cases}
+\displaystyle
+\bigcup_{\substack{\textcolor{darkred}{\mathtt{s}}\in \Sigma\\\delta(q,\textcolor{darkred}{\mathtt{s}})=q'}} \{\textcolor{darkred}{\mathtt{s}}\}X_{q'}&amp;\text{ if } q\notin F\ ,
+\\
+\displaystyle
+\{\varepsilon\}\cup \bigcup_{\substack{\textcolor{darkred}{\mathtt{s}}\in \Sigma\\\delta(q,\textcolor{darkred}{\mathtt{s}})=q'}} \{\textcolor{darkred}{\mathtt{s}}\}X_{q'} &amp;\text{ if } q\in F\ .
+\end{cases}
+\tag{12.2}</span></span></p>
+<p>This gives a system of equations where the variables are <span class="math inline">X_q</span> and with Arden’s lemma (<a href="#lem-arden" class="quarto-xref">Lemma&nbsp;<span>12.1</span></a>) we can find a way to express each <span class="math inline">X_q</span> only using unions, concatenations, and Kleene stars, that is we have found a regular expression for it. This is analogous to the way to solve linear equations by eliminating variables. This analogy is even more clear if we write down <a href="#eq-Xj" class="quarto-xref">Equation&nbsp;<span>12.2</span></a> using the notation for regular expressions: <span class="math display">
+X_q=
+\begin{cases}
+\displaystyle
+\sum_{\substack{\textcolor{darkred}{\mathtt{s}}\in \Sigma\\\delta(q,\textcolor{darkred}{\mathtt{s}})=q'}} \textcolor{darkred}{\mathtt{s}}X_{q'}&amp;\text{ if } q\notin F\ ,
+\\
+\displaystyle
+\varepsilon+ \sum_{\substack{\textcolor{darkred}{\mathtt{s}}\in \Sigma\\\delta(q,\textcolor{darkred}{\mathtt{s}})=q'}} \textcolor{darkred}{\mathtt{s}}X_{q'} &amp;\text{ if } q\in F\ .
+\end{cases}
+</span> Therefore, to find a regular expression for <span class="math inline">\mathscr{L}(A)</span> we just need to solve the system above and the regular expression for <span class="math inline">X_{q_0}</span> gives the answer.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exm-first" class="theorem example">
+<p><span class="theorem-title"><strong>Example 12.2</strong></span> Consider the language <span class="math inline">L=\{w\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* :|w|_{\textcolor{darkred}{\mathtt{a}}}\in 2\mathbb N\}</span>. The minimal DFA recognizing it is the following.</p>
+<div id="fig-" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="regular_expressions_files/mediabag/0ce6c1724a568f691a2832092db5381784bbd834.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1
+</figcaption>
+</figure>
+</div>
+<p>The system of equations associated to it is</p>
+<p><span class="math display">
+\left\{
+\begin{align*}
+X_0 &amp;= \{\textcolor{darkred}{\mathtt{b}}\}X_0\cup \{\textcolor{darkred}{\mathtt{a}}\}X_1\cup\{\varepsilon\}\\
+X_1 &amp;= \{\textcolor{darkred}{\mathtt{b}}\}X_1\cup \{\textcolor{darkred}{\mathtt{a}}\}X_0
+\end{align*}
+\right.
+</span> Since in the end we are interested into giving a regular expression usually the system above is written directly as equations on regular expressions <span class="math display">
+\left\{
+\begin{align*}
+X_0 &amp;= \textcolor{darkred}{\mathtt{b}}X_0+ \textcolor{darkred}{\mathtt{a}}X_1+\varepsilon\\
+X_1 &amp;= \textcolor{darkred}{\mathtt{b}}X_1+ \textcolor{darkred}{\mathtt{a}}X_0
+\end{align*}
+\right.
+</span> We can apply Arden’s Lemma to both equations, but since in the end we are interested into writing down a regular expression for <span class="math inline">X_0</span> let’s use the rule on the second equation:</p>
+<p><span class="math display">
+X_1=\textcolor{darkred}{\mathtt{b}}^*\textcolor{darkred}{\mathtt{a}}X_0\ ,
+</span> and substitute it into the first: <span class="math display">
+\begin{align*}
+X_0 &amp;= \textcolor{darkred}{\mathtt{b}}X_0+ \textcolor{darkred}{\mathtt{a}}\textcolor{darkred}{\mathtt{b}}^*\textcolor{darkred}{\mathtt{a}}X_0+\varepsilon
+\\
+&amp; =(\textcolor{darkred}{\mathtt{b}}+\textcolor{darkred}{\mathtt{a}}\textcolor{darkred}{\mathtt{b}}^*\textcolor{darkred}{\mathtt{a}})X_0+\varepsilon\ .
+\end{align*}
+</span> Applying Arden’s Lemma again we get <span class="math display">
+\begin{align*}
+X_0 &amp;= (\textcolor{darkred}{\mathtt{b}}+\textcolor{darkred}{\mathtt{a}}\textcolor{darkred}{\mathtt{b}}^*\textcolor{darkred}{\mathtt{a}})^*\varepsilon
+\\
+&amp;= (\textcolor{darkred}{\mathtt{b}}+\textcolor{darkred}{\mathtt{a}}\textcolor{darkred}{\mathtt{b}}^*\textcolor{darkred}{\mathtt{a}})^*\ .
+\end{align*}
+</span> Hence we got a regular expression for <span class="math inline">L</span>: <span class="math inline">(\textcolor{darkred}{\mathtt{b}}+\textcolor{darkred}{\mathtt{a}}\textcolor{darkred}{\mathtt{b}}^*\textcolor{darkred}{\mathtt{a}})^*</span>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.5</strong></span> Write a regular expression for <span class="math display">
+L=\{w \in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* :\mathtt{value}_2(w)\in 3\mathbb N\}\ .
+</span> (Use the DFA you contructed in <a href="experiment_with_DFAs.html#exr-modular-counting" class="quarto-xref">Exercise&nbsp;<span>10.3</span></a>.)</p>
+</div>
+<!--
+[add Arden lemma and example]{.TODO}
+
+:::{#lem-arden}
+[add arden lemma]{.TODO}
+:::
+
+[add exercise of multiples of 3]{.TODO}
+-->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Assume w.l.o.g. that <span class="math inline">\Sigma</span> does not contain the symbols <span class="math inline">\textcolor{darkred}{\mathtt{(}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{)}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{\cdot}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{+}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{\phantom{}^*}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{\varepsilon}}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{\emptyset}}</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The same approach adapts naturally to <span class="math inline">\varepsilon</span>-NFAs but for simplicity we describe it for DFAs.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
-<p>What if we take the list of properties from <a href="#exr-finite-generated" class="quarto-xref">Exercise&nbsp;<span>7.4</span></a> and we also ask for closure under Kleene star? What is the smallest (w.r.t. inclusion) class of languages with such properties? They are called <span class="def">regular languages</span> (<span class="math inline">\mathbf{Regular}</span>), and they form a surprisingly rich class of languages.</p>
-<div id="exr-regular-contains-finite-prelim" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.5</strong></span> Using the definitions above, show that <span class="math inline">\mathbf{Regular}\supsetneq \mathbf{Finite}</span>.</p>
-</div>
-
-
 </section>
 
 </main> <!-- /main -->
@@ -797,13 +1008,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../ch0/operations_on_languages.html" class="pagination-link" aria-label="Operations on languages">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Operations on languages</span></span>
+      <a href="../ch1/minimization.html" class="pagination-link" aria-label="Minimization of DFAs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../ch0/exercises.html" class="pagination-link" aria-label="More Exercises">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">More Exercises</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch1/regular_languages.html" class="pagination-link" aria-label="$\mathbf{Regular}$ -- the set of all regular languages">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

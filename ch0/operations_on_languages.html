@@ -44,10 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1ef031c348a99a9edd66d94b3d1c95f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -239,6 +236,42 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/minimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -285,7 +318,7 @@ window.Quarto = {
   <li><a href="#reverse" id="toc-reverse" class="nav-link" data-scroll-target="#reverse"><span class="header-section-number">6.2</span> Reverse</a></li>
   <li><a href="#concatenation" id="toc-concatenation" class="nav-link" data-scroll-target="#concatenation"><span class="header-section-number">6.3</span> Concatenation</a></li>
   <li><a href="#n-th-power-of-a-language" id="toc-n-th-power-of-a-language" class="nav-link" data-scroll-target="#n-th-power-of-a-language"><span class="header-section-number">6.4</span> <span class="math inline">n</span>-th power of a language</a></li>
-  <li><a href="#kleene-star" id="toc-kleene-star" class="nav-link" data-scroll-target="#kleene-star"><span class="header-section-number">6.5</span> Kleene star</a></li>
+  <li><a href="#sec-kleene" id="toc-sec-kleene" class="nav-link" data-scroll-target="#sec-kleene"><span class="header-section-number">6.5</span> Kleene star</a></li>
   </ul>
 </nav>
     </div>
@@ -315,7 +348,24 @@ window.Quarto = {
 
 </div>
 <p>In this chapter consider fixed an alphabet <span class="math inline">\Sigma</span>. We consider operations on languages over <span class="math inline">\Sigma</span>, that is on subsets of <span class="math inline">\Sigma^*</span>.</p>
-<section id="set-theoretic-operations" class="level2" data-number="6.1">
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Updates post-class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="#sec-kleene" class="quarto-xref"><span>Section 6.5</span></a> now contains also definition of positive closure of a language (18/09/2026)</li>
+</ul>
+</div>
+</div>
+</div></div><section id="set-theoretic-operations" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="set-theoretic-operations"><span class="header-section-number">6.1</span> Set-theoretic operations</h2>
 <p>Since languages are sets you can do on them all usual operations available on sets:</p>
 <ul>
@@ -392,8 +442,8 @@ L_1\cdot L_2 =\{u\cdot v :u\in L_1 \land v\in L_2 \}\ ,
 <p><span class="theorem-title"><strong>Exercise 6.11</strong></span> Given a language <span class="math inline">L</span> and a positive integer <span class="math inline">n</span>, is it true that <span class="math inline">|L^n|=|L|^n</span>?</p>
 </div>
 </section>
-<section id="kleene-star" class="level2 page-columns page-full" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="kleene-star"><span class="header-section-number">6.5</span> Kleene star</h2>
+<section id="sec-kleene" class="level2 page-columns page-full" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-kleene"><span class="header-section-number">6.5</span> Kleene star</h2>
 <p>The <span class="def">Kleene star</span> of a language <span class="math inline">L</span> is the language <span class="math display">
 \begin{align*}
 L^*&amp;=\bigcup_{n\in \mathbb N}L^n
@@ -407,7 +457,7 @@ L^*&amp;=\bigcup_{n\in \mathbb N}L^n
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Stephen_Cole_Kleene_circa_1963.tif/lossy-page1-500px-Stephen_Cole_Kleene_circa_1963.tif.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Stephen Cole Kleene (1909–1994)"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Stephen_Cole_Kleene_circa_1963.tif/lossy-page1-500px-Stephen_Cole_Kleene_circa_1963.tif.jpg" class="rounded img-fluid figure-img" style="width:60.0%" alt="Stephen Cole Kleene (1909–1994)"></a></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Stephen_Cole_Kleene_circa_1963.tif/lossy-page1-500px-Stephen_Cole_Kleene_circa_1963.tif.jpg" class="rounded img-fluid figure-img" style="width:60.0%"></p>
 <figcaption><a href="https://en.wikipedia.org/wiki/Stephen_Cole_Kleene">Stephen Cole Kleene (1909–1994)</a></figcaption>
 </figure>
 </div>
@@ -439,6 +489,14 @@ L^*&amp;=\bigcup_{n\in \mathbb N}L^n
 <p>Since the concatenation is not commutative, exponentiation and Kleene star have different algebraic properties. For example, <span class="math inline">\mathrm{e}^{x+y}=\mathrm{e}^x\cdot \mathrm{e}^y</span>, but in general, <span class="math inline">(L_1\cup L_2)^*\neq L_1^*\cdot L_2^*</span> (see <a href="#exr-kleene_vs_union" class="quarto-xref">Exercise&nbsp;<span>6.15</span></a>).</p>
 </div>
 </div>
+<p>The Kleene star <span class="math inline">L^*</span> of a language <span class="math inline">L</span> has also a variant called <span class="def">positive closure</span> of <span class="math inline">L</span> which is denoted as <span class="math inline">L^+</span> and it is just</p>
+<p><span class="math display">
+\begin{align*}
+L^+&amp;=\bigcup_{n\in \mathbb N\setminus \{0\}}L^n
+\\
+&amp;=L^1\cup L^2\cup \cdots \ .
+\end{align*}
+</span></p>
 <div id="exr-kleene_vs_union" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 6.15 (Kleene star <em>vs</em> union)</strong></span> &nbsp;</p>
 <ol type="a">
@@ -890,38 +948,6 @@ L^*&amp;=\bigcup_{n\in \mathbb N}L^n
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

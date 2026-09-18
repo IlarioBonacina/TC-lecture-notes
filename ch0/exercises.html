@@ -44,10 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1ef031c348a99a9edd66d94b3d1c95f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -239,6 +236,42 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/minimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -311,6 +344,19 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a <em>permanent</em> draft! In the sense that every once in a while I might add some exercise.</p>
+</div>
+</div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.1 (Homomorphisms vs the rest of operations)</strong></span> Given a homomorphism <span class="math inline">\sigma:\Sigma^*\to\Sigma^*</span> and languages <span class="math inline">L,L_1,L_2\subseteq \Sigma^*</span>, which of the following equalities are always <strong>true</strong> and which are in general <strong>false</strong>? (As usual, justify your answers)</p>
 <ol type="a">
@@ -358,7 +404,7 @@ window.Quarto = {
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.4 (<span class="math inline">🔥</span>)</strong></span> Prove that, for every alphabet <span class="math inline">\Sigma</span>, there is a unique language <span class="math inline">L\subseteq \Sigma^*</span> such that <span class="math inline">L=\overline{\Sigma L}</span>. What is this language?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -367,7 +413,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Give an alternative expression for <span class="math inline">L</span>. Does <span class="math inline">L</span> contain the empty word <span class="math inline">\lambda</span>? If a word in <span class="math inline">L</span> is of the form <span class="math inline">aw</span>, with <span class="math inline">a\in \Sigma</span>, is <span class="math inline">w</span> in <span class="math inline">L</span> or in <span class="math inline">\overline L</span>? Once obtained the new expression, rewrite it as a function of <span class="math inline">L</span> and resolve the recurrence relation.</p>
 </div>
@@ -402,7 +448,7 @@ window.Quarto = {
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://upload.wikimedia.org/wikipedia/commons/3/3d/Portrait_of_Professor_Janusz_Brzozowski.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Janusz Brzozowski (1935 - 2019)"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Portrait_of_Professor_Janusz_Brzozowski.jpg" class="rounded img-fluid figure-img" style="width:60.0%" alt="Janusz Brzozowski (1935 - 2019)"></a></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Portrait_of_Professor_Janusz_Brzozowski.jpg" class="rounded img-fluid figure-img" style="width:60.0%"></p>
 <figcaption><a href="https://en.wikipedia.org/wiki/Janusz_Brzozowski_(computer_scientist)">Janusz Brzozowski (1935 - 2019)</a></figcaption>
 </figure>
 </div>
@@ -849,38 +895,6 @@ L=\eta(L) \cup \bigcup_{\textcolor{darkred}{\mathtt{s}}\in \Sigma}\textcolor{dar
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

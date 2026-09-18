@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; More Exercises – TC lecture notes (*draft*)</title>
+<title>15&nbsp; More Exercises – TC lecture notes (*draft*)</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -34,7 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../ch2/intro.html" rel="next">
-<link href="../ch1/finite_automata.html" rel="prev">
+<link href="../ch1/non_regularity.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1ef031c348a99a9edd66d94b3d1c95f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,7 +131,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/exercises.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">More Exercises</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/exercises.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -238,8 +238,38 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/minimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../ch1/exercises.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -285,9 +315,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content column-page-right" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/exercises.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">More Exercises</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/exercises.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">More Exercises</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></h1>
 </div>
 
 
@@ -308,17 +338,16 @@ window.Quarto = {
 
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10.1</strong></span> Given <span class="math inline">w\in \Sigma^*</span> and any regular language <span class="math inline">L\subseteq \Sigma^*</span>, show that the language <span class="math inline">\mathtt{insert}(L,w)=\{xwy :x,y\in L\}</span> is regular.</p>
+<p><span class="theorem-title"><strong>Exercise 15.1 (<span class="math inline">🔥</span>)</strong></span> Given <span class="math inline">w\in \Sigma^*</span> and any regular language <span class="math inline">L\subseteq \Sigma^*</span>, show that</p>
+<ol type="a">
+<li>the language <span class="math inline">\mathtt{insert}(L,w)=\{xwy :x,y\in L\}</span> is regular.</li>
+<li>the language <span class="math inline">\mathtt{delete}(L,w)=\{xy :xwy\in L\}</span> is regular.</li>
+</ol>
 </div>
-<!--
-:::{#exr-}
-Given $w\in \Sigma^*$ and any regular language $L\subseteq \Sigma^*$, show that the language $\mathtt{delete}(L,w)=\{xy \mid xwy\in L\}$ is regular.
-:::
--->
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10.2</strong></span> Write a DFA for the language <span class="math inline">\{w\in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* :\binom{|w|}{2}\in 6\mathbb{N}+4\}</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 15.2 (<span class="math inline">🔥</span>)</strong></span> Given <span class="math inline">k\in \mathbb N</span>, show that <span class="math inline">L_k=\{xy\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* :|x|_{\textcolor{darkred}{\mathtt{a}}}=k|y|_{\textcolor{darkred}{\mathtt{b}}}\}</span> is regular if and only if <span class="math inline">k\in \{0,1\}</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -327,30 +356,11 @@ Given $w\in \Sigma^*$ and any regular language $L\subseteq \Sigma^*$, show that 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Maintain both <span class="math inline">\binom{|w|}{2} \pmod{6}</span> and <span class="math inline">|w| \pmod{6}</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10.3</strong></span> Given <span class="math inline">k\in \mathbb N</span>, show that <span class="math inline">L_k=\{xy\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* :|x|_{\textcolor{darkred}{\mathtt{a}}}=k|y|_{\textcolor{darkred}{\mathtt{b}}}\}</span> is regular if and only if <span class="math inline">k\in \{0,1\}</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The hard part is to show that for <span class="math inline">k&gt;1</span>, the language <span class="math inline">L_k</span> is not regular. Think of <span class="math inline">k=2</span> first. The argument for a generic <span class="math inline">k</span> is a simple generalization of this case.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -359,7 +369,7 @@ Given $w\in \Sigma^*$ and any regular language $L\subseteq \Sigma^*$, show that 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Consider the reverse of <span class="math inline">L_2</span>.</p>
 </div>
@@ -783,8 +793,8 @@ Write a DFA for the language $\{w\in \{\sym{0},\sym{1}\}^* \mid F_{|w|_{\sym{10}
   </script>
 <nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
-      <a href="../ch1/finite_automata.html" class="pagination-link" aria-label="Finite Automata">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span>
+      <a href="../ch1/non_regularity.html" class="pagination-link" aria-label="Non-regularity">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

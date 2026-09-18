@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ilario Bonacina">
-<meta name="dcterms.date" content="2026-09-18">
 
-<title>TC lecture notes (draft)</title>
+<title>11&nbsp; Minimization of DFAs – TC lecture notes (*draft*)</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,46 +23,28 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./ch0/intro.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ch1/regular_expressions.html" rel="next">
+<link href="../ch1/experiment_with_DFAs.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -151,7 +131,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/minimization.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -166,7 +146,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">TC lecture notes (<em>draft</em>)</a> 
+      <a href="../">TC lecture notes (<em>draft</em>)</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -178,13 +158,13 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch0/intro.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch0/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -193,49 +173,49 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/notation.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/notation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/proofs.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/proofs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proofs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/functions_cardinality.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/functions_cardinality.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions and cardinality</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/words_and_languages.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/words_and_languages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Words, languages, sets-of-languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/operations_on_words.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/operations_on_words.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Operations on words</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/operations_on_languages.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/operations_on_languages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Operations on languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/closure_properties.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/closure_properties.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Closure properties</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
   </div>
 </li>
@@ -243,52 +223,52 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch1/intro.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch1/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regular Languages</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/finite_automata.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/finite_automata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/minimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/minimization.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
   </div>
 </li>
@@ -296,31 +276,31 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch2/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Context-Free Languages</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch3/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Computability</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="brown">References</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./credits.html" class="sidebar-item-text sidebar-link">
+  <a href="../credits.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Credits &amp; Copyright</span></a>
   </div>
 </li>
@@ -329,33 +309,30 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-minimum-dfa-formal-definition" id="toc-the-minimum-dfa-formal-definition" class="nav-link active" data-scroll-target="#the-minimum-dfa-formal-definition"><span class="header-section-number">11.1</span> The minimum DFA (formal definition)</a></li>
+  <li><a href="#moores-minimization-algorithm" id="toc-moores-minimization-algorithm" class="nav-link" data-scroll-target="#moores-minimization-algorithm"><span class="header-section-number">11.2</span> Moore’s minimization algorithm</a></li>
+  <li><a href="#minimization-brzozowski-style" id="toc-minimization-brzozowski-style" class="nav-link" data-scroll-target="#minimization-brzozowski-style"><span class="header-section-number">11.3</span> Minimization <em>Brzozowski’ style</em></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/minimization.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">TC lecture notes (<em>draft</em>)</h1>
+<h1 class="title"><span id="sec-minimization-DFAs" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ilario Bonacina </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Date</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 18, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -368,91 +345,143 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<section id="preface" class="level1 unnumbered page-columns page-full">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a <span class="TODO">draft</span> of a set of lecture notes for the <span class="def">Theory of Computation</span> course at UPC. The current notes are a work in progress and are meant to be used by the students of the groups 12 and 21 of the course 2026/2027 Q1.</p>
+<p>In this chapter we see minimization algorithms for DFAs, that is algorithms that given as input a DFA <span class="math inline">A</span> find <strong>the</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> DFA <span class="math inline">B</span> with the smallest number of states possible s.t. <span class="math inline">\mathscr{L}(B)=\mathscr{L}(A)</span>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please use the <a href="https://docs.google.com/forms/d/e/1FAIpQLSeDGc575TjveptTnCeoDJH_l4DX0UxdpI_WX2S2BfbSITaaoA/viewform?usp=publish-editor">issue tracker</a> to report typos, mistakes, or any other issues you find in these notes.</p>
+<p>This page is a draft!</p>
 </div>
 </div>
-</div></div><p>The content of these notes is meant to complement the lectures given in the course and the main textbook <span class="citation" data-cites="sipser2013introduction">(<a href="references.html#ref-sipser2013introduction" role="doc-biblioref">Sipser 2013</a>)</span>.</p>
-<p>This set of notes is organized into <span class="def">chapters</span>. Each chapter covers usually a single topic and in each lecture we will usually cover several chapters.</p>
-<section id="on-the-exercises" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="on-the-exercises">On the exercises</h2>
-<p>The point of view of this material is very exercise-focused. For this reason we present many exercises when they would naturally make sense (for instance to check the understanding of some definition) and not at the end of each chapter.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<div class="callout callout-style-default callout-important callout-titled">
+</div></div><p>Notice that the minimal DFA accepting a language is unique, <strong>but</strong> in general there is not a unique minimum NFA accepting a language.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11.1</strong></span> Give an example of a language <span class="math inline">L\subseteq \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}^*</span> and two NFAs <span class="math inline">A</span> and <span class="math inline">B</span> s.t.</p>
+<ul>
+<li><span class="math inline">\mathscr{L}(A)=\mathscr{L}(B)=L</span>,</li>
+<li><span class="math inline">A</span> and <span class="math inline">B</span> have the same number of states,</li>
+<li>no other NFA <span class="math inline">C</span> with strictly less states than <span class="math inline">A</span> has <span class="math inline">\mathscr{L}(C)=L</span>,</li>
+<li><span class="math inline">A</span> and <span class="math inline">B</span> are <strong>not</strong> isomorphic.</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The exercises in this set of notes are <strong>not</strong> the ones you are assigned to solve in the <em>racó</em> assignment. For them please go to the <a href="https://www.cs.upc.edu/tc/">course website</a>.</p>
+<p>Finding a minimum DFA equivalent to a given DFA is a different task than, given a DFA show that it is minimal. For example, if you just want to prove minimality sometimes it is easier/faster to construct a <span class="def">fooling set</span> (see <a href="non_regularity.html#sec-fooling-sets" class="quarto-xref"><span>Section 14.1</span></a>).</p>
 </div>
 </div>
-</div></div><p>Exercises are marked in different ways to highlight some of their <em>meta</em> properties.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Marker</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">🌱</span></td>
-<td>Starter and warm-up exercise. You should be able to solve it in a few minutes (usually even less). If you are struggling on this type of exercises please reach out.</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">🔥</span></td>
-<td>Hard (but doable) exercise. <br>If you are solving an exercise with this marker, it means you should spend more time on it and possibly reach out for help/hints.</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">🔥🔥</span></td>
-<td>Very hard exercise. We might see this type of exercise in class.</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">✨</span></td>
-<td>Open ended and more philosophical exercise.</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">👥</span></td>
-<td>This exercise is an in-class activity.</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">🏔️</span></td>
-<td>Exercise with a lot of small steps that eventually will allow you to “climb-up” to a nice and very non-trivial result.</td>
-</tr>
-</tbody>
-</table>
-
-
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-sipser2013introduction" class="csl-entry" role="listitem">
-Sipser, Michael. 2013. <em>Introduction to the Theory of Computation</em>. 3rd ed. Cengage Learning.
-</div>
-</div>
+<section id="the-minimum-dfa-formal-definition" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="the-minimum-dfa-formal-definition"><span class="header-section-number">11.1</span> The minimum DFA (formal definition)</h2>
+<p>Given a DFA <span class="math inline">A=(Q,\Sigma,\{q_0\},F,\delta)</span>, to find the minimum DFA for <span class="math inline">\mathscr{L}(A)</span>, first remove all unreachable states from the initial state <span class="math inline">q_0</span>: those are clearly redundant. For simplicity of notation let’s call again <span class="math inline">A</span> the DFA obtained after removing all those unreachable states.</p>
+<p>We say that two states <span class="math inline">q,q'\in Q</span> are <span class="def">equivalent</span> if <span id="eq-equiv"><span class="math display">
+\mathscr{L}(A_q)=\mathscr{L}(A_{q'})\ ,
+\tag{11.1}</span></span></p>
+<p>where <span class="math inline">A_q</span> is the DFA obtained from <span class="math inline">A</span> marking the initial state of <span class="math inline">A</span> as a normal state and taking as new initial state <span class="math inline">q</span> (and similarly for <span class="math inline">A_{q'}</span>). If <span class="math inline">q</span> and <span class="math inline">q'</span> are equivalent, then they <em>behave in the same way</em> w.r.t. acceting or not words and hence can be identified.</p>
+<p>Let <span class="math inline">[q]</span> be the set of all states equivalent to <span class="math inline">q</span>, that is <span class="math display">
+[q]=\{q'\in Q :\mathscr{L}(A_q)=\mathscr{L}(A_{q'})\}\ .
+</span> The <span class="def">minimum DFA</span> <span class="math inline">\tilde A=(Q',\Sigma,I',F',\delta')</span> equivalent to <span class="math inline">A</span> has</p>
+<ul>
+<li><span class="math inline">Q'=\{[q] :q\in Q\}</span>,</li>
+<li><span class="math inline">I'=\{[q_0]\}</span>, where <span class="math inline">q_0</span> is the initial state of <span class="math inline">A</span>,</li>
+<li><span class="math inline">F'=\{[q] :q\in F\}</span>, where <span class="math inline">F</span> are the final states of <span class="math inline">A</span>,</li>
+<li><span class="math inline">\delta':Q'\times \Sigma\to Q'</span> where <span class="math display">
+\delta'([q],\textcolor{darkred}{\mathtt{s}})=[\delta(q,\textcolor{darkred}{\mathtt{s}})]\ .
+</span></li>
+</ul>
+<p>The main difficulty in <em>computing</em> the minimum DFA is to compute <span class="math inline">Q'</span>, that is the partition of the states of <span class="math inline">Q</span> induced by the equivalence. In the next couple of sections we see two algorithms to compute <span class="math inline">\tilde A</span>.</p>
 </section>
+<section id="moores-minimization-algorithm" class="level2 page-columns page-full" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="moores-minimization-algorithm"><span class="header-section-number">11.2</span> Moore’s minimization algorithm</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Work in progress.</p>
+</div>
+</div>
+
+<!--
+For every $q\in Q$ we want to compute $[q]$. [Moore's minimization algorithm]{.def} is a partition refinement algorithm that computes $\sim$ starting with a very coarse partition of $Q$ and then refining it until reaching $\sim$.
+
+For a DFA $A$, let $\lang{A}_{\leq k}$ be the set of all words in $\lang{A}$ of length at most $k$.
+
+[add algorithm]{.TODO}
+
+[add example: the mod 3 automaton]{.TODO}
+
+[add worst case example]{.TODO}
+-->
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/moore.jpg" class="rounded img-fluid figure-img" style="width:60.0%"></p>
+<figcaption><a href="https://en.wikipedia.org/wiki/Edward_F._Moore">Edward F. Moore (1925-2003)</a></figcaption>
+</figure>
+</div>
+</div></div></section>
+<section id="minimization-brzozowski-style" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="minimization-brzozowski-style"><span class="header-section-number">11.3</span> Minimization <em>Brzozowski’ style</em></h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Work in progress.</p>
+</div>
+</div>
+<!--
+
+To compute the minimum DFA equivalent to a given one you only need to know the determinization construction (from @thm-equivalence-NFA-DFA) and how to construct a DFA for the reverse language (that is inverting the direction of the transitions and exchanging the role of initial and final states).
+
+:::{#thm-}
+
+## Brzozowski's minimization algorithm
+Given 
+[add brozozowski minimization]{.TODO}
+:::
+
+[mention worst case cost]{.TODO}
+
+[add example: the mod 3 automaton]{.TODO}
+
+
+## References
+
+[Give reference, @sipser2013introduction does not contain anything on this.]{.TODO}
+-->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The DFA <span class="math inline">B</span> is unique up to renaming of the states.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -860,10 +889,13 @@ Sipser, Michael. 2013. <em>Introduction to the Theory of Computation</em>. 3rd e
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../ch1/experiment_with_DFAs.html" class="pagination-link" aria-label="Experiment with Finite Automata">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ch0/intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch1/regular_expressions.html" class="pagination-link" aria-label="Regular expressions">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../ch2/intro.html" rel="next">
+<link href="../ch1/minimization.html" rel="next">
 <link href="../ch1/finite_automata.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1ef031c348a99a9edd66d94b3d1c95f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -122,7 +122,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -242,6 +242,36 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/minimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -279,17 +309,11 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#dfas-for-unionintersectioncomplement" id="toc-dfas-for-unionintersectioncomplement" class="nav-link active" data-scroll-target="#dfas-for-unionintersectioncomplement"><span class="header-section-number">10.1</span> DFAs for union/intersection/complement/…</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/experiment_with_DFAs.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -310,6 +334,13 @@ window.Quarto = {
 </header>
 
 
+<div class="hidden">
+
+</div>
+<p>In this chapter we suggest some resources/exercises/activities to get more familar with what can be done using <span class="math inline">\varepsilon</span>-NFAs and DFAs. Regarding the resources available, you have the <a href="https://racso.lsi.upc.edu/juezwsgi/exercise-list?inputkind=dfa">RACSO</a> webpage and the exercises on the <a href="https://www.cs.upc.edu/tc/en/PS1.html">Problem Set 2</a> from the TC course main page.</p>
+<p>Other useful exercises are the following.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -320,25 +351,66 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is a draft!</p>
+<p>I might update the list of exercises in the upcoming weeks.</p>
 </div>
 </div>
-<div class="hidden">
-
+</div></div><div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.1</strong></span> Using your favourite (or the more suitable) programming language write down a program that given as input a DFA/NFA <span class="math inline">A</span> and a word <span class="math inline">w</span> outputs whether <span class="math inline">w\in\mathscr{L}(A)</span>.</p>
+<p>If you are already learning <a href="https://www.swi-prolog.org">SWI-Prolog</a> (for instance if you are attending the <a href="https://www.cs.upc.edu/~li/">Logics in Information Technology</a> course at UPC) try to do this exercise using this programming language.</p>
 </div>
-<p>In this chapter we suggest some exercises/activities to get more familar with <span class="math inline">\varepsilon</span>-NFAs and DFAs.</p>
-<section id="dfas-for-unionintersectioncomplement" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="dfas-for-unionintersectioncomplement"><span class="header-section-number">10.1</span> DFAs for union/intersection/complement/…</h2>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10.1</strong></span> For each of the following languages <span class="math inline">L</span> construct a DFA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span> and a DFA <span class="math inline">B</span> s.t. <span class="math inline">\mathscr{L}(B)=\overline L</span></p>
+<p><span class="theorem-title"><strong>Exercise 10.2 (DFAs for the length of words)</strong></span> Let <span class="math inline">n,k\in \mathbb N</span> and <span class="math inline">L_{n,k}\subseteq \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^*</span> be the following language: <span class="math display">
+L_{n,k}=\{w \in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* :|w|\in n\mathbb N+k\}\ .
+</span></p>
+<p>For each of the following values of the parameters <span class="math inline">n</span> and <span class="math inline">k</span>, write a DFA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L_{n,k}</span>:</p>
 <ol type="a">
-<li><span class="math inline">L=\{\textcolor{darkred}{\mathtt{aa}}x:x\in\{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^*\}</span>.</li>
-</ol>
-<p>(a)<span class="math inline">L=\{w \in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* :|w|\in 3\mathbb N+1\}</span>.</p>
-<ol type="a">
-<li><span class="math inline">L=\{w \in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* :\mathtt{value}_2(w)\in 3\mathbb N\}</span>.</li>
+<li><span class="math inline">n=2</span> and <span class="math inline">k=0</span>.</li>
+<li><span class="math inline">n=3</span> and <span class="math inline">k=0</span>.</li>
+<li><span class="math inline">n=3</span> and <span class="math inline">k=1</span>.</li>
+<li><span class="math inline">n</span> and <span class="math inline">k</span> arbitrary.</li>
 </ol>
 </div>
+<div id="exr-modular-counting" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.3 (DFAs for modular counting)</strong></span> Let <span class="math inline">n\in \mathbb N</span> and <span class="math inline">L_n\subseteq \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^*</span> be the following language: <span class="math display">
+L_n=\{w \in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* :\mathtt{value}_2(w)\in n\mathbb N\}\ .
+</span></p>
+<p>For each of the following values of the parameter <span class="math inline">n</span>, write a DFA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L_n</span>:</p>
+<ol type="a">
+<li>(<span class="math inline">🌱</span>) <span class="math inline">n=2</span>.</li>
+<li><span class="math inline">n=3</span>.</li>
+<li><span class="math inline">n=4</span>. Find an <span class="math inline">A</span> with <span class="math inline">3</span> states.</li>
+<li><span class="math inline">n=5</span>.</li>
+<li><span class="math inline">n=6</span>.</li>
+<li><span class="math inline">n=7</span>.</li>
+<li><span class="math inline">n=8</span>. Find an <span class="math inline">A</span> with <span class="math inline">4</span> states.</li>
+<li><span class="math inline">n=2^k</span>. Find an <span class="math inline">A</span> with <span class="math inline">k+1</span> states.</li>
+<li><span class="math inline">n\in 2\mathbb N +1</span>.</li>
+<li>(<span class="math inline">🔥</span>) <span class="math inline">n=2^kd</span> with <span class="math inline">d\in 2\mathbb N+1</span>. Find and <span class="math inline">A</span> with <span class="math inline">k+d</span> states.</li>
+</ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.4</strong></span> Write a DFA for the language <span class="math inline">\{w\in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* :\binom{|w|}{2}\in 6\mathbb{N}+4\}</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Maintain both <span class="math inline">\binom{|w|}{2} \pmod{6}</span> and <span class="math inline">|w| \pmod{6}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<!--
+
+## DFAs for union/intersection/complement/...
+
 <!--
 
 ## Automata related to modular counting
@@ -355,7 +427,6 @@ Warning
 -->
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -767,8 +838,8 @@ Warning
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../ch2/intro.html" class="pagination-link" aria-label="Context-Free Languages">
-        <span class="nav-page-text">Context-Free Languages</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch1/minimization.html" class="pagination-link" aria-label="Minimization of DFAs">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

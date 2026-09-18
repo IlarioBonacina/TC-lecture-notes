@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../ch2/intro.html" rel="next">
+<link href="../ch1/experiment_with_DFAs.html" rel="next">
 <link href="../ch1/intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -44,10 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1ef031c348a99a9edd66d94b3d1c95f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -239,6 +236,42 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/minimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -293,7 +326,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/finite_automata.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></h1>
+<h1 class="title"><span id="sec-finite-automata" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></h1>
 </div>
 
 
@@ -314,7 +347,24 @@ window.Quarto = {
 
 </div>
 <p>In this chapter we investigate our first couple of computational models: <span class="math inline">\varepsilon</span>-NFAs and DFAs, and we show their equivalence (<a href="#thm-equivalence-NFA-DFA" class="quarto-xref">Theorem&nbsp;<span>9.2</span></a>).</p>
-<section id="sec-NFA" class="level2 page-columns page-full" data-number="9.1">
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Updates post-class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>The phrasing of <a href="#def-language-accepted" class="quarto-xref">Definition&nbsp;<span>9.1</span></a> slightly changed. (18/09/2026)</li>
+</ul>
+</div>
+</div>
+</div></div><section id="sec-NFA" class="level2 page-columns page-full" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="sec-NFA"><span class="header-section-number">9.1</span> Nondeterministic Finite Automata</h2>
 <p>Informally a <span class="def">Nondeterministic Finite Automaton</span> (<span class="def"><span class="math inline">\varepsilon</span>-NFA</span>) <span class="math inline">A</span> is a directed graph (with loops) where the edges have labels which are either <span class="math inline">\varepsilon</span> or some symbol from a given alphabet <span class="math inline">\Sigma</span>, and there are two sets of distinguished vertices (the <span class="def">initial</span> and <span class="def">final</span>, or <span class="def">accepting</span> states). The set of initial states must be non-empty, but the set of final states may be empty. The graph can have multiple edges between two vertices, and it can have loops (edges from a vertex to itself).</p>
 <p>The vertices of the graph are usually called <span class="def">states</span>, the edges <span class="def">transitions</span>.</p>
@@ -327,7 +377,7 @@ window.Quarto = {
 <div id="fig-NFA-states-example" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-NFA-states-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="8c9beb074a8c4f84ffb2adf668521a31282256b2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;9.1: "><img src="finite_automata_files/mediabag/8c9beb074a8c4f84ffb2adf668521a31282256b2.svg" class="img-fluid figure-img"></a>
+<img src="finite_automata_files/mediabag/8c9beb074a8c4f84ffb2adf668521a31282256b2.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-NFA-states-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.1
@@ -343,7 +393,7 @@ Figure&nbsp;9.1
 <div id="fig-NFA-transitions-example" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-NFA-transitions-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="ce864a48369abc65a8f78d2eec9d0e97a2f7e6d6.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;9.2: "><img src="finite_automata_files/mediabag/ce864a48369abc65a8f78d2eec9d0e97a2f7e6d6.svg" class="img-fluid figure-img"></a>
+<img src="finite_automata_files/mediabag/ce864a48369abc65a8f78d2eec9d0e97a2f7e6d6.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-NFA-transitions-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.2
@@ -353,7 +403,7 @@ Figure&nbsp;9.2
 <div id="fig-NFA-transitions-example-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-NFA-transitions-example-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="317dfbf20448201896f5a1c119d22433841312d4.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;9.3: "><img src="finite_automata_files/mediabag/317dfbf20448201896f5a1c119d22433841312d4.svg" class="img-fluid figure-img"></a>
+<img src="finite_automata_files/mediabag/317dfbf20448201896f5a1c119d22433841312d4.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-NFA-transitions-example-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.3
@@ -382,13 +432,13 @@ Figure&nbsp;9.3
 </div>
 </div>
 <p>We associate a language to an <span class="math inline">\varepsilon</span>-NFA as follows.</p>
-<div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9.1</strong></span> The <span class="def">language accepted</span> by an <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> is <span class="def"><span class="math inline">\mathscr{L}(A)</span></span>. A word <span class="math inline">w\in \Sigma^*</span> is in <span class="math inline">\mathscr{L}(A)</span> if and only if there exist a sequence of states <span class="math inline">q_1,\dots,q_m</span> in <span class="math inline">A</span> s.t.</p>
+<div id="def-language-accepted" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 9.1</strong></span> The <span class="def">language accepted</span> by an <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> is <span class="def"><span class="math inline">\mathscr{L}(A)</span></span>. A word <span class="math inline">w\in \Sigma^*</span> is in <span class="math inline">\mathscr{L}(A)</span> if and only if there exist a sequence of states <span class="math inline">q_1,\dots,q_m</span> in <span class="math inline">A</span> and <span class="math inline">s_1,\dots,s_{m-1}\in \Sigma\cup\{\varepsilon\}</span> s.t.</p>
 <ul>
 <li><span class="math inline">q_1</span> is an initial state of <span class="math inline">A</span>;</li>
-<li><span class="math inline">q_m</span> is a final state of <span class="math inline">A</span>; and</li>
-<li>for each <span class="math inline">i\in \{1,\dots, m-1\}</span>, <span class="math inline">(q_i,q_{i+1})</span> is an edge in <span class="math inline">A</span> (<em>i.e.</em> the sequence of vertices is a path); and</li>
-<li>the concatenation of the labels in the path <span class="math inline">q_1,\dots,q_m</span> gives the word <span class="math inline">w</span>.</li>
+<li><span class="math inline">q_m</span> is a final state of <span class="math inline">A</span>;</li>
+<li>for each <span class="math inline">i\in \{1,\dots, m-1\}</span>, <span class="math inline">(q_i,s_i,q_{i+1})</span> is in the transition relation of <span class="math inline">A</span>, that is <span class="math inline">(q_i,q_{i+1})</span> is an edge in <span class="math inline">A</span> with label <span class="math inline">s_i</span>; and</li>
+<li>the concatenation <span class="math inline">s_1\cdots s_{m-1}</span> gives the word <span class="math inline">w</span>.</li>
 </ul>
 <p>The path <span class="math inline">q_1,\dots,q_m</span> is an <span class="def">accepting path</span> for <span class="math inline">w</span> in <span class="math inline">A</span>.</p>
 </div>
@@ -397,7 +447,7 @@ Figure&nbsp;9.3
 <div id="fig-NFA-lang-example" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-NFA-lang-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="4225aa5a86dc97c4a9dc1ee068e959b2c614c312.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;9.4: "><img src="finite_automata_files/mediabag/4225aa5a86dc97c4a9dc1ee068e959b2c614c312.svg" class="img-fluid figure-img"></a>
+<img src="finite_automata_files/mediabag/4225aa5a86dc97c4a9dc1ee068e959b2c614c312.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-NFA-lang-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.4
@@ -406,7 +456,7 @@ Figure&nbsp;9.4
 </div>
 <p>What is the language <span class="math inline">\mathscr{L}(A)</span> accepted by the <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> in <a href="#fig-NFA-lang-example" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>?</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -415,7 +465,7 @@ Figure&nbsp;9.4
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The language accepted by the <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> in <a href="#fig-NFA-lang-example" class="quarto-xref">Figure&nbsp;<span>9.4</span></a> is the empty word <span class="math inline">\varepsilon</span> together with the set of words in <span class="math inline">\{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}^*</span> that contain at least one occurrence of the word <span class="math inline">\textcolor{darkred}{\mathtt{ab}}</span>, that is</p>
 <p><span class="math display">
@@ -425,7 +475,7 @@ Figure&nbsp;9.4
 </div>
 </div>
 </div>
-<div id="exr-" class="theorem exercise">
+<div id="exr-NFA-simple" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.1 (Simple (almost trivial) <span class="math inline">\varepsilon</span>-NFAs)</strong></span> Contruct <span class="math inline">\varepsilon</span>-NFAs for the following languages:</p>
 <ol type="a">
 <li><span class="math inline">\emptyset</span>.</li>
@@ -445,7 +495,7 @@ Figure&nbsp;9.4
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.3</strong></span> Given an <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span>, show that there exists an <span class="math inline">\varepsilon</span>-NFA <span class="math inline">B</span> with exactly one initial and one final state s.t. <span class="math inline">\mathscr{L}(A)=\mathscr{L}(B)</span>.</p>
 </div>
-<div id="exr-" class="theorem exercise">
+<div id="exr-NFA-closure" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.4 (Operations on <span class="math inline">\varepsilon</span>-NFAs)</strong></span> Given <span class="math inline">\varepsilon</span>-NFAs <span class="math inline">A</span> and <span class="math inline">B</span>,</p>
 <ol type="a">
 <li>construct an <span class="math inline">\varepsilon</span>-NFA accepting <span class="math inline">\mathscr{L}(A)\cup\mathscr{L}(B)</span>.</li>
@@ -477,7 +527,7 @@ Figure&nbsp;9.4
 <div id="fig-DFA-example" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-DFA-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="ff23fbeb20e35daa3711776445e50dbe34036f3d.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;9.5: "><img src="finite_automata_files/mediabag/ff23fbeb20e35daa3711776445e50dbe34036f3d.svg" class="img-fluid figure-img"></a>
+<img src="finite_automata_files/mediabag/ff23fbeb20e35daa3711776445e50dbe34036f3d.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-DFA-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.5
@@ -507,7 +557,7 @@ Figure&nbsp;9.5
 <div id="thm-equivalence-NFA-epsilon" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 9.1</strong></span> For every <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span>, there exists an <span class="math inline">\varepsilon</span>-NFA <span class="math inline">B</span> <em>without <span class="math inline">\varepsilon</span> transitions</em> s.t. <span class="math inline">\mathscr{L}(A)=\mathscr{L}(B)</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -516,7 +566,7 @@ Figure&nbsp;9.5
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">A=(Q,\Sigma,I,F,\delta)</span>. For two states <span class="math inline">q,q'\in Q</span> we write <span class="math inline">q\stackrel{\varepsilon^*}{\to}q'</span> if <span class="math inline">q'</span> is reachable from <span class="math inline">q</span> following <span class="math inline">0</span> or more <span class="math inline">\varepsilon</span>-transitions and we write <span class="math inline">q\stackrel{\textcolor{darkred}{\mathtt{s}}}{\to}q'</span> if <span class="math inline">(q,\textcolor{darkred}{\mathtt{s}},q')\in \delta</span>, that is if <span class="math inline">q'</span> is reachable in one step from <span class="math inline">q</span> following a transition with label <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>.</p>
 <p>Let’s now describe the <span class="math inline">\varepsilon</span>-NFA <span class="math inline">B=(Q,\Sigma,I,F',\delta')</span> <em>without <span class="math inline">\varepsilon</span> transitions</em> s.t. <span class="math inline">\mathscr{L}(A)=\mathscr{L}(B)</span>:</p>
@@ -542,7 +592,7 @@ The argument to prove this containment is similar to the previous one and left a
 <div id="fig-NFA-lang-example-no-epsilon" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-NFA-lang-example-no-epsilon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="5423eb1fb0dc9792bd5cb0c061f8b1bb4cba8283.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;9.6: "><img src="finite_automata_files/mediabag/5423eb1fb0dc9792bd5cb0c061f8b1bb4cba8283.svg" class="img-fluid figure-img"></a>
+<img src="finite_automata_files/mediabag/5423eb1fb0dc9792bd5cb0c061f8b1bb4cba8283.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-NFA-lang-example-no-epsilon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.6
@@ -569,7 +619,7 @@ Figure&nbsp;9.6
 <div id="thm-equivalence-NFA-DFA" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 9.2</strong></span> For every <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span>, there exists a DFA <span class="math inline">B</span> s.t. <span class="math inline">\mathscr{L}(A)=\mathscr{L}(B)</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -578,7 +628,7 @@ Figure&nbsp;9.6
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>By <a href="#thm-equivalence-NFA-epsilon" class="quarto-xref">Theorem&nbsp;<span>9.1</span></a>, there is an NFA <span class="math inline">C</span> without <span class="math inline">\varepsilon</span>-transitions s.t. <span class="math inline">\mathscr{L}(A)=\mathscr{L}(C)</span>. Let <span class="math inline">C=(Q,\Sigma,I,F,\delta)</span>. The idea behind the construction of the DFA <span class="math inline">B</span> is to keep track in what states of <span class="math inline">Q</span> we can be after reading <span class="math inline">0</span>, <span class="math inline">1</span>, <span class="math inline">2</span>, etc symbols. These are the states of <span class="math inline">B</span>.</p>
 <p>At the beginning, <em>i.e.</em> after reading <span class="math inline">0</span> symbols we can be in any of the initial states <span class="math inline">I</span> of <span class="math inline">Q</span>. For each <span class="math inline">S\subseteq Q</span> and symbol <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>, what are the sets we can go from some some state in <span class="math inline">S</span> following a transition with label <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span> maintaining the invariant that if we could have been in any of the states in <span class="math inline">S</span>, following the transition with label <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span> we can end-up in <em>any</em> of the states of the new set? We can only go to the set of states</p>
@@ -608,7 +658,7 @@ Figure&nbsp;9.6
 <div id="exm-NFA-to-DFA" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.6</strong></span> As an example let’s apply the powerset construction to the <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> in <a href="#fig-NFA-lang-example" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>. First we obtain an NFA eliminating all the <span class="math inline">\varepsilon</span>-transitions from <span class="math inline">A</span> and we obtain the NFA <span class="math inline">C</span> in <a href="#fig-NFA-lang-example-no-epsilon" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>. Since <span class="math inline">C</span> has <span class="math inline">5</span> states, applying the construction of <a href="#thm-equivalence-NFA-DFA" class="quarto-xref">Theorem&nbsp;<span>9.2</span></a> to the NFA <span class="math inline">C</span> leads to a DFA <span class="math inline">B</span> with <span class="math inline">2^5=32</span> states. It is obvious that most of them will be redundant, for example already in <span class="math inline">C</span> the state <span class="math inline">q_2</span> is useless since it has no incoming transition.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -617,7 +667,7 @@ Figure&nbsp;9.6
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let’s construct <span class="math inline">B</span> step by step, <em>i.e.</em> only introducing the states that we can actually reach from the initial state.</p>
 <p>The initial state of <span class="math inline">B</span> is <span class="math inline">\{q_0,q_4\}</span>. The part of <span class="math inline">B</span> seen so far is:</p>
@@ -641,7 +691,7 @@ Figure&nbsp;9.6
 <div id="fig-NFA-DFA-example" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-NFA-DFA-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="697dd4400b6923a739c833932c051334f7f92bfd.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;9.7: A DFA accepting the same language of the \varepsilon-NFA of Figure&nbsp;fig-NFA-lang-example."><img src="finite_automata_files/mediabag/697dd4400b6923a739c833932c051334f7f92bfd.svg" class="img-fluid figure-img"></a>
+<img src="finite_automata_files/mediabag/697dd4400b6923a739c833932c051334f7f92bfd.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-NFA-DFA-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.7: A DFA accepting the same language of the <span class="math inline">\varepsilon</span>-NFA of <a href="#fig-NFA-lang-example" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>.
@@ -655,7 +705,7 @@ Figure&nbsp;9.7: A DFA accepting the same language of the <span class="math inli
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.10</strong></span> Based on the proof of <a href="#thm-equivalence-NFA-DFA" class="quarto-xref">Theorem&nbsp;<span>9.2</span></a> and <a href="#exm-NFA-to-DFA" class="quarto-xref">Example&nbsp;<span>9.6</span></a> give an explicit algorithm that given as input an <span class="math inline">\varepsilon</span>-NFA gives as output an equivalent DFA. What is the worst case cost of the algorithm w.r.t. the number of states of the <span class="math inline">\varepsilon</span>-NFA gives as input?</p>
 </div>
-<div id="exr-" class="theorem exercise">
+<div id="exr-NFA-DFA-example-worst-case" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.11</strong></span> Given <span class="math inline">n\in \mathbb N</span>, consider the language <span class="math display">
 L_n=\{x\textcolor{darkred}{\mathtt{a}}y :x,y\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* \land |y|=n\}\ ,
 </span> that is, <span class="math inline">L_n</span> is the set of all words over <span class="math inline">\{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}</span> with an <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span> in the <span class="math inline">n+1</span>-th position from the end of the word.</p>
@@ -1099,44 +1149,12 @@ L_n=\{x\textcolor{darkred}{\mathtt{a}}y :x,y\in \{\textcolor{darkred}{\mathtt{a}
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../ch2/intro.html" class="pagination-link" aria-label="Context-Free Languages">
-        <span class="nav-page-text">Context-Free Languages</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch1/experiment_with_DFAs.html" class="pagination-link" aria-label="Experiment with Finite Automata">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

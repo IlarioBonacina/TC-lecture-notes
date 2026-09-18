@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ilario Bonacina">
-<meta name="dcterms.date" content="2026-09-18">
 
-<title>TC lecture notes (draft)</title>
+<title>13&nbsp; \mathbf{Regular} – the set of all regular languages – TC lecture notes (*draft*)</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,46 +23,28 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./ch0/intro.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ch1/non_regularity.html" rel="next">
+<link href="../ch1/regular_expressions.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -142,7 +122,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked slimcontent quarto-light">
+<body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -151,7 +131,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/regular_languages.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -166,7 +146,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">TC lecture notes (<em>draft</em>)</a> 
+      <a href="../">TC lecture notes (<em>draft</em>)</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -178,13 +158,13 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch0/intro.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch0/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -193,49 +173,49 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/notation.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/notation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/proofs.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/proofs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proofs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/functions_cardinality.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/functions_cardinality.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions and cardinality</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/words_and_languages.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/words_and_languages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Words, languages, sets-of-languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/operations_on_words.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/operations_on_words.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Operations on words</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/operations_on_languages.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/operations_on_languages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Operations on languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/closure_properties.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/closure_properties.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Closure properties</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch0/exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch0/exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
   </div>
 </li>
@@ -243,52 +223,52 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch1/intro.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch1/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regular Languages</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/finite_automata.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/finite_automata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/minimization.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/minimization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/regular_languages.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1/exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch1/exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
   </div>
 </li>
@@ -296,31 +276,31 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch2/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Context-Free Languages</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch3/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Computability</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="brown">References</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./credits.html" class="sidebar-item-text sidebar-link">
+  <a href="../credits.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Credits &amp; Copyright</span></a>
   </div>
 </li>
@@ -329,33 +309,29 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#closure-properties" id="toc-closure-properties" class="nav-link active" data-scroll-target="#closure-properties"><span class="header-section-number">13.1</span> Closure properties</a></li>
+  <li><a href="#decision-problems" id="toc-decision-problems" class="nav-link" data-scroll-target="#decision-problems"><span class="header-section-number">13.2</span> Decision problems</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full column-body" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/regular_languages.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">TC lecture notes (<em>draft</em>)</h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ilario Bonacina </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Date</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 18, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -368,91 +344,231 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<section id="preface" class="level1 unnumbered page-columns page-full">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a <span class="TODO">draft</span> of a set of lecture notes for the <span class="def">Theory of Computation</span> course at UPC. The current notes are a work in progress and are meant to be used by the students of the groups 12 and 21 of the course 2026/2027 Q1.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
+<p>In this chapter we collect sistematically some results we saw in previous chapters (<a href="finite_automata.html" class="quarto-xref"><span>Chapter 9</span></a>, <a href="minimization.html" class="quarto-xref"><span>Chapter 11</span></a>, and <a href="regular_expressions.html" class="quarto-xref"><span>Chapter 12</span></a>): make sure you have already read them!</p>
+<p>We saw that there are three different ways to describe some languages:</p>
+<ul>
+<li>using regular expressions (see <a href="regular_expressions.html" class="quarto-xref"><span>Chapter 12</span></a>),</li>
+<li>using DFAs (<a href="finite_automata.html#sec-DFA" class="quarto-xref"><span>Section 9.2</span></a>), and</li>
+<li>using <span class="math inline">\varepsilon</span>-NFAs (<a href="finite_automata.html#sec-NFA" class="quarto-xref"><span>Section 9.1</span></a>).</li>
+</ul>
+<p>In particular, we proved theorems that showed the equivalence of the three models. We collect such results in <a href="#thm-regular" class="quarto-xref">Theorem&nbsp;<span>13.1</span></a> below.</p>
+<div id="thm-regular" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 13.1</strong></span> Let <span class="math inline">L\subseteq \Sigma^*</span>. The following are equivalent:</p>
+<ol type="1">
+<li>there exists a regular expression <span class="math inline">r</span> over <span class="math inline">\Sigma</span> s.t. <span class="math inline">\mathscr{L}(r)=L</span>.</li>
+<li>there exists a DFA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>.</li>
+<li>there exists an <span class="math inline">\varepsilon</span>-NFA <span class="math inline">B</span> s.t. <span class="math inline">\mathscr{L}(B)=L</span>.</li>
+</ol>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+<span class="screen-reader-only">Note</span>Proof [<em>See if you can fill in the details yourself (before looking at the proof).</em>]
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Please use the <a href="https://docs.google.com/forms/d/e/1FAIpQLSeDGc575TjveptTnCeoDJH_l4DX0UxdpI_WX2S2BfbSITaaoA/viewform?usp=publish-editor">issue tracker</a> to report typos, mistakes, or any other issues you find in these notes.</p>
+<p>Its proof is just collecting results seen so far.</p>
+<p>The implication <span class="math inline">(1)\implies (3)</span> follows easily from the NFAs you constructed in <a href="finite_automata.html#exr-NFA-simple" class="quarto-xref">Exercise&nbsp;<span>9.1</span></a> and <a href="finite_automata.html#exr-NFA-closure" class="quarto-xref">Exercise&nbsp;<span>9.4</span></a>.<br>
+The implication <span class="math inline">(3)\implies (2)</span> is <a href="finite_automata.html#thm-equivalence-NFA-DFA" class="quarto-xref">Theorem&nbsp;<span>9.2</span></a>.<br>
+The implication <span class="math inline">(2)\implies (1)</span> is <a href="regular_expressions.html#thm-equivalence-regex-DFAs" class="quarto-xref">Theorem&nbsp;<span>12.1</span></a>.</p>
 </div>
 </div>
-</div></div><p>The content of these notes is meant to complement the lectures given in the course and the main textbook <span class="citation" data-cites="sipser2013introduction">(<a href="references.html#ref-sipser2013introduction" role="doc-biblioref">Sipser 2013</a>)</span>.</p>
-<p>This set of notes is organized into <span class="def">chapters</span>. Each chapter covers usually a single topic and in each lecture we will usually cover several chapters.</p>
-<section id="on-the-exercises" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="on-the-exercises">On the exercises</h2>
-<p>The point of view of this material is very exercise-focused. For this reason we present many exercises when they would naturally make sense (for instance to check the understanding of some definition) and not at the end of each chapter.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>The exercises in this set of notes are <strong>not</strong> the ones you are assigned to solve in the <em>racó</em> assignment. For them please go to the <a href="https://www.cs.upc.edu/tc/">course website</a>.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13.1</strong></span> Prove the implication <span class="math inline">(1)\implies (3)</span> of <a href="#thm-regular" class="quarto-xref">Theorem&nbsp;<span>13.1</span></a>.</p>
 </div>
+<p>The previous theorem justifies the following definition.</p>
+<div id="def-regular" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 13.1 (regular language)</strong></span> A language <span class="math inline">L\subseteq \Sigma^*</span> is <span class="def">regular</span> if <em>any</em> of the conditions in <a href="#thm-regular" class="quarto-xref">Theorem&nbsp;<span>13.1</span></a> hold. <span class="math inline">\mathbf{Regular}</span> is the set of all regular languages.</p>
 </div>
-</div></div><p>Exercises are marked in different ways to highlight some of their <em>meta</em> properties.</p>
+<p>In particular, to show that a language <span class="math inline">L</span> is regular you don’t need to construct a DFA! You have the freedom of constructing a <span class="math inline">\varepsilon</span>-NFA or a regular expression!</p>
+<div id="exr-regular-contains-finite" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13.2</strong></span> Show that <span class="math inline">\mathbf{Finite}\cup \mathbf{co}\mathbf{Finite}\subsetneq\mathbf{Regular}</span>. (Notice that you already did part of this exercise in <a href="../ch0/closure_properties.html#exr-regular-contains-finite-prelim" class="quarto-xref">Exercise&nbsp;<span>7.5</span></a>.)</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13.3</strong></span> Show that for every alphabet <span class="math inline">\Sigma</span>, the set of all regular languages over <span class="math inline">\Sigma</span> is countable. As a consequence of this, also show that there must exist uncountably many languages <span class="math inline">L\subseteq \Sigma^*</span> that are not in <span class="math inline">\mathbf{Regular}</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13.4</strong></span> Given the description of a regular language as a regex/DFA/NFA, what is the cost of (a reasonable) algorithm that produces a description of the same language but with one of the other options?</p>
+<p>Fill the following matrix with the cost of the algorithms you found (or inferred from the theorems used to prove <a href="#thm-regular" class="quarto-xref">Theorem&nbsp;<span>13.1</span></a>).</p>
+<p>For example, the <code>?</code> at the cell in row <code>input: DFA</code> and column <code>output: $\emptyword$-NFA</code> needs to be filled with the cost of an algorithm that given a DFA <span class="math inline">A</span> as input, needs to output an <span class="math inline">\varepsilon</span>-NFA accepting the same language. Since DFAs are special cases of <span class="math inline">\varepsilon</span>-NFA the algorithm is trivial, the cost is just to the cost to write down the input in the output: <span class="math inline">\mathcal{O}(n)</span> (where <span class="math inline">DFA</span> description of the input had length <span class="math inline">n</span>).</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Marker</th>
-<th>Meaning</th>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">output: Regex</th>
+<th style="text-align: center;">output: DFA</th>
+<th style="text-align: center;">output: <span class="math inline">\varepsilon</span>-NFA</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">🌱</span></td>
-<td>Starter and warm-up exercise. You should be able to solve it in a few minutes (usually even less). If you are struggling on this type of exercises please reach out.</td>
+<td style="text-align: left;">input: Regex</td>
+<td style="text-align: center;"><span class="math inline">🌱</span></td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;"><span class="math inline">🌱</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">🔥</span></td>
-<td>Hard (but doable) exercise. <br>If you are solving an exercise with this marker, it means you should spend more time on it and possibly reach out for help/hints.</td>
+<td style="text-align: left;">input: DFA</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;"><span class="math inline">🌱</span></td>
+<td style="text-align: center;"><span class="math inline">🌱</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">🔥🔥</span></td>
-<td>Very hard exercise. We might see this type of exercise in class.</td>
+<td style="text-align: left;">input: <span class="math inline">\varepsilon</span>-NFA</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;"><span class="math inline">🌱</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="closure-properties" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="closure-properties"><span class="header-section-number">13.1</span> Closure properties</h2>
+<p>In the previous chapters we saw (or left as exercise to show) that <span class="math inline">\mathbf{Regular}</span> is closed under union, intersection, complement, reverse, concatenation, Kleene star, homomorphisms, and inverse homomorphisms.</p>
+<p>For each operation, the cost of computing the resulting language depends on how the input languages are presented (as regexes/DFAs/<span class="math inline">\varepsilon</span>-NFAs) and how we want to present the output language.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13.5</strong></span> Fill the following table with the cost (in the worst case) of computing the operations (on the rows) when both the inputs and outputs are given as regexes/DFAs/<span class="math inline">\varepsilon</span>-NFAs (as specified on the columns).</p>
+<p>Express the cost as a function of the number of symbols (for regexes) or number of vertices (for DFAs/<span class="math inline">\varepsilon</span>-NFAs).</p>
+<p>For example, given two regexes <span class="math inline">r,s</span> with <span class="math inline">n</span> and <span class="math inline">m</span> symbols respectively, the union of the two languages can be represented by the regex <span class="math inline">r+s</span> with <span class="math inline">n+m+\mathcal{O}(1)</span> symbols which is computed in <span class="math inline">\mathcal{O}(n+m)</span> time.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Regex</th>
+<th style="text-align: center;">DFA</th>
+<th style="text-align: center;"><span class="math inline">\varepsilon</span>-NFA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Union</td>
+<td style="text-align: center;"><span class="math inline">🌱</span> <span class="math inline">\mathcal{O}(n+m)</span></td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;"><span class="math inline">🌱</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">✨</span></td>
-<td>Open ended and more philosophical exercise.</td>
+<td style="text-align: left;">Intersection</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">👥</span></td>
-<td>This exercise is an in-class activity.</td>
+<td style="text-align: left;">Complement</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;"><span class="math inline">🌱</span></td>
+<td style="text-align: center;">?</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">🏔️</span></td>
-<td>Exercise with a lot of small steps that eventually will allow you to “climb-up” to a nice and very non-trivial result.</td>
+<td style="text-align: left;">Reverse</td>
+<td style="text-align: center;"><span class="math inline">🌱</span></td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Concatenation</td>
+<td style="text-align: center;"><span class="math inline">🌱</span></td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kleene star</td>
+<td style="text-align: center;"><span class="math inline">🌱</span></td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Homomorphism</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Inverse homomorphism</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+</tbody>
+</table>
+<p>The <span class="math inline">🌱</span> symbol marks some operations/representation-formats that are trivial to compute.</p>
+</div>
+</section>
+<section id="decision-problems" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="decision-problems"><span class="header-section-number">13.2</span> Decision problems</h2>
+<p>In the previous chapters we saw algorithms that could be used to answer some natural decision problems on regular languages. In this section you are asked to revise them and fill the following table.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13.6</strong></span> Fill the following table with the cost (in the worst case) of computing natural decision problems (on the rows) when the description of the regular language <span class="math inline">L</span> is given as a regex/DFA/<span class="math inline">\varepsilon</span>-NFA (as specified on the columns).</p>
+<p>Express the cost as a function of the number of symbols (for regexes) or number of vertices (for DFAs/<span class="math inline">\varepsilon</span>-NFAs).</p>
+<p>For example, “<span class="math inline">L_1=L_2</span>?” means: given descriptions of <span class="math inline">L_1</span> and <span class="math inline">L_2</span> both as regexes/DFAs/NFAs, what is the (worst case) cost of deciding whether <span class="math inline">L_1=L_2</span>?</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Regex</th>
+<th style="text-align: center;">DFA</th>
+<th style="text-align: center;"><span class="math inline">\varepsilon</span>-NFA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Is the word <span class="math inline">w</span> in <span class="math inline">\mathscr{L}(L)</span>? (<span class="math inline">w</span> is also given as input)</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Is <span class="math inline">L=\emptyset</span>?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Is <span class="math inline">L</span> finite?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Is <span class="math inline">L_1=L_2</span>?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
 </tr>
 </tbody>
 </table>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-sipser2013introduction" class="csl-entry" role="listitem">
-Sipser, Michael. 2013. <em>Introduction to the Theory of Computation</em>. 3rd ed. Cengage Learning.
-</div>
 </div>
 </section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>In <a href="non_regularity.html" class="quarto-xref"><span>Chapter 14</span></a>, we see some explicit languages that do not belong to <span class="math inline">\mathbf{Regular}</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -860,10 +976,13 @@ Sipser, Michael. 2013. <em>Introduction to the Theory of Computation</em>. 3rd e
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../ch1/regular_expressions.html" class="pagination-link" aria-label="Regular expressions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ch0/intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch1/non_regularity.html" class="pagination-link" aria-label="Non-regularity">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
