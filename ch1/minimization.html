@@ -391,14 +391,24 @@ window.Quarto = {
 
 </div>
 <p>In this chapter we see minimization algorithms for DFAs, that is algorithms that given as input a DFA <span class="math inline">A</span> find <strong>the</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> DFA <span class="math inline">B</span> with the smallest number of states possible s.t. <span class="math inline">\mathscr{L}(B)=\mathscr{L}(A)</span>.</p>
-<!--
-:::{.aside}
-:::{.callout-warning}
-This page is a draft!
-:::
-:::
--->
-<div class="callout callout-style-default callout-important callout-titled">
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Updates post-class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="#exm-min-NFA-not-unique" class="quarto-xref">Example&nbsp;<span>11.1</span></a>: fixed a bug in the proof (22/09/2026)</li>
+</ul>
+</div>
+</div>
+</div></div><div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -434,7 +444,7 @@ Figure&nbsp;11.1: Two non-isomorphic minimal NFAs accepting <span class="math in
 <p>It should be clear that both NFAs accept <span class="math inline">L</span> and that they are not isomorphic.</p>
 <p>What is not obvious is that there is no NFA with <span class="math inline">4</span> or less states accepting <span class="math inline">L</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -443,18 +453,13 @@ Figure&nbsp;11.1: Two non-isomorphic minimal NFAs accepting <span class="math in
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>To see this, consider an arbitrary NFA <span class="math inline">A=(Q,\Sigma,I,F,\delta)</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>. For <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> let <span class="math inline">X_{\textcolor{darkred}{\mathtt{s}}}</span> be the set of states reachable in <span class="math inline">A</span> from an initial state reading <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span>, that is <span class="math display">
+<p>Towards a contradiction let <span class="math inline">A=(Q,\Sigma,I,F,\delta)</span> be an NFA s.t. <span class="math inline">\mathscr{L}(A)=L</span> with <span class="math inline">|Q|\leq 4</span>. For <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> let <span class="math inline">X_{\textcolor{darkred}{\mathtt{s}}}</span> be the set of states reachable in <span class="math inline">A</span> from an initial state reading <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span>, that is <span class="math display">
 X_{\textcolor{darkred}{\mathtt{s}}}=\{q\in Q:\exists q_0\in I\ (q_0,\textcolor{darkred}{\mathtt{s}},q)\in \delta\}\ .
-</span> It is not hard to see that <span class="math inline">I,X_{\textcolor{darkred}{\mathtt{a}}},X_{\textcolor{darkred}{\mathtt{b}}},X_{\textcolor{darkred}{\mathtt{c}}},F</span> must be all pairwise disjoint. For example, <span class="math inline">X_{\textcolor{darkred}{\mathtt{a}}}</span> and <span class="math inline">X_{\textcolor{darkred}{\mathtt{b}}}</span> are disjoint since from the first set there must exist an edge with label <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span> leading to a final state, but if this would happen from a state in <span class="math inline">X_{\textcolor{darkred}{\mathtt{b}}}</span> then <span class="math inline">A</span> would accept <span class="math inline">\textcolor{darkred}{\mathtt{bb}}</span>, which it doesn’t. In a similar way</p>
-<ul>
-<li>all the <span class="math inline">X_{\textcolor{darkred}{\mathtt{a}}},X_{\textcolor{darkred}{\mathtt{b}}},X_{\textcolor{darkred}{\mathtt{c}}}</span> must be disjoint;</li>
-<li><span class="math inline">I</span> and <span class="math inline">F</span> are disjoint since <span class="math inline">\varepsilon\notin L</span>;</li>
-<li>for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">I\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since otherwise <span class="math inline">A</span> would accept words of length larger than <span class="math inline">2</span>; and, finally,</li>
-<li>for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">F\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since othwerwise <span class="math inline">A</span> would accept words of length <span class="math inline">1</span>.</li>
-</ul>
-<p>Since <span class="math inline">I,X_{\textcolor{darkred}{\mathtt{a}}},X_{\textcolor{darkred}{\mathtt{b}}},X_{\textcolor{darkred}{\mathtt{c}}},F</span> are pairwise disjoint, then, by the pigeonhole principle (see <a href="../ch0/proofs.html#sec-php" class="quarto-xref"><span>Section 2.2.1</span></a>), <span class="math inline">|Q|\geq 5</span>.</p>
+</span></p>
+<p>The sets <span class="math inline">I</span> and <span class="math inline">F</span> are non-empty and disjoint (since <span class="math inline">\varepsilon\notin L</span>), moreover for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">I\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since otherwise <span class="math inline">A</span> would accept words of length larger than <span class="math inline">2</span> and for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">F\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since otherwise <span class="math inline">A</span> would accept words of length <span class="math inline">1</span>. That is <span class="math inline">|X_{\textcolor{darkred}{\mathtt{a}}}\cup X_{\textcolor{darkred}{\mathtt{b}}}\cup X_{\textcolor{darkred}{\mathtt{c}}}|\leq 2</span>.</p>
+<p>It is easy to see that for three non-empty sets s.t. <span class="math inline">|X_{\textcolor{darkred}{\mathtt{a}}}\cup X_{\textcolor{darkred}{\mathtt{b}}}\cup X_{\textcolor{darkred}{\mathtt{c}}}|\leq 2</span>, at least two of them must be contained in each other, that is there are <span class="math inline">\textcolor{darkred}{\mathtt{s_1}},\textcolor{darkred}{\mathtt{s_2}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> with <span class="math inline">\textcolor{darkred}{\mathtt{s_1}}\neq \textcolor{darkred}{\mathtt{s_2}}</span> and <span class="math inline">X_{\textcolor{darkred}{\mathtt{s_1}}}\subseteq X_{\textcolor{darkred}{\mathtt{s_2}}}</span>. Then <span class="math inline">A</span> would accept both the word <span class="math inline">\textcolor{darkred}{\mathtt{s_1s_2}}</span> and the word <span class="math inline">\textcolor{darkred}{\mathtt{s_2s_2}}</span> but <span class="math inline">\textcolor{darkred}{\mathtt{s_2s_2}}\notin L</span>. This contradiction shows that and <span class="math inline">A</span> with at most <span class="math inline">4</span> states accepting <span class="math inline">L</span> cannot exist.</p>
 </div>
 </div>
 </div>
@@ -574,7 +579,7 @@ Tip
 </ul>
 <p>If <span class="math inline">s[q,\pi]\neq s[q',\pi]</span> it means that either <span class="math inline">q</span> and <span class="math inline">q'</span> do not belong to the same set of <span class="math inline">\pi</span> or that there exist a symbol <span class="math inline">\textcolor{darkred}{\mathtt{s_i}}\in \Sigma</span> s.t. <span class="math inline">\delta(q,\textcolor{darkred}{\mathtt{s_i}})</span> and <span class="math inline">\delta(q',\textcolor{darkred}{\mathtt{s_i}})</span> do not belong to the same set of <span class="math inline">\pi</span>. In either case <span class="math inline">q</span> and <span class="math inline">q'</span> cannot be equivalent.</p>
 <p>The idea is to keep refining the partition using the signature to mark states that cannot be equivalent until the partition stabilizes. When the partition does not change anymore we found the partition induced by <span class="math inline">\sim</span>, and stop the procedure.</p>
-<div class="pseudocode-container quarto-float" data-pseudocode-number="1" data-comment-delimiter="//" data-line-number-punc=":" data-caption-prefix="Algorithm" data-indent-lines="false" data-no-end="false" data-indent-size="1.2em" data-line-number="false">
+<div class="pseudocode-container quarto-float" data-no-end="false" data-indent-lines="false" data-indent-size="1.2em" data-comment-delimiter="//" data-caption-prefix="Algorithm" data-pseudocode-number="1" data-line-number="false" data-line-number-punc=":">
 <div class="pseudocode">
 \begin{algorithm} \caption{Computing the refined partition $\pi'$ from $\pi$} \begin{algorithmic} \ForAll{$q \in \{1,\ldots,n\}$} \State $s[q,\pi] \gets (\pi[q],\, \pi[\delta(q,\textcolor{darkred}{\mathtt{s_1}})],\, \ldots,\, \pi[\delta(q, \textcolor{darkred}{\mathtt{s_k}})])$ \EndFor \State compute the permutation $\sigma$ that sorts the states according to $s$ \State $i \gets 1$ \State $\pi'[\sigma(1)] \gets i$ \ForAll{$q \in \{2,\ldots,n\}$} \If{$s[\sigma(q),\pi] \ne s[\sigma(q-1),\pi]$} \State $i \gets i + 1$ \EndIf \State $\pi'[\sigma(q)] \gets i$ \EndFor \Return $\pi'$ \end{algorithmic} \end{algorithm}
 </div>
@@ -592,7 +597,7 @@ Figure&nbsp;11.2
 </figure>
 </div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -601,7 +606,7 @@ Figure&nbsp;11.2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For convenience, we also write the DFA in <a href="#fig-ex1-minimization" class="quarto-xref">Figure&nbsp;<span>11.2</span></a> as a table representing the transition function <span class="math inline">\delta</span>.</p>
 <table class="caption-top table">
@@ -816,7 +821,7 @@ Figure&nbsp;11.2
 </tbody>
 </table>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -825,7 +830,7 @@ Figure&nbsp;11.2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Since <span class="math inline">1</span> and <span class="math inline">7</span> have the same transtions one of them is clearly redundant. Let’s re-route all incoming transitions on <span class="math inline">7</span> to <span class="math inline">1</span>:</p>
 <table class="caption-top table">
