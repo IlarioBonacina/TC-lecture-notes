@@ -44,7 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-6bc594922ba1846ff4b7a481f06f2bdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,6 +77,30 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+    <style type="text/css">
+    .ps-root .ps-algorithm {
+      border-top: 2px solid;
+      border-bottom: 2px solid;
+    }
+    .pseudocode-container {
+      text-align: left;
+    }
+    .callout .pseudocode-container .ps-root {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .callout .pseudocode-container .ps-root .ps-algorithm p {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    </style>
+  
+      <style type="text/css">
+      .ps-algorithm > .ps-line {
+        text-align: left;
+      }
+      </style>
+    
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -345,14 +371,22 @@ window.Quarto = {
 
 </div>
 <p>In this chapter we define <span class="def">regular expressions</span>, which informally give a way to describe algebraically <em>all</em> the languages for which we were able to write DFAs/NFAs. If you ever used the Linux command <code>grep</code> you have already used regular expressions (but with a different syntax than the one we use here).</p>
-<p>Given an alphabet <span class="math inline">\Sigma</span>,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> consider the language <span class="math inline">\Sigma\cup \{\textcolor{darkred}{\mathtt{(}},\textcolor{darkred}{\mathtt{)}}, \textcolor{darkred}{\mathtt{\cdot}}, \textcolor{darkred}{\mathtt{+}},\textcolor{darkred}{\mathtt{\phantom{}^*}},\textcolor{darkred}{\mathtt{\varepsilon}},\textcolor{darkred}{\mathtt{\emptyset}}\}</span>. The language of <span class="def">regular expressions</span> over <span class="math inline">\Sigma</span> is defined as follows:</p>
-<!--
-:::{.aside}
-:::{.callout-warning}
-This is a draft!
-:::
-:::
--->
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is a draft!</p>
+</div>
+</div>
+</div></div><p>Given an alphabet <span class="math inline">\Sigma</span>,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> consider the language <span class="math inline">\Sigma\cup \{\textcolor{darkred}{\mathtt{(}},\textcolor{darkred}{\mathtt{)}}, \textcolor{darkred}{\mathtt{\cdot}}, \textcolor{darkred}{\mathtt{+}},\textcolor{darkred}{\mathtt{\phantom{}^*}},\textcolor{darkred}{\mathtt{\varepsilon}},\textcolor{darkred}{\mathtt{\emptyset}}\}</span>. The language of <span class="def">regular expressions</span> over <span class="math inline">\Sigma</span> is defined as follows:</p>
 <ul>
 <li><span class="math inline">\textcolor{darkred}{\mathtt{\emptyset}}</span> is a regular expression;</li>
 <li><span class="math inline">\textcolor{darkred}{\mathtt{\varepsilon}}</span> is a regular expression;</li>
@@ -406,7 +440,7 @@ This is a draft!
 <li>(<span class="math inline">🔥</span>) <span class="math inline">(\varepsilon+ \textcolor{darkred}{\mathtt{b}})\textcolor{darkred}{\mathtt{a}}^*(\textcolor{darkred}{\mathtt{b}} + \textcolor{darkred}{\mathtt{bba}}^*)^* \equiv \textcolor{darkred}{\mathtt{b}}^*(\textcolor{darkred}{\mathtt{a}} + \textcolor{darkred}{\mathtt{bb}} + \textcolor{darkred}{\mathtt{bbb}})^*\textcolor{darkred}{\mathtt{b}}^*</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -415,7 +449,7 @@ This is a draft!
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>To prove some of the items (especially, the last three), it is useful to apply previous equivalences.</p>
 </div>
@@ -428,7 +462,7 @@ This is a draft!
 </div></div><div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 12.4</strong></span> Given a regular expression <span class="math inline">r</span> and a word <span class="math inline">w</span>, give an algorithm that with input <span class="math inline">r</span> and <span class="math inline">w</span> decides whether <span class="math inline">w\in \mathscr{L}(r)</span> or not. What is the asymptotic cost of your algorithm w.r.t. the number of symbols in <span class="math inline">r</span> and <span class="math inline">w</span>?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -437,7 +471,7 @@ This is a draft!
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A possibility is to use the Brzozowski derivative (see <a href="../ch0/operations_on_languages.html" class="quarto-xref"><span>Chapter 6</span></a>).</p>
 </div>
@@ -461,7 +495,7 @@ X=A X\cup B\ ,
 \tag{12.1}</span></span> then <span class="math inline">X=A^* B</span> is the smallest solution of <a href="#eq-arden" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>.<br>
 If <span class="math inline">\varepsilon\notin A</span> then, this is the only solution. If <span class="math inline">\varepsilon\in A</span>, then for every <span class="math inline">C\subseteq \Sigma^*</span>, <span class="math inline">X=A^*(B\cup C)</span> is a solution of <a href="#eq-arden" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -470,7 +504,7 @@ If <span class="math inline">\varepsilon\notin A</span> then, this is the only s
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First we check that <span class="math inline">A^* B</span> is always a solution of <a href="#eq-arden" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>: <span class="math display">
 A(A^* B)\cup B = A^+ B\cup B = (A^+\cup \{\varepsilon\}) B = A^* B\ .
@@ -499,7 +533,7 @@ A(A^*(B\cup C))=A^+(B\cup C)\stackrel{\varepsilon\in A}{=}A^*(B\cup C)\ ,
 <div id="thm-equivalence-regex-DFAs" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 12.1</strong></span> Given a DFA <span class="math inline">A</span>, there exists a regular expression <span class="math inline">r</span> s.t. <span class="math inline">\mathscr{L}(r)=\mathscr{L}(A)</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -508,7 +542,7 @@ A(A^*(B\cup C))=A^+(B\cup C)\stackrel{\varepsilon\in A}{=}A^*(B\cup C)\ ,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">A=(Q,\Sigma,q_0,F,\delta)</span> be a DFA. For each <span class="math inline">q\in Q</span>, let <span class="math inline">X_q</span> be the language of all words that would be accepted by <span class="math inline">A</span> if <span class="math inline">q</span> were the initial state (instead of <span class="math inline">q_0</span>). Notice that <span id="eq-Xj"><span class="math display">
 X_q=
@@ -1019,6 +1053,39 @@ L=\{w \in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* 
   </div>
 </nav>
 </div> <!-- /content -->
+    <script type="text/javascript">
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let pseudocodeOptions = {
+          indentSize: el.dataset.indentSize,
+          commentDelimiter: " " + el.dataset.commentDelimiter + " ",
+          lineNumber: el.dataset.lineNumber.toLowerCase() === "true",
+          lineNumberPunc: el.dataset.lineNumberPunc,
+          noEnd: el.dataset.noEnd.toLowerCase() === "true",
+          scopeLines: el.dataset.indentLines.toLowerCase() === "true",
+          titlePrefix: el.dataset.captionPrefix,
+        };
+        pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+      });
+    })(document);
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+        if (captionSpan !== null) {
+          let captionPrefix = el.dataset.captionPrefix + " ";
+          let captionNumber = "";
+          if (el.dataset.pseudocodeNumber) {
+            captionNumber = el.dataset.pseudocodeNumber + " ";
+            if (el.dataset.chapterLevel) {
+              captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+            }
+          }
+          captionSpan.innerHTML = captionPrefix + captionNumber;
+        }
+      });
+    })(document);
+    </script>
+  
 
 
 

@@ -44,7 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-6bc594922ba1846ff4b7a481f06f2bdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,6 +77,30 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+    <style type="text/css">
+    .ps-root .ps-algorithm {
+      border-top: 2px solid;
+      border-bottom: 2px solid;
+    }
+    .pseudocode-container {
+      text-align: left;
+    }
+    .callout .pseudocode-container .ps-root {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .callout .pseudocode-container .ps-root .ps-algorithm p {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    </style>
+  
+      <style type="text/css">
+      .ps-algorithm > .ps-line {
+        text-align: left;
+      }
+      </style>
+    
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -315,7 +341,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#shifting-a-language" id="toc-shifting-a-language" class="nav-link active" data-scroll-target="#shifting-a-language"><span class="header-section-number">8.1</span> Shifting a language</a></li>
-  <li><a href="#the-brzozowski-derivative" id="toc-the-brzozowski-derivative" class="nav-link" data-scroll-target="#the-brzozowski-derivative"><span class="header-section-number">8.2</span> The Brzozowski derivative</a></li>
+  <li><a href="#sec-brzozowski-derivative" id="toc-sec-brzozowski-derivative" class="nav-link" data-scroll-target="#sec-brzozowski-derivative"><span class="header-section-number">8.2</span> The Brzozowski derivative</a></li>
   </ul>
 </nav>
     </div>
@@ -439,8 +465,8 @@ Warning
 </ol>
 </div>
 </section>
-<section id="the-brzozowski-derivative" class="level2 page-columns page-full" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="the-brzozowski-derivative"><span class="header-section-number">8.2</span> The Brzozowski derivative</h2>
+<section id="sec-brzozowski-derivative" class="level2 page-columns page-full" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="sec-brzozowski-derivative"><span class="header-section-number">8.2</span> The Brzozowski derivative</h2>
 <p>The Brzozowski derivative is basically the opposite of concatenation. Given a language <span class="math inline">L\subseteq \Sigma^*</span> and a word <span class="math inline">w\in \Sigma^*</span>, the <span class="def">Brzozowski derivative of <span class="math inline">L</span> w.r.t. <span class="math inline">w</span></span> is <span class="math display">
 \partial_{w}(L)=\{z:wz\in L\}\ .
 </span></p>
@@ -895,6 +921,39 @@ L=\eta(L) \cup \bigcup_{\textcolor{darkred}{\mathtt{s}}\in \Sigma}\textcolor{dar
   </div>
 </nav>
 </div> <!-- /content -->
+    <script type="text/javascript">
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let pseudocodeOptions = {
+          indentSize: el.dataset.indentSize,
+          commentDelimiter: " " + el.dataset.commentDelimiter + " ",
+          lineNumber: el.dataset.lineNumber.toLowerCase() === "true",
+          lineNumberPunc: el.dataset.lineNumberPunc,
+          noEnd: el.dataset.noEnd.toLowerCase() === "true",
+          scopeLines: el.dataset.indentLines.toLowerCase() === "true",
+          titlePrefix: el.dataset.captionPrefix,
+        };
+        pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+      });
+    })(document);
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+        if (captionSpan !== null) {
+          let captionPrefix = el.dataset.captionPrefix + " ";
+          let captionNumber = "";
+          if (el.dataset.pseudocodeNumber) {
+            captionNumber = el.dataset.pseudocodeNumber + " ";
+            if (el.dataset.chapterLevel) {
+              captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+            }
+          }
+          captionSpan.innerHTML = captionPrefix + captionNumber;
+        }
+      });
+    })(document);
+    </script>
+  
 
 
 

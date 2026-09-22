@@ -44,7 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-6bc594922ba1846ff4b7a481f06f2bdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,6 +77,30 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+    <style type="text/css">
+    .ps-root .ps-algorithm {
+      border-top: 2px solid;
+      border-bottom: 2px solid;
+    }
+    .pseudocode-container {
+      text-align: left;
+    }
+    .callout .pseudocode-container .ps-root {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .callout .pseudocode-container .ps-root .ps-algorithm p {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    </style>
+  
+      <style type="text/css">
+      .ps-algorithm > .ps-line {
+        text-align: left;
+      }
+      </style>
+    
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -388,13 +414,29 @@ The implication <span class="math inline">(2)\implies (1)</span> is <a href="reg
 </div>
 <p>In particular, to show that a language <span class="math inline">L</span> is regular you don’t need to construct a DFA! You have the freedom of constructing a <span class="math inline">\varepsilon</span>-NFA or a regular expression!</p>
 <div id="exr-regular-contains-finite" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.2</strong></span> Show that <span class="math inline">\mathbf{Finite}\cup \mathbf{co}\mathbf{Finite}\subsetneq\mathbf{Regular}</span>. (Notice that you already did part of this exercise in <a href="../ch0/closure_properties.html#exr-regular-contains-finite-prelim" class="quarto-xref">Exercise&nbsp;<span>7.5</span></a>.)</p>
+<p><span class="theorem-title"><strong>Exercise 13.2</strong></span> Show<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> that <span class="math inline">\mathbf{Finite}\cup \mathbf{co}\mathbf{Finite}\subsetneq\mathbf{Regular}</span>.</p>
+</div>
+<div id="exr-regular-generated" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 13.3</strong></span> The set of all languages over <span class="math inline">\Sigma^*</span> (that is <span class="math inline">\mathscr{P}(\Sigma^*)</span>) has the following properties</p>
+<ul>
+<li>it contains <span class="math inline">\emptyset</span>;</li>
+<li>it contains <span class="math inline">\{\varepsilon\}</span>;</li>
+<li>it contains <span class="math inline">\{\textcolor{darkred}{\mathtt{s}}\}</span> for each symbol <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>;</li>
+<li>it is closed under union;</li>
+<li>it is closed under concatenation;</li>
+<li>is is closed under Kleene star</li>
+</ul>
+<p>Show<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> that <span class="math inline">\mathbf{Regular}</span> is the smallest (w.r.t. inclusion) set of languages with the properties above, that is show that</p>
+<ol type="a">
+<li><span class="math inline">\mathbf{Regular}</span> has the properties above, and</li>
+<li>every class of languages with the properties above contains <span class="math inline">\mathbf{Regular}</span>.</li>
+</ol>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.3</strong></span> Show that for every alphabet <span class="math inline">\Sigma</span>, the set of all regular languages over <span class="math inline">\Sigma</span> is countable. As a consequence of this, also show that there must exist uncountably many languages <span class="math inline">L\subseteq \Sigma^*</span> that are not in <span class="math inline">\mathbf{Regular}</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><span class="theorem-title"><strong>Exercise 13.4</strong></span> Show that for every alphabet <span class="math inline">\Sigma</span>, the set of all regular languages over <span class="math inline">\Sigma</span> is countable. As a consequence of this, also show that there must exist uncountably many languages <span class="math inline">L\subseteq \Sigma^*</span> that are not in <span class="math inline">\mathbf{Regular}</span>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.4</strong></span> Given the description of a regular language as a regex/DFA/NFA, what is the cost of (a reasonable) algorithm that produces a description of the same language but with one of the other options?</p>
+<p><span class="theorem-title"><strong>Exercise 13.5</strong></span> Given the description of a regular language as a regex/DFA/NFA, what is the cost of (a reasonable) algorithm that produces a description of the same language but with one of the other options?</p>
 <p>Fill the following matrix with the cost of the algorithms you found (or inferred from the theorems used to prove <a href="#thm-regular" class="quarto-xref">Theorem&nbsp;<span>13.1</span></a>).</p>
 <p>For example, the <code>?</code> at the cell in row <code>input: DFA</code> and column <code>output: $\emptyword$-NFA</code> needs to be filled with the cost of an algorithm that given a DFA <span class="math inline">A</span> as input, needs to output an <span class="math inline">\varepsilon</span>-NFA accepting the same language. Since DFAs are special cases of <span class="math inline">\varepsilon</span>-NFA the algorithm is trivial, the cost is just to the cost to write down the input in the output: <span class="math inline">\mathcal{O}(n)</span> (where <span class="math inline">DFA</span> description of the input had length <span class="math inline">n</span>).</p>
 <table class="caption-top table">
@@ -439,7 +481,7 @@ The implication <span class="math inline">(2)\implies (1)</span> is <a href="reg
 <p>In the previous chapters we saw (or left as exercise to show) that <span class="math inline">\mathbf{Regular}</span> is closed under union, intersection, complement, reverse, concatenation, Kleene star, homomorphisms, and inverse homomorphisms.</p>
 <p>For each operation, the cost of computing the resulting language depends on how the input languages are presented (as regexes/DFAs/<span class="math inline">\varepsilon</span>-NFAs) and how we want to present the output language.</p>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.5</strong></span> Fill the following table with the cost (in the worst case) of computing the operations (on the rows) when both the inputs and outputs are given as regexes/DFAs/<span class="math inline">\varepsilon</span>-NFAs (as specified on the columns).</p>
+<p><span class="theorem-title"><strong>Exercise 13.6</strong></span> Fill the following table with the cost (in the worst case) of computing the operations (on the rows) when both the inputs and outputs are given as regexes/DFAs/<span class="math inline">\varepsilon</span>-NFAs (as specified on the columns).</p>
 <p>Express the cost as a function of the number of symbols (for regexes) or number of vertices (for DFAs/<span class="math inline">\varepsilon</span>-NFAs).</p>
 <p>For example, given two regexes <span class="math inline">r,s</span> with <span class="math inline">n</span> and <span class="math inline">m</span> symbols respectively, the union of the two languages can be represented by the regex <span class="math inline">r+s</span> with <span class="math inline">n+m+\mathcal{O}(1)</span> symbols which is computed in <span class="math inline">\mathcal{O}(n+m)</span> time.</p>
 <table class="caption-top table">
@@ -515,7 +557,7 @@ The implication <span class="math inline">(2)\implies (1)</span> is <a href="reg
 <h2 data-number="13.2" class="anchored" data-anchor-id="decision-problems"><span class="header-section-number">13.2</span> Decision problems</h2>
 <p>In the previous chapters we saw algorithms that could be used to answer some natural decision problems on regular languages. In this section you are asked to revise them and fill the following table.</p>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.6</strong></span> Fill the following table with the cost (in the worst case) of computing natural decision problems (on the rows) when the description of the regular language <span class="math inline">L</span> is given as a regex/DFA/<span class="math inline">\varepsilon</span>-NFA (as specified on the columns).</p>
+<p><span class="theorem-title"><strong>Exercise 13.7</strong></span> Fill the following table with the cost (in the worst case) of computing natural decision problems (on the rows) when the description of the regular language <span class="math inline">L</span> is given as a regex/DFA/<span class="math inline">\varepsilon</span>-NFA (as specified on the columns).</p>
 <p>Express the cost as a function of the number of symbols (for regexes) or number of vertices (for DFAs/<span class="math inline">\varepsilon</span>-NFAs).</p>
 <p>For example, “<span class="math inline">L_1=L_2</span>?” means: given descriptions of <span class="math inline">L_1</span> and <span class="math inline">L_2</span> both as regexes/DFAs/NFAs, what is the (worst case) cost of deciding whether <span class="math inline">L_1=L_2</span>?</p>
 <table class="caption-top table">
@@ -560,14 +602,16 @@ The implication <span class="math inline">(2)\implies (1)</span> is <a href="reg
 </tr>
 </tbody>
 </table>
-
-
 </div>
+
+
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>In <a href="non_regularity.html" class="quarto-xref"><span>Chapter 14</span></a>, we see some explicit languages that do not belong to <span class="math inline">\mathbf{Regular}</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>You already did part of this exercise in <a href="../ch0/closure_properties.html#exr-regular-contains-finite-prelim" class="quarto-xref">Exercise&nbsp;<span>7.5</span></a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In <a href="../ch0/closure_properties.html#exr-finite-generated" class="quarto-xref">Exercise&nbsp;<span>7.4</span></a> you saw a similar exercise for the class of languages <span class="math inline">\mathbf{Finite}</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>In <a href="non_regularity.html" class="quarto-xref"><span>Chapter 14</span></a>, we see some explicit languages that do not belong to <span class="math inline">\mathbf{Regular}</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -987,6 +1031,39 @@ The implication <span class="math inline">(2)\implies (1)</span> is <a href="reg
   </div>
 </nav>
 </div> <!-- /content -->
+    <script type="text/javascript">
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let pseudocodeOptions = {
+          indentSize: el.dataset.indentSize,
+          commentDelimiter: " " + el.dataset.commentDelimiter + " ",
+          lineNumber: el.dataset.lineNumber.toLowerCase() === "true",
+          lineNumberPunc: el.dataset.lineNumberPunc,
+          noEnd: el.dataset.noEnd.toLowerCase() === "true",
+          scopeLines: el.dataset.indentLines.toLowerCase() === "true",
+          titlePrefix: el.dataset.captionPrefix,
+        };
+        pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+      });
+    })(document);
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+        if (captionSpan !== null) {
+          let captionPrefix = el.dataset.captionPrefix + " ";
+          let captionNumber = "";
+          if (el.dataset.pseudocodeNumber) {
+            captionNumber = el.dataset.pseudocodeNumber + " ";
+            if (el.dataset.chapterLevel) {
+              captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+            }
+          }
+          captionSpan.innerHTML = captionPrefix + captionNumber;
+        }
+      });
+    })(document);
+    </script>
+  
 
 
 

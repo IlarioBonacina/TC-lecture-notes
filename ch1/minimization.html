@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -44,7 +63,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8c4ed4d927abd146a10e1d784b0ffbad.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-6bc594922ba1846ff4b7a481f06f2bdb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,6 +96,30 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+    <style type="text/css">
+    .ps-root .ps-algorithm {
+      border-top: 2px solid;
+      border-bottom: 2px solid;
+    }
+    .pseudocode-container {
+      text-align: left;
+    }
+    .callout .pseudocode-container .ps-root {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .callout .pseudocode-container .ps-root .ps-algorithm p {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    </style>
+  
+      <style type="text/css">
+      .ps-algorithm > .ps-line {
+        text-align: left;
+      }
+      </style>
+    
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -346,22 +391,27 @@ window.Quarto = {
 
 </div>
 <p>In this chapter we see minimization algorithms for DFAs, that is algorithms that given as input a DFA <span class="math inline">A</span> find <strong>the</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> DFA <span class="math inline">B</span> with the smallest number of states possible s.t. <span class="math inline">\mathscr{L}(B)=\mathscr{L}(A)</span>.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<div class="callout callout-style-default callout-warning callout-titled">
+<!--
+:::{.aside}
+:::{.callout-warning}
+This page is a draft!
+:::
+:::
+-->
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page is a draft!</p>
+<p><span class="citation" data-cites="sipser2013introduction">Sipser (<a href="../references.html#ref-sipser2013introduction" role="doc-biblioref">2013</a>)</span> leaves the minimization of DFAs as an exercise. A reference for this chapter is <span class="citation" data-cites="hopcroft07">Hopcroft et al. (<a href="../references.html#ref-hopcroft07" role="doc-biblioref">2007, sec. 4.4</a>)</span>.</p>
 </div>
 </div>
-</div></div><p>Notice that the minimal DFA accepting a language is unique, <strong>but</strong> in general there is not a unique minimum NFA accepting a language.</p>
+<p>Notice that the minimal DFA accepting a language is unique, <strong>but</strong> in general there is not a unique minimum NFA accepting a language.</p>
 <div id="exm-min-NFA-not-unique" class="theorem example">
 <p><span class="theorem-title"><strong>Example 11.1</strong></span> We give an example of a language <span class="math inline">L</span> and two non-isomorphic minimal NFAs accepting <span class="math inline">L</span>. Let <span class="math inline">L=\{\textcolor{darkred}{\mathtt{ab}},\textcolor{darkred}{\mathtt{ba}},\textcolor{darkred}{\mathtt{bc}},\textcolor{darkred}{\mathtt{cb}},\textcolor{darkred}{\mathtt{ac}},\textcolor{darkred}{\mathtt{ca}}\}</span>.</p>
 <div id="fig-" class="quarto-layout-panel">
@@ -369,10 +419,10 @@ Warning
 <div aria-describedby="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<img src="minimization_files/mediabag/7ae077cff4339c4e216c61471c5b983191a21420.svg" class="img-fluid figure-img">
+<img src="minimization_files/mediabag/92fcabbeda9da08988dddd1f5b86b41f92e19933.svg" class="img-fluid figure-img">
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<img src="minimization_files/mediabag/4d70813774a086deabd391c94a5675e65d10b29e.svg" class="img-fluid figure-img">
+<img src="minimization_files/mediabag/93fcbf1eff4bdc108f00d8b265da43fbf70f73f1.svg" class="img-fluid figure-img">
 </div>
 </div>
 </div>
@@ -382,7 +432,20 @@ Figure&nbsp;11.1: Two non-isomorphic minimal NFAs accepting <span class="math in
 </figure>
 </div>
 <p>It should be clear that both NFAs accept <span class="math inline">L</span> and that they are not isomorphic.</p>
-<p>What is not obvious is that there is no NFA with <span class="math inline">4</span> or less states accepting <span class="math inline">L</span>. To see this, consider an NFA <span class="math inline">A=(Q,\Sigma,I,F,\delta)</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>. For <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> let <span class="math inline">X_{\textcolor{darkred}{\mathtt{s}}}</span> be the set of states reachable in <span class="math inline">A</span> from an initial state reading <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span>, that is <span class="math display">
+<p>What is not obvious is that there is no NFA with <span class="math inline">4</span> or less states accepting <span class="math inline">L</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To see this, consider an arbitrary NFA <span class="math inline">A=(Q,\Sigma,I,F,\delta)</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>. For <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> let <span class="math inline">X_{\textcolor{darkred}{\mathtt{s}}}</span> be the set of states reachable in <span class="math inline">A</span> from an initial state reading <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span>, that is <span class="math display">
 X_{\textcolor{darkred}{\mathtt{s}}}=\{q\in Q:\exists q_0\in I\ (q_0,\textcolor{darkred}{\mathtt{s}},q)\in \delta\}\ .
 </span> It is not hard to see that <span class="math inline">I,X_{\textcolor{darkred}{\mathtt{a}}},X_{\textcolor{darkred}{\mathtt{b}}},X_{\textcolor{darkred}{\mathtt{c}}},F</span> must be all pairwise disjoint. For example, <span class="math inline">X_{\textcolor{darkred}{\mathtt{a}}}</span> and <span class="math inline">X_{\textcolor{darkred}{\mathtt{b}}}</span> are disjoint since from the first set there must exist an edge with label <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span> leading to a final state, but if this would happen from a state in <span class="math inline">X_{\textcolor{darkred}{\mathtt{b}}}</span> then <span class="math inline">A</span> would accept <span class="math inline">\textcolor{darkred}{\mathtt{bb}}</span>, which it doesn’t. In a similar way</p>
 <ul>
@@ -391,19 +454,23 @@ X_{\textcolor{darkred}{\mathtt{s}}}=\{q\in Q:\exists q_0\in I\ (q_0,\textcolor{d
 <li>for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">I\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since otherwise <span class="math inline">A</span> would accept words of length larger than <span class="math inline">2</span>; and, finally,</li>
 <li>for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">F\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since othwerwise <span class="math inline">A</span> would accept words of length <span class="math inline">1</span>.</li>
 </ul>
-<p>Since <span class="math inline">I,X_{\textcolor{darkred}{\mathtt{a}}},X_{\textcolor{darkred}{\mathtt{b}}},X_{\textcolor{darkred}{\mathtt{c}}},F</span> are pairwise dosjoint, then, by the pigeonhole principle (see <a href="../ch0/proofs.html#sec-php" class="quarto-xref"><span>Section 2.2.1</span></a>), <span class="math inline">|Q|\geq 5</span>.</p>
+<p>Since <span class="math inline">I,X_{\textcolor{darkred}{\mathtt{a}}},X_{\textcolor{darkred}{\mathtt{b}}},X_{\textcolor{darkred}{\mathtt{c}}},F</span> are pairwise disjoint, then, by the pigeonhole principle (see <a href="../ch0/proofs.html#sec-php" class="quarto-xref"><span>Section 2.2.1</span></a>), <span class="math inline">|Q|\geq 5</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>One interesting property of DFAs is that for DFAs an analogoue of the previous <a href="#exm-min-NFA-not-unique" class="quarto-xref">Example&nbsp;<span>11.1</span></a> cannot happen! All minimum DFA accepting a given language are ismorphic. For this reason we refer to <strong>the</strong> minimum DFA accepting a given language.</p>
-<section id="the-minimum-dfa-formal-definition" class="level2" data-number="11.1">
+<section id="the-minimum-dfa-formal-definition" class="level2 page-columns page-full" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="the-minimum-dfa-formal-definition"><span class="header-section-number">11.1</span> The minimum DFA (formal definition)</h2>
 <p>Given a DFA <span class="math inline">A=(Q,\Sigma,\{q_0\},F,\delta)</span>, to find the minimum DFA for <span class="math inline">\mathscr{L}(A)</span>, first remove all unreachable states from the initial state <span class="math inline">q_0</span>: those are clearly redundant. For simplicity of notation let’s call again <span class="math inline">A</span> the DFA obtained after removing all those unreachable states.</p>
-<p>We say that two states <span class="math inline">q,q'\in Q</span> are <span class="def">equivalent</span> if <span id="eq-equiv"><span class="math display">
+<p>We say that two states <span class="math inline">q,q'\in Q</span> are <span class="def">equivalent</span> (<span class="math inline">q\sim q'</span>) if <span id="eq-equiv"><span class="math display">
 \mathscr{L}(A_q)=\mathscr{L}(A_{q'})\ ,
 \tag{11.1}</span></span></p>
-<p>where <span class="math inline">A_q</span> is the DFA obtained from <span class="math inline">A</span> marking the initial state of <span class="math inline">A</span> as a normal state and taking as new initial state <span class="math inline">q</span> (and similarly for <span class="math inline">A_{q'}</span>). If <span class="math inline">q</span> and <span class="math inline">q'</span> are equivalent, then they <em>behave in the same way</em> w.r.t. acceting or not words and hence can be identified.</p>
+<p>where <span class="math inline">A_q</span> is the DFA obtained from <span class="math inline">A</span> marking the initial state of <span class="math inline">A</span> as a normal state and taking as new initial state <span class="math inline">q</span> (and similarly for <span class="math inline">A_{q'}</span>). If <span class="math inline">q\not\sim q'</span>, that is if <span class="math inline">\mathscr{L}(A_q)\neq\mathscr{L}(A_{q'})</span>, we say that <span class="math inline">q</span> and <span class="math inline">q'</span> are <span class="def">distinguishable</span>.</p>
+<p>If <span class="math inline">q</span> and <span class="math inline">q'</span> are equivalent, then they <em>behave in the same way</em> w.r.t. acceting or not words and hence can be identified. That is, if in <span class="math inline">A</span> the states <span class="math inline">q</span> and <span class="math inline">q'</span> are equivalent, then <span class="math inline">q'</span> can be safely removed re-routing all incoming transitions to <span class="math inline">q</span>.</p>
 <p>Let <span class="math inline">[q]</span> be the set of all states equivalent to <span class="math inline">q</span>, that is <span class="math display">
 [q]=\{q'\in Q :\mathscr{L}(A_q)=\mathscr{L}(A_{q'})\}\ .
-</span> The <span class="def">minimum DFA</span> <span class="math inline">\tilde A=(Q',\Sigma,I',F',\delta')</span> equivalent to <span class="math inline">A</span> has</p>
+</span> Let <span class="math inline">\min(A)=(Q',\Sigma,I',F',\delta')</span> be the DFA that has</p>
 <ul>
 <li><span class="math inline">Q'=\{[q] :q\in Q\}</span>,</li>
 <li><span class="math inline">I'=\{[q_0]\}</span>, where <span class="math inline">q_0</span> is the initial state of <span class="math inline">A</span>,</li>
@@ -412,7 +479,34 @@ X_{\textcolor{darkred}{\mathtt{s}}}=\{q\in Q:\exists q_0\in I\ (q_0,\textcolor{d
 \delta'([q],\textcolor{darkred}{\mathtt{s}})=[\delta(q,\textcolor{darkred}{\mathtt{s}})]\ .
 </span></li>
 </ul>
-<p>The main difficulty in <em>computing</em> the minimum DFA is to compute <span class="math inline">Q'</span>, that is the partition of the states of <span class="math inline">Q</span> induced by the equivalence. In the next couple of sections we see two algorithms to compute <span class="math inline">\tilde A</span>.</p>
+<p>It turns out that <span class="math inline">\min(A)</span> is the <span class="def">minimum DFA</span> equivalent to <span class="math inline">A</span>, <em>i.e.</em> <span class="math inline">A</span> and <span class="math inline">\min(A)</span> accept the same language and <span class="math inline">\min(A)</span> has the smallest number of states possible among the DFAs equivalent to <span class="math inline">A</span>.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 11.1</strong></span> For each DFA <span class="math inline">A</span>, the DFA <span class="math inline">\min(A)</span> constructed above has the following properties:</p>
+<ul>
+<li><span class="math inline">\mathscr{L}(A)=\mathscr{L}(\min(A))</span>;</li>
+<li>no DFA with strictly less states than <span class="math inline">\min(A)</span> accepts <span class="math inline">\mathscr{L}(A)</span>;</li>
+<li>all DFA with the same number of states of <span class="math inline">\min(A)</span> are isomorphic to <span class="math inline">\min(A)</span>.</li>
+</ul>
+</div>
+<p>We don’t see the proof of this result in this course (it is a consequence of the <strong>Myhill-Nerode Theorem</strong>), but we leave as an exercise to check the first part of it.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figures/myhill.jpg" class="rounded img-fluid figure-img" style="width:60.0%"></p>
+<figcaption><a href="https://en.wikipedia.org/wiki/John_Myhill">John R. Myhill Sr.&nbsp;(1923-1987)</a></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Anil_Nerode_June_2007.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" class="rounded img-fluid figure-img" style="width:60.0%"></p>
+<figcaption><a href="https://en.wikipedia.org/wiki/Anil_Nerode">Anil Nerode (1932-)</a></figcaption>
+</figure>
+</div>
+</div></div><div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11.1</strong></span> Prove that for DFAs <span class="math inline">A</span> and <span class="math inline">\min(A)</span> as defined above, <span class="math inline">A</span> and <span class="math inline">\min(A)</span> accept the same language.</p>
+</div>
+<p>The main difficulty in <em>computing</em> the minimum DFA is to compute <span class="math inline">Q'</span>, that is the partition of the states of <span class="math inline">Q</span> induced by the equivalence. In the next couple of sections we see two algorithms to compute <span class="math inline">\min(A)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -429,31 +523,7 @@ Tip
 </section>
 <section id="moores-minimization-algorithm" class="level2 page-columns page-full" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="moores-minimization-algorithm"><span class="header-section-number">11.2</span> Moore’s minimization algorithm</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Work in progress.</p>
-</div>
-</div>
 
-<!--
-For every $q\in Q$ we want to compute $[q]$. [Moore's minimization algorithm]{.def} is a partition refinement algorithm that computes $\sim$ starting with a very coarse partition of $Q$ and then refining it until reaching $\sim$.
-
-For a DFA $A$, let $\lang{A}_{\leq k}$ be the set of all words in $\lang{A}$ of length at most $k$.
-
-[add algorithm]{.TODO}
-
-[add example: the mod 3 automaton]{.TODO}
-
-[add worst case example]{.TODO}
--->
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -461,44 +531,535 @@ For a DFA $A$, let $\lang{A}_{\leq k}$ be the set of all words in $\lang{A}$ of 
 <figcaption><a href="https://en.wikipedia.org/wiki/Edward_F._Moore">Edward F. Moore (1925-2003)</a></figcaption>
 </figure>
 </div>
-</div></div></section>
-<section id="minimization-brzozowski-style" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="minimization-brzozowski-style"><span class="header-section-number">11.3</span> Minimization <em>Brzozowski’ style</em></h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
+</div></div><p>For every <span class="math inline">q\in Q</span> we want to compute <span class="math inline">[q]</span>. <span class="def">Moore’s minimization algorithm</span> is a partition refinement algorithm that computes the equivalence <span class="math inline">\sim</span> starting with a very coarse partition of <span class="math inline">Q</span> and then refining it until reaching <span class="math inline">\sim</span>.</p>
+<div id="exr-min-trivial-cases" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11.2 (<span class="math inline">🌱</span> Trivial cases)</strong></span> Given a DFA <span class="math inline">A=(Q,\Sigma,I,F,\delta)</span>, what is the minimum DFA equivalent to <span class="math inline">A</span> if</p>
+<ol type="a">
+<li><span class="math inline">F=\emptyset</span>?</li>
+<li><span class="math inline">F=Q</span>?</li>
+</ol>
+</div>
+<p>In the rest of the section consider fixed a DFA <span class="math inline">A=(Q,\Sigma,\{q_0\},F,\delta)</span> to minimize and assume <span class="math inline">\emptyset\subsetneq F\subsetneq Q</span> (otherwise as seen in <a href="#exr-min-trivial-cases" class="quarto-xref">Exercise&nbsp;<span>11.2</span></a> the minimization is trivial), also assume that <em>all</em> states in <span class="math inline">Q</span> are reachable from <span class="math inline">q_0</span>.</p>
+<p>The idea to find the equivalence classes of <span class="math inline">\sim</span>, that is all states that are distinguishable from each other, is to start approximating <span class="math inline">\sim</span> with finer and finer partitions corresponding to states distuinguishable with words up to length <span class="math inline">0,1,2,\dots</span></p>
+<p>Formally, let <span class="math inline">\mathscr{L}(A)_{\leq k}</span> be the words of length at most <span class="math inline">k</span> accepted by <span class="math inline">A</span>. We say that <span class="math inline">q</span> and <span class="math inline">q'</span> are <span class="def"><span class="math inline">k</span>-equivalent</span> (<span class="math inline">q\sim_k q'</span>) if</p>
+<p><span id="eq-equiv"><span class="math display">
+\mathscr{L}(A_q)_{\leq k}=\mathscr{L}(A_{q'})_{\leq k}\ ,
+\tag{11.2}</span></span></p>
+<p>where <span class="math inline">A_q</span> is the DFA obtained from <span class="math inline">A</span> marking the initial state of <span class="math inline">A</span> as a normal state and taking as new initial state <span class="math inline">q</span> (and similarly for <span class="math inline">A_{q'}</span>). Similarly as before let <span class="math inline">[q]_{k}=\{q'\in Q:q'\sim_k q\}</span>, that is <span class="math inline">[q]_{k}</span> is the set of all states <span class="math inline">k</span>-equivalent to <span class="math inline">q</span>.</p>
+<p>The equivalence classes of <span class="math inline">\sim_0</span> give a partition <span class="math display">
+\pi_0=\{[q]_0:q\in Q\}\ .
+</span></p>
+<p>What is <span class="math inline">\pi_0</span>? The states that can be distinguished with words of length <span class="math inline">0</span> (that is <span class="math inline">\varepsilon</span>), in other words the final vs the non-final states. That is <span class="math inline">\pi_0=\{F,Q\setminus F\}</span>.</p>
+<p>Then we want to compute <span class="math inline">\pi_k=\{[q]_k:q\in Q\}</span> for <span class="math inline">k=1,2,3,\dots</span></p>
+<p>At each step the new partitions get finer and finer, and since the finest possible partition of <span class="math inline">Q</span> is the one that has each vertex separately, the process must stabilize, that is there must exist a <span class="math inline">k</span> s.t. <span class="math inline">\pi_k=\pi_{k+1}</span>. This partition is the one we want, the one corresponding to the states of <span class="math inline">\min(A)</span>.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 11.2</strong></span> If <span class="math inline">\pi_k=\pi_{k+1}</span>, then <span class="math inline">\pi_k=\{[q]:q\in Q\}</span>.</p>
+</div>
+<p>The idea of the algorithm is hence to compute the equivalence classes of <span class="math inline">\sim_0</span>, <span class="math inline">\sim_1</span>, etc. When it stabilizes this gives the equivalence classes of <span class="math inline">\sim</span>. The following exercise shows a way to compute <span class="math inline">\sim_{k+1}</span> from <span class="math inline">\sim_k</span>.</p>
+<div id="exr-sim-update" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11.3</strong></span> Show that <span class="math inline">q\sim_{k+1}q'</span> if and only if <span class="math inline">q\sim_k q'</span> and for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>, <span class="math inline">\delta(q,\textcolor{darkred}{\mathtt{s}})\sim_k \delta(q',\textcolor{darkred}{\mathtt{s}})</span>.</p>
+</div>
+<p>Let <span class="math inline">\Sigma=\{\textcolor{darkred}{\mathtt{s_1}},\dots,\textcolor{darkred}{\mathtt{s_k}}\}</span> and let <span class="math inline">Q=\{1,\dots,n\}</span>. We see a <span class="def">partition over <span class="math inline">Q</span></span> as a vector <span class="math inline">\pi\in\{1,\dots,k\}^n</span> where all the numbers between <span class="math inline">1</span> and <span class="math inline">k</span> appear at least once in <span class="math inline">\pi</span>. Two states <span class="math inline">q</span> and <span class="math inline">q'</span> are in the same set of the partition if and only if <span class="math inline">\pi[q]=\pi[q']</span>.</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11.2</strong></span> If <span class="math inline">n=5</span> the vector <span class="math inline">\pi=(1,2,3,1,3)</span> gives the partition where the vertices <span class="math inline">1</span> and <span class="math inline">4</span> are in the same set, no other vertex is in the same set with <span class="math inline">2</span>, and <span class="math inline">3</span> and <span class="math inline">5</span> are in the same set.</p>
+</div>
+<p>The first partition <span class="math inline">\pi_0</span> of <span class="math inline">Q</span> is given by accepting and non-accepting states:</p>
+<p><span class="math display">
+\pi_0=(b_1,\dots,b_n)\ ,
+</span> where <span class="math inline">b_i=1</span> if <span class="math inline">q\in F</span> and otherwise <span class="math inline">b_i=2</span>.</p>
+<p>In this section we use a couple of non-standard notations. For a partition <span class="math inline">\pi</span> of the vertices of <span class="math inline">Q</span> and <span class="math inline">q\in Q</span>,</p>
+<ul>
+<li>let <span class="def"><span class="math inline">\pi[q]</span></span> be the unique set in <span class="math inline">\pi</span> containing <span class="math inline">q</span>.</li>
+<li>let the <span class="def">signature</span> of <span class="math inline">q</span> be <span class="math inline">s[q,\pi]=(\pi[q],\pi[\delta(q,\textcolor{darkred}{\mathtt{s_1}})],\dots,\pi[\delta(q,\textcolor{darkred}{\mathtt{s_k}})])</span>, that is <span class="math inline">s[q,\pi]</span> is a vector containing as first entry the name of the set in the partition <span class="math inline">\pi</span> containing <span class="math inline">q</span>, and then the names of the sets in <span class="math inline">\pi</span> containing the vertices <span class="math inline">\delta(q,\textcolor{darkred}{\mathtt{s_1}}),\dots,\delta(q,\textcolor{darkred}{\mathtt{s_k}})</span>.</li>
+</ul>
+<p>If <span class="math inline">s[q,\pi]\neq s[q',\pi]</span> it means that either <span class="math inline">q</span> and <span class="math inline">q'</span> do not belong to the same set of <span class="math inline">\pi</span> or that there exist a symbol <span class="math inline">\textcolor{darkred}{\mathtt{s_i}}\in \Sigma</span> s.t. <span class="math inline">\delta(q,\textcolor{darkred}{\mathtt{s_i}})</span> and <span class="math inline">\delta(q',\textcolor{darkred}{\mathtt{s_i}})</span> do not belong to the same set of <span class="math inline">\pi</span>. In either case <span class="math inline">q</span> and <span class="math inline">q'</span> cannot be equivalent.</p>
+<p>The idea is to keep refining the partition using the signature to mark states that cannot be equivalent until the partition stabilizes. When the partition does not change anymore we found the partition induced by <span class="math inline">\sim</span>, and stop the procedure.</p>
+<div class="pseudocode-container quarto-float" data-pseudocode-number="1" data-comment-delimiter="//" data-line-number-punc=":" data-caption-prefix="Algorithm" data-indent-lines="false" data-no-end="false" data-indent-size="1.2em" data-line-number="false">
+<div class="pseudocode">
+\begin{algorithm} \caption{Computing the refined partition $\pi'$ from $\pi$} \begin{algorithmic} \ForAll{$q \in \{1,\ldots,n\}$} \State $s[q,\pi] \gets (\pi[q],\, \pi[\delta(q,\textcolor{darkred}{\mathtt{s_1}})],\, \ldots,\, \pi[\delta(q, \textcolor{darkred}{\mathtt{s_k}})])$ \EndFor \State compute the permutation $\sigma$ that sorts the states according to $s$ \State $i \gets 1$ \State $\pi'[\sigma(1)] \gets i$ \ForAll{$q \in \{2,\ldots,n\}$} \If{$s[\sigma(q),\pi] \ne s[\sigma(q-1),\pi]$} \State $i \gets i + 1$ \EndIf \State $\pi'[\sigma(q)] \gets i$ \EndFor \Return $\pi'$ \end{algorithmic} \end{algorithm}
+</div>
+</div>
+<div id="exm-ex1-minimization" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11.3</strong></span> We continue <a href="finite_automata.html#exm-NFA-to-DFA" class="quarto-xref">Example&nbsp;<span>9.6</span></a> finding now the minimal DFA equivalent to the one found in that exercise. For convenience we re-draw that DFA <span class="math inline">A</span> here (renaming the states):</p>
+<div id="fig-ex1-minimization" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ex1-minimization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="minimization_files/mediabag/6ada3d9466531b5b5301e37639480b092ac1221a.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-ex1-minimization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.2
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+<span class="screen-reader-only">Note</span>Intermediate steps of the algorithm
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Work in progress.</p>
+<p>For convenience, we also write the DFA in <a href="#fig-ex1-minimization" class="quarto-xref">Figure&nbsp;<span>11.2</span></a> as a table representing the transition function <span class="math inline">\delta</span>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{a}}</span></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{b}}</span></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{c}}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+<td>2</td>
+<td>2 +</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>5</td>
+<td>4</td>
+<td>4 +</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>5</td>
+<td>4</td>
+<td>4 +</td>
+</tr>
+</tbody>
+</table>
+<p>(A line ends with a <span class="math inline">+</span> to indicate final states, and the first state <span class="math inline">1</span> is the initial state.)</p>
+<p>We are in the premise of the algorithm since every state is reachable from <span class="math inline">1</span> and there is at least a final and a non-final state.</p>
+<p>The first partition is <span class="math display">
+\pi_0=(1,2,2,1,1)
+</span> marking that the final states are <span class="math inline">1</span>, <span class="math inline">4</span>, and <span class="math inline">5</span>. To compute the new partition we need to find the signature for all vertices:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>vertex <span class="math inline">q</span></th>
+<th>signature <span class="math inline">s[q,\pi_0]</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">(1, 2, 2, 2)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>(2, 2, 2, 2)</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">(2, 2, 1, 2)</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">(1,1,1,1)</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="math inline">(1,1,1,1)</span></td>
+</tr>
+</tbody>
+</table>
+<p>There are 4 different signatures so the new partition is:</p>
+<p><span class="math display">
+\pi_1=(2,4,3,1,1)
+</span></p>
+<p>Since <span class="math inline">\pi_1\neq \pi_0</span> we need to keep refining computing the new signature w.r.t <span class="math inline">\pi_1</span>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>vertex <span class="math inline">q</span></th>
+<th>signature <span class="math inline">s[q,\pi_1]</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">(2, 3, 4, 4)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>(4, 3, 4, 4)</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">(3, 3, 4, 1)</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">(1,1,1,1)</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="math inline">(1,1,1,1)</span></td>
+</tr>
+</tbody>
+</table>
+<p>There are <span class="math inline">4</span> different signatures so the new partition is</p>
+<p><span class="math display">
+\pi_2 =(2,4,3,1,1)\ .
+</span> Since <span class="math inline">\pi_2=\pi_1</span> we are done and we found the partition giving the set of states of <span class="math inline">\min(A)</span>. The table corresponding to <span class="math inline">\min(A)</span> is the following:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{a}}</span></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{b}}</span></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{c}}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\{1\}</span></td>
+<td><span class="math inline">\{3\}</span></td>
+<td><span class="math inline">\{2\}</span></td>
+<td><span class="math inline">\{2\}</span> +</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\{2\}</span></td>
+<td><span class="math inline">\{3\}</span></td>
+<td><span class="math inline">\{2\}</span></td>
+<td><span class="math inline">\{2\}</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\{3\}</span></td>
+<td><span class="math inline">\{3\}</span></td>
+<td><span class="math inline">\{4,5\}</span></td>
+<td><span class="math inline">\{2\}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\{4,5\}</span></td>
+<td><span class="math inline">\{4,5\}</span></td>
+<td><span class="math inline">\{4,5\}</span></td>
+<td><span class="math inline">\{4,5\}</span> +</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<!--
+</div>
+<p>This gives as minimum DFA equivalent to <span class="math inline">A</span>:</p>
+<img src="minimization_files/mediabag/77b11bee0793e23770efcc0d09aaf573fb9e1c5b.svg" class="img-fluid">
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11.4</strong></span> Let’s compute <span class="math inline">\min(A)</span> when <span class="math inline">A</span> is the DFA given by the following table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{0}}</span></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{1}}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0</td>
+<td>2 +</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>7</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>6</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>6</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Intermediate steps (eyeballing + algorithm)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since <span class="math inline">1</span> and <span class="math inline">7</span> have the same transtions one of them is clearly redundant. Let’s re-route all incoming transitions on <span class="math inline">7</span> to <span class="math inline">1</span>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{0}}</span></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{1}}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0</td>
+<td>2 +</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>6</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>The states <span class="math inline">3</span> and <span class="math inline">5</span> are also equivalent. Let’s re-route all incoming transitions on <span class="math inline">5</span> to <span class="math inline">3</span>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{0}}</span></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{1}}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0</td>
+<td>2 +</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>6</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>The states <span class="math inline">0</span> and <span class="math inline">4</span> are also equivalent. Let’s re-route all incoming transitions on <span class="math inline">4</span> to <span class="math inline">0</span>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{0}}</span></th>
+<th><span class="math inline">\textcolor{darkred}{\mathtt{1}}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0</td>
+<td>2 +</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>6</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Now there are no more obviously equivalent states so let’s do our partition refinement algorithm.</p>
+<p>The first partition is <span class="math inline">\pi_0=(2,2,1,2,2)</span>, that is the only final is <span class="math inline">2</span> and the rest are non-final. The signature w.r.t. <span class="math inline">\pi_0</span> is:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>vertex <span class="math inline">q</span></th>
+<th>signature <span class="math inline">s[q,\pi_0]</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">(2, 2, 2)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">(2, 2, 1)</span></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">(1, 2, 1)</span></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><span class="math inline">(2,1,2)</span></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td><span class="math inline">(2,2,2)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Hence the partition <span class="math inline">\pi_1=(4,3,1,2,4)</span>. Since <span class="math inline">\pi_1\neq \pi_0</span> we need to compute the signature w.r.t. <span class="math inline">\pi_1</span>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>vertex <span class="math inline">q</span></th>
+<th>signature <span class="math inline">s[q,\pi_1]</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">(4, 3, 2)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">(3, 4, 1)</span></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">(1, 4, 1)</span></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><span class="math inline">(2, 1, 4)</span></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td><span class="math inline">(4,4,4)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Hence the partition is <span class="math inline">\pi_2=(4,3,1,2,5)</span>. Since all elements of the partition are singletons, this meant that the DFA in the last table was aleady minimal.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11.4</strong></span> Consider the language <span class="math display">
+L=\{w \in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* :\mathtt{value}_2(w)\in 3\mathbb N\}
+</span> In <a href="experiment_with_DFAs.html#exr-modular-counting" class="quarto-xref">Exercise&nbsp;<span>10.3</span></a> you constructed a DFA <span class="math inline">A</span> accepting <span class="math inline">L</span>. Check whether the <span class="math inline">A</span> you constructed is minimal using the Moore’s minimization algorithm.</p>
+</div>
+</section>
+<section id="minimization-brzozowski-style" class="level2 page-columns page-full" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="minimization-brzozowski-style"><span class="header-section-number">11.3</span> Minimization <em>Brzozowski’ style</em></h2>
+<p>There is a very neat way to compute the minimum DFA equivalent to a given one due to Brzozowski. He noticed that to compute the minimum DFA equivalent to a given one you only need to know the determinization construction (from <a href="finite_automata.html#thm-equivalence-NFA-DFA" class="quarto-xref">Theorem&nbsp;<span>9.2</span></a>) and how to construct a DFA for the reverse language (that is inverting the direction of the transitions and exchanging the role of initial and final states).</p>
 
-To compute the minimum DFA equivalent to a given one you only need to know the determinization construction (from @thm-equivalence-NFA-DFA) and how to construct a DFA for the reverse language (that is inverting the direction of the transitions and exchanging the role of initial and final states).
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>We already saw some results by Brzozowski’s in <a href="../ch0/exercises.html#sec-brzozowski-derivative" class="quarto-xref"><span>Section 8.2</span></a>.</p>
+</div></div><p>Given an NFA <span class="math inline">A</span>, let <span class="def"><span class="math inline">D(A)</span></span> the DFA computed using the powerset construction from the proof of <a href="finite_automata.html#thm-equivalence-NFA-DFA" class="quarto-xref">Theorem&nbsp;<span>9.2</span></a> without writing down states unreachable from the initial one.</p>
+<p>Given a DFA <span class="math inline">A=(Q,\Sigma,\{q_0\},F,\delta)</span>, let <span class="def"><span class="math inline">R(A)</span></span> be the following NFA: <span class="math inline">R(A)=(Q,\Sigma,F,\{q_0\},\delta')</span>, where for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span> and <span class="math inline">q,q'\in Q</span>, <span class="math inline">(q',\textcolor{darkred}{\mathtt{s}},q)\in \delta'</span> if and only if <span class="math inline">\delta(q,\textcolor{darkred}{\mathtt{s}})=q'</span>. In other words, <span class="math inline">R(A)</span> is the same as <span class="math inline">A</span> but with the directions of the transitions reversed and with final and initial states exchanged. We have that <span class="math inline">R(A)</span> accepts the language <span class="math inline">\mathscr{L}(A)^R</span> (this was one of the NFAs you were asked to construct in <a href="finite_automata.html#exr-op-DFAs" class="quarto-xref">Exercise&nbsp;<span>9.5</span></a>).</p>
+<div id="thm-min-brzozowski" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 11.3 (Brzozowski’s minimization algorithm)</strong></span> Given a DFA <span class="math inline">A</span>, the minimum DFA accepting <span class="math inline">\mathscr{L}(A)^R</span> is <span class="math inline">D(R(A))</span>. And hence, as a consequence, the minimum DFA equivalent to <span class="math inline">A</span> is <span class="math inline">D(R(D(R(A))))</span>.</p>
+</div>
+<p>We don’t see the proof of this result and only leave a special case as an exercise.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11.5</strong></span> Show that if <span class="math inline">R(A)</span> is a DFA, then it is minimum.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11.6</strong></span> Give an example of DFA <span class="math inline">A</span> where the running time of the algorithm given by <a href="#thm-min-brzozowski" class="quarto-xref">Theorem&nbsp;<span>11.3</span></a> is exponential in the number of states of <span class="math inline">A</span>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11.7</strong></span> Consider the language <span class="math display">
+L=\{w \in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* :\mathtt{value}_2(w)\in 3\mathbb N\}
+</span> In <a href="experiment_with_DFAs.html#exr-modular-counting" class="quarto-xref">Exercise&nbsp;<span>10.3</span></a> you constructed a DFA <span class="math inline">A</span> accepting <span class="math inline">L</span>. Check whether the <span class="math inline">A</span> you constructed is minimal using the technique of <a href="#thm-min-brzozowski" class="quarto-xref">Theorem&nbsp;<span>11.3</span></a>.</p>
+</div>
 
-:::{#thm-}
 
-## Brzozowski's minimization algorithm
-Given 
-[add brozozowski minimization]{.TODO}
-:::
-
-[mention worst case cost]{.TODO}
-
-[add example: the mod 3 automaton]{.TODO}
-
-
-## References
-
-[Give reference, @sipser2013introduction does not contain anything on this.]{.TODO}
--->
-
-
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-hopcroft07" class="csl-entry" role="listitem">
+Hopcroft, John E., Rajeev Motwani, and Jeffrey D. Ullman. 2007. <em>Introduction to Automata Theory, Languages, and Computation</em>. 3rd edition. Pearson Addison Wesley.
+</div>
+<div id="ref-sipser2013introduction" class="csl-entry" role="listitem">
+Sipser, Michael. 2013. <em>Introduction to the Theory of Computation</em>. 3rd ed. Cengage Learning.
+</div>
+</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -923,6 +1484,39 @@ Given
   </div>
 </nav>
 </div> <!-- /content -->
+    <script type="text/javascript">
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let pseudocodeOptions = {
+          indentSize: el.dataset.indentSize,
+          commentDelimiter: " " + el.dataset.commentDelimiter + " ",
+          lineNumber: el.dataset.lineNumber.toLowerCase() === "true",
+          lineNumberPunc: el.dataset.lineNumberPunc,
+          noEnd: el.dataset.noEnd.toLowerCase() === "true",
+          scopeLines: el.dataset.indentLines.toLowerCase() === "true",
+          titlePrefix: el.dataset.captionPrefix,
+        };
+        pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+      });
+    })(document);
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+        if (captionSpan !== null) {
+          let captionPrefix = el.dataset.captionPrefix + " ";
+          let captionNumber = "";
+          if (el.dataset.pseudocodeNumber) {
+            captionNumber = el.dataset.pseudocodeNumber + " ";
+            if (el.dataset.chapterLevel) {
+              captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+            }
+          }
+          captionSpan.innerHTML = captionPrefix + captionNumber;
+        }
+      });
+    })(document);
+    </script>
+  
 
 
 
