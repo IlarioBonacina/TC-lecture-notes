@@ -385,6 +385,21 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We will cover this chapter later in the course. For the moment consider this page as a draft.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -398,13 +413,13 @@ Important
 <p>This chapter is here because it is about basic mathematical notions, <strong>but</strong> for the moment you can skip it and go directly to the next chapter. You will need to come back here later in the course, when we will use these notions to prove some results about languages. All exercises in later chapters about showing that some set is countable or uncountable will require you to understand the notions in this chapter. You can come back to them on a second read.</p>
 </div>
 </div>
-<p>The <span class="def">cardinality</span> is an inherent property of sets which defines their size, roughly meaning the number of individual objects they contain.</p>
+</div></div><p>The <span class="def">cardinality</span> is an inherent property of sets which defines their size, roughly meaning the number of individual objects they contain.</p>
 <p>For finite sets, cardinality recovers the usual concept of size as “number of elements”. A system of cardinal numbers can be developed to extend the role of natural numbers in answering “how many” elements for infinite set.</p>
 <div id="def-" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.1 (cardinality)</strong></span> Two sets <span class="math inline">A</span> and <span class="math inline">B</span> have <span class="def">the same cardinality</span> (and we write <span class="math inline">|A|=|B|</span>) if there exists a one-to-one correspondence <span class="math inline">f: A\to B</span>.</p>
 </div>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.2 (countable)</strong></span> A set <span class="math inline">S</span> is <span class="def">finite</span> if it has the same cardinality of some set <span class="math inline">A\subsetneq \mathbb{N}</span>. A set is <span class="def">countably infinite</span> if it has the same cardinality of <span class="math inline">\mathbb{N}</span>. A set is <span class="def">countable</span> if it is either finite or countably infinite.</p>
+<p><span class="theorem-title"><strong>Definition 3.2 (countable)</strong></span> A set <span class="math inline">S</span> is <span class="def">finite</span> if there is some <span class="math inline">n\in \mathbb N</span> and <span class="math inline">S</span> has the same cardinality of the set <span class="math inline">\{m\in \mathbb N :m\leq n\}</span>. A set is <span class="def">countably infinite</span> if it has the same cardinality of <span class="math inline">\mathbb{N}</span>. A set is <span class="def">countable</span> if it is either finite or countably infinite.</p>
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
@@ -425,7 +440,7 @@ Important
 <div id="exr-R-and-R-0-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3.2</strong></span> Show that <span class="math inline">\mathbb{R}</span> and <span class="math inline">\mathbb{R}\cap (0,1)</span>, i.e.&nbsp;the real numbers betwen <span class="math inline">0</span> and <span class="math inline">1</span>, have the same cardinality.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -434,17 +449,20 @@ Important
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Trigonometric functions are not just useful for trigonometry.</p>
 </div>
 </div>
 </div>
 </div>
+<div id="exr-subset-countable" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3.3</strong></span> Show that if <span class="math inline">A</span> is countable and <span class="math inline">B\subseteq A</span> then <span class="math inline">B</span> is countable.</p>
+</div>
 <div id="thm-cantor" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.1 (Cantor’s Theorem)</strong></span> <span class="math inline">\mathbb{R}</span> is not countable.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -453,9 +471,13 @@ Important
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Thanks to <a href="#exr-R-and-R-0-1" class="quarto-xref">Exercise&nbsp;<span>3.2</span></a> it is enough to show that <span class="math inline">\mathbb{R}\cap (0,1)</span> is not countable. By contradiction suppose it is countable, in other words suppose that there is a one-to-one correspondence <span class="math inline">f :\mathbb{N}\to \mathbb{R}\cap (0,1)</span>. Let <span class="math inline">f(n)_i</span> be the <span class="math inline">i</span>-th digit in the decimal expansion of <span class="math inline">f(n)</span>. Consider the “diagonal” <span class="math inline">f(n)_n</span> and construct a digit different from <span class="math inline">f(n)_n</span>, for example <span class="math inline">d_n=f(n)_n +1 \pmod{10}</span>. The number <span class="math inline">r=0.d_1d_2d_3\dots</span> is a real number, but it cannot be in the image of <span class="math inline">f</span>: it cannot be <span class="math inline">f(1)</span> because the first digit <span class="math inline">d_1</span> by construction difers from the first digit of <span class="math inline">f(1)</span>, similarly it cannot be <span class="math inline">f(2)</span>, etc.</p>
+<p>Thanks to <a href="#exr-R-and-R-0-1" class="quarto-xref">Exercise&nbsp;<span>3.2</span></a> it is enough to show that <span class="math inline">\mathbb{R}\cap (0,1)</span> is not countable. By contradiction suppose it is countable, and, to avoid problems with the double possible decimal expansion of some real numbers consider the set <span class="math inline">A\subseteq \mathbb R\cap (0,1)</span> of all the real numbers containing in their infinite decimal expansion only the digits <span class="math inline">1</span> and <span class="math inline">2</span> after the decimal point. For example, <span class="math inline">\frac{4}{33}=0.12121212\cdots\in A</span> while <span class="math inline">0.1\notin A</span> since its infinite decimal expansion is either <span class="math inline">0.10000\cdots</span> or <span class="math inline">0.099999\cdots</span> and both of them contain digits different from <span class="math inline">1</span> and <span class="math inline">2</span> after the decimal point. In particular <em>all</em> real numbers in <span class="math inline">A</span> have a unique decimal expansion.</p>
+<p>Thanks to <a href="#exr-subset-countable" class="quarto-xref">Exercise&nbsp;<span>3.3</span></a>, then <span class="math inline">A</span> must be countable too, in other words there is a one-to-one correspondence <span class="math inline">f :\mathbb{N}\to A</span>.</p>
+<p>Let <span class="math inline">f(n)_i</span> be the <span class="math inline">i</span>-th digit in the decimal expansion of <span class="math inline">f(n)</span>. Consider the “diagonal” <span class="math inline">f(n)_n</span> and construct a digit <span class="math inline">d_n</span> different from <span class="math inline">f(n)_n</span>, for example <span class="math inline">d_n=\begin{cases} 1 &amp;\text{if } f(n)_n= 2\\ 2 &amp;\text{if } f(n)_n=1\end{cases}</span>. The number <span class="math inline">r=0.d_1d_2d_3\dots</span> is a real number in <span class="math inline">A</span> by construction.</p>
+<p>Now, <span class="math inline">r</span> cannot be in the image of <span class="math inline">f</span>: it cannot be <span class="math inline">f(1)</span> because the first digit <span class="math inline">d_1</span> by construction differs from the first digit of <span class="math inline">f(1)</span>, similarly it cannot be <span class="math inline">f(2)</span>, etc.</p>
+<p>Therefore <span class="math inline">A</span> cannot be countable and neither can be <span class="math inline">\mathbb R</span>.</p>
 </div>
 </div>
 </div>
@@ -470,7 +492,7 @@ Important
 </div>
 </div></div><p>The argument above is called <span class="def">diagonalization</span> and it is a very powerful tool that we will revise later in the course.</p>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.3</strong></span> Show that <span class="math inline">\mathscr{P}(\{0,1\})</span> is not countable either by</p>
+<p><span class="theorem-title"><strong>Exercise 3.4</strong></span> Show that <span class="math inline">\mathscr{P}(\mathbb N)</span> is not countable either by</p>
 <ol type="a">
 <li>showing it has the same cardinality as <span class="math inline">\mathbb{R}</span>, or</li>
 <li>adapting the diagonalization argument to this case.</li>
