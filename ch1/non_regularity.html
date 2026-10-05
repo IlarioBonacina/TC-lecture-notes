@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-23e21833db59efd29bd258b0e825e415.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f0e8c82c02009e711be5294735334d4a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -151,7 +151,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -303,12 +303,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch2/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch2/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Context-Free Languages</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/context_free_grammars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Context-Free Grammars</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/parsing_and_ambiguity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Parsing and Ambiguity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/chomsky_normal_form.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Chomsky Normal Form and CFG simplification</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/pushdown_automata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Pushdown Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/experiment_with_CFGs_and_PDAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Experiment with CFGs and PDAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/non-context-freeness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Limitations of CFL</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ch3/intro.html" class="sidebar-item-text sidebar-link">
@@ -324,7 +371,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="brown">References</span></span></a>
+ <span class="menu-text"><span class="brown"><strong>References</strong></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -350,7 +397,7 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch1/intro.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../ch1/non_regularity.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -375,16 +422,24 @@ window.Quarto = {
 
 </div>
 <p>In this chapter we see some techniques useful to show that a language is <strong>not</strong> in <span class="math inline">\mathbf{Regular}</span>. One technique (the <span class="def">fooling sets</span>, see <a href="#sec-fooling-sets" class="quarto-xref"><span>Section 14.1</span></a>) is also useful to show lower bounds on the number of states of the minimum DFA accepting a regular language.</p>
-<!--
-:::{.aside}
-:::{.callout-warning}
 
-## Updates post-class
-
-:::
-:::
--->
-<section id="sec-fooling-sets" class="level2" data-number="14.1">
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Updates post-class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="#exm-an_bn_non_regular" class="quarto-xref">Example&nbsp;<span>14.1</span></a>: fixed math typo</li>
+</ul>
+</div>
+</div>
+</div></div><section id="sec-fooling-sets" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="sec-fooling-sets"><span class="header-section-number">14.1</span> Non-regularity <em>via</em> fooling sets</h2>
 <p>The first technique we see is the use of <span class="def">fooling sets</span>. This is useful to show that some given language <span class="math inline">L</span> is not regular or that no DFA with few states can accept <span class="math inline">L</span>.</p>
 <div id="def-fooling-set" class="theorem definition">
@@ -393,7 +448,7 @@ window.Quarto = {
 <div id="thm-fooling" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 14.1</strong></span> If <span class="math inline">F</span> is a fooling set for <span class="math inline">L</span>, then there is no DFA <span class="math inline">A</span> with strictly less than <span class="math inline">|F|</span> states s.t. <span class="math inline">L=\mathscr{L}(A)</span>. In particular, if <span class="math inline">F</span> is infinite then <span class="math inline">L\notin \mathbf{Regular}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -402,7 +457,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Assume, towards a contradiction, that there exists a DFA <span class="math inline">A</span> with strictly less than <span class="math inline">|F|</span> states and such that <span class="math inline">L=\mathscr{L}(A)</span>. Let <span class="math inline">q_0</span> be the initial state of <span class="math inline">A</span> and <span class="math inline">q_0w</span> be the state of <span class="math inline">A</span> in which we end-up when reading the word <span class="math inline">w</span>.</p>
 <p>By the pigeonhole principle (see <a href="../ch0/proofs.html" class="quarto-xref"><span>Chapter 2</span></a>), there are exist <span class="math inline">x,y\in F</span> with <span class="math inline">x\neq y</span> s.t. <span class="math inline">q_0x=q_0y</span>. Since <span class="math inline">F</span> is a fooling set, exists <span class="math inline">z\in\Sigma^*</span> s.t. <span class="math inline">xz\in L</span> and <span class="math inline">yz\notin L</span>. That is <span class="math inline">q_0xz</span> is a final state and <span class="math inline">q_0yz</span> is not a final state. Since <span class="math inline">q_0x=q_0y</span> then <span class="math inline">q_0xz=q_0yz</span>, and this gives the desired contradiction.</p>
@@ -414,7 +469,7 @@ window.Quarto = {
 <p>We can use it to prove that a language is not in <span class="math inline">\mathbf{Regular}</span> as in the following example.</p>
 <div id="exm-an_bn_non_regular" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14.1</strong></span> <span class="math inline">L=\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n :n\in \mathbb{N}\}\notin \mathbf{Regular}</span>.</p>
-<p>By <a href="#thm-fooling" class="quarto-xref">Theorem&nbsp;<span>14.1</span></a>, it is enough to construct an infinite fooling set for <span class="math inline">L</span>. Consider <span class="math inline">F=\{\textcolor{darkred}{\mathtt{a}}^n :n\in \mathbb{N}\}</span>. Given two distinct words <span class="math inline">x,y\in F</span> we must have <span class="math inline">x=\textcolor{darkred}{\mathtt{a}}^n</span> and <span class="math inline">y=\textcolor{darkred}{\mathtt{a}}^m</span> with <span class="math inline">n\neq m</span>. We can then choose <span class="math inline">z=\textcolor{darkred}{\mathtt{b}}^n</span>. We have that <span class="math inline">xz=\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\in L</span> and <span class="math inline">yz=\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^m\notin L</span> (since <span class="math inline">n\neq m</span>). That is <span class="math inline">F</span> is a fooling set for <span class="math inline">L</span>.</p>
+<p>By <a href="#thm-fooling" class="quarto-xref">Theorem&nbsp;<span>14.1</span></a>, it is enough to construct an infinite fooling set for <span class="math inline">L</span>. Consider <span class="math inline">F=\{\textcolor{darkred}{\mathtt{a}}^n :n\in \mathbb{N}\}</span>. Given two distinct words <span class="math inline">x,y\in F</span> we must have <span class="math inline">x=\textcolor{darkred}{\mathtt{a}}^n</span> and <span class="math inline">y=\textcolor{darkred}{\mathtt{a}}^m</span> with <span class="math inline">n\neq m</span>. We can then choose <span class="math inline">z=\textcolor{darkred}{\mathtt{b}}^n</span>. We have that <span class="math inline">xz=\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\in L</span> and <span class="math inline">yz=\textcolor{darkred}{\mathtt{a}}^m\textcolor{darkred}{\mathtt{b}}^n\notin L</span> (since <span class="math inline">n\neq m</span>). That is <span class="math inline">F</span> is a fooling set for <span class="math inline">L</span>.</p>
 </div>
 <p>We can also use <a href="#thm-fooling" class="quarto-xref">Theorem&nbsp;<span>14.1</span></a> to show that some automata is actually the smallest possible, as in the next examples.</p>
 <div id="exm-mod-3-fooling-set" class="theorem example">
@@ -491,7 +546,7 @@ L_n=\{x\textcolor{darkred}{\mathtt{a}}y :x,y\in \{\textcolor{darkred}{\mathtt{a}
 <p>If <span class="math inline">L_1\cap L_2\notin \mathbf{Regular}</span> then either <span class="math inline">L_2\notin \mathbf{Regular}</span> or <span class="math inline">L_2\notin\mathbf{Regular}</span>.</p>
 <p>This immediately gives that <span class="math inline">\{w\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* :|w|_{\textcolor{darkred}{\mathtt{a}}}=|w|_{\textcolor{darkred}{\mathtt{b}}}\}\notin \mathbf{Regular}</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -500,7 +555,7 @@ L_n=\{x\textcolor{darkred}{\mathtt{a}}y :x,y\in \{\textcolor{darkred}{\mathtt{a}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math display">
 \{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n :n\in \mathbb{N}\}=\{w\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* :|w|_{\textcolor{darkred}{\mathtt{a}}}=|w|_{\textcolor{darkred}{\mathtt{b}}}\}\cap \mathscr{L}(\textcolor{darkred}{\mathtt{a}}^*\textcolor{darkred}{\mathtt{b}}^*)\ .
@@ -534,7 +589,7 @@ Caution
 <li><p><span class="math inline">\{w\in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* :\exists n\in \mathbb{N}\text{ s.t. }\mathsf{value}_{2}(w)=2^n(2^n-1)\}</span></p></li>
 <li><p>(<span class="math inline">🔥</span>) <code>C++</code> (the programming language)</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -543,11 +598,11 @@ Caution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Focus on <strong>very simple</strong> <code>C++</code> programs with the same number of open <code>{</code> and <code>}</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -556,7 +611,7 @@ Caution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The programs of the form <code>int main (){}</code>, <code>int main (){{}}</code>, <code>int main (){{{}}}</code>, …</p>
 </div>
@@ -570,7 +625,7 @@ Caution
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 14.4 (<span class="math inline">🔥🔥</span>)</strong></span> Can we prove using only <span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n :n\in \mathbb{N}\}\notin\mathbf{Regular}</span> and the closure properties of <span class="math inline">\mathbf{Regular}</span> that every non-regular language <span class="math inline">L\subseteq \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^*</span> is indeed non-regular?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -579,7 +634,7 @@ Caution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Compare the cardinality of the non-regular languages <span class="math inline">L\subseteq \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^*</span> vs the cardinality of the languages that you can describe using closure properties of <span class="math inline">\mathbf{Regular}</span>, languages in <span class="math inline">\mathbf{Regular}</span> and <span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n :n\in \mathbb{N}\}</span>.</p>
 </div>
@@ -599,7 +654,7 @@ Caution
 </ul>
 <p>then <span class="math inline">L\notin\mathbf{Regular}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -608,7 +663,7 @@ Caution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Suppose, towards a contradiction, that <span class="math inline">L\in \mathbf{Regular}</span>. Then by <a href="regular_languages.html#def-regular" class="quarto-xref">Definition&nbsp;<span>13.1</span></a> and <a href="regular_languages.html#thm-regular" class="quarto-xref">Theorem&nbsp;<span>13.1</span></a>, there must exist a DFA <span class="math inline">A=(Q,\Sigma,\{q_0\},F,\delta)</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>.</p>
 <p>We want to show that the hypothesis of the lemma must be false, that is we want to show that</p>
@@ -617,7 +672,7 @@ Caution
 </blockquote>
 <p>Let <span class="math inline">p=|Q|</span> and <span class="math inline">w</span> be an arbitrary word s.t. <span class="math inline">w\in L</span> and <span class="math inline">|w|=n\geq p</span>. Let <span class="math inline">w[i]</span> be the <span class="math inline">i</span>-th symbol of <span class="math inline">w</span> (we start counting from <span class="math inline">1</span>) and <span class="math inline">w[i:j]</span> (with <span class="math inline">i\leq j</span>) be the concatenation of the symbols of <span class="math inline">w</span> between positions <span class="math inline">i</span> and <span class="math inline">j</span> included.</p>
 <p>Since <span class="math inline">w\in L</span>, there must exist a sequence of states <span class="math inline">q_0,q_1,\dots,q_n\in Q</span> s.t. <span class="math inline">q_n\in F</span> and for each <span class="math inline">i\in \{0,1,\dots,n-1\}</span>, <span class="math inline">\delta(q_i,w[i])=q_{i+1}</span>. The tuple of states <span class="math inline">q_0,\dots,q_n</span> has size <span class="math inline">n+1&gt;p=|Q|</span>, hence by the pigeonhole principle (see <a href="../ch0/proofs.html#sec-php" class="quarto-xref"><span>Section 2.2.1</span></a>), the states <span class="math inline">q_0,\dots,q_n</span> cannot be all distinct. Let <span class="math inline">\ell</span> be the first index in the sequence s.t. exists <span class="math inline">i&lt;\ell</span> with <span class="math inline">q_i=q_\ell</span>.</p>
-<p>Let <span class="math inline">x=w[1:i]</span> (if <span class="math inline">i=0</span> take <span class="math inline">x=\varepsilon</span>), <span class="math inline">y=w[i+1:\ell]</span>, and <span class="math inline">z=w[\ell+1:n]</span>. See <a href="#fig-pumping" class="quarto-xref">Figure&nbsp;<span>14.1</span></a> for a visual depiction of the paths giving <span class="math inline">x,y,z</span>.</p>
+<p>Let <span class="math inline">x=w[1:i]</span> (if <span class="math inline">i=0</span> take <span class="math inline">x=\varepsilon</span>), <span class="math inline">y=w[i+1:\ell]</span>, and <span class="math inline">z=w[\ell+1:n]</span>. See <a href="../ch2/non-context-freeness.html#fig-pumping" class="quarto-xref">Figure&nbsp;<span>21.1</span></a> for a visual depiction of the paths giving <span class="math inline">x,y,z</span>.</p>
 <div id="fig-pumping" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pumping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -649,13 +704,13 @@ Figure&nbsp;14.1
 </ul>
 <p>Hence a “template” for a proof using the pumping lemma for regular languages is as follow:</p>
 <blockquote class="blockquote">
-<p>We prove that <span class="math inline">L</span> is non-regular using the pumping lemma. Let <span class="math inline">p</span> be the pumping length. Consider the word <span class="orange"><span class="math inline">w=....</span></span>. We have that <span class="math inline">|w|\geq p</span> and <span class="math inline">w\in L</span> <span class="orange">(this needs an argument, possibly trivial, but you need to check it)</span>. Given a decomposition of <span class="math inline">w</span> as <span class="math inline">w=xyz</span>, with <span class="math inline">|xy|\leq p</span> and <span class="math inline">y\neq \varepsilon</span>, consider the natural number <span class="orange"><span class="math inline">k=....</span></span>. To conclude we need to prove that <span class="math inline">xy^kz\notin L</span> <span class="orange">(this needs an argument, usually quite non-trivial)</span>.</p>
+<p>We prove that <span class="math inline">L</span> is non-regular using the pumping lemma. Let <span class="math inline">p</span> be the pumping length. Consider the word <span class="orange"><span class="math inline">w=....</span></span>. We have that <span class="math inline">|w|\geq p</span> and <span class="math inline">w\in L</span> <span class="orange">(this needs an argument, possibly trivial, but you need to check it)</span>. Given an arbitrary decomposition of <span class="math inline">w</span> as <span class="math inline">w=xyz</span>, with <span class="math inline">|xy|\leq p</span> and <span class="math inline">y\neq \varepsilon</span>, consider the natural number <span class="orange"><span class="math inline">k=....</span></span>. To conclude we need to prove that <span class="math inline">xy^kz\notin L</span> <span class="orange">(this needs an argument, usually quite non-trivial)</span>.</p>
 </blockquote>
 <div id="exm-an_bn_non_regular_pumping" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14.5</strong></span> Following the template, above we show (again) that <span class="math display">
 L=\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n :n\in \mathbb N\}\notin \mathbf{Regular}\ .
 </span> We already saw a proof of this fact in <a href="#exm-an_bn_non_regular" class="quarto-xref">Example&nbsp;<span>14.1</span></a> using a fooling set.</p>
-<p>We prove that <span class="math inline">L</span> is non-regular using the pumping lemma. Let <span class="math inline">p</span> be the pumping length. Consider the word <span class="orange"><span class="math inline">w=\textcolor{darkred}{\mathtt{a}}^p\textcolor{darkred}{\mathtt{b}}^p</span></span>. We have that <span class="math inline">|w|\geq p</span> and <span class="orange">clearly</span> <span class="math inline">w\in L</span>. Given a decomposition of <span class="math inline">w</span> as <span class="math inline">w=xyz</span>, with <span class="math inline">|xy|\leq p</span> and <span class="math inline">y\neq \varepsilon</span>, consider the natural number <span class="orange"><span class="math inline">k=0</span></span>. To conclude we need to prove that <span class="math inline">xy^kz\notin L</span>. <span class="orange">Since <span class="math inline">|xy|\leq p</span> it must be that <span class="math inline">x=\textcolor{darkred}{\mathtt{a}}^i</span>, <span class="math inline">y=\textcolor{darkred}{\mathtt{a}}^j</span> and <span class="math inline">z=\textcolor{darkred}{\mathtt{a}}^{p-i-j}\textcolor{darkred}{\mathtt{b}}^p</span>. Since <span class="math inline">y\neq \varepsilon</span>, then <span class="math inline">j&gt; 0</span>. The word <span class="math inline">xy^kz=\textcolor{darkred}{\mathtt{a}}^{p+j(k-1)}\textcolor{darkred}{\mathtt{b}}^p=\textcolor{darkred}{\mathtt{a}}^{p-j}\textcolor{darkred}{\mathtt{b}}^p</span>. Since <span class="math inline">j&gt;0</span>, then <span class="math inline">p-j\neq p</span> and <span class="math inline">xy^0z\notin L</span>.</span></p>
+<p>We prove that <span class="math inline">L</span> is non-regular using the pumping lemma. Let <span class="math inline">p</span> be the pumping length. Consider the word <span class="orange"><span class="math inline">w=\textcolor{darkred}{\mathtt{a}}^p\textcolor{darkred}{\mathtt{b}}^p</span></span>. We have that <span class="math inline">|w|\geq p</span> and <span class="orange">clearly</span> <span class="math inline">w\in L</span>. Given an arbitrary decomposition of <span class="math inline">w</span> as <span class="math inline">w=xyz</span>, with <span class="math inline">|xy|\leq p</span> and <span class="math inline">y\neq \varepsilon</span>, consider the natural number <span class="orange"><span class="math inline">k=0</span></span>. To conclude we need to prove that <span class="math inline">xy^kz\notin L</span>. <span class="orange">Since <span class="math inline">|xy|\leq p</span> it must be that <span class="math inline">x=\textcolor{darkred}{\mathtt{a}}^i</span>, <span class="math inline">y=\textcolor{darkred}{\mathtt{a}}^j</span> and <span class="math inline">z=\textcolor{darkred}{\mathtt{a}}^{p-i-j}\textcolor{darkred}{\mathtt{b}}^p</span>. Since <span class="math inline">y\neq \varepsilon</span>, then <span class="math inline">j&gt; 0</span>. The word <span class="math inline">xy^kz=\textcolor{darkred}{\mathtt{a}}^{p+j(k-1)}\textcolor{darkred}{\mathtt{b}}^p=\textcolor{darkred}{\mathtt{a}}^{p-j}\textcolor{darkred}{\mathtt{b}}^p</span>. Since <span class="math inline">j&gt;0</span>, then <span class="math inline">p-j\neq p</span> and <span class="math inline">xy^0z\notin L</span>.</span></p>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
