@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -327,7 +346,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ch2/chomsky_normal_form.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Chomsky Normal Form and CFG simplification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Chomsky Normal Form and CFG depuration</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -531,22 +550,7 @@ L=\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\textcolor
 </div>
 <section id="sec-CYK" class="level2 page-columns page-full" data-number="17.1">
 <h2 data-number="17.1" class="anchored" data-anchor-id="sec-CYK"><span class="header-section-number">17.1</span> The CYK algorithm</h2>
-<p>Given a grammar <span class="math inline">G</span> and a word <span class="math inline">w</span> a natural problem is to decide whether <span class="math inline">w\in \mathscr{L}(G)</span> and if this is the case to construct a parse tree for <span class="math inline">w</span>. In this section we give an algorithm to solve this problem: the <span class="def">Cocke–Younger–Kasami (CYK)</span> parsing algorithm.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The content of this part is still under development and will be updated during the course.</p>
-</div>
-</div>
-
-
+<p>Given a grammar <span class="math inline">G=(V,\Sigma, R,S)</span> and a word <span class="math inline">w</span> a natural problem is to decide whether <span class="math inline">w\in \mathscr{L}(G)</span> and if this is the case to construct a parse tree for <span class="math inline">w</span>. In this section, we describe an algorithm to solve this problem: the <span class="def">Cocke–Younger–Kasami (CYK)</span> parsing algorithm. This is an example of the common technique of <em>dynamic programming</em>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
 <div class="quarto-figure quarto-figure-center">
@@ -555,7 +559,100 @@ Warning
 <figcaption><a href="https://en.wikipedia.org/wiki/John_Cocke_(computer_scientist)">John Cocke (1925-2002)</a></figcaption>
 </figure>
 </div>
-</div></div></section>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A reference for the CYK algorithm is <span class="citation" data-cites="kozen97">(<a href="../references.html#ref-kozen97" role="doc-biblioref">Kozen 1997, chap. 27</a>)</span>.</p>
+</div>
+</div>
+</div></div><p>For simplicity, we assume all the productions of <span class="math inline">G</span> have the form <span class="math inline">A\ \boldsymbol{\to}\ BC</span> with <span class="math inline">A,B,C\in V</span> or <span class="math inline">A\ \boldsymbol{\to}\ \textcolor{darkred}{\mathtt{s}}</span> with <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span> (or <span class="math inline">S\ \boldsymbol{\to}\ \varepsilon</span> if <span class="math inline">\varepsilon\in \mathscr{L}(G)</span>). As we see in <a href="chomsky_normal_form.html" class="quarto-xref"><span>Chapter 18</span></a> this is not an unreasonable assumption since every context-free grammar can be transformed into an equivalent one of this form.</p>
+<p>By the special form of the grammar, if <span class="math inline">w=\varepsilon</span> it is trivial to check whether <span class="math inline">w\in \mathscr{L}(G)</span>. So we can also assume <span class="math inline">w\neq \varepsilon</span>. Let <span class="math inline">n=|w|</span>.</p>
+<p>The idea of the algorithm is not only to decide whether <span class="math inline">w\in \mathscr{L}(G)</span>, but for each subword of <span class="math inline">w</span> to know what variables can generate it. To store this information we can use Boolean variables <span class="math inline">P[i,\ell,A]</span>, for <span class="math inline">1\leq i\leq n</span>, <span class="math inline">1\leq \ell\leq n-i+1</span> and <span class="math inline">A\in V</span>, with intended meaning the truth value of “<em>the subword of <span class="math inline">w</span> starting in position <span class="math inline">i</span> and of length <span class="math inline">\ell</span> can be generated from the variable <span class="math inline">A</span></em>”. (As usual, we use the convention that <span class="math inline">w[1]</span> is the first symbol of <span class="math inline">w</span>, that is <span class="math inline">w=w[1]w[2]\cdots w[n]</span>.)</p>
+<p>Our goal is to compute the truth value of <span class="math inline">P[1,n,S]</span> since <span class="math inline">P[1,n,S]=1</span> if and only if <span class="math inline">w\in \mathscr{L}(G)</span> by construction.</p>
+<p>It is immediate to know the values of <span class="math inline">P[i,1,A]</span> for each <span class="math inline">i\leq n</span> and <span class="math inline">A\in V</span>. <span class="question">How?</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">P[i,1,A]=1</span> if and only if <span class="math inline">A\ \boldsymbol{\to}\ w[i]</span> is a production rule of <span class="math inline">G</span>. Notice that here we are using crucially the assumption on the special form of the grammar <span class="math inline">G</span>.</p>
+</div>
+</div>
+</div>
+<p>Now, in a typical dynamic programming approach, you want to compute all truth values <span class="math inline">P[i,\ell,A]</span> assuming you already know all the truth values <span class="math inline">P[i,k,A]</span> with <span class="math inline">k&lt;\ell</span>. <span class="question">How</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For a fixed <span class="math inline">i</span> with <span class="math inline">1\leq i\leq n</span>, <span class="math inline">P[i,\ell,A]=1</span> if and only if exists <span class="math inline">1\leq k\leq \ell-1</span> and a production <span class="math inline">A\ \boldsymbol{\to}\ BC</span>, where both <span class="math inline">P[i,k,B]</span> and <span class="math inline">P[i+k,\ell-k,C]</span> are both true.</p>
+</div>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 17.7</strong></span> Using the CYK algorithm as described above, decide whether <span class="math inline">w=\textcolor{darkred}{\mathtt{aabbab}}</span> is in <span class="math inline">\mathscr{L}(G)</span> where <span class="math inline">G</span> is the following grammar</p>
+<p><span class="math display">
+\begin{array}{lcl}
+S\ &amp;\boldsymbol{\to}&amp;\ AB\ \vert\  BA \ \vert\ SS\ \vert\ AC\ \vert\ BD\\
+C\ &amp;\boldsymbol{\to}&amp;\ SB\\
+D\ &amp;\boldsymbol{\to}&amp;\ SA\\
+A\ &amp;\boldsymbol{\to}&amp;\ \textcolor{darkred}{\mathtt{a}}\\
+B\ &amp;\boldsymbol{\to}&amp;\ \textcolor{darkred}{\mathtt{b}}
+\end{array}
+</span></p>
+</div>
+<p>Following this approach, a possible pseudocode implementing the CYK algorithm is the following.</p>
+<div class="pseudocode-container quarto-float" data-comment-delimiter="//" data-no-end="false" data-line-number-punc=":" data-indent-lines="false" data-caption-prefix="Algorithm" data-indent-size="1.2em" data-line-number="false" data-pseudocode-number="1">
+<div class="pseudocode">
+\begin{algorithm} \caption{CYK Algorithm}\begin{algorithmic} \Input A word $w = w[1] \cdots w[n]$ and a grammar $G=(V,\Sigma,R,S)$ meeting the assumptions above \Output The answer to the question: $w\in \mathscr{L}(G)$? \Comment{Assume all $P[i,\ell,A]$ are initialized to $0$} \For{$i = 1$ to $n$} \Comment{Initialization: setting all $P[i,1,A]$s} \ForAll{$A \in V$} \If{$(A \to w[i]) \in R$} \State $P[i,1,A] = 1$ \EndIf \EndFor \EndFor \For{$\ell = 2$ to $n$} \Comment{Fill the table in increasing order of substring length} \For{$i = 1$ to $n-\ell+1$} \For{$k = 1$ to $\ell-1$} \ForAll{$(A \to BC) \in R$} \If{$P[i,k,B] \land P[i+k,\ell-k,C]$} \State $P[i,\ell,A] = 1$ \EndIf \EndFor \EndFor \EndFor \EndFor \State \Return $P[1,n,S]$ \end{algorithmic} \end{algorithm}
+</div>
+</div>
+<p>The cost of the previous algorithm is <span class="math inline">\mathcal{O}(n^3|G|)</span>, where <span class="math inline">|G|</span> denotes the size of the grammar (for example, the total length of its productions).</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 17.8</strong></span> Try to adapt the CYK algorithm to a general grammar. What problems might occur? How does the running time change?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 17.9</strong></span> Adapt the previous code to also obtain a parse tree of <span class="math inline">w</span> when <span class="math inline">w\in \mathscr{L}(G)</span>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 17.10</strong></span> Adapt the previous code to also know whether <span class="math inline">G</span> generates <span class="math inline">w</span> ambiguously or not, i.e.&nbsp;whether there are at least two distinct parse trees for <span class="math inline">w</span>.</p>
+</div>
+<p>A natural question to ask is whether the CYK algorithm we described has the optimal running time <span class="math inline">\mathcal{O}(n^3|G|)</span> for deciding whether <span class="math inline">w\in \mathscr{L}(G)</span>. This is <strong>not</strong> the case and (surprisingly) parsing for context-free grammars is tightly connected with matrix multiplication of 0/1-valued matrices. On one side <span class="citation" data-cites="valiant75">Valiant (<a href="../references.html#ref-valiant75" role="doc-biblioref">1975</a>)</span> showed that algorithms for fast multiplication of 0/1-valued matrices can be used to do the computations in the CYK algorithm. On the other side <span class="citation" data-cites="lee02">Lee (<a href="../references.html#ref-lee02" role="doc-biblioref">2002</a>)</span> showed that any parsing algorithm for CFGs with running time <span class="math inline">\mathcal{O}(n^{3-\varepsilon}|G|)</span> can be turned into an algorithm to compute the product of <span class="math inline">n\times n</span> 0/1-valued matrices in time <span class="math inline">\mathcal{O}(n^{3-\varepsilon/3})</span>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-kozen97" class="csl-entry" role="listitem">
+Kozen, Dexter C. 1997. <em>Automata and Computability</em>. Springer New York. <a href="https://doi.org/10.1007/978-1-4612-1844-9">https://doi.org/10.1007/978-1-4612-1844-9</a>.
+</div>
+<div id="ref-lee02" class="csl-entry" role="listitem">
+Lee, Lillian. 2002. <span>“Fast Context-Free Grammar Parsing Requires Fast Boolean Matrix Multiplication.”</span> <em>Journal of the ACM</em> 49 (1): 1–15. <a href="https://doi.org/10.1145/505241.505242">https://doi.org/10.1145/505241.505242</a>.
+</div>
+<div id="ref-valiant75" class="csl-entry" role="listitem">
+Valiant, Leslie G. 1975. <span>“General Context-Free Recognition in Less Than Cubic Time.”</span> <em>Journal of Computer and System Sciences</em> 10 (2): 308–15. <a href="https://doi.org/10.1016/s0022-0000(75)80046-8">https://doi.org/10.1016/s0022-0000(75)80046-8</a>.
+</div>
+</div>
+</section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
@@ -973,8 +1070,8 @@ Warning
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../ch2/chomsky_normal_form.html" class="pagination-link" aria-label="Chomsky Normal Form and CFG simplification">
-        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Chomsky Normal Form and CFG simplification</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch2/chomsky_normal_form.html" class="pagination-link" aria-label="Chomsky Normal Form and CFG depuration">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Chomsky Normal Form and CFG depuration</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
