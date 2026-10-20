@@ -66,7 +66,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d7bc21b2087787ca864fdbb0444b236e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-85d64d133a3a5e806e57c9957343f8f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -617,7 +617,7 @@ Warning
 <p>In set theory the words <em>set</em> and <em>class</em> are not synonyms, <strong>but</strong> in this course we will use them as synonyms. In particular, we will not consider the technicalities of set theory that arise when considering classes of sets (or classes of languages) that are too large to be sets themselves.</p>
 </div></div><p>Roughly speaking, we will group languages <span class="math inline">L</span> according to the computational difficulty of the <span class="def"><span class="problem">Membership problem</span> for <span class="math inline">L</span></span>, that is given as input a word <span class="math inline">w\in \Sigma^*</span> and a description of <span class="math inline">L</span>, we want to decide whether <span class="math inline">w\in L</span> or not.</p>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.6</strong></span> The set of all languages over <span class="math inline">\Sigma</span> is the set of all possible subsets of <span class="math inline">\Sigma^*</span>, that is <span class="def"><span class="math inline">\mathscr{P}(\Sigma^*)</span></span>.</p>
+<p><span class="theorem-title"><strong>Example 4.6</strong></span> The set of all languages over <span class="math inline">\Sigma</span> is the set of all possible subsets of <span class="math inline">\Sigma^*</span>, that is <span class="def"><span class="math inline">\mathscr{P}^{\mathrm{}}(\Sigma^*)</span></span>.</p>
 </div>
 <div id="exr-powerset-uncountable" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.9 (<span class="math inline">🔥</span>)</strong></span> Show that the set <span class="math inline">\mathcal{P}(\Sigma^*)</span> is uncountable for any alphabet <span class="math inline">\Sigma</span>.</p>
@@ -646,12 +646,12 @@ Warning
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>This is a general phenomenon for the classes of languages we will see in this course, they will be <em>always</em> countable, and in particular (due to <a href="#exr-powerset-uncountable" class="quarto-xref">Exercise&nbsp;<span>4.9</span></a>) never equal to <span class="math inline">\mathscr{P}(\Sigma^*)</span>.</p>
+<p>This is a general phenomenon for the classes of languages we will see in this course, they will be <em>always</em> countable, and in particular (due to <a href="#exr-powerset-uncountable" class="quarto-xref">Exercise&nbsp;<span>4.9</span></a>) never equal to <span class="math inline">\mathscr{P}^{\mathrm{}}(\Sigma^*)</span>.</p>
 </div></div><div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.12</strong></span> Show that <span class="math inline">\mathbf{Finite}</span> and <span class="math inline">\mathbf{co}\mathbf{Finite}</span> have empty intersection.</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.13</strong></span> Give an example of language in <span class="math inline">\mathscr{P}(\Sigma^*)</span> that is not in <span class="math inline">\mathbf{Finite}</span> and not in <span class="math inline">\mathbf{co}\mathbf{Finite}</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 4.13</strong></span> Give an example of language in <span class="math inline">\mathscr{P}^{\mathrm{}}(\Sigma^*)</span> that is not in <span class="math inline">\mathbf{Finite}</span> and not in <span class="math inline">\mathbf{co}\mathbf{Finite}</span>.</p>
 </div>
 <p>One would be tempted to say that the languages in <span class="math inline">\mathbf{Finite}</span> or <span class="math inline">\mathbf{co}\mathbf{Finite}</span> are very easy. In some sense they are, but in some other sense it might be very hard to prove that a given language belongs to one of these classes.</p>
 <div id="exr-" class="theorem exercise">
@@ -681,88 +681,91 @@ L_\pi=\{w\in \{\textcolor{darkred}{\mathtt{0}}\}^* :\text{the binary expansion o
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<svg width="672" height="480" viewbox="0.00 0.00 222.13 369.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="672" height="480" viewbox="0.00 0.00 311.44 369.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 365)">
 <!-- emptyset -->
 <g id="node1" class="node">
 <title>emptyset</title>
-<path fill="sandybrown" stroke="transparent" d="M122.07,-361C122.07,-361 92.07,-361 92.07,-361 86.07,-361 80.07,-355 80.07,-349 80.07,-349 80.07,-337 80.07,-337 80.07,-331 86.07,-325 92.07,-325 92.07,-325 122.07,-325 122.07,-325 128.07,-325 134.07,-331 134.07,-337 134.07,-337 134.07,-349 134.07,-349 134.07,-355 128.07,-361 122.07,-361"></path>
-<text text-anchor="middle" x="107.07" y="-338.8" font-family="Times,serif" font-size="14.00">∅</text>
+<path fill="sandybrown" stroke="transparent" d="M89,-361C89,-361 59,-361 59,-361 53,-361 47,-355 47,-349 47,-349 47,-337 47,-337 47,-331 53,-325 59,-325 59,-325 89,-325 89,-325 95,-325 101,-331 101,-337 101,-337 101,-349 101,-349 101,-355 95,-361 89,-361"></path>
+<text text-anchor="middle" x="74" y="-338.8" font-family="Times,serif" font-size="14.00">∅</text>
 </g>
 <!-- Finite -->
 <g id="node2" class="node">
 <title>Finite</title>
 <g id="a_node2"><a href="#sec-finite" title="Finite">
-<path fill="sandybrown" stroke="transparent" d="M75.07,-296C75.07,-296 45.07,-296 45.07,-296 39.07,-296 33.07,-290 33.07,-284 33.07,-284 33.07,-272 33.07,-272 33.07,-266 39.07,-260 45.07,-260 45.07,-260 75.07,-260 75.07,-260 81.07,-260 87.07,-266 87.07,-272 87.07,-272 87.07,-284 87.07,-284 87.07,-290 81.07,-296 75.07,-296"></path>
-<text text-anchor="middle" x="60.07" y="-273.8" font-family="Times,serif" font-size="14.00">Finite</text>
+<path fill="sandybrown" stroke="transparent" d="M42,-296C42,-296 12,-296 12,-296 6,-296 0,-290 0,-284 0,-284 0,-272 0,-272 0,-266 6,-260 12,-260 12,-260 42,-260 42,-260 48,-260 54,-266 54,-272 54,-272 54,-284 54,-284 54,-290 48,-296 42,-296"></path>
+<text text-anchor="middle" x="27" y="-273.8" font-family="Times,serif" font-size="14.00">Finite</text>
 </a>
 </g>
 </g>
 <!-- emptyset&#45;&gt;Finite -->
 <g id="edge1" class="edge">
 <title>emptyset-&gt;Finite</title>
-<path fill="none" stroke="black" d="M94.22,-324.78C88.63,-317.28 82.01,-308.41 76.1,-300.49"></path>
-<polygon fill="black" stroke="black" points="77.29,-299.16 72.89,-296.19 74.48,-301.25 77.29,-299.16"></polygon>
+<path fill="none" stroke="black" d="M61.16,-324.78C55.56,-317.28 48.94,-308.41 43.03,-300.49"></path>
+<polygon fill="black" stroke="black" points="44.22,-299.16 39.83,-296.19 41.41,-301.25 44.22,-299.16"></polygon>
 </g>
 <!-- coFinite -->
 <g id="node3" class="node">
 <title>coFinite</title>
 <g id="a_node3"><a href="#sec-finite" title="coFinite">
-<path fill="sandybrown" stroke="transparent" d="M172.95,-296C172.95,-296 135.18,-296 135.18,-296 129.18,-296 123.18,-290 123.18,-284 123.18,-284 123.18,-272 123.18,-272 123.18,-266 129.18,-260 135.18,-260 135.18,-260 172.95,-260 172.95,-260 178.95,-260 184.95,-266 184.95,-272 184.95,-272 184.95,-284 184.95,-284 184.95,-290 178.95,-296 172.95,-296"></path>
-<text text-anchor="middle" x="154.07" y="-273.8" font-family="Times,serif" font-size="14.00">coFinite</text>
+<path fill="sandybrown" stroke="transparent" d="M139.88,-296C139.88,-296 102.12,-296 102.12,-296 96.12,-296 90.12,-290 90.12,-284 90.12,-284 90.12,-272 90.12,-272 90.12,-266 96.12,-260 102.12,-260 102.12,-260 139.88,-260 139.88,-260 145.88,-260 151.88,-266 151.88,-272 151.88,-272 151.88,-284 151.88,-284 151.88,-290 145.88,-296 139.88,-296"></path>
+<text text-anchor="middle" x="121" y="-273.8" font-family="Times,serif" font-size="14.00">coFinite</text>
 </a>
 </g>
 </g>
 <!-- emptyset&#45;&gt;coFinite -->
 <g id="edge2" class="edge">
 <title>emptyset-&gt;coFinite</title>
-<path fill="none" stroke="black" d="M119.91,-324.78C125.5,-317.28 132.12,-308.41 138.04,-300.49"></path>
-<polygon fill="black" stroke="black" points="139.65,-301.25 141.24,-296.19 136.85,-299.16 139.65,-301.25"></polygon>
+<path fill="none" stroke="black" d="M86.84,-324.78C92.44,-317.28 99.06,-308.41 104.97,-300.49"></path>
+<polygon fill="black" stroke="black" points="106.59,-301.25 108.17,-296.19 103.78,-299.16 106.59,-301.25"></polygon>
 </g>
 <!-- Finite&#45;&gt;coFinite -->
 <g id="edge5" class="edge">
 <title>Finite-&gt;coFinite</title>
-<path fill="none" stroke="red" stroke-dasharray="5,2" d="M87.24,-278C99.16,-278 111.08,-278 123,-278"></path>
+<path fill="none" stroke="red" stroke-dasharray="5,2" d="M54.17,-278C66.09,-278 78.01,-278 89.94,-278"></path>
 </g>
 <!-- Regular -->
 <g id="node4" class="node">
 <title>Regular</title>
 <g id="a_node4"><a href="../ch1/regular_languages.html" title="Regular">
-<path fill="sandybrown" stroke="transparent" d="M125.38,-231C125.38,-231 88.75,-231 88.75,-231 82.75,-231 76.75,-225 76.75,-219 76.75,-219 76.75,-207 76.75,-207 76.75,-201 82.75,-195 88.75,-195 88.75,-195 125.38,-195 125.38,-195 131.38,-195 137.38,-201 137.38,-207 137.38,-207 137.38,-219 137.38,-219 137.38,-225 131.38,-231 125.38,-231"></path>
-<text text-anchor="middle" x="107.07" y="-208.8" font-family="Times,serif" font-size="14.00">Regular</text>
+<path fill="sandybrown" stroke="transparent" d="M92.32,-231C92.32,-231 55.68,-231 55.68,-231 49.68,-231 43.68,-225 43.68,-219 43.68,-219 43.68,-207 43.68,-207 43.68,-201 49.68,-195 55.68,-195 55.68,-195 92.32,-195 92.32,-195 98.32,-195 104.32,-201 104.32,-207 104.32,-207 104.32,-219 104.32,-219 104.32,-225 98.32,-231 92.32,-231"></path>
+<text text-anchor="middle" x="74" y="-208.8" font-family="Times,serif" font-size="14.00">Regular</text>
 </a>
 </g>
 </g>
 <!-- Finite&#45;&gt;Regular -->
 <g id="edge3" class="edge">
 <title>Finite-&gt;Regular</title>
-<path fill="none" stroke="black" d="M72.91,-259.78C78.5,-252.28 85.12,-243.41 91.04,-235.49"></path>
-<polygon fill="black" stroke="black" points="92.65,-236.25 94.24,-231.19 89.85,-234.16 92.65,-236.25"></polygon>
+<path fill="none" stroke="black" d="M39.84,-259.78C45.44,-252.28 52.06,-243.41 57.97,-235.49"></path>
+<polygon fill="black" stroke="black" points="59.59,-236.25 61.17,-231.19 56.78,-234.16 59.59,-236.25"></polygon>
 </g>
 <!-- coFinite&#45;&gt;Regular -->
 <g id="edge4" class="edge">
 <title>coFinite-&gt;Regular</title>
-<path fill="none" stroke="black" d="M141.22,-259.78C135.63,-252.28 129.01,-243.41 123.1,-235.49"></path>
-<polygon fill="black" stroke="black" points="124.29,-234.16 119.89,-231.19 121.48,-236.25 124.29,-234.16"></polygon>
+<path fill="none" stroke="black" d="M108.16,-259.78C102.56,-252.28 95.94,-243.41 90.03,-235.49"></path>
+<polygon fill="black" stroke="black" points="91.22,-234.16 86.83,-231.19 88.41,-236.25 91.22,-234.16"></polygon>
 </g>
 <!-- DCFL -->
 <g id="node6" class="node">
 <title>DCFL</title>
-<path fill="sandybrown" stroke="transparent" d="M122.07,-166C122.07,-166 92.07,-166 92.07,-166 86.07,-166 80.07,-160 80.07,-154 80.07,-154 80.07,-142 80.07,-142 80.07,-136 86.07,-130 92.07,-130 92.07,-130 122.07,-130 122.07,-130 128.07,-130 134.07,-136 134.07,-142 134.07,-142 134.07,-154 134.07,-154 134.07,-160 128.07,-166 122.07,-166"></path>
-<text text-anchor="middle" x="107.07" y="-143.8" font-family="Times,serif" font-size="14.00">DCFL</text>
+<g id="a_node6"><a href="../ch2/pushdown_automata.html#sec-DCFL" title="DCFL">
+<path fill="sandybrown" stroke="transparent" d="M89,-166C89,-166 59,-166 59,-166 53,-166 47,-160 47,-154 47,-154 47,-142 47,-142 47,-136 53,-130 59,-130 59,-130 89,-130 89,-130 95,-130 101,-136 101,-142 101,-142 101,-154 101,-154 101,-160 95,-166 89,-166"></path>
+<text text-anchor="middle" x="74" y="-143.8" font-family="Times,serif" font-size="14.00">DCFL</text>
+</a>
+</g>
 </g>
 <!-- Regular&#45;&gt;DCFL -->
 <g id="edge6" class="edge">
 <title>Regular-&gt;DCFL</title>
-<path fill="none" stroke="black" d="M107.07,-194.78C107.07,-187.56 107.07,-179.07 107.07,-171.37"></path>
-<polygon fill="black" stroke="black" points="108.82,-171.19 107.07,-166.19 105.32,-171.19 108.82,-171.19"></polygon>
+<path fill="none" stroke="black" d="M74,-194.78C74,-187.56 74,-179.07 74,-171.37"></path>
+<polygon fill="black" stroke="black" points="75.75,-171.19 74,-166.19 72.25,-171.19 75.75,-171.19"></polygon>
 </g>
 <!-- CFL -->
 <g id="node5" class="node">
 <title>CFL</title>
 <g id="a_node5"><a href="../ch2/context_free_grammars.html" title="CFL">
-<path fill="sandybrown" stroke="transparent" d="M77.07,-101C77.07,-101 47.07,-101 47.07,-101 41.07,-101 35.07,-95 35.07,-89 35.07,-89 35.07,-77 35.07,-77 35.07,-71 41.07,-65 47.07,-65 47.07,-65 77.07,-65 77.07,-65 83.07,-65 89.07,-71 89.07,-77 89.07,-77 89.07,-89 89.07,-89 89.07,-95 83.07,-101 77.07,-101"></path>
-<text text-anchor="middle" x="62.07" y="-78.8" font-family="Times,serif" font-size="14.00">CFL</text>
+<path fill="sandybrown" stroke="transparent" d="M89,-101C89,-101 59,-101 59,-101 53,-101 47,-95 47,-89 47,-89 47,-77 47,-77 47,-71 53,-65 59,-65 59,-65 89,-65 89,-65 95,-65 101,-71 101,-77 101,-77 101,-89 101,-89 101,-95 95,-101 89,-101"></path>
+<text text-anchor="middle" x="74" y="-78.8" font-family="Times,serif" font-size="14.00">CFL</text>
 </a>
 </g>
 </g>
@@ -770,45 +773,65 @@ L_\pi=\{w\in \{\textcolor{darkred}{\mathtt{0}}\}^* :\text{the binary expansion o
 <g id="node7" class="node">
 <title>coCFL</title>
 <g id="a_node7"><a href="../ch2/context_free_grammars.html" title="coCFL">
-<path fill="sandybrown" stroke="transparent" d="M167.46,-101C167.46,-101 136.68,-101 136.68,-101 130.68,-101 124.68,-95 124.68,-89 124.68,-89 124.68,-77 124.68,-77 124.68,-71 130.68,-65 136.68,-65 136.68,-65 167.46,-65 167.46,-65 173.46,-65 179.46,-71 179.46,-77 179.46,-77 179.46,-89 179.46,-89 179.46,-95 173.46,-101 167.46,-101"></path>
-<text text-anchor="middle" x="152.07" y="-78.8" font-family="Times,serif" font-size="14.00">coCFL</text>
+<path fill="sandybrown" stroke="transparent" d="M179.39,-101C179.39,-101 148.61,-101 148.61,-101 142.61,-101 136.61,-95 136.61,-89 136.61,-89 136.61,-77 136.61,-77 136.61,-71 142.61,-65 148.61,-65 148.61,-65 179.39,-65 179.39,-65 185.39,-65 191.39,-71 191.39,-77 191.39,-77 191.39,-89 191.39,-89 191.39,-95 185.39,-101 179.39,-101"></path>
+<text text-anchor="middle" x="164" y="-78.8" font-family="Times,serif" font-size="14.00">coCFL</text>
 </a>
 </g>
 </g>
 <!-- CFL&#45;&gt;coCFL -->
 <g id="edge11" class="edge">
 <title>CFL-&gt;coCFL</title>
-<path fill="none" stroke="red" stroke-dasharray="5,2" d="M89.14,-83C100.94,-83 112.74,-83 124.53,-83"></path>
+<path fill="none" stroke="red" stroke-dasharray="5,2" d="M101.07,-83C112.87,-83 124.67,-83 136.47,-83"></path>
 </g>
 <!-- all -->
-<g id="node8" class="node">
+<g id="node9" class="node">
 <title>all</title>
-<path fill="sandybrown" stroke="transparent" d="M202.2,-36C202.2,-36 11.93,-36 11.93,-36 5.93,-36 -0.07,-30 -0.07,-24 -0.07,-24 -0.07,-12 -0.07,-12 -0.07,-6 5.93,0 11.93,0 11.93,0 202.2,0 202.2,0 208.2,0 214.2,-6 214.2,-12 214.2,-12 214.2,-24 214.2,-24 214.2,-30 208.2,-36 202.2,-36"></path>
-<text text-anchor="middle" x="107.07" y="-13.8" font-family="Times,serif" font-size="14.00">set of all possible words over {0,1}</text>
+<path fill="sandybrown" stroke="transparent" d="M214.13,-36C214.13,-36 23.87,-36 23.87,-36 17.87,-36 11.87,-30 11.87,-24 11.87,-24 11.87,-12 11.87,-12 11.87,-6 17.87,0 23.87,0 23.87,0 214.13,0 214.13,0 220.13,0 226.13,-6 226.13,-12 226.13,-12 226.13,-24 226.13,-24 226.13,-30 220.13,-36 214.13,-36"></path>
+<text text-anchor="middle" x="119" y="-13.8" font-family="Times,serif" font-size="14.00">set of all possible words over {0,1}</text>
 </g>
 <!-- CFL&#45;&gt;all -->
 <g id="edge9" class="edge">
 <title>CFL-&gt;all</title>
-<path fill="none" stroke="black" d="M74.36,-64.78C79.72,-57.28 86.06,-48.41 91.72,-40.49"></path>
-<polygon fill="black" stroke="black" points="93.3,-41.28 94.78,-36.19 90.45,-39.25 93.3,-41.28"></polygon>
+<path fill="none" stroke="black" d="M86.3,-64.78C91.65,-57.28 97.99,-48.41 103.65,-40.49"></path>
+<polygon fill="black" stroke="black" points="105.24,-41.28 106.72,-36.19 102.39,-39.25 105.24,-41.28"></polygon>
 </g>
 <!-- DCFL&#45;&gt;CFL -->
 <g id="edge7" class="edge">
 <title>DCFL-&gt;CFL</title>
-<path fill="none" stroke="black" d="M94.77,-129.78C89.41,-122.28 83.08,-113.41 77.41,-105.49"></path>
-<polygon fill="black" stroke="black" points="78.68,-104.25 74.35,-101.19 75.83,-106.28 78.68,-104.25"></polygon>
+<path fill="none" stroke="black" d="M74,-129.78C74,-122.56 74,-114.07 74,-106.37"></path>
+<polygon fill="black" stroke="black" points="75.75,-106.19 74,-101.19 72.25,-106.19 75.75,-106.19"></polygon>
 </g>
 <!-- DCFL&#45;&gt;coCFL -->
 <g id="edge8" class="edge">
 <title>DCFL-&gt;coCFL</title>
-<path fill="none" stroke="black" d="M119.36,-129.78C124.72,-122.28 131.06,-113.41 136.72,-105.49"></path>
-<polygon fill="black" stroke="black" points="138.3,-106.28 139.78,-101.19 135.45,-104.25 138.3,-106.28"></polygon>
+<path fill="none" stroke="black" d="M98.59,-129.78C109.9,-121.87 123.4,-112.42 135.18,-104.17"></path>
+<polygon fill="black" stroke="black" points="136.34,-105.5 139.44,-101.19 134.34,-102.63 136.34,-105.5"></polygon>
+</g>
+<!-- inambCFL -->
+<g id="node8" class="node">
+<title>inambCFL</title>
+<g id="a_node8"><a href="../ch2/non-context-freeness.html#sec-inambCFL" title="inherently ambiguous CFL">
+<path fill="sandybrown" stroke="transparent" d="M291.38,-166C291.38,-166 148.62,-166 148.62,-166 142.62,-166 136.62,-160 136.62,-154 136.62,-154 136.62,-142 136.62,-142 136.62,-136 142.62,-130 148.62,-130 148.62,-130 291.38,-130 291.38,-130 297.38,-130 303.38,-136 303.38,-142 303.38,-142 303.38,-154 303.38,-154 303.38,-160 297.38,-166 291.38,-166"></path>
+<text text-anchor="middle" x="220" y="-143.8" font-family="Times,serif" font-size="14.00">inherently ambiguous CFL</text>
+</a>
+</g>
+</g>
+<!-- DCFL&#45;&gt;inambCFL -->
+<g id="edge12" class="edge">
+<title>DCFL-&gt;inambCFL</title>
+<path fill="none" stroke="red" stroke-dasharray="5,2" d="M101.09,-148C112.86,-148 124.62,-148 136.39,-148"></path>
 </g>
 <!-- coCFL&#45;&gt;all -->
 <g id="edge10" class="edge">
 <title>coCFL-&gt;all</title>
-<path fill="none" stroke="black" d="M139.77,-64.78C134.41,-57.28 128.08,-48.41 122.41,-40.49"></path>
-<polygon fill="black" stroke="black" points="123.68,-39.25 119.35,-36.19 120.83,-41.28 123.68,-39.25"></polygon>
+<path fill="none" stroke="black" d="M151.7,-64.78C146.35,-57.28 140.01,-48.41 134.35,-40.49"></path>
+<polygon fill="black" stroke="black" points="135.61,-39.25 131.28,-36.19 132.76,-41.28 135.61,-39.25"></polygon>
+</g>
+<!-- inambCFL&#45;&gt;CFL -->
+<g id="edge13" class="edge">
+<title>inambCFL-&gt;CFL</title>
+<path fill="none" stroke="black" d="M180.49,-129.95C157.09,-119.86 127.84,-107.23 105.91,-97.77"></path>
+<polygon fill="black" stroke="black" points="106.35,-96.06 101.07,-95.68 104.97,-99.27 106.35,-96.06"></polygon>
 </g>
 </g>
 </svg>

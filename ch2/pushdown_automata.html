@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -47,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d7bc21b2087787ca864fdbb0444b236e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-85d64d133a3a5e806e57c9957343f8f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -151,7 +170,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -390,14 +409,14 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#equivalence-with-context-free-grammars" id="toc-equivalence-with-context-free-grammars" class="nav-link active" data-scroll-target="#equivalence-with-context-free-grammars"><span class="header-section-number">19.1</span> Equivalence with Context-Free Grammars</a></li>
+  <li><a href="#pdas-and-cfgs-are-equivalent-models" id="toc-pdas-and-cfgs-are-equivalent-models" class="nav-link active" data-scroll-target="#pdas-and-cfgs-are-equivalent-models"><span class="header-section-number">19.1</span> PDAs and CFGs are equivalent models</a></li>
   <li><a href="#closure-properties" id="toc-closure-properties" class="nav-link" data-scroll-target="#closure-properties"><span class="header-section-number">19.2</span> Closure properties</a></li>
-  <li><a href="#mathbfdcfl-deterministic-context-free-languages" id="toc-mathbfdcfl-deterministic-context-free-languages" class="nav-link" data-scroll-target="#mathbfdcfl-deterministic-context-free-languages"><span class="header-section-number">19.3</span> <span class="math inline">\mathbf{DCFL}</span> – Deterministic Context-Free Languages</a></li>
+  <li><a href="#sec-DCFL" id="toc-sec-DCFL" class="nav-link" data-scroll-target="#sec-DCFL"><span class="header-section-number">19.3</span> <span class="math inline">\mathbf{DCFL}</span> – Deterministic Context-Free Languages</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch2/intro.html">Context-Free Languages</a></li><li class="breadcrumb-item"><a href="../ch2/pushdown_automata.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Pushdown Automata</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -421,6 +440,9 @@ window.Quarto = {
 <div class="hidden">
 <p>% noend hides “end for”; drop it to keep them</p>
 </div>
+<p>In this chapter we show an equivalent way to describe the class of context-free languages (via the pushdown automata), we show that they are equivalent to context-free grammars, we show some further closure properties of context-free languages. This characterization of context-free languages via pushdown automata allows to define a natural special case of them which are the <span class="def">deterministic</span> context-free languages.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -431,25 +453,188 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page is a draft. It will be updated later in the course.</p>
+<p>This page is <strong>really</strong> a draft. It will be updated later in the course.</p>
 </div>
 </div>
-<section id="equivalence-with-context-free-grammars" class="level2" data-number="19.1">
-<h2 data-number="19.1" class="anchored" data-anchor-id="equivalence-with-context-free-grammars"><span class="header-section-number">19.1</span> Equivalence with Context-Free Grammars</h2>
+</div></div><p>A <span class="def">pushdown automaton</span> is an <span class="math inline">\varepsilon</span>-NFA (see <a href="../ch1/finite_automata.html" class="quarto-xref"><span>Chapter 9</span></a>) which is also allowed access to an external working memory in the form of a stack.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Not <span class="math inline">2</span> stacks, not a queue. Only one stack.</p>
+</div></div><p>Transitions have the following form</p>
+<div id="fig-PDA-transition-ex-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-PDA-transition-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pushdown_automata_files/mediabag/2725309a6daef0d508e68a594f507b85a06546eb.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-PDA-transition-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.1
+</figcaption>
+</figure>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What we use here is the notation from <span class="citation" data-cites="sipser2013introduction">Sipser (<a href="../references.html#ref-sipser2013introduction" role="doc-biblioref">2013</a>)</span>. The RACSO uses a different syntax to describe transitions (see <a href="https://racso.lsi.upc.edu/juezwsgi/documentation/pda.pdf">here</a>). The transition of <a href="#fig-PDA-transition-ex-1" class="quarto-xref">Figure&nbsp;<span>19.1</span></a>, would be denoted as <span class="math inline">\textcolor{darkred}{\mathtt{T}}\textcolor{darkred}{\mathtt{s}}\vert \alpha</span>.</p>
+</div>
+</div>
+</div></div><p>which means:</p>
+<blockquote class="blockquote">
+<p>In state <span class="math inline">q</span>, when reading the symbol <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span> and the top of the stack is the symbol <span class="math inline">\textcolor{darkred}{\mathtt{T}}</span>, move to state <span class="math inline">q'</span>, pop <span class="math inline">\textcolor{darkred}{\mathtt{T}}</span> from the stack and push into the stack the word <span class="math inline">\alpha</span>.</p>
+</blockquote>
+<p>Similarly,</p>
+<div id="fig-PDA-transition-ex-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-PDA-transition-ex-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pushdown_automata_files/mediabag/6e90cf2c8bf1544d3c3ca37d8eb6c5609d5532af.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-PDA-transition-ex-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.2
+</figcaption>
+</figure>
+</div>
+<p>means</p>
+<blockquote class="blockquote">
+<p>In state <span class="math inline">q</span>, without reading any symbol, if the top of the stack is the symbol <span class="math inline">\textcolor{darkred}{\mathtt{T}}</span>, move to state <span class="math inline">q'</span>, pop <span class="math inline">\textcolor{darkred}{\mathtt{T}}</span> from the stack and push into the stack the word <span class="math inline">\alpha</span>.</p>
+</blockquote>
+<p>The alphabet of the words we feed to the PDA and the stack are usually different. The convention is to use upper-case letters to denote the stack alphabet.</p>
+<p>We also want to know when the stack is empty, to do so the convention is to have a symbol (usually denoted as <span class="math inline">\textcolor{darkred}{\mathtt{Z}}</span>) to mark the bottom of the stack. <strong>We never want to pop <span class="math inline">\textcolor{darkred}{\mathtt{Z}}</span></strong>, that is, in transitions such as the ones of <a href="#fig-PDA-transition-ex-1" class="quarto-xref">Figure&nbsp;<span>19.1</span></a> or <a href="#fig-PDA-transition-ex-2" class="quarto-xref">Figure&nbsp;<span>19.2</span></a>, if <span class="math inline">\textcolor{darkred}{\mathtt{T}}</span> is <span class="math inline">\textcolor{darkred}{\mathtt{Z}}</span>, then <span class="math inline">\alpha</span> should start with <span class="math inline">\textcolor{darkred}{\mathtt{Z}}</span>.</p>
+<p>The formal definition of a pushdown automata is the following.</p>
+<div id="def-PDA" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 19.1 (PDA, pushdown automaton)</strong></span> A tuple <span class="math inline">A=(Q,\Sigma,\Gamma,\delta,q_0,\textcolor{darkred}{\mathtt{Z}},F)</span> is <span class="def">PDA</span>, or <span class="def">pushdown automaton</span>, if</p>
+<ul>
+<li><span class="math inline">Q</span> is a finite set of <span class="def">states</span>;</li>
+<li><span class="math inline">\Sigma</span> is a non-empty finite set (called the <span class="def">input alphabet</span>);</li>
+<li><span class="math inline">\Gamma</span> is a non-empty finite set (called the <span class="def">stack alphabet</span>);</li>
+<li><span class="math inline">\delta</span> is a finite subset of <span class="math inline">Q\times (\Sigma\cup\{\varepsilon\})\times \Gamma\times Q\times \Gamma^*</span> (called <span class="def">transition relation</span>);</li>
+<li><span class="math inline">q_0\in Q</span> (the <span class="def">starting state</span>);</li>
+<li><span class="math inline">\textcolor{darkred}{\mathtt{Z}}\in \Gamma</span> (the <span class="def">bottom of stack symbol</span>);</li>
+<li><span class="math inline">F\subseteq Q</span> a set of <span class="def">accepting</span> states.</li>
+</ul>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>In some texts the transition relation is replaced by an equivalent formalization, the <span class="def">transition function</span> given by <span class="math inline">\delta'\colon Q\times (\Sigma\cup\{\varepsilon\})\times \Gamma \to \mathscr{P}^{\mathrm{fin}}(Q\times \Gamma^*)</span></p>
+</div></div><p>Given a PDA <span class="math inline">A</span>, to describe how to use it to accept words in <span class="math inline">\Sigma^*</span> we need the notion of <span class="def">instantaneous description</span>, which informally is the current state the machine is in. It is a triple <span class="math inline">(q,x,\alpha)\in Q\times \Sigma^*\times \Gamma^*</span> and the meaning is that</p>
+<blockquote class="blockquote">
+<p>The PDA is in state <span class="math inline">Q</span>, the repaining part of the input to read is <span class="math inline">x</span>, and the current content of the stack is <span class="math inline">\beta</span>.</p>
+</blockquote>
+<p>When reading <span class="math inline">w</span>, the instantaneous description at the beginning is <span class="math inline">(q_0,w,\textcolor{darkred}{\mathtt{Z}})</span>, meaning that we are in the initial state of the PDA <span class="math inline">A</span>, we still have to read the whole <span class="math inline">w</span>, and the stack is empty (only <span class="math inline">\textcolor{darkred}{\mathtt{Z}}</span>, the symbol marking the bottom of the stack, is in it).</p>
+<p>Following a transition as the one in <a href="#fig-PDA-transition-ex-1" class="quarto-xref">Figure&nbsp;<span>19.1</span></a> we go from the instantaneous description <span class="math inline">(q,\textcolor{darkred}{\mathtt{s}}y,\beta\textcolor{darkred}{\mathtt{T}})</span> to the instantaneous description <span class="math inline">(q^\prime,y,\beta\alpha)</span>. We denote this with the notation <span class="math display">
+(q,\textcolor{darkred}{\mathtt{s}}y,\beta\textcolor{darkred}{\mathtt{T}}) \vdash_A (q^\prime,y,\beta\alpha)\ .
+</span></p>
+<p>Similarly, following a transition as the one in <a href="#fig-PDA-transition-ex-2" class="quarto-xref">Figure&nbsp;<span>19.2</span></a> we go from the instantaneous description <span class="math inline">(q,y,\beta\textcolor{darkred}{\mathtt{T}})</span> to the instantaneous description <span class="math inline">(q^\prime,y,\beta\alpha)</span>. We denote this with the notation <span class="math display">
+(q,y,\beta\textcolor{darkred}{\mathtt{T}}) \vdash_A (q^\prime,y,\beta\alpha)\ .
+</span></p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 19.2</strong></span> The <span class="def">language accepted</span> by a PDA <span class="math inline">A=(Q,\Sigma,\Gamma,\delta,q_0,\textcolor{darkred}{\mathtt{Z}},F)</span> (denoted by <span class="def"><span class="math inline">\mathscr{L}(A)</span></span>) is the set of all words <span class="math inline">w\in \Sigma^*</span> with the property that there exists a sequence <span class="math inline">\mathrm{ID}_0,\dots,\mathrm{ID}_m</span> of instantanous descriptions s.t.</p>
+<ul>
+<li><span class="math inline">\mathrm{ID}_i \vdash_A \mathrm{ID}_{i+1}</span> for each <span class="math inline">0\leq i\leq m-1</span>;</li>
+<li><span class="math inline">\mathrm{ID}_0=(q_0,w,\textcolor{darkred}{\mathtt{Z}})</span>;</li>
+<li><span class="math inline">\mathrm{ID}_m=(q,\varepsilon,\alpha)</span> with <span class="math inline">q\in F</span>.</li>
+</ul>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.1 (<span class="math inline">🌱</span>)</strong></span> Show that if <span class="math inline">L</span> is a regular language then there is a PDA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.2</strong></span> What is the language <span class="math inline">\mathscr{L}(A)</span> accepted by the gollowing PDA <span class="math inline">A</span>?</p>
+<div id="fig-PDA-an-bn" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-PDA-an-bn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pushdown_automata_files/mediabag/154f00afd72fb6950a57ad679c24f4d3bd052fdb.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-PDA-an-bn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.3
+</figcaption>
+</figure>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.3</strong></span> Write a PDA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=\{w\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* :w=w^R\}</span>.</p>
+</div>
+<section id="pdas-and-cfgs-are-equivalent-models" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="pdas-and-cfgs-are-equivalent-models"><span class="header-section-number">19.1</span> PDAs and CFGs are equivalent models</h2>
+<p>In this section we show that contxt-free grammars and pushdown automata have the same expressive power. In the sense of <a href="#thm-CFG-PDA-equivalence-CFG-to-PDA" class="quarto-xref">Theorem&nbsp;<span>19.1</span></a> and <a href="#thm-CFG-PDA-equivalence-PDA-to-CFG" class="quarto-xref">Theorem&nbsp;<span>19.2</span></a> below.</p>
+<div id="thm-CFG-PDA-equivalence-CFG-to-PDA" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 19.1</strong></span> Let <span class="math inline">L\subseteq \Sigma^*</span>. If there is a CFG <span class="math inline">G</span> s.t. <span class="math inline">\mathscr{L}(G)=L</span>, then there is a PDA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">G = (V, \Sigma, R, S)</span> be a context-free grammar such that <span class="math inline">L = \mathscr{L}(G)</span>, where <span class="math inline">V</span> is the set of variables, <span class="math inline">\Sigma</span> is the terminal alphabet, <span class="math inline">R</span> is the set of production rules, and <span class="math inline">S</span> is the start variable.</p>
+<p>A nondeterministic pushdown automaton <span class="math inline">B</span> that simulates derivations in <span class="math inline">G</span> has the following shape:</p>
+<div id="fig-" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pushdown_automata_files/mediabag/cdf734f043e4ac47dd95b398377bd32d25e62e10.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.4
+</figcaption>
+</figure>
+</div>
+<p>The transition <span class="math inline">\textcolor{darkred}{\mathtt{s}},\textcolor{darkred}{\mathtt{s}}\to \varepsilon</span> is not a single one, there is one of them for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>. Similarly, also the transition <span class="math inline">\varepsilon,\textcolor{darkred}{\mathtt{A}}\to \alpha^R</span> is not a single one, there is one of them for each production rule <span class="math inline">A\ \boldsymbol{\to}\ \alpha</span> in the grammar <span class="math inline">G</span>. The reason we have <span class="math inline">\varepsilon,\textcolor{darkred}{\mathtt{A}}\to \alpha^R</span> and not <span class="math inline">\varepsilon,\textcolor{darkred}{\mathtt{A}}\to \alpha</span> is the convention we used on how the words are put in the stack. If <span class="math inline">\alpha</span> is in the stack, we chose to have the last symbol of <span class="math inline">\alpha</span> as the top.</p>
+<p>If <span class="math inline">w \in \mathscr{L}(G)</span>, then there is a derivation <span class="math inline">S \Rightarrow^* w</span>. The PDA <span class="math inline">B</span> can choose the corresponding production rules and match each terminal against the input, so it accepts <span class="math inline">w</span>.</p>
+<p>Conversely, every accepting computation of the PDA corresponds to a valid derivation of the input string from <span class="math inline">S</span>. Therefore, the PDA accepts only strings in <span class="math inline">\mathscr{L}(G)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.4</strong></span> Using the construction in the proof of <a href="#thm-CFG-PDA-equivalence-CFG-to-PDA" class="quarto-xref">Theorem&nbsp;<span>19.1</span></a> give a PDA accepting the same language as the grammar <span class="math inline">S\ \boldsymbol{\to}\ \textcolor{darkred}{\mathtt{a}}S\textcolor{darkred}{\mathtt{b}}\ \vert\ \varepsilon</span>.</p>
+</div>
+<div id="thm-CFG-PDA-equivalence-PDA-to-CFG" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 19.2</strong></span> Let <span class="math inline">L\subseteq \Sigma^*</span>. If there is a PDA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>, then there is a context-free grammar <span class="math inline">G</span> s.t. <span class="math inline">\mathscr{L}(G)=L</span>.</p>
+</div>
 </section>
 <section id="closure-properties" class="level2" data-number="19.2">
 <h2 data-number="19.2" class="anchored" data-anchor-id="closure-properties"><span class="header-section-number">19.2</span> Closure properties</h2>
 <div id="thm-CFL-intersection-with-regular" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 19.1</strong></span> The intersection of a context-free language with a regular language is context-free.</p>
+<p><span class="theorem-title"><strong>Theorem 19.3</strong></span> The intersection of a context-free language with a regular language is context-free.</p>
 </div>
 <div id="thm-CFL-inverse-hom" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 19.2</strong></span> The inverse image of a context-free language under a homomorphism is context-free.</p>
+<p><span class="theorem-title"><strong>Theorem 19.4</strong></span> The inverse image of a context-free language under a homomorphism is context-free.</p>
 </div>
 </section>
-<section id="mathbfdcfl-deterministic-context-free-languages" class="level2" data-number="19.3">
-<h2 data-number="19.3" class="anchored" data-anchor-id="mathbfdcfl-deterministic-context-free-languages"><span class="header-section-number">19.3</span> <span class="math inline">\mathbf{DCFL}</span> – Deterministic Context-Free Languages</h2>
+<section id="sec-DCFL" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="sec-DCFL"><span class="header-section-number">19.3</span> <span class="math inline">\mathbf{DCFL}</span> – Deterministic Context-Free Languages</h2>
+<p>In this section we recall properties of <span class="def">deterministic</span> PDAs. Intuitively, similarly to DFAs, a PDA is <span class="def">deterministic</span> there are never options for the transitions to take. In other words, if for every <span class="math inline">q\in Q</span> and instantaneous description <span class="math inline">\mathrm{ID}=(q,x,\alpha)</span> there is at most one instantaneous description <span class="math inline">\mathrm{ID}'</span> s.t. <span class="math inline">\mathrm{ID}\vdash_A\mathrm{ID}'</span>.</p>
+<div id="def-DCFL" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 19.3 (<span class="math inline">\mathbf{DCFL}</span> – Deterministic Context-Free Languages)</strong></span> A CFL <span class="math inline">L</span> is <span class="def">deterministic</span> if there exist a deterministic pushdown automata <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>. <span class="def"><span class="math inline">\mathbf{DCFL}</span></span> is the set of all deterministic context-free languages (over a fixed alphabet).</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.5</strong></span> Is the PDA in <a href="#fig-PDA-an-bn" class="quarto-xref">Figure&nbsp;<span>19.3</span></a> deterministic?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.6</strong></span> Show that <span class="math inline">\mathbf{Regular}\subsetneq \mathbf{DCFL}</span>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.7</strong></span> Show that <span class="math inline">\mathbf{DCFL}</span> is closed under complement.</p>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-sipser2013introduction" class="csl-entry" role="listitem">
+Sipser, Michael. 2013. <em>Introduction to the Theory of Computation</em>. 3rd ed. Cengage Learning.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

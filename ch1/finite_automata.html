@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d7bc21b2087787ca864fdbb0444b236e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-85d64d133a3a5e806e57c9957343f8f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -504,7 +504,7 @@ Figure&nbsp;9.3
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In some texts, an <span class="math inline">\varepsilon</span>-NFA is defined using a <span class="def">transition function</span> <span class="math inline">\delta':Q\times (\Sigma\cup \{\varepsilon\})\to \mathscr{P}(Q)</span> instead of a transition relation <span class="math inline">\delta \subseteq Q\times (\Sigma\cup\{\varepsilon\})\times Q</span>. This is just a matter of notation, it is immediate to translate from one notation to the other: given <span class="math inline">\delta'</span> we have that <span class="math inline">\delta=\{(q,\textcolor{darkred}{\mathtt{s}},q')\in Q\times (\Sigma\cup\{\varepsilon\})\times Q :q'\in \delta'(q,\textcolor{darkred}{\mathtt{s}}) \}</span> and, viceversa, given <span class="math inline">\delta</span>, we have that <span class="math inline">\delta'(q,\textcolor{darkred}{\mathtt{s}})=\{q'\in Q:(q,\textcolor{darkred}{\mathtt{s}},q')\in \delta \}</span>.</p>
+<p>In some texts, an <span class="math inline">\varepsilon</span>-NFA is defined using a <span class="def">transition function</span> <span class="math inline">\delta':Q\times (\Sigma\cup \{\varepsilon\})\to \mathscr{P}^{\mathrm{}}(Q)</span> instead of a transition relation <span class="math inline">\delta \subseteq Q\times (\Sigma\cup\{\varepsilon\})\times Q</span>. This is just a matter of notation, it is immediate to translate from one notation to the other: given <span class="math inline">\delta'</span> we have that <span class="math inline">\delta=\{(q,\textcolor{darkred}{\mathtt{s}},q')\in Q\times (\Sigma\cup\{\varepsilon\})\times Q :q'\in \delta'(q,\textcolor{darkred}{\mathtt{s}}) \}</span> and, viceversa, given <span class="math inline">\delta</span>, we have that <span class="math inline">\delta'(q,\textcolor{darkred}{\mathtt{s}})=\{q'\in Q:(q,\textcolor{darkred}{\mathtt{s}},q')\in \delta \}</span>.</p>
 </div>
 </div>
 <p>We associate a language to an <span class="math inline">\varepsilon</span>-NFA as follows.</p>
@@ -712,7 +712,7 @@ Figure&nbsp;9.6
 \{q\in Q :\exists x\in S, (x,\textcolor{darkred}{\mathtt{s}},q)\in \delta\}\ .
 </span></p>
 <p>What are then the final states? All the subsets that have non-empty intersection with <span class="math inline">F</span>.</p>
-<p>Formally, the DFA <span class="math inline">B</span> has set of states <span class="math inline">Q'=\mathscr{P}(Q)</span>,<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> initial state <span class="math inline">I</span> and final states <span class="math inline">\{S :S\cap F\neq \emptyset\}</span>. The transition function <span class="math inline">\delta':Q'\times \Sigma \to Q'</span> is defined as follows: for every <span class="math inline">S\in Q'</span> and <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>, <span class="math display">
+<p>Formally, the DFA <span class="math inline">B</span> has set of states <span class="math inline">Q'=\mathscr{P}^{\mathrm{}}(Q)</span>,<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> initial state <span class="math inline">I</span> and final states <span class="math inline">\{S :S\cap F\neq \emptyset\}</span>. The transition function <span class="math inline">\delta':Q'\times \Sigma \to Q'</span> is defined as follows: for every <span class="math inline">S\in Q'</span> and <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>, <span class="math display">
 \delta'(S,\textcolor{darkred}{\mathtt{s}})=\{q\in Q :\exists x\in S, (x,\textcolor{darkred}{\mathtt{s}},q)\in \delta\}\ .
 </span></p>
 <p>By construction <span class="math inline">B</span> is a DFA and we need to show that <span class="math inline">\mathscr{L}(C)=\mathscr{L}(B)</span>. To do so we show the two containments.</p>

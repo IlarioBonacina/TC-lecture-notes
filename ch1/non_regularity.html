@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d7bc21b2087787ca864fdbb0444b236e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-85d64d133a3a5e806e57c9957343f8f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -391,7 +391,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#sec-fooling-sets" id="toc-sec-fooling-sets" class="nav-link active" data-scroll-target="#sec-fooling-sets"><span class="header-section-number">14.1</span> Non-regularity <em>via</em> fooling sets</a></li>
-  <li><a href="#non-regularity-via-closure-properties" id="toc-non-regularity-via-closure-properties" class="nav-link" data-scroll-target="#non-regularity-via-closure-properties"><span class="header-section-number">14.2</span> Non-regularity <em>via</em> closure properties</a></li>
+  <li><a href="#sec-non-reg-via-closure" id="toc-sec-non-reg-via-closure" class="nav-link" data-scroll-target="#sec-non-reg-via-closure"><span class="header-section-number">14.2</span> Non-regularity <em>via</em> closure properties</a></li>
   <li><a href="#non-regularity-via-pumping-lemma" id="toc-non-regularity-via-pumping-lemma" class="nav-link" data-scroll-target="#non-regularity-via-pumping-lemma"><span class="header-section-number">14.3</span> Non-regularity <em>via</em> Pumping Lemma</a></li>
   </ul>
 </nav>
@@ -538,8 +538,8 @@ L_n=\{x\textcolor{darkred}{\mathtt{a}}y :x,y\in \{\textcolor{darkred}{\mathtt{a}
 </ol>
 </div>
 </section>
-<section id="non-regularity-via-closure-properties" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="non-regularity-via-closure-properties"><span class="header-section-number">14.2</span> Non-regularity <em>via</em> closure properties</h2>
+<section id="sec-non-reg-via-closure" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="sec-non-reg-via-closure"><span class="header-section-number">14.2</span> Non-regularity <em>via</em> closure properties</h2>
 <p>Closure properties can be used to show that a language <span class="math inline">L</span> is not in <span class="math inline">\mathbf{Regular}</span>, by reducing this to the known fact that another (usually simpler) language <span class="math inline">L'</span> is not in <span class="math inline">\mathbf{Regular}</span>. This is essentially using the contrapositive of the closure properties.</p>
 <div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14.4</strong></span> For example, <span class="math inline">\mathbf{Regular}</span> being closed intersection means that if <span class="math inline">L_1</span> and <span class="math inline">L_2</span> are in <span class="math inline">\mathbf{Regular}</span> then <span class="math inline">L_1\cap L_2</span> is in <span class="math inline">\mathbf{Regular}</span> too. Which, taking the contrapositive, can be equivalently stated as:</p>
