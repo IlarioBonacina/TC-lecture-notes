@@ -641,7 +641,7 @@ B\ &amp;\boldsymbol{\to}&amp;\ \textcolor{darkred}{\mathtt{b}}
 </span></p>
 </div>
 <p>Following this approach, a possible pseudocode implementing the CYK algorithm is the following.</p>
-<div id="alg-cyk" class="pseudocode-container quarto-float" data-no-end="true" data-comment-delimiter="//" data-indent-lines="false" data-line-number-punc=":" data-pseudocode-number="1" data-line-number="false" data-indent-size="1.2em" data-caption-prefix="Algorithm">
+<div id="alg-cyk" class="pseudocode-container quarto-float" data-line-number-punc=":" data-caption-prefix="Algorithm" data-pseudocode-number="1" data-indent-lines="false" data-line-number="false" data-indent-size="1.2em" data-comment-delimiter="//" data-no-end="true">
 <div class="pseudocode">
 \begin{algorithm} \caption{CYK Algorithm}\begin{algorithmic} \Input{A non-empty word $w = w[1] \cdots w[n]$ and a grammar $G=(V,\Sigma,R,S)$ meeting the assumptions above} \Output{The answer to the question: $w\in \mathscr{L}(G)$?} \State{Initialize all $P[i,\ell,A]$ to $0$} \For{$i = 1$ to $n$} \Comment{Initialization: setting all $P[i,1,A]$s} \ForAll{$A \in V$} \If{$(A \to w[i]) \in R$} \State $P[i,1,A] = 1$ \EndIf \EndFor \EndFor \For{$\ell = 2$ to $n$} \Comment{Fill the table in increasing order of substring length} \For{$i = 1$ to $n-\ell+1$} \For{$k = 1$ to $\ell-1$} \ForAll{$(A \to BC) \in R$} \If{$P[i,k,B] \land P[i+k,\ell-k,C]$} \State $P[i,\ell,A] = 1$ \EndIf \EndFor \EndFor \EndFor \EndFor \State \Return $P[1,n,S]$ \end{algorithmic} \end{algorithm}
 </div>

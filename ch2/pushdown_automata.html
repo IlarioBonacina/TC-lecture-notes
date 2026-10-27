@@ -514,7 +514,7 @@ Figure&nbsp;19.2
 <li><span class="math inline">Q</span> is a finite set of <span class="def">states</span>;</li>
 <li><span class="math inline">\Sigma</span> is a non-empty finite set (called the <span class="def">input alphabet</span>);</li>
 <li><span class="math inline">\Gamma</span> is a non-empty finite set (called the <span class="def">stack alphabet</span>);</li>
-<li><span class="math inline">\delta</span> is a finite subset of <span class="math inline">Q\times (\Sigma\cup\{\varepsilon\})\times \Gamma\times Q\times \Gamma^*</span> (called <span class="def">transition relation</span>);</li>
+<li><span class="math inline">\delta</span> is a finite subset of <span class="math inline">Q\times (\Sigma\cup\{\varepsilon\})\times (\Gamma\cup\{\varepsilon\})\times Q\times \Gamma^*</span> (called <span class="def">transition relation</span>);</li>
 <li><span class="math inline">q_0\in Q</span> (the <span class="def">starting state</span>);</li>
 <li><span class="math inline">\textcolor{darkred}{\mathtt{Z}}\in \Gamma</span> (the <span class="def">bottom of stack symbol</span>);</li>
 <li><span class="math inline">F\subseteq Q</span> a set of <span class="def">accepting</span> states.</li>
@@ -522,7 +522,7 @@ Figure&nbsp;19.2
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>In some texts the transition relation is replaced by an equivalent formalization, the <span class="def">transition function</span> given by <span class="math inline">\delta'\colon Q\times (\Sigma\cup\{\varepsilon\})\times \Gamma \to \mathscr{P}^{\mathrm{fin}}(Q\times \Gamma^*)</span></p>
+<p>In some texts the transition relation is replaced by an equivalent formalization, the <span class="def">transition function</span> given by <span class="math inline">\delta'\colon Q\times (\Sigma\cup\{\varepsilon\})\times (\Gamma\cup\{\varepsilon\}) \to \mathscr{P}^{\mathrm{fin}}(Q\times \Gamma^*)</span></p>
 </div></div><p>Given a PDA <span class="math inline">A</span>, to describe how to use it to accept words in <span class="math inline">\Sigma^*</span> we need the notion of <span class="def">instantaneous description</span>, which informally is the current state the machine is in. It is a triple <span class="math inline">(q,x,\alpha)\in Q\times \Sigma^*\times \Gamma^*</span> and the meaning is that</p>
 <blockquote class="blockquote">
 <p>The PDA is in state <span class="math inline">Q</span>, the repaining part of the input to read is <span class="math inline">x</span>, and the current content of the stack is <span class="math inline">\beta</span>.</p>
@@ -572,7 +572,7 @@ Figure&nbsp;19.3
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Proof
+<span class="screen-reader-only">Note</span>Proof (sketch)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -591,8 +591,9 @@ Figure&nbsp;19.4
 </figure>
 </div>
 <p>The transition <span class="math inline">\textcolor{darkred}{\mathtt{s}},\textcolor{darkred}{\mathtt{s}}\to \varepsilon</span> is not a single one, there is one of them for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \Sigma</span>. Similarly, also the transition <span class="math inline">\varepsilon,\textcolor{darkred}{\mathtt{A}}\to \alpha^R</span> is not a single one, there is one of them for each production rule <span class="math inline">A\ \boldsymbol{\to}\ \alpha</span> in the grammar <span class="math inline">G</span>. The reason we have <span class="math inline">\varepsilon,\textcolor{darkred}{\mathtt{A}}\to \alpha^R</span> and not <span class="math inline">\varepsilon,\textcolor{darkred}{\mathtt{A}}\to \alpha</span> is the convention we used on how the words are put in the stack. If <span class="math inline">\alpha</span> is in the stack, we chose to have the last symbol of <span class="math inline">\alpha</span> as the top.</p>
-<p>If <span class="math inline">w \in \mathscr{L}(G)</span>, then there is a derivation <span class="math inline">S \Rightarrow^* w</span>. The PDA <span class="math inline">B</span> can choose the corresponding production rules and match each terminal against the input, so it accepts <span class="math inline">w</span>.</p>
+<p>Intuitively, the construction is correct due to the following two observations. If <span class="math inline">w \in \mathscr{L}(G)</span>, then there is a derivation <span class="math inline">S \Rightarrow^* w</span>. The PDA <span class="math inline">B</span> can choose the corresponding production rules and match each terminal against the input, so it accepts <span class="math inline">w</span>.</p>
 <p>Conversely, every accepting computation of the PDA corresponds to a valid derivation of the input string from <span class="math inline">S</span>. Therefore, the PDA accepts only strings in <span class="math inline">\mathscr{L}(G)</span>.</p>
+<p>For a formal proof of the correctness of the construction see <span class="citation" data-cites="sipser2013introduction">(<a href="../references.html#ref-sipser2013introduction" role="doc-biblioref">Sipser 2013, sec. 2.2</a>)</span>.</p>
 </div>
 </div>
 </div>
@@ -602,35 +603,215 @@ Figure&nbsp;19.4
 </div>
 <div id="thm-CFG-PDA-equivalence-PDA-to-CFG" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 19.2</strong></span> Let <span class="math inline">L\subseteq \Sigma^*</span>. If there is a PDA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>, then there is a context-free grammar <span class="math inline">G</span> s.t. <span class="math inline">\mathscr{L}(G)=L</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof (sketch)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let the PDA <span class="math inline">A=(Q,\Sigma,\Gamma,\delta,q_0,\textcolor{darkred}{\mathtt{Z}},F)</span>. In this proof sketch we only give the context-free grammar <span class="math inline">G</span> s.t. <span class="math inline">\mathscr{L}(G)=\mathscr{L}(A)</span> and a proof sketch of why it is correct. For the full argument see <span class="citation" data-cites="sipser2013introduction">(<a href="../references.html#ref-sipser2013introduction" role="doc-biblioref">Sipser 2013, sec. 2.2</a>)</span>.</p>
+<p>To make the construction easier we first transform the PDA so that it has the following properties:</p>
+<ol type="1">
+<li>there is exactly one accepting state <span class="math inline">q_{accept}</span>;</li>
+<li>the PDA empties the stack before accepting (we use the symbol <span class="math inline">\textcolor{darkred}{\mathtt{Z}}</span> to denoe the bottom of an empty stack);</li>
+<li>each transition is either a pop of exactly one symbol or a push of exactly one symbol.</li>
+</ol>
+<p>The grammar <span class="math inline">G</span> is based on the following idea:</p>
+<blockquote class="blockquote">
+<p>For every pair of states <span class="math inline">q,q'</span> of <span class="math inline">A</span>, we have a variable <span class="math inline">S_{qq'}</span> that generates the words that, in <span class="math inline">A</span>, from state <span class="math inline">q</span> and empty stack lead to <span class="math inline">q'</span> with empty stack.</p>
+</blockquote>
+<p>By the assumption 1, the initial variable of <span class="math inline">G</span> is <span class="math inline">S_{q_0q_{accept}}</span>. By assumptions 2 and 3, then the first operation on the stack is a push and the last one is a pop.</p>
+<p>Now, for each <span class="math inline">q\in Q</span>, <span class="math inline">\varepsilon</span> leads from <span class="math inline">q</span> (with empty stack) to <span class="math inline">q</span> (with empty stack) so to the productions of <span class="math inline">G</span> we add <span class="math display">
+S_{qq}\ \boldsymbol{\to}\ \varepsilon\ .
+</span></p>
+<p>For each <span class="math inline">q,q'\in Q</span>, it might be that the stack becomes empty in some intermediate state <span class="math inline">r\in Q</span>, so, to the productions of <span class="math inline">G</span> we add</p>
+<p><span class="math display">
+S_{qq'}\ \boldsymbol{\to}\ S_{qr}S_{rq'}\ ,
+</span> for each <span class="math inline">q,q,r\in Q</span>.</p>
+<p>The remaining productions deal with the case when the stack is empty only at the beginning and end. That is, for every <span class="math inline">q,q',p,p'\in Q</span>, <span class="math inline">\textcolor{darkred}{\mathtt{s}},\textcolor{darkred}{\mathtt{t}}\in \Sigma\cup\{\varepsilon\}</span>, <span class="math inline">\textcolor{darkred}{\mathtt{U}}\in \Gamma</span>, if <span class="math inline">(q,\textcolor{darkred}{\mathtt{s}},\textcolor{darkred}{\mathtt{Z}},p,\textcolor{darkred}{\mathtt{ZU}})\in \delta</span> and <span class="math inline">(p',\textcolor{darkred}{\mathtt{t}},\textcolor{darkred}{\mathtt{U}},q',\varepsilon)\in \delta</span>, we have the production <span class="math display">
+S_{qq'}\ \boldsymbol{\to}\ \textcolor{darkred}{\mathtt{s}}S_{pp'}\textcolor{darkred}{\mathtt{t}}\ .
+</span> That is, if the PDA accepts a word <span class="math inline">w=\textcolor{darkred}{\mathtt{s}}w'\textcolor{darkred}{\mathtt{t}}</span> and the stack is empty only at the edn, then it must go to a state <span class="math inline">p</span>, push something (<span class="math inline">\textcolor{darkred}{\mathtt{U}}</span>) in the stack, and only pops it at the end when reading <span class="math inline">\textcolor{darkred}{\mathtt{t}}</span> from some state <span class="math inline">p'</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.5</strong></span> Using the construction in the proof of <a href="#thm-CFG-PDA-equivalence-PDA-to-CFG" class="quarto-xref">Theorem&nbsp;<span>19.2</span></a> give a CFG accepting the same language as the PDA in <a href="#fig-PDA-an-bn" class="quarto-xref">Figure&nbsp;<span>19.3</span></a>.</p>
 </div>
 </section>
 <section id="closure-properties" class="level2" data-number="19.2">
 <h2 data-number="19.2" class="anchored" data-anchor-id="closure-properties"><span class="header-section-number">19.2</span> Closure properties</h2>
+<p>In this section we conclude the closure properties of context-free languages (see <a href="context_free_grammars.html#tbl-CFL-closure" class="quarto-xref">Table&nbsp;<span>16.1</span></a>).</p>
 <div id="thm-CFL-intersection-with-regular" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 19.3</strong></span> The intersection of a context-free language with a regular language is context-free.</p>
+<p><span class="theorem-title"><strong>Theorem 19.3</strong></span> The intersection of a context-free language with a regular language is context-free, that is if <span class="math inline">L\in \mathbf{CFL}</span> and <span class="math inline">L'\in \mathbf{Regular}</span>, then <span class="math inline">L\cap L'\in \mathbf{CFL}</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof (sketch)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By <a href="#thm-CFG-PDA-equivalence-CFG-to-PDA" class="quarto-xref">Theorem&nbsp;<span>19.1</span></a>, we have a PDA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>. Since <span class="math inline">L'\in \mathbf{Regular}</span>, by <a href="../ch1/regular_languages.html#thm-regular" class="quarto-xref">Theorem&nbsp;<span>13.1</span></a>, there is a DFA <span class="math inline">B</span> s.t. <span class="math inline">\mathscr{L}(B)=L'</span>. Due to <a href="#thm-CFG-PDA-equivalence-PDA-to-CFG" class="quarto-xref">Theorem&nbsp;<span>19.2</span></a>, to prove the result it enough to construct a PDA <span class="math inline">C</span> s.t. <span class="math inline">\mathscr{L}(C)=L\cap L'</span>. The construction of <span class="math inline">C</span> follows the same idea used for the <em>cartesian product construction</em> we saw in <a href="../ch1/finite_automata.html#exm-DFA-cartesian-product" class="quarto-xref">Example&nbsp;<span>9.7</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-CFL-intersection-with-regular" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.6</strong></span> Fill the details of the proof sketch of <a href="#thm-CFL-intersection-with-regular" class="quarto-xref">Theorem&nbsp;<span>19.3</span></a>.</p>
 </div>
 <div id="thm-CFL-inverse-hom" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 19.4</strong></span> The inverse image of a context-free language under a homomorphism is context-free.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>For the proof of this fact see <span class="citation" data-cites="hopcroft07">(<a href="../references.html#ref-hopcroft07" role="doc-biblioref">Hopcroft et al. 2007</a>, Thorem 7.30)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section id="sec-DCFL" class="level2" data-number="19.3">
+<section id="sec-DCFL" class="level2 page-columns page-full" data-number="19.3">
 <h2 data-number="19.3" class="anchored" data-anchor-id="sec-DCFL"><span class="header-section-number">19.3</span> <span class="math inline">\mathbf{DCFL}</span> – Deterministic Context-Free Languages</h2>
 <p>In this section we recall properties of <span class="def">deterministic</span> PDAs. Intuitively, similarly to DFAs, a PDA is <span class="def">deterministic</span> there are never options for the transitions to take. In other words, if for every <span class="math inline">q\in Q</span> and instantaneous description <span class="math inline">\mathrm{ID}=(q,x,\alpha)</span> there is at most one instantaneous description <span class="math inline">\mathrm{ID}'</span> s.t. <span class="math inline">\mathrm{ID}\vdash_A\mathrm{ID}'</span>.</p>
 <div id="def-DCFL" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 19.3 (<span class="math inline">\mathbf{DCFL}</span> – Deterministic Context-Free Languages)</strong></span> A CFL <span class="math inline">L</span> is <span class="def">deterministic</span> if there exist a deterministic pushdown automata <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>. <span class="def"><span class="math inline">\mathbf{DCFL}</span></span> is the set of all deterministic context-free languages (over a fixed alphabet).</p>
 </div>
+<p>The interest in <span class="math inline">\mathbf{DCFL}</span> is practical: parsing for languages in <span class="math inline">\mathbf{DCFL}</span> can be done in linear time.</p>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 19.5</strong></span> Is the PDA in <a href="#fig-PDA-an-bn" class="quarto-xref">Figure&nbsp;<span>19.3</span></a> deterministic?</p>
+<p><span class="theorem-title"><strong>Exercise 19.7</strong></span> Is the PDA in <a href="#fig-PDA-an-bn" class="quarto-xref">Figure&nbsp;<span>19.3</span></a> deterministic?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 19.6</strong></span> Show that <span class="math inline">\mathbf{Regular}\subsetneq \mathbf{DCFL}</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 19.8</strong></span> Show that <span class="math inline">\mathbf{Regular}\subsetneq \mathbf{DCFL}</span>.</p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 19.7</strong></span> Show that <span class="math inline">\mathbf{DCFL}</span> is closed under complement.</p>
+<div id="exr-DCFL-complement" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.9 (<span class="math inline">🔥</span>)</strong></span> Show that <span class="math inline">\mathbf{DCFL}</span> is closed under complement and use this fact to conclude that <span class="math inline">\mathbf{DCFL}\subsetneq \mathbf{CFL}</span>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The obvious construction of interchanging final and non-final states does not work immediately. The point is that a deterministic pushdown automata is close to a DFA but not exactly!</p>
+</div>
+</div>
+</div>
+<p>Similarly as we did for CFL in <a href="context_free_grammars.html#tbl-CFL-closure" class="quarto-xref">Table&nbsp;<span>16.1</span></a>, we give a table summarizing the closure properties of <span class="math inline">\mathbf{DCFL}</span>.</p>
+<div id="tbl-DCFL-closure" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[50,25,25]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-DCFL-closure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;19.1: Closure properties of DCFL
+</figcaption>
+<div aria-describedby="tbl-DCFL-closure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">is <span class="math inline">\mathbf{DCFL}</span> closed under</th>
+<th style="text-align: center;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">union?</td>
+<td style="text-align: center;">no ❌</td>
+<td style="text-align: left;"><a href="non-context-freeness.html#exr-DCFL-union" class="quarto-xref">Exercise&nbsp;<span>21.3</span></a></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">concatenation?</td>
+<td style="text-align: center;">no ❌</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Kleene star?</td>
+<td style="text-align: center;">no ❌</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">intersection?</td>
+<td style="text-align: center;">no ❌</td>
+<td style="text-align: left;"><a href="non-context-freeness.html#exr-DCFL-intersection" class="quarto-xref">Exercise&nbsp;<span>21.2</span></a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">intersection with a regular language?</td>
+<td style="text-align: center;">yes ✅</td>
+<td style="text-align: left;"><a href="#exr-DCFL-intersection-regular" class="quarto-xref">Exercise&nbsp;<span>19.10</span></a></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">complement?</td>
+<td style="text-align: center;">yes ✅</td>
+<td style="text-align: left;"><a href="#exr-DCFL-complement" class="quarto-xref">Exercise&nbsp;<span>19.9</span></a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">reversal?</td>
+<td style="text-align: center;">no ❌</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">homomorphism?</td>
+<td style="text-align: center;">no ❌</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">inverse homomorphism?</td>
+<td style="text-align: center;">yes ✅</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Some of the closure and non-closure properties of <span class="math inline">\mathbf{DCFL}</span> summarized in this table are left as exercises with hints. For the remaining ones see <span class="citation" data-cites="hopcroft07">(<a href="../references.html#ref-hopcroft07" role="doc-biblioref">Hopcroft et al. 2007</a>)</span>.</p>
+</div></div><div id="exr-DCFL-intersection-regular" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.10</strong></span> Show that <span class="math inline">\mathbf{DCFL}</span> closed for intersection with a regular language.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Do <a href="#exr-CFL-intersection-with-regular" class="quarto-xref">Exercise&nbsp;<span>19.6</span></a> first.</p>
+</div>
+</div>
+</div>
 </div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-hopcroft07" class="csl-entry" role="listitem">
+Hopcroft, John E., Rajeev Motwani, and Jeffrey D. Ullman. 2007. <em>Introduction to Automata Theory, Languages, and Computation</em>. 3rd edition. Pearson Addison Wesley.
+</div>
 <div id="ref-sipser2013introduction" class="csl-entry" role="listitem">
 Sipser, Michael. 2013. <em>Introduction to the Theory of Computation</em>. 3rd ed. Cengage Learning.
 </div>
