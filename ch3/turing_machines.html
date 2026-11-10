@@ -472,19 +472,6 @@ window.Quarto = {
 <p>In this chapter we develop the model we use for a general purpouse computer: the <span class="def">Turing machine</span>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The content of this part is still under development and will be updated during the course.</p>
-</div>
-</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Alan_Turing_%281951%29_%28crop%29.jpg" class="rounded img-fluid figure-img" style="width:60.0%"></p>
@@ -591,7 +578,7 @@ Figure&nbsp;23.3
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We use the same notation as before: <code>&gt;</code> is the left-end marker, <code>_</code> is the blank, and moves are <code>L</code>, <code>R</code>, <code>S</code> (stay). A missing transition means <em>reject</em>.</p>
+<p>We use the same notation as before: <code>&gt;</code> denotes the left-end marker <span class="math inline">\blacktriangleright</span>, <code>_</code> is the blank, and moves are <code>L</code>, <code>R</code>, <code>S</code> (stay). A missing transition means <em>reject</em>.</p>
 <p>To keep tables short, we use a <strong>wildcard</strong>: <code>*</code> stands for “any symbol not handled by another rule for that state”, and writing <code>*</code> on both sides means “write back the same symbol”. So</p>
 <pre><code>r * -&gt; r * R</code></pre>
 <p>is an abbreviation for one transition <code>r a -&gt; r a R</code> for every tape symbol <code>a</code>.</p>
@@ -606,7 +593,7 @@ Figure&nbsp;23.3
 </ul>
 </div>
 <p>An ordinary TM is just a block whose exit states are <span class="math inline">q_{\mathrm{accept}}</span> and <span class="math inline">q_{\mathrm{reject}}</span>. Blocks with two exits, say <code>yes</code> and <code>no</code>, are <span class="def">tests</span>: they play the role of Boolean conditions.</p>
-<p>Two blocks used together must have <strong>disjoint sets of state names</strong>; if they don’t, we rename states (for instance by adding a prefix, <span class="math inline">q_{A,0}</span>, <span class="math inline">q_{B,0}</span>, …). Renaming states does not change what a block does.</p>
+<p>Two blocks used together must have <strong>disjoint sets of state names</strong>; if they don’t, we rename states (for instance by adding a prefix, <code>A.q0</code>, <code>B.q0</code>, …). Renaming states does not change what a block does.</p>
 <p>Throughout, we draw blocks as boxes:</p>
 <div id="fig-" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -685,7 +672,16 @@ t 1 -&gt; done 0 S</code></pre>
 <li>the exit of <code>B</code> with the entry of <code>T</code> (this is the “jump back”);</li>
 <li><code>no</code> with the exit of the loop.</li>
 </ul>
-<img src="turing_machines_files/mediabag/02e7de83f2407b894476c0324f3e6261ea16b9a1.svg" class="img-fluid">
+<div id="fig-" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="turing_machines_files/mediabag/02e7de83f2407b894476c0324f3e6261ea16b9a1.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;23.7
+</figcaption>
+</figure>
+</div>
 <div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Example 23.4</strong></span> Let’s implement the following “while the current symbol is not <code>&gt;</code>, move left” Test (does not move):</p>
 <pre><code>w &gt; -&gt; no &gt; S
@@ -713,11 +709,11 @@ w &gt; -&gt; no &gt; S</code></pre>
 </section>
 <section id="for-loops-for-i-1-to-n-do-b" class="level3" data-number="23.1.5">
 <h3 data-number="23.1.5" class="anchored" data-anchor-id="for-loops-for-i-1-to-n-do-b"><span class="header-section-number">23.1.5</span> For loops: <code>for i = 1 to n do B</code></h3>
-<p>A <code>for</code> loop is a <code>while</code> loop over a <strong>counter</strong> stored on the tape. The simplest version uses a <strong>unary</strong> counter: the tape is <span class="math inline">\texttt{&gt;}\,1^n\,\texttt{\#}\,w</span>, and each iteration crosses off one <code>1</code>.</p>
+<p>A <code>for</code> loop is a <code>while</code> loop over a <strong>counter</strong> stored on the tape. The simplest version uses a <strong>unary</strong> counter: the tape is <span class="math inline">\blacktriangleright\,\textcolor{darkred}{\mathtt{1}}^n\,\textcolor{darkred}{\mathtt{\#}}\,w</span>, and each iteration crosses off one <span class="math inline">\textcolor{darkred}{\mathtt{1}}</span>.</p>
 <pre><code>for each 1 in the counter:
     cross it off
     run B</code></pre>
-<p>As a <code>while</code> loop: <em>while there is an uncrossed <code>1</code> in the counter, cross it off, run <code>B</code>, go back to the left end.</em></p>
+<p>As a <code>while</code> loop: <em>while there is an uncrossed <span class="math inline">\textcolor{darkred}{\mathtt{1}}</span> in the counter, cross it off, run <code>B</code>, go back to the left end.</em></p>
 <div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Example 23.5</strong></span> Let’s see for example a loop control around a body <code>B</code> We assume that <code>B</code> has entry <code>B.start</code> and exit <code>B.done</code>, does not modify the counter, and does not need the head in any particular place when it starts.</p>
 <pre><code>c x -&gt; c x R             # skip the 1s already crossed off
