@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-85d64d133a3a5e806e57c9957343f8f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fbdfad8988cfb61ffae4b40a8590ab9f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -151,7 +151,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -356,12 +356,53 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch3/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch3/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Computability</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/turing_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Turing Machines</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/experiment_with_TMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Experiment with Turing Machines</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/church-turing-thesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">The Church-Turing Thesis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/R-RE-coRE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{coRE}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/reducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Many-One Reductions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
@@ -385,11 +426,17 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-PDA-simulator" id="toc-sec-PDA-simulator" class="nav-link active" data-scroll-target="#sec-PDA-simulator"><span class="header-section-number">20.1</span> A PDA simulator</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch2/intro.html">Context-Free Languages</a></li><li class="breadcrumb-item"><a href="../ch2/experiment_with_CFGs_and_PDAs.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Experiment with CFGs and PDAs</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -411,12 +458,761 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p>% noend hides “end for”; drop it to keep them</p>
+<p>% noend hides “end for”; drop it to keep them </p>
 </div>
 <p>In this chapter we suggest some resources/exercises/activities to get more familar with what can be done using context-free grammars. Regarding the resources available, you have the <a href="https://racso.lsi.upc.edu/juezwsgi/exercise-list?inputkind=cfg">RACSO</a> webpage and the exercises on the <a href="https://www.cs.upc.edu/tc/en/PS2.html">Problem Set 2</a> from the TC course main page.</p>
-<p>To get more familiar with pushdown automata, you have the <a href="https://racso.lsi.upc.edu/juezwsgi/exercise-list?inputkind=pda">RACSO</a> webpage.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Content added after class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="#sec-PDA-simulator" class="quarto-xref"><span>Section 20.1</span></a>: a PDA simulator</li>
+</ul>
+</div>
+</div>
+</div></div><p>To get more familiar with pushdown automata, you have the <a href="https://racso.lsi.upc.edu/juezwsgi/exercise-list?inputkind=pda">RACSO</a> webpage.</p>
+<section id="sec-PDA-simulator" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="sec-PDA-simulator"><span class="header-section-number">20.1</span> A PDA simulator</h2>
+<p>Below you have a simple PDA simulator, with a couple of examples already implemented.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The simulator is <span class="red">experimental</span> and use <a href="https://pyodide.org/en/stable/">Pyodide</a> to run the simulation. It might not run properly on small screens such as smartphones. Please report any bug.</p>
+</div>
+</div>
+<p>To use it, write the transitions of a (nondeterministic) pushdown automaton, enter an input word and press <strong>Run</strong> or <strong>Step</strong>. Every step advances <strong>all</strong> computations in parallel: each card below is one configuration (state, input position, stack), and the diagram highlights the states that are currently active.</p>
+<style>
+  #pda-sim { --pda-accent: #d9480f; --pda-bg: var(--bs-body-bg, transparent); margin: 1.5rem 0; }
+  #pda-sim .row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: end; margin-bottom: .75rem; }
+  #pda-sim label { display: flex; flex-direction: column; font-size: .8rem; gap: .2rem; }
+  #pda-sim input[type=text], #pda-sim select, #pda-sim textarea {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .9rem; padding: .3rem .5rem; border: 1px solid rgba(128,128,128,.5);
+    border-radius: 4px; background: transparent; color: inherit;
+  }
+  #pda-sim textarea { width: 100%; min-height: 12rem; box-sizing: border-box; }
+  #pda-sim button {
+    padding: .35rem .9rem; border: 1px solid rgba(128,128,128,.6); border-radius: 4px;
+    background: rgba(128,128,128,.12); color: inherit; cursor: pointer; font-size: .9rem;
+  }
+  #pda-sim button:disabled { opacity: .45; cursor: not-allowed; }
+  #pda-sim button.primary { background: var(--pda-accent); border-color: var(--pda-accent); color: #fff; }
+  #pda-sim .hint { font-size: .8rem; opacity: .75; }
+
+  #pda-svg { width: 100%; max-height: 480px; border: 1px solid rgba(128,128,128,.4); border-radius: 6px; margin-top: .5rem; }
+  #pda-svg text { font-family: ui-monospace, Menlo, Consolas, monospace; fill: currentColor; stroke: none; }
+  #pda-svg text.lbl { font-size: 12px; paint-order: stroke; stroke: var(--pda-bg); stroke-width: 3px; }
+  #pda-svg text.lbl.hot { fill: var(--pda-accent); font-weight: bold; }
+  #pda-svg text { user-select: none; -webkit-user-select: none; }
+  #pda-svg .node { cursor: grab; touch-action: none; }
+  #pda-svg .node circle { pointer-events: all; }   /* the whole disc is draggable, not just its outline */
+  #pda-svg.dragging, #pda-svg.dragging .node { cursor: grabbing; }
+
+  #pda-status { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .9rem; margin: .6rem 0; }
+  #pda-status.accepted { color: #2b8a3e; font-weight: bold; }
+  #pda-status.rejected, #pda-status.limit, #pda-status.error { color: #c92a2a; font-weight: bold; }
+
+  #pda-configs { display: flex; flex-wrap: wrap; gap: .6rem; align-items: flex-start; }
+  #pda-configs .card {
+    border: 1px solid rgba(128,128,128,.5); border-radius: 6px; padding: .4rem .6rem; min-width: 8.5rem;
+    font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85rem;
+  }
+  #pda-configs .card.accepting { border: 2px solid #2b8a3e; background: rgba(43,138,62,.12); }
+  #pda-configs .more { align-self: center; opacity: .7; font-size: .85rem; }
+  #pda-configs .st { font-weight: bold; margin-bottom: .3rem; }
+  #pda-configs .inp { display: flex; margin-bottom: .4rem; }
+  #pda-configs .ic {
+    width: 1.3rem; height: 1.5rem; line-height: 1.5rem; text-align: center;
+    border: 1px solid rgba(128,128,128,.5); margin-right: -1px;
+  }
+  #pda-configs .ic.done { opacity: .3; }
+  #pda-configs .ic.next { border: 2px solid var(--pda-accent); background: rgba(217,72,15,.18); position: relative; z-index: 1; }
+  #pda-configs .stk-label { font-size: .7rem; opacity: .7; }
+  #pda-configs .stk { display: flex; flex-direction: column; width: 2rem; }
+  #pda-configs .sc {
+    height: 1.5rem; line-height: 1.5rem; text-align: center;
+    border: 1px solid rgba(128,128,128,.6); border-top-width: 0;
+  }
+  #pda-configs .sc:first-child { border-top-width: 1px; background: rgba(217,72,15,.18); border-color: var(--pda-accent); }
+  #pda-configs .empty { opacity: .6; font-style: italic; }
+
+  #pda-trace-wrap { margin-top: 1rem; }
+  #pda-trace { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85rem; white-space: pre; overflow-x: auto; }
+</style>
+
+<div id="pda-sim">
+  <div class="row">
+    <label>Example
+      <select id="pda-example">
+        <option value="anbn">a^n b^n</option>
+        <option value="pal">Even palindromes w w^R</option>
+        <option value="parenfinal">Balanced parentheses (final state)</option>
+        <option value="paren">Balanced parentheses (empty stack)</option>
+        <option value="empty">Construct your PDA from scratch</option>
+      </select>
+    </label>
+    </div>
+    <div class="row">
+    <label>Input word <input type="text" id="pda-input" size="16"></label>
+    <label>Start state <input type="text" id="pda-start" size="6" value="q0"></label>
+    <label>Final states <input type="text" id="pda-finals" size="10" placeholder="qf, q2"></label>
+    <label>Initial stack <input type="text" id="pda-init" size="6" value="$" title="top symbol first"></label>
+    <label>Accept by
+      <select id="pda-mode">
+        <option value="final">final state</option>
+        <option value="empty">empty stack</option>
+      </select>
+    </label>
+  </div>
+
+  <label>Transitions
+    <textarea id="pda-rules" spellcheck="false"></textarea>
+  </label>
+  <p class="hint">
+    Format: <code>state input pop -&gt; new_state push</code>. In <code>state</code>, read <code>input</code> and pop <code>pop</code>
+    from the top of the stack, go to <code>new_state</code> and push the string <code>push</code>
+    (its leftmost symbol ends up on top). Use <code>ε</code> (type <code>eps</code>) for "read nothing", "don't touch the stack" or "push nothing".
+    <code>#</code> starts a comment. The <em>initial stack</em> is written top first. All computations are explored in parallel,
+    and a configuration that was already visited is not explored again.
+  </p>
+
+  <div class="row">
+    <button id="pda-reset" disabled="">Reset</button>
+    <button id="pda-step" disabled="">Step</button>
+    <button id="pda-run" class="primary" disabled="">Run</button>
+    <button id="pda-layout" disabled="" title="Put the states back at their automatic positions">Reset layout</button>
+    <label>Speed
+      <input type="range" id="pda-speed" min="0" max="10" value="6">
+    </label>
+  </div>
+
+  <svg id="pda-svg" viewbox="0 0 760 500" role="img" aria-label="State diagram"></svg>
+  <p class="hint">Drag the states to rearrange the diagram.</p>
+  <div id="pda-status">Loading Python (Pyodide)…</div>
+  <div id="pda-configs"></div>
+  <div id="pda-trace-wrap"></div>
+</div>
+
+<script type="text/python" id="pda-py">
+import json
+import re
+
+EPS = "\u03b5"
+MAX_STACK = 200
+MAX_CONFIGS = 20000
+
+def _tok(t):
+    return "" if t in ("eps", EPS) else t
+
+def _show(s):
+    return s if s else EPS
+
+class PDA:
+    """Nondeterministic PDA. A configuration is (state, position in the input, stack),
+    where the stack is a string whose first character is the top."""
+
+    def __init__(self, rules_text, word, start, finals_text, mode, init_stack):
+        self.rules = []          # (state, input, pop, new_state, push); "" means epsilon
+        self.rule_id = {}        # rule -> its number (used to highlight the diagram)
+        self.by_state = {}
+        for n, line in enumerate(rules_text.splitlines(), 1):
+            line = line.split("#")[0].strip()
+            if not line:
+                continue
+            toks = [t for t in line.split() if t != "->"]
+            if len(toks) != 5:
+                raise ValueError(f"Line {n}: expected 'state input pop -> new_state push'")
+            q, a, x, q2, w = toks
+            a, x, w = _tok(a), _tok(x), _tok(w)
+            if len(a) > 1:
+                raise ValueError(f"Line {n}: the input symbol must be a single character or eps")
+            if len(x) > 1:
+                raise ValueError(f"Line {n}: the popped symbol must be a single character or eps")
+            rule = (q, a, x, q2, w)
+            if rule in self.rule_id:
+                continue
+            self.rule_id[rule] = len(self.rules)
+            self.rules.append(rule)
+            self.by_state.setdefault(q, []).append(rule)
+
+        self.word = word
+        self.start = start
+        self.finals = set(f for f in re.split(r"[,\s]+", finals_text) if f)
+        self.mode = mode
+        self.init_stack = _tok(init_stack.strip())
+
+        c0 = (start, 0, self.init_stack)
+        self.parent = {c0: (None, None)}
+        self.frontier = [c0]
+        self.step_no = 0
+        self.status = "running"
+        self.message = ""
+        self.accepted = None
+        self.truncated = False
+        self.last_fired = set()  # numbers of the rules used in the last step
+        self._evaluate()
+
+    # ---- helpers -------------------------------------------------------
+    def rule_str(self, r):
+        q, a, x, q2, w = r
+        return f"{q}, {_show(a)}, {_show(x)} \u2192 {q2}, {_show(w)}"
+
+    def is_accepting(self, c):
+        s, p, st = c
+        if p != len(self.word):
+            return False
+        return (s in self.finals) if self.mode == "final" else (st == "")
+
+    def _evaluate(self):
+        for c in self.frontier:
+            if self.is_accepting(c):
+                self.accepted = c
+                self.status = "accepted"
+                self.message = "accepted by " + ("final state" if self.mode == "final" else "empty stack")
+                return
+        if not self.frontier:
+            self.status = "rejected"
+            self.message = "no computation can continue"
+            if self.truncated:
+                self.message += f" (some branches were cut off: stack deeper than {MAX_STACK})"
+
+    # ---- one parallel step ---------------------------------------------
+    def step(self):
+        if self.status != "running":
+            return
+        new = []
+        fired = set()
+        for cfg in self.frontier:
+            s, p, st = cfg
+            for r in self.by_state.get(s, []):
+                _, a, x, q2, w = r
+                if a and not (p < len(self.word) and self.word[p] == a):
+                    continue
+                if x and not (st and st[0] == x):
+                    continue
+                ns = w + (st[1:] if x else st)
+                if len(ns) > MAX_STACK:
+                    self.truncated = True
+                    continue
+                c2 = (q2, p + (1 if a else 0), ns)
+                if c2 in self.parent:
+                    continue
+                self.parent[c2] = (cfg, r)
+                new.append(c2)
+                fired.add(self.rule_id[r])
+        self.frontier = new
+        self.last_fired = fired
+        self.step_no += 1
+        if len(self.parent) > MAX_CONFIGS:
+            self.status = "limit"
+            self.message = f"stopped: more than {MAX_CONFIGS} configurations explored"
+            return
+        self._evaluate()
+
+    # ---- what the page needs -------------------------------------------
+    def info(self):
+        states = [self.start]
+        def add(s):
+            if s not in states:
+                states.append(s)
+        for q, a, x, q2, w in self.rules:
+            add(q); add(q2)
+        for f in sorted(self.finals):
+            add(f)
+        return {
+            "states": states,
+            "start": self.start,
+            "finals": sorted(self.finals),
+            "edges": [{"id": i, "from": r[0], "to": r[3],
+                       "label": f"{_show(r[1])}, {_show(r[2])} \u2192 {_show(r[4])}"}
+                      for i, r in enumerate(self.rules)],
+        }
+
+    def snapshot(self, limit=24):
+        shown = list(self.frontier)
+        if self.accepted is not None:
+            shown = [self.accepted] + [c for c in shown if c != self.accepted]
+        path = []
+        if self.accepted is not None:
+            c = self.accepted
+            while c is not None:
+                par, r = self.parent[c]
+                path.append({"state": c[0], "pos": c[1], "stack": c[2],
+                             "rule": self.rule_str(r) if r else ""})
+                c = par
+            path.reverse()
+        if self.accepted is not None:
+            active = [self.accepted[0]]
+        else:
+            active = sorted(set(c[0] for c in self.frontier))
+        return {
+            "word": self.word,
+            "step": self.step_no,
+            "status": self.status,
+            "message": self.message,
+            "n_active": len(self.frontier),
+            "n_visited": len(self.parent),
+            "active_states": active,
+            "last_rules": sorted(self.last_fired),
+            "configs": [{"state": c[0], "pos": c[1], "stack": c[2],
+                         "accepting": c == self.accepted} for c in shown[:limit]],
+            "more": max(0, len(shown) - limit),
+            "path": path,
+        }
+
+_pda = None
+
+def pda_init(rules, word, start, finals, mode, init_stack):
+    global _pda
+    try:
+        _pda = PDA(rules, word, start.strip(), finals, mode, init_stack)
+        return json.dumps({"info": _pda.info(), "snap": _pda.snapshot()})
+    except ValueError as e:
+        _pda = None
+        return json.dumps({"error": str(e)})
+
+def pda_step(n=1):
+    for _ in range(n):
+        _pda.step()
+        if _pda.status != "running":
+            break
+    return json.dumps(_pda.snapshot())
+</script>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script>
+(async () => {
+  const $ = id => document.getElementById(id);
+  const NS = "http://www.w3.org/2000/svg";
+  const EPS = "\u03b5";
+  const NR = 24;                 // node radius
+  const MAX_STEPS = 5000;
+
+  const EXAMPLES = {
+    anbn: { word: "aaabbb", finals: "qf", mode: "final", init: "$", rules:
+`# { a^n b^n : n >= 0 }
+q0 a ε -> q0 A     # push an A for every a
+q0 ε ε -> q1 ε     # guess that the a's are over
+q1 b A -> q1 ε     # pop an A for every b
+q1 ε $ -> qf ε     # stack back to the bottom: accept` },
+    pal: { word: "abba", finals: "qf", mode: "final", init: "$", rules:
+`# even-length palindromes w w^R over {a,b}
+q0 a ε -> q0 a     # push the first half
+q0 b ε -> q0 b
+q0 ε ε -> q1 ε     # guess the middle
+q1 a a -> q1 ε     # match the second half
+q1 b b -> q1 ε
+q1 ε $ -> qf ε` },
+    paren: { word: "(())()", finals: "", mode: "empty", init: "$", rules:
+`# balanced parentheses, accepted by empty stack
+q0 ( ε -> q0 X     # push X on (
+q0 ) X -> q0 ε     # pop X on )
+q0 ε $ -> q1 ε     # remove the bottom marker at the end` },
+    parenfinal: { word: "(())()", finals: "qf", mode: "final", init: "$", rules:
+`# balanced parentheses, accepted by final state
+q0 ( ε -> q0 X     # push X on (
+q0 ) X -> q0 ε     # pop X on )
+q0 ε $ -> qf $     # only the bottom marker is left: go to the final state` },
+    empty: { word: "", finals: "", mode: "", init: "$", rules:
+`# Put below the transitions of your PDA. use ε for the empty word` }
+  };
+
+  const pyodide = await loadPyodide();
+  await pyodide.runPythonAsync($("pda-py").textContent);
+  const pdaInit = pyodide.globals.get("pda_init");
+  const pdaStep = pyodide.globals.get("pda_step");
+
+  let timer = null;
+  let nodeEls = {}, edgeEls = {}, labelEls = {}, ruleGroup = {}, pos = {}, blocked = {};
+  let saved = {};                       // positions chosen by dragging: state -> {x, y}
+  let lastInfo = null, lastSnap = null, drag = null;
+  const CX = 380, CY = 250;             // centre of the diagram (viewBox is 760 x 500)
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+  // ===================== state diagram =====================
+  function svgEl(tag, attrs, parent, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  // Directions around a state that are already used by arrows or labels
+  // (angle a, plus a margin m in radians), so loops and the start arrow can avoid them.
+  function block(s, a, m) { (blocked[s] = blocked[s] || []).push({ a, m }); }
+  const TWO_PI = 2 * Math.PI;
+  const angDist = (a, b) => Math.abs((((a - b + Math.PI) % TWO_PI) + TWO_PI) % TWO_PI - Math.PI);
+
+  // Direction around state s that is farthest from every arrow, label and other state.
+  function freeAngle(s) {
+    const P = pos[s], list = (blocked[s] || []).slice();
+    for (const t in pos) {
+      if (t === s) continue;
+      const dx = pos[t].x - P.x, dy = pos[t].y - P.y, d = Math.hypot(dx, dy) || 1;
+      list.push({ a: Math.atan2(dy, dx), m: Math.asin(Math.min(1, (NR + 10) / d)) });
+    }
+    if (!list.length) return P.ang;
+    let best = P.ang, bestScore = -Infinity;
+    for (let k = 0; k < 72; k++) {
+      const c = -Math.PI + k * TWO_PI / 72;
+      let sc = Infinity;
+      for (const b of list) sc = Math.min(sc, angDist(c, b.a) - b.m);
+      sc -= 0.001 * angDist(c, P.ang);          // on ties, prefer pointing away from the centre
+      if (sc > bestScore) { bestScore = sc; best = c; }
+    }
+    return best;
+  }
+
+  // default positions: states on a circle, start state on the left
+  function layout(states) {
+    const n = states.length;
+    const R = n < 2 ? 0 : Math.min(130, 30 + n * 25);
+    const p = {};
+    states.forEach((s, i) => {
+      const a = Math.PI + 2 * Math.PI * i / n;
+      p[s] = { x: CX + R * Math.cos(a), y: CY + R * Math.sin(a) };
+    });
+    return p;
+  }
+
+  // ang = direction pointing away from the centre of the diagram
+  function setAng(p) {
+    p.ang = Math.hypot(p.x - CX, p.y - CY) < 1 ? -Math.PI / 2 : Math.atan2(p.y - CY, p.x - CX);
+  }
+
+  function placeStates(states) {
+    pos = layout(states);
+    for (const s of states) {
+      if (saved[s]) { pos[s].x = saved[s].x; pos[s].y = saved[s].y; }   // keep what the user dragged
+      setAng(pos[s]);
+    }
+  }
+
+  // items: [{text, id}], one line of text per transition
+  function labelLines(svg, items, x, y) {
+    items.forEach((it, i) => {
+      labelEls[it.id] = svgEl("text", {
+        x, y: y + (i - (items.length - 1) / 2) * 14, "text-anchor": "middle",
+        "dominant-baseline": "central", class: "lbl" }, svg, it.text);
+    });
+  }
+
+  const maxLen = items => Math.max(...items.map(it => it.text.length));
+
+  // la = direction in which the loop sticks out of the state
+  function drawLoop(svg, g, key, la) {
+    const P = pos[g.from], deg = la * 180 / Math.PI + 90;
+    const grp = svgEl("g", { transform: `translate(${P.x},${P.y}) rotate(${deg})` }, svg);
+    edgeEls[key] = svgEl("path", { d: "M-12,-25 C-45,-80 45,-80 12,-25", fill: "none",
+      stroke: "currentColor", "stroke-width": 1.5, "marker-end": "url(#pda-arrow)" }, grp);
+    const ox = Math.cos(la), oy = Math.sin(la);
+    const hw = maxLen(g.items) * 3.6, hh = g.items.length * 7;
+    const dist = 66 + 6 + Math.abs(ox) * hw + Math.abs(oy) * hh;
+    labelLines(svg, g.items, P.x + ox * dist, P.y + oy * dist);
+    block(g.from, la, 0.6);                    // the loop and its label occupy this direction
+  }
+
+  function drawEdge(svg, g, key, hasReverse) {
+    const A = pos[g.from], B = pos[g.to];
+    const dx = B.x - A.x, dy = B.y - A.y, len = Math.hypot(dx, dy) || 1;
+    const nx = -dy / len, ny = dx / len;
+    const curve = hasReverse ? 45 : 0;
+    const mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2;
+    const cx = mx + nx * curve, cy = my + ny * curve;
+    const r = NR + 4;
+    const d1 = Math.hypot(cx - A.x, cy - A.y) || 1, d2 = Math.hypot(cx - B.x, cy - B.y) || 1;
+    const sx = A.x + (cx - A.x) / d1 * r, sy = A.y + (cy - A.y) / d1 * r;
+    const ex = B.x + (cx - B.x) / d2 * (r + 3), ey = B.y + (cy - B.y) / d2 * (r + 3);
+    edgeEls[key] = svgEl("path", { d: `M${sx},${sy} Q${cx},${cy} ${ex},${ey}`, fill: "none",
+      stroke: "currentColor", "stroke-width": 1.5, "marker-end": "url(#pda-arrow)" }, svg);
+    const hw = maxLen(g.items) * 3.6, hh = g.items.length * 7;
+    const off = 6 + Math.abs(nx) * hw + Math.abs(ny) * hh;
+    const lx = mx + nx * (curve / 2 + off), ly = my + ny * (curve / 2 + off);
+    labelLines(svg, g.items, lx, ly);
+    // directions in which this edge and its label leave/enter each endpoint
+    block(g.from, Math.atan2(cy - A.y, cx - A.x), 0.12);
+    block(g.from, Math.atan2(ly - A.y, lx - A.x), 0.12);
+    block(g.to, Math.atan2(cy - B.y, cx - B.x), 0.12);
+    block(g.to, Math.atan2(ly - B.y, lx - B.x), 0.12);
+  }
+
+  // Draws everything from the current positions in `pos`. Called again on every drag move.
+  function drawDiagram() {
+    const inf = lastInfo;
+    if (!inf) return;
+    const svg = $("pda-svg");
+    svg.replaceChildren();
+    nodeEls = {}; edgeEls = {}; labelEls = {}; ruleGroup = {}; blocked = {};
+    const defs = svgEl("defs", {}, svg);
+    // two arrowheads: normal (text colour) and highlighted (orange, for the transitions just used)
+    for (const [id, fill] of [["pda-arrow", "currentColor"], ["pda-arrow-hot", "#d9480f"]]) {
+      const mk = svgEl("marker", { id, viewBox: "0 0 10 10", refX: 9, refY: 5,
+                                   markerWidth: 8, markerHeight: 8, orient: "auto" }, defs);
+      svgEl("path", { d: "M0,0 L10,5 L0,10 z", fill }, mk);
+    }
+
+    const groups = new Map();            // one drawn arrow per (from, to) pair
+    for (const e of inf.edges) {
+      const k = e.from + "\u0001" + e.to;
+      if (!groups.has(k)) groups.set(k, { from: e.from, to: e.to, items: [] });
+      groups.get(k).items.push({ text: e.label, id: e.id });
+      ruleGroup[e.id] = k;
+    }
+    // 1. arrows between different states, 2. loops (pointing where there is most room)
+    for (const [k, g] of groups)
+      if (g.from !== g.to) drawEdge(svg, g, k, groups.has(g.to + "\u0001" + g.from));
+    for (const [k, g] of groups)
+      if (g.from === g.to) drawLoop(svg, g, k, freeAngle(g.from));
+
+    // 3. states (drawn last so they sit on top of the arrows)
+    for (const s of inf.states) {
+      const P = pos[s];
+      const node = svgEl("g", { class: "node", "data-state": s }, svg);
+      nodeEls[s] = svgEl("circle", { cx: P.x, cy: P.y, r: NR, fill: "none", stroke: "currentColor",
+                                     "stroke-width": 1.5 }, node);
+      if (inf.finals.includes(s))         // final state: double circle
+        svgEl("circle", { cx: P.x, cy: P.y, r: NR + 4, fill: "none", stroke: "currentColor",
+                          "stroke-width": 1.5 }, node);
+      svgEl("text", { x: P.x, y: P.y, "text-anchor": "middle", "dominant-baseline": "central",
+                      "font-size": s.length > 6 ? 8 : s.length > 3 ? 10 : 13 }, node, s);
+    }
+    // 4. arrow into the start state, in the direction not used by anything else
+    const sa = freeAngle(inf.start), S = pos[inf.start];
+    const ox = Math.cos(sa), oy = Math.sin(sa);
+    svgEl("line", { x1: S.x + ox * (NR + 44), y1: S.y + oy * (NR + 44),
+                    x2: S.x + ox * (NR + 5), y2: S.y + oy * (NR + 5),
+                    stroke: "currentColor", "stroke-width": 1.5, "marker-end": "url(#pda-arrow)" }, svg);
+
+    if (lastSnap) highlight(lastSnap);
+  }
+
+  function buildDiagram(inf) {
+    lastInfo = inf;
+    placeStates(inf.states);
+    drawDiagram();
+  }
+
+  // ----- dragging states -----
+  (function setupDrag() {
+    const svg = $("pda-svg");
+    const toSvg = e => new DOMPoint(e.clientX, e.clientY).matrixTransform(svg.getScreenCTM().inverse());
+
+    svg.addEventListener("pointerdown", e => {
+      const node = e.target.closest ? e.target.closest(".node") : null;
+      if (!node || !pos[node.dataset.state]) return;
+      const s = node.dataset.state, p = toSvg(e);
+      drag = { s, dx: pos[s].x - p.x, dy: pos[s].y - p.y };
+      svg.setPointerCapture(e.pointerId);
+      svg.classList.add("dragging");
+      e.preventDefault();
+    });
+    svg.addEventListener("pointermove", e => {
+      if (!drag) return;
+      const p = toSvg(e);
+      const P = pos[drag.s];
+      P.x = clamp(p.x + drag.dx, 40, 720);          // keep the state inside the picture
+      P.y = clamp(p.y + drag.dy, 40, 460);
+      setAng(P);
+      saved[drag.s] = { x: P.x, y: P.y };
+      drawDiagram();
+    });
+    const endDrag = e => {
+      if (!drag) return;
+      drag = null;
+      svg.classList.remove("dragging");
+      try { svg.releasePointerCapture(e.pointerId); } catch (_) {}
+    };
+    svg.addEventListener("pointerup", endDrag);
+    svg.addEventListener("pointercancel", endDrag);
+    // on touch screens, do not scroll the page while a state is being dragged
+    svg.addEventListener("touchstart", e => {
+      if (e.target.closest && e.target.closest(".node")) e.preventDefault();
+    }, { passive: false });
+
+    $("pda-layout").addEventListener("click", () => {
+      saved = {};
+      if (lastInfo) buildDiagram(lastInfo);
+    });
+  })();
+
+  // active states + every transition used in the last step (several branches can use different ones)
+  function highlight(s) {
+    const col = s.status === "accepted" ? "43,138,62"
+              : (s.status === "rejected" || s.status === "limit") ? "201,42,42" : "217,72,15";
+    const on = new Set(s.active_states);
+    for (const q in nodeEls) {
+      const a = on.has(q);
+      nodeEls[q].setAttribute("fill", a ? `rgba(${col},.35)` : "none");
+      nodeEls[q].setAttribute("stroke", a ? `rgb(${col})` : "currentColor");
+      nodeEls[q].setAttribute("stroke-width", a ? 3 : 1.5);
+    }
+    for (const k in edgeEls) {
+      edgeEls[k].setAttribute("stroke", "currentColor");
+      edgeEls[k].setAttribute("stroke-width", 1.5);
+      edgeEls[k].setAttribute("marker-end", "url(#pda-arrow)");
+    }
+    for (const id in labelEls) labelEls[id].classList.remove("hot");
+    for (const id of s.last_rules) {
+      const path = edgeEls[ruleGroup[id]];
+      if (path) {
+        path.setAttribute("stroke", "#d9480f");
+        path.setAttribute("stroke-width", 3);
+        path.setAttribute("marker-end", "url(#pda-arrow-hot)");   // orange arrow tip as well
+      }
+      if (labelEls[id]) labelEls[id].classList.add("hot");
+    }
+  }
+
+  // ===================== configurations and controls =====================
+  function div(cls, text, parent) {
+    const d = document.createElement("div");
+    if (cls) d.className = cls;
+    if (text !== undefined) d.textContent = text;
+    if (parent) parent.appendChild(d);
+    return d;
+  }
+
+  function renderConfigs(s) {
+    const box = $("pda-configs");
+    box.replaceChildren();
+    for (const c of s.configs) {
+      const card = div("card" + (c.accepting ? " accepting" : ""), undefined, box);
+      div("st", c.state, card);
+      const inp = div("inp", undefined, card);
+      if (s.word.length === 0) div("ic done", "\u22A3", inp);
+      for (let i = 0; i < s.word.length; i++)
+        div("ic" + (i < c.pos ? " done" : i === c.pos ? " next" : ""), s.word[i], inp);
+      div("stk-label", "stack (top first)", card);
+      const stk = div("stk", undefined, card);
+      if (c.stack.length === 0) div("empty", "empty", card);
+      for (const ch of c.stack) div("sc", ch, stk);
+    }
+    if (s.more) div("more", `+ ${s.more} more configuration(s)`, box);
+  }
+
+  function renderTrace(s) {
+    const wrap = $("pda-trace-wrap");
+    wrap.replaceChildren();
+    if (!s.path.length) return;
+    const det = document.createElement("details");
+    det.open = true;
+    const sum = document.createElement("summary");
+    sum.textContent = "Accepting computation";
+    det.appendChild(sum);
+    const pre = document.createElement("div");
+    pre.id = "pda-trace";
+    pre.textContent = s.path.map((p, i) => {
+      const cfg = `(${p.state}, ${s.word.slice(p.pos) || EPS}, ${p.stack || EPS})`;
+      return (i ? "\u22A2 " : "  ") + cfg + (p.rule ? `      via ${p.rule}` : "");
+    }).join("\n");
+    det.appendChild(pre);
+    wrap.appendChild(det);
+  }
+
+  function render(s) {
+    renderConfigs(s);
+    renderTrace(s);
+    lastSnap = s;
+    highlight(s);
+    const st = $("pda-status");
+    st.className = s.status;
+    let txt = `step ${s.step}   active configurations: ${s.n_active}   explored: ${s.n_visited}   `;
+    txt += s.status === "running" ? "running" : s.status.toUpperCase();
+    if (s.message) txt += ` (${s.message})`;
+    st.textContent = txt;
+    const running = s.status === "running";
+    $("pda-step").disabled = !running;
+    $("pda-run").disabled = !running;
+  }
+
+  // ---------- control ----------
+  function stop() {
+    clearInterval(timer); timer = null;
+    $("pda-run").textContent = "Run";
+  }
+
+  function reset() {
+    stop();
+    $("pda-trace-wrap").replaceChildren();
+    const out = JSON.parse(pdaInit(
+      $("pda-rules").value, $("pda-input").value, $("pda-start").value,
+      $("pda-finals").value, $("pda-mode").value, $("pda-init").value));
+    if (out.error) {
+      $("pda-status").className = "error";
+      $("pda-status").textContent = "Error: " + out.error;
+      $("pda-configs").replaceChildren();
+      $("pda-step").disabled = true; $("pda-run").disabled = true;
+      return;
+    }
+    lastSnap = null;
+    $("pda-layout").disabled = false;
+    buildDiagram(out.info);
+    render(out.snap);
+    $("pda-reset").disabled = false;
+  }
+
+  function doSteps(n) {
+    const s = JSON.parse(pdaStep(n));
+    if (s.status === "running" && s.step >= MAX_STEPS) {
+      s.status = "limit"; s.message = `stopped after ${MAX_STEPS} steps`;
+    }
+    render(s);
+    if (s.status !== "running") stop();
+  }
+
+  function schedule() {
+    const v = +$("pda-speed").value;
+    const delay = v === 10 ? 0 : Math.round(1200 / (1 + v * v / 3));
+    clearInterval(timer);
+    timer = setInterval(() => doSteps(v === 10 ? 5 : 1), Math.max(delay, 4));
+  }
+
+  function loadExample(key) {
+    const ex = EXAMPLES[key];
+    $("pda-rules").value = ex.rules;
+    $("pda-input").value = ex.word;
+    $("pda-start").value = "q0";
+    $("pda-finals").value = ex.finals;
+    if (ex.mode) $("pda-mode").value = ex.mode;     // "from scratch" keeps the mode already chosen
+    $("pda-init").value = ex.init;
+    saved = {};
+    reset();
+  }
+
+  $("pda-example").addEventListener("change", e => loadExample(e.target.value));
+  $("pda-reset").addEventListener("click", reset);
+  $("pda-step").addEventListener("click", () => { stop(); doSteps(1); });
+  $("pda-run").addEventListener("click", () => {
+    if (timer) { stop(); return; }
+    $("pda-run").textContent = "Pause";
+    schedule();
+  });
+  $("pda-speed").addEventListener("input", () => { if (timer) schedule(); });
+  ["pda-rules", "pda-input", "pda-start", "pda-finals", "pda-mode", "pda-init"].forEach(id =>
+    $(id).addEventListener("change", reset));
+
+  loadExample("anbn");
+})();
+</script>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

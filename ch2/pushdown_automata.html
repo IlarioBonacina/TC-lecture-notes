@@ -66,7 +66,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-85d64d133a3a5e806e57c9957343f8f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fbdfad8988cfb61ffae4b40a8590ab9f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -375,12 +375,53 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch3/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch3/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Computability</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/turing_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Turing Machines</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/experiment_with_TMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Experiment with Turing Machines</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/church-turing-thesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">The Church-Turing Thesis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/R-RE-coRE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{coRE}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/reducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Many-One Reductions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
@@ -438,25 +479,10 @@ window.Quarto = {
 
 
 <div class="hidden">
-<p>% noend hides “end for”; drop it to keep them</p>
+<p>% noend hides “end for”; drop it to keep them </p>
 </div>
 <p>In this chapter we show an equivalent way to describe the class of context-free languages (via the pushdown automata), we show that they are equivalent to context-free grammars, we show some further closure properties of context-free languages. This characterization of context-free languages via pushdown automata allows to define a natural special case of them which are the <span class="def">deterministic</span> context-free languages.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is <strong>really</strong> a draft. It will be updated later in the course.</p>
-</div>
-</div>
-</div></div><p>A <span class="def">pushdown automaton</span> is an <span class="math inline">\varepsilon</span>-NFA (see <a href="../ch1/finite_automata.html" class="quarto-xref"><span>Chapter 9</span></a>) which is also allowed access to an external working memory in the form of a stack.</p>
+<p>A <span class="def">pushdown automaton</span> is an <span class="math inline">\varepsilon</span>-NFA (see <a href="../ch1/finite_automata.html" class="quarto-xref"><span>Chapter 9</span></a>) which is also allowed access to an external working memory in the form of a stack.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Not <span class="math inline">2</span> stacks, not a queue. Only one stack.</p>
@@ -558,7 +584,7 @@ Figure&nbsp;19.3
 </figure>
 </div>
 </div>
-<div id="exr-" class="theorem exercise">
+<div id="exr-PDA-palindromes" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 19.3</strong></span> Write a PDA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=\{w\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^* :w=w^R\}</span>.</p>
 </div>
 <section id="pdas-and-cfgs-are-equivalent-models" class="level2" data-number="19.1">
@@ -567,7 +593,7 @@ Figure&nbsp;19.3
 <div id="thm-CFG-PDA-equivalence-CFG-to-PDA" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 19.1</strong></span> Let <span class="math inline">L\subseteq \Sigma^*</span>. If there is a CFG <span class="math inline">G</span> s.t. <span class="math inline">\mathscr{L}(G)=L</span>, then there is a PDA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -576,7 +602,7 @@ Figure&nbsp;19.3
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">G = (V, \Sigma, R, S)</span> be a context-free grammar such that <span class="math inline">L = \mathscr{L}(G)</span>, where <span class="math inline">V</span> is the set of variables, <span class="math inline">\Sigma</span> is the terminal alphabet, <span class="math inline">R</span> is the set of production rules, and <span class="math inline">S</span> is the start variable.</p>
 <p>A nondeterministic pushdown automaton <span class="math inline">B</span> that simulates derivations in <span class="math inline">G</span> has the following shape:</p>
@@ -604,7 +630,7 @@ Figure&nbsp;19.4
 <div id="thm-CFG-PDA-equivalence-PDA-to-CFG" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 19.2</strong></span> Let <span class="math inline">L\subseteq \Sigma^*</span>. If there is a PDA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>, then there is a context-free grammar <span class="math inline">G</span> s.t. <span class="math inline">\mathscr{L}(G)=L</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -613,7 +639,7 @@ Figure&nbsp;19.4
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let the PDA <span class="math inline">A=(Q,\Sigma,\Gamma,\delta,q_0,\textcolor{darkred}{\mathtt{Z}},F)</span>. In this proof sketch we only give the context-free grammar <span class="math inline">G</span> s.t. <span class="math inline">\mathscr{L}(G)=\mathscr{L}(A)</span> and a proof sketch of why it is correct. For the full argument see <span class="citation" data-cites="sipser2013introduction">(<a href="../references.html#ref-sipser2013introduction" role="doc-biblioref">Sipser 2013, sec. 2.2</a>)</span>.</p>
 <p>To make the construction easier we first transform the PDA so that it has the following properties:</p>
@@ -651,7 +677,7 @@ S_{qq'}\ \boldsymbol{\to}\ \textcolor{darkred}{\mathtt{s}}S_{pp'}\textcolor{dark
 <div id="thm-CFL-intersection-with-regular" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 19.3</strong></span> The intersection of a context-free language with a regular language is context-free, that is if <span class="math inline">L\in \mathbf{CFL}</span> and <span class="math inline">L'\in \mathbf{Regular}</span>, then <span class="math inline">L\cap L'\in \mathbf{CFL}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -660,7 +686,7 @@ S_{qq'}\ \boldsymbol{\to}\ \textcolor{darkred}{\mathtt{s}}S_{pp'}\textcolor{dark
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>By <a href="#thm-CFG-PDA-equivalence-CFG-to-PDA" class="quarto-xref">Theorem&nbsp;<span>19.1</span></a>, we have a PDA <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>. Since <span class="math inline">L'\in \mathbf{Regular}</span>, by <a href="../ch1/regular_languages.html#thm-regular" class="quarto-xref">Theorem&nbsp;<span>13.1</span></a>, there is a DFA <span class="math inline">B</span> s.t. <span class="math inline">\mathscr{L}(B)=L'</span>. Due to <a href="#thm-CFG-PDA-equivalence-PDA-to-CFG" class="quarto-xref">Theorem&nbsp;<span>19.2</span></a>, to prove the result it enough to construct a PDA <span class="math inline">C</span> s.t. <span class="math inline">\mathscr{L}(C)=L\cap L'</span>. The construction of <span class="math inline">C</span> follows the same idea used for the <em>cartesian product construction</em> we saw in <a href="../ch1/finite_automata.html#exm-DFA-cartesian-product" class="quarto-xref">Example&nbsp;<span>9.7</span></a>.</p>
 </div>
@@ -686,7 +712,7 @@ S_{qq'}\ \boldsymbol{\to}\ \textcolor{darkred}{\mathtt{s}}S_{pp'}\textcolor{dark
 </section>
 <section id="sec-DCFL" class="level2 page-columns page-full" data-number="19.3">
 <h2 data-number="19.3" class="anchored" data-anchor-id="sec-DCFL"><span class="header-section-number">19.3</span> <span class="math inline">\mathbf{DCFL}</span> – Deterministic Context-Free Languages</h2>
-<p>In this section we recall properties of <span class="def">deterministic</span> PDAs. Intuitively, similarly to DFAs, a PDA is <span class="def">deterministic</span> there are never options for the transitions to take. In other words, if for every <span class="math inline">q\in Q</span> and instantaneous description <span class="math inline">\mathrm{ID}=(q,x,\alpha)</span> there is at most one instantaneous description <span class="math inline">\mathrm{ID}'</span> s.t. <span class="math inline">\mathrm{ID}\vdash_A\mathrm{ID}'</span>.</p>
+<p>In this section we recall properties of <span class="def">deterministic</span> PDAs. Intuitively, similarly to DFAs, a PDA is <span class="def">deterministic</span> when there are never options for the transitions to take. In other words, if for every <span class="math inline">q\in Q</span> and instantaneous description <span class="math inline">\mathrm{ID}=(q,x,\alpha)</span> there is at most one instantaneous description <span class="math inline">\mathrm{ID}'</span> s.t. <span class="math inline">\mathrm{ID}\vdash_A\mathrm{ID}'</span>.</p>
 <div id="def-DCFL" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 19.3 (<span class="math inline">\mathbf{DCFL}</span> – Deterministic Context-Free Languages)</strong></span> A CFL <span class="math inline">L</span> is <span class="def">deterministic</span> if there exist a deterministic pushdown automata <span class="math inline">A</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>. <span class="def"><span class="math inline">\mathbf{DCFL}</span></span> is the set of all deterministic context-free languages (over a fixed alphabet).</p>
 </div>
@@ -695,10 +721,13 @@ S_{qq'}\ \boldsymbol{\to}\ \textcolor{darkred}{\mathtt{s}}S_{pp'}\textcolor{dark
 <p><span class="theorem-title"><strong>Exercise 19.7</strong></span> Is the PDA in <a href="#fig-PDA-an-bn" class="quarto-xref">Figure&nbsp;<span>19.3</span></a> deterministic?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 19.8</strong></span> Show that <span class="math inline">\mathbf{Regular}\subsetneq \mathbf{DCFL}</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 19.8</strong></span> Is the PDA you constructed in <a href="#exr-PDA-palindromes" class="quarto-xref">Exercise&nbsp;<span>19.3</span></a> deterministic?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 19.9</strong></span> Show that <span class="math inline">\mathbf{Regular}\subsetneq \mathbf{DCFL}</span>.</p>
 </div>
 <div id="exr-DCFL-complement" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 19.9 (<span class="math inline">🔥</span>)</strong></span> Show that <span class="math inline">\mathbf{DCFL}</span> is closed under complement and use this fact to conclude that <span class="math inline">\mathbf{DCFL}\subsetneq \mathbf{CFL}</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 19.10 (<span class="math inline">🔥</span>)</strong></span> Show that <span class="math inline">\mathbf{DCFL}</span> is closed under complement and use this fact to conclude that <span class="math inline">\mathbf{DCFL}\subsetneq \mathbf{CFL}</span>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -757,12 +786,12 @@ Table&nbsp;19.1: Closure properties of DCFL
 <tr class="odd">
 <td style="text-align: right;">intersection with a regular language?</td>
 <td style="text-align: center;">yes ✅</td>
-<td style="text-align: left;"><a href="#exr-DCFL-intersection-regular" class="quarto-xref">Exercise&nbsp;<span>19.10</span></a></td>
+<td style="text-align: left;"><a href="#exr-DCFL-intersection-regular" class="quarto-xref">Exercise&nbsp;<span>19.11</span></a></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">complement?</td>
 <td style="text-align: center;">yes ✅</td>
-<td style="text-align: left;"><a href="#exr-DCFL-complement" class="quarto-xref">Exercise&nbsp;<span>19.9</span></a></td>
+<td style="text-align: left;"><a href="#exr-DCFL-complement" class="quarto-xref">Exercise&nbsp;<span>19.10</span></a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">reversal?</td>
@@ -788,9 +817,9 @@ Table&nbsp;19.1: Closure properties of DCFL
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Some of the closure and non-closure properties of <span class="math inline">\mathbf{DCFL}</span> summarized in this table are left as exercises with hints. For the remaining ones see <span class="citation" data-cites="hopcroft07">(<a href="../references.html#ref-hopcroft07" role="doc-biblioref">Hopcroft et al. 2007</a>)</span>.</p>
 </div></div><div id="exr-DCFL-intersection-regular" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 19.10</strong></span> Show that <span class="math inline">\mathbf{DCFL}</span> closed for intersection with a regular language.</p>
+<p><span class="theorem-title"><strong>Exercise 19.11</strong></span> Show that <span class="math inline">\mathbf{DCFL}</span> closed for intersection with a regular language.</p>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -799,7 +828,7 @@ Table&nbsp;19.1: Closure properties of DCFL
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Do <a href="#exr-CFL-intersection-with-regular" class="quarto-xref">Exercise&nbsp;<span>19.6</span></a> first.</p>
 </div>
