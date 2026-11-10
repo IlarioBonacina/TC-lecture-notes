@@ -1391,7 +1391,7 @@ q1 b* -> q1 b* LS
 q1 >* -> q2 >* RS       # tape 1 is on its first letter
 q2 aa -> q2 aa RL       # compare tape 1 forwards with tape 2 backwards
 q2 bb -> q2 bb RL
-q2 _> -> qaccept _> SS` }
+q2 _> -> qaccept _> SS` },
     even: { k: 1, word: "1111", rules:
 `# Accepts words over {1} with an even number of 1s (k = 1: an ordinary TM)
 q0 1 -> q1 1 R

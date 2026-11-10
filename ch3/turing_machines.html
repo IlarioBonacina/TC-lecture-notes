@@ -654,11 +654,16 @@ l &gt; -&gt; ldone &gt; R</code></pre>
 <li>identify <code>no</code> with the entry of <code>M2</code>;</li>
 <li>identify the exits of <code>M1</code> and <code>M2</code> with a common exit state.</li>
 </ul>
-<pre><code>                  yes   +------+
-               +------&gt; |  M1  | ----+
-  ---&gt; [ T ] --+        +------+     +----&gt; exit
-               +------&gt; |  M2  | ----+
-                  no    +------+</code></pre>
+<div id="fig-" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="turing_machines_files/mediabag/039a8f09ee28dc1c2412fc022b8277c01ec5eeba.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;23.6
+</figcaption>
+</figure>
+</div>
 <div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Example 23.3</strong></span> Let’s see a way to implement “if the current symbol is 0 then write 1 else write 0” (flip a bit) The test only looks at the current cell and does not move:</p>
 <pre><code>t 0 -&gt; yes 0 S
@@ -680,13 +685,7 @@ t 1 -&gt; done 0 S</code></pre>
 <li>the exit of <code>B</code> with the entry of <code>T</code> (this is the “jump back”);</li>
 <li><code>no</code> with the exit of the loop.</li>
 </ul>
-<pre><code>         +--------------------+
-         |                    |
-         v       yes          |
-  ---&gt; [ T ] ------&gt; [ B ] ---+
-         |
-         | no
-         +------&gt; exit</code></pre>
+<img src="turing_machines_files/mediabag/02e7de83f2407b894476c0324f3e6261ea16b9a1.svg" class="img-fluid">
 <div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Example 23.4</strong></span> Let’s implement the following “while the current symbol is not <code>&gt;</code>, move left” Test (does not move):</p>
 <pre><code>w &gt; -&gt; no &gt; S
@@ -701,22 +700,16 @@ w &gt; -&gt; no &gt; S</code></pre>
 </section>
 <section id="variables" class="level3" data-number="23.1.4">
 <h3 data-number="23.1.4" class="anchored" data-anchor-id="variables"><span class="header-section-number">23.1.4</span> Variables</h3>
-<section id="variables-with-finitely-many-values-live-in-the-states" class="level4" data-number="23.1.4.1">
-<h4 data-number="23.1.4.1" class="anchored" data-anchor-id="variables-with-finitely-many-values-live-in-the-states"><span class="header-section-number">23.1.4.1</span> Variables with finitely many values live in the states</h4>
 <p>If a variable can only take values from a <strong>finite</strong> set <span class="math inline">V</span> (a Boolean flag, a counter modulo <span class="math inline">3</span>, the last symbol read, …), we can store it in the <strong>finite control</strong>: replace each state <span class="math inline">q</span> by the pairs <span class="math inline">(q, v)</span> with <span class="math inline">v \in V</span>. This multiplies the number of states by <span class="math inline">|V|</span>, which is still finite.</p>
-</section>
-<section id="unbounded-variables-live-on-the-tape" class="level4" data-number="23.1.4.2">
-<h4 data-number="23.1.4.2" class="anchored" data-anchor-id="unbounded-variables-live-on-the-tape"><span class="header-section-number">23.1.4.2</span> Unbounded variables live on the tape</h4>
 <p>Variables whose values are unbounded (numbers, words) are stored on the tape. Two standard layouts:</p>
 <ul>
 <li><strong>Several tapes.</strong> A <span class="math inline">k</span>-tape TM has one tape per variable; each transition reads and writes <span class="math inline">k</span> symbols and moves <span class="math inline">k</span> heads. One can prove that every <span class="math inline">k</span>-tape TM can be simulated by a <span class="math inline">1</span>-tape TM (with a quadratic slowdown), so using several tapes does not change what is computable.</li>
 <li><strong>Separators.</strong> On a single tape, store the variables one after another, separated by a fresh symbol:<br>
 <span class="math display">
-\texttt{&gt;}\; x_1 \;\texttt{\#}\; x_2 \;\texttt{\#}\; \cdots \;\texttt{\#}\; x_k \;\texttt{\_}
-</span> To “access <span class="math inline">x_i</span>”, go to the left end and skip <span class="math inline">i-1</span> separators.</li>
+\blacktriangleright\; x_1 \;\textcolor{darkred}{\mathtt{\#}}\; x_2 \;\textcolor{darkred}{\mathtt{\#}}\; \cdots \;\textcolor{darkred}{\mathtt{\#}}\; x_k \;\texttt{\_}
+</span> To “access <span class="math inline">x_i</span>”, go to the left end and skip <span class="math inline">i-1</span> separators <span class="math inline">\textcolor{darkred}{\mathtt{\#}}</span>.</li>
 </ul>
 <p>With variables on the tape, the usual operations become blocks: <strong>copy</strong> <code>x := y</code>, <strong>increment</strong> <code>x := x + 1</code> (the binary increment machine), <strong>compare</strong> <code>x = y</code> (a test), and so on.</p>
-</section>
 </section>
 <section id="for-loops-for-i-1-to-n-do-b" class="level3" data-number="23.1.5">
 <h3 data-number="23.1.5" class="anchored" data-anchor-id="for-loops-for-i-1-to-n-do-b"><span class="header-section-number">23.1.5</span> For loops: <code>for i = 1 to n do B</code></h3>
