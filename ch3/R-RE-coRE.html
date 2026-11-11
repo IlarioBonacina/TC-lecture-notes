@@ -552,10 +552,16 @@ Warning
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Suppose, towards a contradiction, that <span class="math inline">\mathtt{K}\in \mathbf{R}</span>. Since <span class="math inline">\mathbf{R}</span> is closed under complement (see <a href="#exr-Rec-complement" class="quarto-xref">Exercise&nbsp;<span>26.2</span></a>) we have <span class="math inline">\overline{\mathtt{K}}\in \mathbf{R}</span>. That is, there is a Turing machine <span class="math inline">M</span> that decides <span class="math inline">\overline{\mathtt{K}}</span>. The Turing machine <span class="math inline">M</span> has a Gödel number, say <span class="math inline">p</span>. That is <span class="math inline">M=M_p</span>. Now <span class="math inline">p\in \mathtt{K}</span> or not:</p>
+<p>Suppose, towards a contradiction, that <span class="math inline">\mathtt{K}\in \mathbf{R}</span>. That is, there is a Turing machine <span class="math inline">D</span> that decides <span class="math inline">\mathtt{K}</span>: on every input <span class="math inline">x</span>, <span class="math inline">D</span> halts, and it accepts if and only if <span class="math inline">x\in\mathtt{K}</span>. Let <span class="math inline">N</span> be the Turing machine that on input <span class="math inline">x</span> runs <span class="math inline">D(x)</span> and</p>
 <ul>
-<li>if <span class="math inline">p\in \mathtt{K}</span>, then <span class="math inline">M(p)\!\downarrow</span> (and accepts), which implies, by construction of <span class="math inline">M</span> that <span class="math inline">p\in \overline{\mathtt{K}}</span>;</li>
-<li>if <span class="math inline">p\notin \mathtt{K}</span>, then <span class="math inline">M(p)\!\uparrow</span>, but <span class="math inline">p\in \overline{\mathtt{K}}</span> and <span class="math inline">M</span> is supposed to halt (and accept) all inputs in <span class="math inline">\overline{\mathtt{K}}</span>.</li>
+<li>if <span class="math inline">D</span> accepts, enters an infinite loop;</li>
+<li>if <span class="math inline">D</span> rejects, halts.</li>
+</ul>
+<p>Since <span class="math inline">D</span> always halts, <span class="math inline">N(x)\!\downarrow</span> if and only if <span class="math inline">D</span> rejects <span class="math inline">x</span>, that is, if and only if <span class="math inline">x\notin\mathtt{K}</span>.</p>
+<p>The Turing machine <span class="math inline">N</span> has a Gödel number, say <span class="math inline">p</span>. That is, <span class="math inline">N=M_p</span>. Now <span class="math inline">p\in \mathtt{K}</span> or not:</p>
+<ul>
+<li>if <span class="math inline">p\in\mathtt{K}</span>, then <span class="math inline">D</span> accepts <span class="math inline">p</span>, so <span class="math inline">N(p)\!\uparrow</span>, i.e.&nbsp;<span class="math inline">M_p(p)\!\uparrow</span>, which means <span class="math inline">p\notin\mathtt{K}</span>;</li>
+<li>if <span class="math inline">p\notin\mathtt{K}</span>, then <span class="math inline">D</span> rejects <span class="math inline">p</span>, so <span class="math inline">N(p)\!\downarrow</span>, i.e.&nbsp;<span class="math inline">M_p(p)\!\downarrow</span>, which means <span class="math inline">p\in\mathtt{K}</span>.</li>
 </ul>
 <p>In both cases we have reached a contradiction.</p>
 </div>
