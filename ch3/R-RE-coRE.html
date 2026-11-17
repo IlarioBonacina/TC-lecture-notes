@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>26&nbsp; \mathbf{R}, \mathbf{RE}, and \mathbf{coRE} – TC lecture notes (*draft*)</title>
+<title>26&nbsp; \mathbf{R}, \mathbf{RE}, \mathbf{coRE} and beyond – TC lecture notes (*draft*)</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -160,7 +160,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch3/intro.html">Topics in Computability</a></li><li class="breadcrumb-item"><a href="../ch3/R-RE-coRE.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{coRE}</span></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch3/intro.html">Topics in Computability</a></li><li class="breadcrumb-item"><a href="../ch3/R-RE-coRE.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, <span class="math inline">\mathbf{coRE}</span> and beyond</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -386,7 +386,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ch3/R-RE-coRE.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{coRE}</span></span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, <span class="math inline">\mathbf{coRE}</span> and beyond</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -426,15 +426,21 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-arithmetical-hierarchy" id="toc-the-arithmetical-hierarchy" class="nav-link active" data-scroll-target="#the-arithmetical-hierarchy"><span class="header-section-number">26.1</span> The Arithmetical Hierarchy</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch3/intro.html">Topics in Computability</a></li><li class="breadcrumb-item"><a href="../ch3/R-RE-coRE.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{coRE}</span></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch3/intro.html">Topics in Computability</a></li><li class="breadcrumb-item"><a href="../ch3/R-RE-coRE.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, <span class="math inline">\mathbf{coRE}</span> and beyond</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-R-RE-coRE" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{coRE}</span></span></span></h1>
+<h1 class="title"><span id="sec-R-RE-coRE" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, <span class="math inline">\mathbf{coRE}</span> and beyond</span></span></h1>
 </div>
 
 
@@ -455,22 +461,7 @@ window.Quarto = {
 <p>% noend hides “end for”; drop it to keep them </p>
 </div>
 <p>In this chapter we introduce the classes of languages <span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{co}\mathbf{RE}</span> (for the meaning of the <span class="math inline">\mathbf{co}</span> prefix see <a href="../ch0/words_and_languages.html#eq-co-class" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>) and we prove some basic properties of them.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The content of this part is still under development and will be updated during the course.</p>
-</div>
-</div>
-</div></div><p>Recall that for a Turing machine <span class="math inline">M</span> and input <span class="math inline">x</span>,</p>
+<p>Recall that for a Turing machine <span class="math inline">M</span> and input <span class="math inline">x</span>,</p>
 <ul>
 <li><span class="math inline">M(x)\!\downarrow</span> means that the machine <span class="math inline">M</span> on input <span class="math inline">x</span> halts (either accpeting or rejecting);</li>
 <li><span class="math inline">M(x)\!\uparrow</span> means that the machine <span class="math inline">M</span> on input <span class="math inline">x</span> does not halt.</li>
@@ -482,7 +473,10 @@ Warning
 <li>if <span class="math inline">w\notin L</span>, <span class="math inline">M(x)\!\downarrow</span> and rejects.</li>
 </ul>
 </div>
-<div id="def-RE" class="theorem definition">
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Please do not confuse <span class="math inline">\mathbf{R}</span> with the class of regular languages. The class of all regular languages is <span class="math inline">\mathbf{Regular}</span> (see <a href="../ch1/regular_languages.html" class="quarto-xref"><span>Chapter 13</span></a>), it is a much much much smaller class.</p>
+</div></div><div id="def-RE" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 26.2</strong></span> A language <span class="math inline">L\subseteq \Sigma^*</span> belongs to <span class="def"><span class="math inline">\mathbf{RE}</span></span> (<em>aka</em> is <span class="def">recursively enumerable</span> or <span class="def">semi-decidable</span> or <span class="def">Turing-recognizable</span>) if and only if exists a Turing machine <span class="math inline">M</span> such that for every word <span class="math inline">w\in \Sigma^*</span>,</p>
 <ul>
 <li>if <span class="math inline">w\in L</span>, <span class="math inline">M(x)\!\downarrow</span> and accepts;</li>
@@ -507,7 +501,7 @@ Warning
 <div id="thm-Rec-equals-RE-cap-coRE" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 26.1</strong></span> <span class="math inline">\mathbf{R}= \mathbf{RE}\cap \mathbf{co}\mathbf{RE}</span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -516,21 +510,21 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We show separately the two containments:</p>
 <p><span class="math inline">(\subseteq)</span> This is <a href="#exr-Rec-in-RE-and-coRE" class="quarto-xref">Exercise&nbsp;<span>26.1</span></a> above.</p>
 <p><span class="math inline">(\supseteq)</span> Let <span class="math inline">L\in \mathbf{RE}\cap \mathbf{co}\mathbf{RE}</span>. By definition, there is a Turing machine <span class="math inline">M_1</span> s.t. for every word <span class="math inline">w\in \Sigma^*</span> if <span class="math inline">w\in L</span>, <span class="math inline">M_1(x)\!\downarrow</span> and accepts, and a Turing machine <span class="math inline">M_0</span> s.t. for every word <span class="math inline">w\notin L</span>, <span class="math inline">M_0(x)\!\downarrow</span> and accepts. To show that <span class="math inline">L\in R</span> we need to construct a Turing machine <span class="math inline">M</span> that always halts and decided for every word whether it belongs to <span class="math inline">L</span>. We can use <span class="math inline">M_1</span> and <span class="math inline">M_2</span> as subroutines as follows:</p>
-<p>On input <span class="math inline">w</span>, the machine <span class="math inline">M</span> does the following:</p>
-<pre><code>Algorithm M(w):
-    for t = 1, 2, 3, ... do
-        simulate M_1 on w for t steps
-        if M_1 has accepted then
-            return ACCEPT
-        simulate M_0 on w for t steps
-        if M_0 has accepted then
-            return REJECT
-    end for</code></pre>
+<p>The machine <span class="math inline">M</span> does the following:</p>
+<div class="line-block"><strong>On input</strong> <span class="math inline">w</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>for</strong> <span class="math inline">t \in \mathbb{N}</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;simulate <span class="math inline">M_1</span> on <span class="math inline">w</span> for <span class="math inline">t</span> steps<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> <span class="math inline">M_1</span> has accepted <strong>then</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>return ACCEPT</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;simulate <span class="math inline">M_0</span> on <span class="math inline">w</span> for <span class="math inline">t</span> steps<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> <span class="math inline">M_0</span> has accepted <strong>then</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>return REJECT</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
 </div>
 </div>
 </div>
@@ -541,7 +535,7 @@ Warning
 <div id="thm-K-not-in-R" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 26.2</strong></span> <span class="math inline">\mathtt{K}=\{x:M_x(x)\!\downarrow\}\notin \mathbf{R}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -550,7 +544,7 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Suppose, towards a contradiction, that <span class="math inline">\mathtt{K}\in \mathbf{R}</span>. That is, there is a Turing machine <span class="math inline">D</span> that decides <span class="math inline">\mathtt{K}</span>: on every input <span class="math inline">x</span>, <span class="math inline">D</span> halts, and it accepts if and only if <span class="math inline">x\in\mathtt{K}</span>. Let <span class="math inline">N</span> be the Turing machine that on input <span class="math inline">x</span> runs <span class="math inline">D(x)</span> and</p>
 <ul>
@@ -568,11 +562,152 @@ Warning
 </div>
 </div>
 </div>
+<p>The fact that <span class="math inline">\mathtt{K}\notin \mathbf{R}</span> is a fact that we will exploit in a systematic way to show that many more natural languages are not in <span class="math inline">\mathbf{R}</span> neither (see <a href="reducibility.html" class="quarto-xref"><span>Chapter 27</span></a>).</p>
 <div id="cor-" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 26.1</strong></span> <span class="math inline">\mathtt{K}\in \mathbf{RE}\setminus \mathbf{co}\mathbf{RE}</span> and <span class="math inline">\overline{\mathtt{K}}\in \mathbf{co}\mathbf{RE}\setminus \mathbf{RE}</span>.</p>
+<p><span class="theorem-title"><strong>Corollary 26.1</strong></span> The classes of languages <span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{co}\mathbf{RE}</span> are all distinct. In particular <span class="math inline">\mathtt{K}\in \mathbf{RE}\setminus \mathbf{co}\mathbf{RE}</span> and <span class="math inline">\overline{\mathtt{K}}\in \mathbf{co}\mathbf{RE}\setminus \mathbf{RE}</span>.</p>
+</div>
+<section id="the-arithmetical-hierarchy" class="level2 page-columns page-full" data-number="26.1">
+<h2 data-number="26.1" class="anchored" data-anchor-id="the-arithmetical-hierarchy"><span class="header-section-number">26.1</span> The Arithmetical Hierarchy</h2>
+<p>Is this section we explore a bit what is <em>beyond</em> <span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{co}\mathbf{RE}</span>. To do so we prove first a logic characterization of <span class="math inline">\mathbf{RE}</span> and <span class="math inline">\mathbf{co}\mathbf{RE}</span>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>There is an equivalent way of describing the arithmetical hierarchy using <span class="def">oracle Turing machines</span> and the <span class="def">Turing jump operator</span>. In this notes we do not explore this equivalent view.</p>
+</div></div><div id="thm-RE-projection" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 26.3</strong></span> A language <span class="math inline">A\in \mathbf{RE}</span> if and only if exists a language <span class="math inline">B\in \mathbf{R}</span> s.t. <span class="math inline">A=\{y:\exists x_1,\dots,x_n \langle x_1,\dots,x_n,y\rangle\in B\}</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>(<span class="math inline">\Rightarrow</span>) Let <span class="math inline">A\in\mathbf{RE}</span> and let <span class="math inline">M</span> be a Turing machine that recognizes <span class="math inline">A</span>, i.e.&nbsp;<span class="math inline">\mathscr{L}(M)=A</span>. Define <span class="math display">
+B=\{\langle t,y\rangle :M \text{ accepts } y \text{ within } t \text{ steps}\}.
+</span> <span class="math inline">B\in\mathbf{R}</span>: on input <span class="math inline">\langle t,y\rangle</span>, simulate <span class="math inline">M</span> on <span class="math inline">y</span> for at most <span class="math inline">t</span> steps. Accept if <span class="math inline">M</span> has accepted by then, otherwise reject. This always halts. Moreover,<br>
+<span class="math display">
+y\in A \iff M \text{ accepts } y \iff \exists t\ \langle t,y\rangle\in B,
+</span> so <span class="math inline">A</span> has the required form with <span class="math inline">n=1</span>.</p>
+<p>(<span class="math inline">\Leftarrow</span>) Let <span class="math inline">B\in\mathbf{R}</span> be decided by a Turing machine <span class="math inline">D</span> that always halts, and let <span class="math inline">A=\{y:\exists x_1,\dots,x_n\ \langle x_1,\dots,x_n,y\rangle\in B\}</span>. Tuples <span class="math inline">(x_1,\dots,x_n)</span> of strings can be listed effectively, e.g.&nbsp;by going through all strings <span class="math inline">w</span> in length-lexicographic order<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and keeping those that encode a tuple. Consider the machine <span class="math inline">M</span> that, on input <span class="math inline">y</span>, goes through this list and for each tuple <span class="math inline">(x_1,\dots,x_n)</span> runs <span class="math inline">D</span> on <span class="math inline">\langle x_1,\dots,x_n,y\rangle</span>. It accepts as soon as <span class="math inline">D</span> accepts.</p>
+<p>Each run of <span class="math inline">D</span> halts, so <span class="math inline">M</span> never gets stuck on a single tuple. If <span class="math inline">y\in A</span>, the tuple that witnesses this shows up after finitely many steps and <span class="math inline">M</span> accepts. If <span class="math inline">y\notin A</span>, <span class="math inline">D</span> never accepts and <span class="math inline">M</span> never accepts (it runs forever). So <span class="math inline">\mathscr{L}(M)=A</span> and <span class="math inline">A\in\mathbf{RE}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>To make sure you understood the proof of <a href="#thm-RE-projection" class="quarto-xref">Theorem&nbsp;<span>26.3</span></a> a possible exercise is the following.</p>
+<div id="exr-bad-ordering" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 26.4</strong></span> Let <span class="math inline">\Sigma=\{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}</span> and <span class="math inline">n=2</span>. In the (<span class="math inline">\Leftarrow</span>) direction of the theorem above (<a href="#thm-RE-projection" class="quarto-xref">Theorem&nbsp;<span>26.3</span></a>), suppose we change the machine <span class="math inline">M</span> so that it goes through the pairs <span class="math inline">(x_1,x_2)</span> with two nested loops:</p>
+<div class="line-block"><strong>On input</strong> <span class="math inline">y</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong>for each</strong> <span class="math inline">x_1\in\Sigma^*</span> in length-lexicographic order {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>for each</strong> <span class="math inline">x_2\in\Sigma^*</span> in length-lexicographic order {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run <span class="math inline">D</span> on <span class="math inline">\langle x_1,x_2,y\rangle</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> <span class="math inline">D</span> accepts <strong>then</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>return accept</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<p><br></p>
+<ul>
+<li>Find a language <span class="math inline">B\in\mathbf{R}</span> and a string <span class="math inline">y\in A</span> such that the <span class="math inline">M</span> above does not accept <span class="math inline">y</span>.</li>
+<li>Explain why this does not contradict the theorem, and give an ordering of <span class="math inline">\Sigma^*\times\Sigma^*</span> (different from the one in the theorem) that fixes the problem.</li>
+</ul>
+</div>
+<p>An immediate consequence of <a href="#thm-RE-projection" class="quarto-xref">Theorem&nbsp;<span>26.3</span></a> is the following.</p>
+<div id="thm-coRE-projection" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 26.4</strong></span> A language <span class="math inline">A\in \mathbf{co}\mathbf{RE}</span> if and only if exists a language <span class="math inline">B\in \mathbf{R}</span> s.t. <span class="math inline">A=\{y:\forall x_1,\dots,x_n \langle x_1,\dots,x_n,y\rangle\in B\}</span>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 26.5</strong></span> Prove <a href="#thm-coRE-projection" class="quarto-xref">Theorem&nbsp;<span>26.4</span></a> using the definition of <span class="math inline">\mathbf{co}\mathbf{RE}</span> and <a href="#thm-RE-projection" class="quarto-xref">Theorem&nbsp;<span>26.3</span></a>.</p>
+</div>
+<div id="exm-coRE-grammars" class="theorem example">
+<p><span class="theorem-title"><strong>Example 26.1</strong></span> The language<br>
+<span class="math display">
+\mathtt{ALL_{CFG}}=\{\langle G\rangle :G \text{ is a context-free grammar and } \mathscr{L}(G)=\{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^*\}
+</span> is in <span class="math inline">\mathbf{co}\mathbf{RE}</span>.</p>
+<p>A simple way to see this is to use <a href="#thm-coRE-projection" class="quarto-xref">Theorem&nbsp;<span>26.4</span></a>. The property “<span class="math inline">G</span> <em>is a context-free grammar and</em> <span class="math inline">\mathscr{L}(G)=\{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^*</span>” can be indeed written as “<span class="math inline">\forall w\in \{0,1\}^*</span> <span class="math inline">G</span> is a context-free grammar and <span class="math inline">G</span> generates <span class="math inline">w</span>”. Now, “<span class="math inline">G</span> <em>is a context-free grammar</em>” is clearly decidable and “<span class="math inline">G</span> <em>generates</em> <span class="math inline">w</span>” is also decidable (for example using the CYK algorithm we saw in <a href="../ch2/parsing_and_ambiguity.html#sec-CYK" class="quarto-xref"><span>Section 17.1</span></a>). Hence <span class="math inline">\mathtt{ALL_{CFG}}</span> has the form of languages in <a href="#thm-coRE-projection" class="quarto-xref">Theorem&nbsp;<span>26.4</span></a>, with <span class="math inline">B=\{\langle G,w\rangle :G \text{ is a context-free grammar and } G \text{ generates } w\}</span>. We just argued that <span class="math inline">B\in \mathbf{R}</span>.</p>
+<p>A true (but not obvious) fact is that <span class="math inline">\mathtt{ALL_{CFG}}\notin\mathbf{R}</span>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 26.6</strong></span> Show that the language<br>
+<span class="math display">
+\mathtt{EMPTY_{CFG}}=\{\langle G_1, G_2\rangle :G_1, G_2 \text{ CFGs and } \mathscr{L}(G_1)\cap\mathscr{L}(G_2)=\emptyset\}
+</span> is in <span class="math inline">\mathbf{co}\mathbf{RE}</span>. In other words, <span class="math inline">\mathtt{EMPTY_{CFG}}</span> is the language of valid encodings of two context-free grammars with empty interesection of the generated languages.</p>
+<p>(As before, a true, but not obvious fact is that <span class="math inline">\mathtt{EMPTY_{CFG}}\notin\mathbf{R}</span>.)</p>
+</div>
+<p><a href="#thm-RE-projection" class="quarto-xref">Theorem&nbsp;<span>26.3</span></a> says that the languages in <span class="math inline">\mathbf{RE}</span> are exactly the languages obtained from a decidable language by putting an existential quantifier in front. The <span class="def">arithmetical hierarchy</span> repeats this construction, adding one quantifier at each level and switching between existential and universal quantifiers. This hierarchy classifies subsets of natural numbers based on the complexity of formulas defining them.</p>
+<p>Recall that for a class of languages <span class="math inline">\mathcal{C}</span>, let <span class="math inline">\mathbf{co}\mathcal{C}=\{A:\overline A\in\mathcal{C}\}</span>.</p>
+<div id="def-arithmetic-hierarchy" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 26.4 (<span class="math inline">\Sigma^0_k</span>, <span class="math inline">\Pi^0_k</span>, <span class="math inline">\Delta^0_k</span>)</strong></span> The classes <span class="def"><span class="math inline">\Sigma^0_k</span></span>, <span class="def"><span class="math inline">\Pi^0_k</span></span> and <span class="def"><span class="math inline">\Delta^0_k</span></span>, for <span class="math inline">k\geq 1</span>, are defined recursively as follows. <span class="math inline">\Sigma^0_1:=\mathbf{RE}</span>, <span class="math inline">\Pi^0_1:=\mathbf{co}\mathbf{RE}</span>, and for for <span class="math inline">k\geq 1</span>,</p>
+<ul>
+<li><span class="math inline">A\in\Sigma^0_{k+1}</span> if there exists a language <span class="math inline">B\in\Pi^0_k</span> such that<br>
+<span class="math display">A=\{y:\exists x\ \langle x,y\rangle\in B\};</span></li>
+<li><span class="math inline">\Pi^0_{k+1}:=\mathbf{co}\Sigma^0_{k+1}</span>;</li>
+<li><span class="math inline">\Delta^0_k:=\Sigma^0_k\cap\Pi^0_k</span>.</li>
+</ul>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p><span class="question">Why the superscript <span class="math inline">0</span>?</span> The superscript says what the quantifiers range over: individual objects, such as natural numbers or strings, called “type-<span class="math inline">0</span>” objects in logic. With quantifiers over <em>sets</em> of natural numbers (type-<span class="math inline">1</span> objects) we get the <em><span class="def">analytical hierarchy</span></em> <span class="math inline">\Sigma^1_k,\Pi^1_k</span>, which is much larger. Complexity theory uses the same idea in the <em><span class="def">polynomial hierarchy</span></em> <span class="math inline">\Sigma^p_k,\Pi^p_k</span>, where the quantifiers range over strings of polynomial length.</p>
+</div></div><p>By <a href="#thm-Rec-equals-RE-cap-coRE" class="quarto-xref">Theorem&nbsp;<span>26.1</span></a>, we have that <span class="math inline">\mathbf{R}=\Delta^0_1</span>, and unfolding <a href="#def-arithmetic-hierarchy" class="quarto-xref">Definition&nbsp;<span>26.4</span></a> gives each level as a block of alternating quantifiers in front of a decidable language. Several quantifiers of the same kind in a row can be merged into one quantifier over tuples, as in the theorem above.</p>
+<div id="thm-normal-form-arithmtic-hierarchy" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 26.5</strong></span> <span class="math inline">A\in\Sigma^0_k</span> if and only if there exists a language <span class="math inline">B\in\mathbf{R}</span> such that <span class="math display">
+A=\{y:\exists x_1\,\forall x_2\,\exists x_3\cdots Q_k x_k\ \langle x_1,\dots,x_k,y\rangle\in B\},
+</span> where <span class="math inline">Q_k</span> is <span class="math inline">\exists</span> if <span class="math inline">k</span> is odd and <span class="math inline">\forall</span> if <span class="math inline">k</span> is even. Similarly, <span class="math inline">A\in\Pi^0_k</span> if and only if <span class="math inline">A</span> has the same form with the quantifiers starting from <span class="math inline">\forall x_1</span>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 26.7 (<span class="math inline">🌱</span>)</strong></span> Prove that <span class="math inline">\Delta^0_1=\mathbf{R}</span>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 26.8</strong></span> Prove that <span class="math inline">\Sigma^0_k\cup\Pi^0_k\subseteq\Delta^0_{k+1}</span>.</p>
+</div>
+<p>The inclusion in the previous exercise is actually strict, and <a href="reducibility.html#exr-delta2" class="quarto-xref">Exercise&nbsp;<span>27.3</span></a> asks to prove this (for <span class="math inline">k=1</span>).</p>
+<p>At first sight the arithmetic hierarchy might look a bit artificial, but, as the following exercise shows, some languages are naturally in higher classes than <span class="math inline">\mathbf{RE}</span> or <span class="math inline">\mathbf{co}\mathbf{RE}</span>.</p>
+<div id="exr-sigma_2-pi_2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 26.9</strong></span> Show the following:</p>
+<ul>
+<li><span class="math inline">\mathtt{FIN}=\{p:\mathscr{L}(M_p) \text{ is finite}\}\in\Sigma^0_2</span>.</li>
+<li><span class="math inline">\mathtt{TOT}=\{p:M_p \text{ halts on every input}\}\in\Pi^0_2</span>.</li>
+</ul>
+</div>
+<div id="thm-delta-sigma-strict" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 26.6</strong></span> <span class="math inline">\Delta^0_k\subsetneq \Sigma^0_k</span>.</p>
+</div>
+<p>We do not see the proof of <a href="#thm-delta-sigma-strict" class="quarto-xref">Theorem&nbsp;<span>26.6</span></a>, but it is a generalization of the diagonal argument we ued in <a href="#thm-K-not-in-R" class="quarto-xref">Theorem&nbsp;<span>26.2</span></a>.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 26.10</strong></span> This exercise asks to show a couple of consequences of <a href="#thm-delta-sigma-strict" class="quarto-xref">Theorem&nbsp;<span>26.6</span></a>.</p>
+<ul>
+<li><span class="math inline">\Delta^0_k\subsetneq \Pi^0_k</span>.</li>
+<li><span class="math inline">\Sigma^0_k\not\subseteq \Pi^0_k</span> and <span class="math inline">\Pi^0_k\not\subseteq \Sigma^0_k</span>.</li>
+</ul>
+</div>
+<p>Putting together all the containments between <span class="math inline">\Delta^0_k</span> and <span class="math inline">\Sigma^0_k</span> and <span class="math inline">\Pi^0_k</span> we have the following picture which is a part of the <a href="#fig-the-big-picture" class="quarto-xref">Figure&nbsp;<span>26.1</span></a>.</p>
+<div id="fig-the-big-picture" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-the-big-picture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="R-RE-coRE_files/mediabag/arithmetic-hierarchy.svg" class="img-fluid figure-img"></p>
+<figcaption>The arithmetic hierarchy. Arrows denote (strict) inclusion.</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-the-big-picture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26.1: Scheme of the containments between sets the arithmetic hierarchy. <span class="math inline">\mathcal C \to \mathcal D</span> with a <span class="black">black</span> arrow means that <span class="math inline">\mathcal C\subsetneq \mathcal D</span> (that is <span class="math inline">\mathcal C\subseteq \mathcal D</span> and the inclusion is strict). A <span class="red">red</span> dashed line means neither of the containments hold.
+</figcaption>
+</figure>
 </div>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>That is sorting strings first by length, and strings of the same length alphabetically (lexicographically).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
