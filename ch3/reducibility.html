@@ -468,6 +468,36 @@ x\in A\iff f(x)\in B.
 </div>
 <p>Recall that a <span class="math inline">f\colon\Sigma^*\to\Sigma^*</span> is a total computable function s.t. there is a Turing machine <span class="math inline">M</span> where for every input <span class="math inline">x\in \Sigma^*</span>, <span class="math inline">M(x)</span> halts, accepts and has on the tape <span class="math inline">f(x)</span>.</p>
 <p>If <span class="math inline">A\leq_m B</span>, then <span class="math inline">A</span> is “no harder” than <span class="math inline">B</span>: to decide whether <span class="math inline">x\in A</span>, compute <span class="math inline">f(x)</span> and ask whether <span class="math inline">f(x)\in B</span>. The following properties follow directly from the definition.</p>
+<div id="fig-" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="reducibility_files/mediabag/many-one-reduction.svg" class="img-fluid figure-img"></p>
+<figcaption>A many-one reduction <span class="math inline">f</span> from <span class="math inline">A</span> to <span class="math inline">B</span>. Points of <span class="math inline">A</span> are sent into <span class="math inline">B</span>, points outside <span class="math inline">A</span> are sent outside <span class="math inline">B</span>. Several points can have the same image, and <span class="math inline">f</span> need not be surjective.</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.1
+</figcaption>
+</figure>
+</div>
+<div id="fig-" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="reducibility_files/mediabag/many-one-reduction-use.svg" class="img-fluid figure-img"></p>
+<figcaption>Using a reduction: if <span class="math inline">A\leq_m B</span> and <span class="math inline">B</span> is decidable, computing <span class="math inline">f</span> and then running the decider for <span class="math inline">B</span> decides <span class="math inline">A</span>.</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.2
+</figcaption>
+</figure>
+</div>
 <div id="thm-many-one" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 27.1</strong></span> &nbsp;</p>
 <ol type="1">
@@ -475,6 +505,9 @@ x\in A\iff f(x)\in B.
 <li><span class="math inline">A\leq_m B</span> if and only if <span class="math inline">\overline{A}\leq_m\overline{B}</span>.</li>
 <li>If <span class="math inline">A\leq_m B</span> and <span class="math inline">B\in\mathbf{R}</span> (resp. <span class="math inline">\mathbf{RE}</span>, <span class="math inline">\mathbf{co}\mathbf{RE}</span>, <span class="math inline">\Sigma^0_k</span>, <span class="math inline">\Pi^0_k</span>), then <span class="math inline">A</span> belongs to the same class.</li>
 </ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 27.1</strong></span> Prove <a href="#thm-many-one" class="quarto-xref">Theorem&nbsp;<span>27.1</span></a></p>
 </div>
 <p>Item 3 is usually used in the contrapositive: to show that <span class="math inline">B\notin\mathbf{R}</span>, reduce a known undecidable language to <span class="math inline">B</span>. Note the direction: the known hard language goes on the <em>left</em>.</p>
 <div id="exm-eq-dfa" class="theorem example">
@@ -508,7 +541,7 @@ p\in \mathtt{K}\iff M_p(p)\!\downarrow\iff\langle p,p\rangle\in\mathtt{HALT}\iff
 <p>In the <a href="https://racso.lsi.upc.edu/juezwsgi/exercise-list?inputkind=redk">RACSO page</a> you have several examples of many-one reductions but be aware that not all interesting reductions to <span class="math inline">\mathtt{K}</span> or <span class="math inline">\overline{\mathtt{K}}</span> can be written using the language in the RACSO page.</p>
 <p>One example of reduction that cannot be done using the languge of RACSO is the following:</p>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 27.1</strong></span> Show that <span class="math inline">L=\{p:\mathrm{dom}(\phi_p)\in \mathbf{R}\}\notin \mathbf{RE}\cup\mathbf{co}\mathbf{RE}</span> producing two reductions <span class="math inline">\mathtt{K}\leq_m L</span> and <span class="math inline">\overline{\mathtt{K}}\leq_m L</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 27.2</strong></span> Show that <span class="math inline">L=\{p:\mathrm{dom}(\phi_p)\in \mathbf{R}\}\notin \mathbf{RE}\cup\mathbf{co}\mathbf{RE}</span> producing two reductions <span class="math inline">\mathtt{K}\leq_m L</span> and <span class="math inline">\overline{\mathtt{K}}\leq_m L</span>.</p>
 <p>What is the smallest level of the arithmetic hierarchy you can show contains <span class="math inline">L</span>?</p>
 </div>
 <section id="a-workflow-to-decide-whether-lin-mathbfrmathbfresetminusmathbfr-mathbfcomathbfresetminusmathbfr-dots" class="level2" data-number="27.1">
@@ -532,14 +565,14 @@ p\in \mathtt{K}\iff M_p(p)\!\downarrow\iff\langle p,p\rangle\in\mathtt{HALT}\iff
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 27.2</strong></span> In this execise we continue on <a href="R-RE-coRE.html#exr-sigma_2-pi_2" class="quarto-xref">Exercise&nbsp;<span>26.9</span></a>. Show that</p>
+<p><span class="theorem-title"><strong>Exercise 27.3</strong></span> In this execise we continue on <a href="R-RE-coRE.html#exr-sigma_2-pi_2" class="quarto-xref">Exercise&nbsp;<span>26.9</span></a>. Show that</p>
 <ul>
 <li><span class="math inline">\mathtt{FIN}=\{p:\mathscr{L}(M_p) \text{ is finite}\}\in\Sigma^0_2\setminus (\mathbf{RE}\cup\mathbf{co}\mathbf{RE})</span>.</li>
 <li><span class="math inline">\mathtt{TOT}=\{p:M_p \text{ halts on every input}\}\in\Pi^0_2\setminus (\mathbf{RE}\cup\mathbf{co}\mathbf{RE})</span>.</li>
 </ul>
 </div>
 <div id="exr-delta2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 27.3</strong></span> Consider the language<br>
+<p><span class="theorem-title"><strong>Exercise 27.4</strong></span> Consider the language<br>
 <span class="math display">
 A=\mathtt{K}\oplus\overline{\mathtt{K}}=\{\langle 0,z\rangle:z\in\mathtt{K}\}\cup\{\langle 1,z\rangle:z\notin\mathtt{K}\}.
 </span> Show that <span class="math inline">A\in\Delta^0_2</span> but <span class="math inline">A\notin\mathbf{RE}\cup\mathbf{co}\mathbf{RE}</span>.</p>
