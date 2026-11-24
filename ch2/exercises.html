@@ -47,9 +47,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f85d93d0a337325f4f7a52a7a65bbd82.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-6c4b15e4e9080f169da029696f838876.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/quiz-1.0.0/quiz.js"></script>
+<link href="../site_libs/quarto-contrib/quiz-1.0.0/quiz.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -151,7 +153,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -473,11 +475,17 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-test-CFL" id="toc-sec-test-CFL" class="nav-link active" data-scroll-target="#sec-test-CFL"><span class="header-section-number">22.1</span> Multiple-choice questions</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch2/intro.html">Context-Free Languages</a></li><li class="breadcrumb-item"><a href="../ch2/exercises.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">More Exercises</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -500,11 +508,29 @@ window.Quarto = {
 
 <div class="hidden">
 <p>% noend hides “end for”; drop it to keep them </p>
+<p>% </p>
 </div>
 <div id="exr-complement-an-bn-cn" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 22.1</strong></span> Show that <span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\textcolor{darkred}{\mathtt{c}}^n :n\in \mathbb{N}\}\in \mathbf{co}\mathbf{CFL}</span>. (Recall the definition of a <span class="math inline">\mathbf{co}</span> class from <a href="../ch0/words_and_languages.html#sec-sets_languages" class="quarto-xref"><span>Section 4.3</span></a> <a href="../ch3/R-RE-coRE.html#eq-co-class" class="quarto-xref">Equation&nbsp;<span>26.1</span></a>.)</p>
 </div>
-<div id="exr-" class="theorem exercise">
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Updates post-class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>added <a href="#sec-test-CFL" class="quarto-xref"><span>Section 22.1</span></a> collecting the multiple-choice questions from past exams</li>
+</ul>
+</div>
+</div>
+</div></div><div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 22.2</strong></span> Show that <span class="math inline">\{w\textcolor{darkred}{\mathtt{\#}}w :w\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}}\}^*\}\in \mathbf{co}\mathbf{CFL}</span>.</p>
 </div>
 <div id="exr-" class="theorem exercise">
@@ -515,8 +541,319 @@ window.Quarto = {
 </ol>
 <p>What is the cost of your algorithm as a function of the number of symbols in <span class="math inline">G</span>?</p>
 </div>
+<section id="sec-test-CFL" class="level2 page-columns page-full" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="sec-test-CFL"><span class="header-section-number">22.1</span> Multiple-choice questions</h2>
+<p>Below there are some examples of multiple choice questions related to the topics of this part of the course. Obviously, looking into the html code of the page, you can read the answers before even trying to do the exercises, but this is not the point of the exercises, isn’t it?</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The explanations of wrong anwers are partially generated using AI tools. Please report any error.</p>
+</div>
+</div>
+</div></div><div id="exr-quiz-cfg-match" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.4 (Matching languages and grammars)</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Consider the languages <span class="math display">
+A = \{a^i b^j c^k :i = j + k\} \qquad B = \{a^i b^j c^k :j = i + k\} \qquad C = \{a^i b^j c^k :k = i + j\}
+</span> and the context-free grammars <span class="math display">
+G_1 : \left\{\begin{array}{ccl} S\ &amp;\boldsymbol{\to}&amp;\ S_1 S_2 \\ S_1\ &amp;\boldsymbol{\to}&amp;\ a S_1 b \ \vert\ \lambda \\ S_2\ &amp;\boldsymbol{\to}&amp;\ b S_2 c \ \vert\ \lambda \end{array}\right.
+\qquad
+G_2 : \left\{\begin{array}{ccl} S\ &amp;\boldsymbol{\to}&amp;\ a S c \ \vert\ S' \\ S'\ &amp;\boldsymbol{\to}&amp;\ b S' c \ \vert\ \lambda \end{array}\right.
+\qquad
+G_3 : \left\{\begin{array}{ccl} S\ &amp;\boldsymbol{\to}&amp;\ a S c \ \vert\ S' \\ S'\ &amp;\boldsymbol{\to}&amp;\ a S' b \ \vert\ \lambda \end{array}\right.
+</span> Which of the following options is correct?</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> <span class="math inline">A = \mathscr{L}(G_3)</span>, <span class="math inline">B = \mathscr{L}(G_2)</span>, <span class="math inline">C = \mathscr{L}(G_1)</span>.
+</div>
+<div class="quiz-explanation">
+<p><span class="math inline">A = \mathscr{L}(G_3)</span> is right, but the other two are swapped. For example, <span class="math inline">ac \in \mathscr{L}(G_2)</span>, using <span class="math inline">S \Rightarrow aSc \Rightarrow aS'c \Rightarrow ac</span>. But <span class="math inline">ac \notin B</span>, because <span class="math inline">B</span> requires <span class="math inline">j = i + k</span>, that is, <span class="math inline">0 = 1 + 1</span>. So <span class="math inline">B \neq \mathscr{L}(G_2)</span>.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="true" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> <span class="math inline">A = \mathscr{L}(G_3)</span>, <span class="math inline">B = \mathscr{L}(G_1)</span>, <span class="math inline">C = \mathscr{L}(G_2)</span>.
+</div>
+<div class="quiz-explanation">
+<p>Read each grammar from the outside in:</p>
+<ul>
+<li>In <span class="math inline">G_3</span>, the rule <span class="math inline">S\ \boldsymbol{\to}\ aSc</span> produces <span class="math inline">a^k \cdots c^k</span>, and then <span class="math inline">S'\ \boldsymbol{\to}\ aS'b</span> fills the middle with <span class="math inline">a^j b^j</span>. So <span class="math inline">\mathscr{L}(G_3) = \{a^{j+k} b^j c^k\} = A</span>.</li>
+<li>In <span class="math inline">G_1</span>, <span class="math inline">S_1</span> produces <span class="math inline">a^i b^i</span> and <span class="math inline">S_2</span> produces <span class="math inline">b^k c^k</span>. So <span class="math inline">\mathscr{L}(G_1) = \{a^i b^{i+k} c^k\} = B</span>.</li>
+<li>In <span class="math inline">G_2</span>, <span class="math inline">S\ \boldsymbol{\to}\ aSc</span> produces <span class="math inline">a^i \cdots c^i</span>, and then <span class="math inline">S'\ \boldsymbol{\to}\ bS'c</span> fills the middle with <span class="math inline">b^j c^j</span>. So <span class="math inline">\mathscr{L}(G_2) = \{a^i b^j c^{i+j}\} = C</span>.</li>
+</ul>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">A = \mathscr{L}(G_2)</span>, <span class="math inline">B = \mathscr{L}(G_3)</span>, <span class="math inline">C = \mathscr{L}(G_1)</span>.
+</div>
+<div class="quiz-explanation">
+<p>None of the three equalities holds. For example, <span class="math inline">bc \in \mathscr{L}(G_2)</span>, using <span class="math inline">S \Rightarrow S' \Rightarrow bS'c \Rightarrow bc</span>. But <span class="math inline">bc \notin A</span>, because <span class="math inline">A</span> requires <span class="math inline">i = j + k</span>, that is, <span class="math inline">0 = 1 + 1</span>. In <span class="math inline">G_2</span>, the number of <span class="math inline">c</span>’s is the sum of the other two counts, so <span class="math inline">\mathscr{L}(G_2) = C</span>.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> <span class="math inline">A = \mathscr{L}(G_1)</span>, <span class="math inline">B = \mathscr{L}(G_2)</span>, <span class="math inline">C = \mathscr{L}(G_3)</span>.
+</div>
+<div class="quiz-explanation">
+<p>None of the three equalities holds. For example, <span class="math inline">bc \in \mathscr{L}(G_1)</span>, using <span class="math inline">S \Rightarrow S_1 S_2 \Rightarrow S_2 \Rightarrow bS_2c \Rightarrow bc</span>. But <span class="math inline">bc \notin A</span>, because <span class="math inline">A</span> requires <span class="math inline">0 = 1 + 1</span>. In <span class="math inline">G_1</span>, the <span class="math inline">b</span>’s are matched both with the <span class="math inline">a</span>’s and with the <span class="math inline">c</span>’s, so the number of <span class="math inline">b</span>’s is the sum of the other two counts: <span class="math inline">\mathscr{L}(G_1) = B</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-quiz-cfg-ambiguity" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.5 (Same language, different ambiguity)</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Consider the following grammars: <span class="math display">
+G_1 : \left\{\begin{array}{ccl} S\ &amp;\boldsymbol{\to}&amp;\ AB \\ A\ &amp;\boldsymbol{\to}&amp;\ Aaa \ \vert\ a \ \vert\ \lambda \\ B\ &amp;\boldsymbol{\to}&amp;\ Baa \ \vert\ aa \ \vert\ \lambda \end{array}\right.
+\qquad
+G_2 : \left\{\begin{array}{ccl} S\ &amp;\boldsymbol{\to}&amp;\ A \ \vert\ B \ \vert\ \lambda \\ A\ &amp;\boldsymbol{\to}&amp;\ Aaa \ \vert\ a \\ B\ &amp;\boldsymbol{\to}&amp;\ Baa \ \vert\ aa \end{array}\right.
+</span></p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> <span class="math inline">\mathscr{L}(G_1) \neq \mathscr{L}(G_2)</span> and both are ambiguous.
+</div>
+<div class="quiz-explanation">
+<p>Both grammars generate <span class="math inline">a^*</span>. In <span class="math inline">G_1</span>, <span class="math inline">A</span> generates every <span class="math inline">a^n</span> and <span class="math inline">B</span> generates every <span class="math inline">a^{2k}</span>, so <span class="math inline">AB</span> generates all of <span class="math inline">a^*</span>. In <span class="math inline">G_2</span>, <span class="math inline">A</span> generates the words <span class="math inline">a^n</span> with <span class="math inline">n</span> odd, <span class="math inline">B</span> those with <span class="math inline">n \geqslant 2</span> even, and <span class="math inline">S\ \boldsymbol{\to}\ \lambda</span> the empty word. Moreover, <span class="math inline">G_2</span> is not ambiguous (see the correct answer).</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="true" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> <span class="math inline">\mathscr{L}(G_1) = \mathscr{L}(G_2)</span> and exactly one is ambiguous.
+</div>
+<div class="quiz-explanation">
+<p>Both grammars generate <span class="math inline">a^*</span>, as explained in the other options.</p>
+<ul>
+<li><span class="math inline">G_1</span> is ambiguous. The word <span class="math inline">aa</span> has two derivation trees: <span class="math inline">S \Rightarrow AB \Rightarrow Aaa\,B \Rightarrow aaB \Rightarrow aa</span>, where <span class="math inline">A</span> produces <span class="math inline">aa</span> and <span class="math inline">B</span> produces <span class="math inline">\lambda</span>; and <span class="math inline">S \Rightarrow AB \Rightarrow B \Rightarrow aa</span>, where <span class="math inline">A</span> produces <span class="math inline">\lambda</span> and <span class="math inline">B</span> produces <span class="math inline">aa</span>. (<span class="math inline">B</span> is ambiguous on its own, since <span class="math inline">aa</span> can be derived as <span class="math inline">B \Rightarrow aa</span>, using <span class="math inline">B\ \boldsymbol{\to}\ aa</span>, or as <span class="math inline">B \Rightarrow Baa \Rightarrow aa</span>, using <span class="math inline">B\ \boldsymbol{\to}\ Baa</span> and then <span class="math inline">B\ \boldsymbol{\to}\ \lambda</span>.)</li>
+<li><span class="math inline">G_2</span> is unambiguous. A nonempty word <span class="math inline">a^n</span> is derived from <span class="math inline">A</span> if <span class="math inline">n</span> is odd and from <span class="math inline">B</span> if <span class="math inline">n</span> is even, never from both. From <span class="math inline">A</span>, the only derivation of <span class="math inline">a^n</span> applies <span class="math inline">A\ \boldsymbol{\to}\ Aaa</span> exactly <span class="math inline">(n-1)/2</span> times and then <span class="math inline">A\ \boldsymbol{\to}\ a</span>. Similarly for <span class="math inline">B</span>, and <span class="math inline">\lambda</span> only comes from <span class="math inline">S\ \boldsymbol{\to}\ \lambda</span>.</li>
+</ul>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">\mathscr{L}(G_1) \neq \mathscr{L}(G_2)</span> and exactly one is ambiguous.
+</div>
+<div class="quiz-explanation">
+<p>It is true that exactly one grammar is ambiguous, namely <span class="math inline">G_1</span>, but the languages are equal. Both are <span class="math inline">a^*</span>: <span class="math inline">G_1</span> combines any number of <span class="math inline">a</span>’s from <span class="math inline">A</span> with an even number from <span class="math inline">B</span>, while <span class="math inline">G_2</span> generates the odd words with <span class="math inline">A</span>, the nonempty even words with <span class="math inline">B</span>, and <span class="math inline">\lambda</span> directly.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> <span class="math inline">\mathscr{L}(G_1) = \mathscr{L}(G_2)</span> and both are ambiguous.
+</div>
+<div class="quiz-explanation">
+<p>The languages are equal, both <span class="math inline">a^*</span>, but <span class="math inline">G_2</span> is not ambiguous. Its three alternatives <span class="math inline">A</span>, <span class="math inline">B</span> and <span class="math inline">\lambda</span> generate disjoint sets of words (odd lengths, nonempty even lengths, and the empty word), and inside <span class="math inline">A</span> and <span class="math inline">B</span> each word has a single derivation.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-quiz-cfg-cleanup" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.6 (Cleaning up a grammar)</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Consider the following grammar, which has <span class="math inline">5</span> productions: <span class="math display">
+\begin{array}{ccl}
+S\ &amp;\boldsymbol{\to}&amp;\ A\,B \\
+A\ &amp;\boldsymbol{\to}&amp;\ a\,A \ \vert\ \lambda \\
+B\ &amp;\boldsymbol{\to}&amp;\ b\,B \ \vert\ \lambda
+\end{array}
+</span> How many productions does the grammar have after cleaning it up? In the cleaned-up grammar, you do not need to introduce a new initial symbol, but you do need to remove the <span class="math inline">\lambda</span>-productions and the unit productions.</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> 12
+</div>
+<div class="quiz-explanation">
+<p>This is too many. You probably kept the unit productions <span class="math inline">S\ \boldsymbol{\to}\ A</span> and <span class="math inline">S\ \boldsymbol{\to}\ B</span> in addition to the productions that replace them. The cleaned-up grammar has <span class="math inline">10</span> productions (see the correct answer).</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> 11
+</div>
+<div class="quiz-explanation">
+<p>This is one too many. Check that no unit production (<span class="math inline">S\ \boldsymbol{\to}\ A</span> or <span class="math inline">S\ \boldsymbol{\to}\ B</span>) and no <span class="math inline">\lambda</span>-production other than <span class="math inline">S\ \boldsymbol{\to}\ \lambda</span> is left. The cleaned-up grammar has <span class="math inline">10</span> productions (see the correct answer).</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="true" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> 10
+</div>
+<div class="quiz-explanation">
+<p><em>Removing <span class="math inline">\lambda</span>-productions.</em> <span class="math inline">A</span>, <span class="math inline">B</span> and <span class="math inline">S</span> can all derive <span class="math inline">\lambda</span>. For every production, we add the versions with the nullable symbols deleted, and then remove <span class="math inline">A\ \boldsymbol{\to}\ \lambda</span> and <span class="math inline">B\ \boldsymbol{\to}\ \lambda</span>. Since <span class="math inline">\lambda \in \mathscr{L}(G)</span> and <span class="math inline">S</span> does not appear on any right-hand side, we keep <span class="math inline">S\ \boldsymbol{\to}\ \lambda</span>: <span class="math display">
+S\ \boldsymbol{\to}\ AB \ \vert\ A \ \vert\ B \ \vert\ \lambda \qquad A\ \boldsymbol{\to}\ aA \ \vert\ a \qquad B\ \boldsymbol{\to}\ bB \ \vert\ b.
+</span> <em>Removing unit productions.</em> We replace <span class="math inline">S\ \boldsymbol{\to}\ A</span> and <span class="math inline">S\ \boldsymbol{\to}\ B</span> by the productions of <span class="math inline">A</span> and <span class="math inline">B</span>: <span class="math display">
+S\ \boldsymbol{\to}\ AB \ \vert\ aA \ \vert\ a \ \vert\ bB \ \vert\ b \ \vert\ \lambda \qquad A\ \boldsymbol{\to}\ aA \ \vert\ a \qquad B\ \boldsymbol{\to}\ bB \ \vert\ b.
+</span> There are no useless symbols, so the result has <span class="math inline">6 + 2 + 2 = 10</span> productions.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> 13
+</div>
+<div class="quiz-explanation">
+<p>This is too many. Removing <span class="math inline">\lambda</span>-productions and unit productions makes some productions disappear, so check that <span class="math inline">A\ \boldsymbol{\to}\ \lambda</span>, <span class="math inline">B\ \boldsymbol{\to}\ \lambda</span>, <span class="math inline">S\ \boldsymbol{\to}\ A</span> and <span class="math inline">S\ \boldsymbol{\to}\ B</span> are no longer there. The cleaned-up grammar has <span class="math inline">10</span> productions (see the correct answer).</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-quiz-cfl-pumping" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.7 (Choosing a word for the pumping lemma)</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>We want to show that <span class="math inline">L = \{a^m b^n c^m d^n :m, n \geqslant 0\}</span> is not context-free by applying the pumping lemma for context-free languages directly. Given the pumping length <span class="math inline">N</span>, we want to choose a word <span class="math inline">w</span> as in the argument that applies the contrapositive of the lemma. Which of the following choices has any chance of completing the argument correctly?</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" tabindex="0" data-correct="true" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> <span class="math inline">w = a^N b^N c^N d^N</span>.
+</div>
+<div class="quiz-explanation">
+<p>This choice works. Write <span class="math inline">w = uvxyz</span> with <span class="math inline">|vxy| \leqslant N</span> and <span class="math inline">|vy| \geqslant 1</span>. Since each block has length <span class="math inline">N</span>, the part <span class="math inline">vxy</span> meets at most two <em>adjacent</em> blocks: <span class="math inline">a</span> and <span class="math inline">b</span>, <span class="math inline">b</span> and <span class="math inline">c</span>, or <span class="math inline">c</span> and <span class="math inline">d</span>. Pumping changes the number of letters in those blocks only. But the matched pairs are <span class="math inline">a</span> with <span class="math inline">c</span> and <span class="math inline">b</span> with <span class="math inline">d</span>, which are never adjacent, so pumping changes one block of a pair without the other. Hence <span class="math inline">uv^2xy^2z \notin L</span>. (If <span class="math inline">v</span> or <span class="math inline">y</span> contains two different letters, pumping also breaks the order of the letters.)</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> <span class="math inline">w = a b^N c d^N</span>.
+</div>
+<div class="quiz-explanation">
+<p>This choice cannot work, because some decompositions can be pumped. Take <span class="math inline">v = b</span>, <span class="math inline">x = c</span> and <span class="math inline">y = d</span>, using the last <span class="math inline">b</span>, the <span class="math inline">c</span> and the first <span class="math inline">d</span>. Then <span class="math inline">|vxy| = 3 \leqslant N</span>, and <span class="math display">
+uv^ixy^iz = a\, b^{N-1+i}\, c\, d^{N-1+i} \in L \quad \text{for every } i \geqslant 0,
+</span> because the numbers of <span class="math inline">b</span>’s and <span class="math inline">d</span>’s grow together. The single <span class="math inline">c</span> in the middle lets <span class="math inline">vxy</span> reach both blocks that must match.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">w = a^N b c^N d</span>.
+</div>
+<div class="quiz-explanation">
+<p>This choice cannot work, for the same reason as the previous one. Take <span class="math inline">v = a</span>, <span class="math inline">x = b</span> and <span class="math inline">y = c</span>, using the last <span class="math inline">a</span>, the <span class="math inline">b</span> and the first <span class="math inline">c</span>. Then <span class="math inline">|vxy| = 3 \leqslant N</span>, and <span class="math display">
+uv^ixy^iz = a^{N-1+i}\, b\, c^{N-1+i}\, d \in L \quad \text{for every } i \geqslant 0.
+</span> Since the <span class="math inline">b</span> block is short, <span class="math inline">vxy</span> can reach both the <span class="math inline">a</span>’s and the <span class="math inline">c</span>’s and pump them together.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> <span class="math inline">w = abcd</span>.
+</div>
+<div class="quiz-explanation">
+<p>The pumping lemma only says something about words of length at least <span class="math inline">N</span>. Since <span class="math inline">N</span> is given to us and may be larger than <span class="math inline">4</span>, we cannot use <span class="math inline">w = abcd</span>. The word must depend on <span class="math inline">N</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-quiz-pda-anbncn" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.8 (A pushdown automaton for <span class="math inline">a^n b^n c^n</span>?)</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>We want to recognize the language <span class="math inline">L = \{a^n b^n c^n :n \geqslant 0\}</span> with the following PDA <span class="math inline">P</span>. Given a word, <span class="math inline">P</span></p>
+<ol type="1">
+<li>first pushes <span class="math inline">AA</span> for each <span class="math inline">a</span>;</li>
+<li>then pops one <span class="math inline">A</span> for each <span class="math inline">b</span>;</li>
+<li>finally pops one <span class="math inline">A</span> for each <span class="math inline">c</span>;</li>
+<li>and accepts if the stack is empty when the input ends.</li>
+</ol>
+<p>Which option is correct?</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> <span class="math inline">\mathscr{L}(P) = L</span>.
+</div>
+<div class="quiz-explanation">
+<p><span class="math inline">P</span> only checks that the total number of <span class="math inline">b</span>’s and <span class="math inline">c</span>’s is twice the number of <span class="math inline">a</span>’s: it accepts <span class="math inline">a^n b^j c^k</span> exactly when <span class="math inline">j + k = 2n</span>. For example, <span class="math inline">abb</span> is accepted, since it pushes <span class="math inline">AA</span> and then pops two <span class="math inline">A</span>’s, but <span class="math inline">abb \notin L</span>.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> <span class="math inline">\mathscr{L}(P) \neq L</span>, but another PDA could recognize it.
+</div>
+<div class="quiz-explanation">
+<p>It is true that <span class="math inline">\mathscr{L}(P) \neq L</span>, since for example <span class="math inline">abb \in \mathscr{L}(P) \setminus L</span>. But no PDA can recognize <span class="math inline">L</span>: the languages accepted by PDAs are exactly the context-free languages, and <span class="math inline">L = \{a^n b^n c^n\}</span> is not context-free, as can be shown with the pumping lemma for context-free languages.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="true" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">\mathscr{L}(P) \supsetneq L</span> and no other PDA recognizes it.
+</div>
+<div class="quiz-explanation">
+<p><span class="math inline">P</span> accepts exactly the words <span class="math inline">a^n b^j c^k</span> with <span class="math inline">j + k = 2n</span>. Every word <span class="math inline">a^n b^n c^n</span> satisfies this condition, so <span class="math inline">L \subseteq \mathscr{L}(P)</span>. The inclusion is strict, because <span class="math inline">abb \in \mathscr{L}(P) \setminus L</span>. Moreover, <span class="math inline">L</span> is not context-free, by the pumping lemma, so no PDA recognizes it. A single stack can compare the <span class="math inline">a</span>’s with the <span class="math inline">b</span>’s, or with the <span class="math inline">c</span>’s, but not with both.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> <span class="math inline">\mathscr{L}(P) \subsetneq L</span> and no other PDA recognizes it.
+</div>
+<div class="quiz-explanation">
+<p>The second part is right, but the inclusion goes the other way. Every word of <span class="math inline">L</span> is accepted: on <span class="math inline">a^n b^n c^n</span>, <span class="math inline">P</span> pushes <span class="math inline">2n</span> symbols and pops <span class="math inline">n + n = 2n</span>. So <span class="math inline">L \subseteq \mathscr{L}(P)</span>, and <span class="math inline">P</span> accepts more words than it should, for example <span class="math inline">abb</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-pe2-even-values" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.9 (Even binary values (Partial exam 2, 05/06/2026))</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Consider the language <span class="math display">
+L = \{\, w \in \{\textcolor{darkred}{\mathtt{0}},\textcolor{darkred}{\mathtt{1}}\}^* :\mathrm{value}_2(w) \in 2\mathbb{N} \,\} \setminus \{\, \textcolor{darkred}{\mathtt{1}}^n \textcolor{darkred}{\mathtt{0}}^n :n \geqslant 0 \,\}.
+</span> What can we say about <span class="math inline">L</span>?</p>
+<p>Note that the set difference is defined as <span class="math inline">A \setminus B = A \cap \overline{B}</span> for any sets <span class="math inline">A</span> and <span class="math inline">B</span>.</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> <span class="math inline">\overline{L}</span> is a language accepted by a pushdown automaton, but <span class="math inline">L</span> is not.
+</div>
+<div class="quiz-explanation">
+<p><span class="math inline">L</span> is also accepted by a pushdown automaton. Let <span class="math inline">E = \{w :\mathrm{value}_2(w) \in 2\mathbb{N}\}</span> and <span class="math inline">D = \{\textcolor{darkred}{\mathtt{1}}^n \textcolor{darkred}{\mathtt{0}}^n :n \geqslant 0\}</span>, so that <span class="math inline">L = E \cap \overline{D}</span>. The language <span class="math inline">E</span> is regular: it consists of the empty word and the words ending in <span class="math inline">\textcolor{darkred}{\mathtt{0}}</span>. The complement <span class="math inline">\overline{D}</span> is context-free. The intersection of a context-free language with a regular language is context-free, so <span class="math inline">L</span> is context-free.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> Neither <span class="math inline">L</span> nor <span class="math inline">\overline{L}</span> are languages accepted by pushdown automata.
+</div>
+<div class="quiz-explanation">
+<p>Both are. The languages accepted by pushdown automata are exactly the context-free languages. With <span class="math inline">E</span> and <span class="math inline">D</span> as in the other options, <span class="math inline">L = E \cap \overline{D}</span> is the intersection of a regular and a context-free language, and <span class="math inline">\overline{L} = \overline{E} \cup D</span> is the union of a regular and a context-free language. Both operations preserve context-freeness.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="false" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">L</span> is a language accepted by a pushdown automaton, but <span class="math inline">\overline{L}</span> is not.
+</div>
+<div class="quiz-explanation">
+<p>It is true that context-free languages are not closed under complement in general, but here <span class="math inline">\overline{L}</span> is context-free too. With <span class="math inline">E</span> and <span class="math inline">D</span> as in the other options, De Morgan’s laws give <span class="math display">
+\overline{L} = \overline{E \cap \overline{D}} = \overline{E} \cup D.
+</span> <span class="math inline">\overline{E}</span> is regular (the words ending in <span class="math inline">\textcolor{darkred}{\mathtt{1}}</span>), <span class="math inline">D = \{\textcolor{darkred}{\mathtt{1}}^n \textcolor{darkred}{\mathtt{0}}^n\}</span> is context-free, and the union of two context-free languages is context-free.</p>
+</div>
+</div>
+<div class="quiz-option" tabindex="0" data-correct="true" role="button">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> Both <span class="math inline">L</span> and <span class="math inline">\overline{L}</span> are languages accepted by pushdown automata.
+</div>
+<div class="quiz-explanation">
+<p>The languages accepted by pushdown automata are exactly the context-free languages. Let <span class="math inline">E = \{w :\mathrm{value}_2(w) \in 2\mathbb{N}\}</span>, which is regular (the empty word and the words ending in <span class="math inline">\textcolor{darkred}{\mathtt{0}}</span>), and <span class="math inline">D = \{\textcolor{darkred}{\mathtt{1}}^n \textcolor{darkred}{\mathtt{0}}^n :n \geqslant 0\}</span>.</p>
+<ul>
+<li>Both <span class="math inline">D</span> and <span class="math inline">\overline{D}</span> are context-free. For <span class="math inline">\overline{D}</span>: a word is not in <span class="math inline">D</span> if and only if it is not of the form <span class="math inline">\textcolor{darkred}{\mathtt{1}}^i \textcolor{darkred}{\mathtt{0}}^j</span>, which is a regular condition, or it is of the form <span class="math inline">\textcolor{darkred}{\mathtt{1}}^i \textcolor{darkred}{\mathtt{0}}^j</span> with <span class="math inline">i \neq j</span>, which is context-free.</li>
+<li><span class="math inline">L = E \cap \overline{D}</span> is the intersection of a context-free language with a regular one, hence context-free.</li>
+<li><span class="math inline">\overline{L} = \overline{E} \cup D</span> is the union of a regular language and a context-free one, hence context-free.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
