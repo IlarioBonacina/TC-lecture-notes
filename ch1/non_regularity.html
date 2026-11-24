@@ -403,12 +403,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -623,7 +670,7 @@ Caution
 <ol type="a">
 <li><p>(<span class="math inline">🌱</span>) <span class="math inline">\{\textcolor{darkred}{\mathtt{0}}^n\textcolor{darkred}{\mathtt{1}}^n :n\in \mathbb{N}\}</span></p></li>
 <li><p><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^m :n,m\in \mathbb{N} \land n\neq m\}</span></p></li>
-<li><p><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n :n\in \mathbb{N} \land n\geq 1\}</span></p></li>
+<li><p><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n :n\in \mathbb{N} \land n\geqslant 1\}</span></p></li>
 <li><p><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\textcolor{darkred}{\mathtt{c}}^n :n\in \mathbb{N}\}</span></p></li>
 <li><p><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^{2n}\textcolor{darkred}{\mathtt{b}}^n :n\in \mathbb{N}\}</span></p></li>
 <li><p><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^m :\text{if }n \text{ is odd then } n=m\}</span></p></li>
@@ -689,9 +736,9 @@ Caution
 <div id="lem-pumping-lemma-regular" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 14.1 (Pumping Lemma for regular languages)</strong></span> Let <span class="math inline">L\subseteq \Sigma^*</span>. If for every <span class="math inline">p\in \mathbb{N}</span>, there exist a word <span class="math inline">w\in\Sigma^*</span> s.t.</p>
 <ul>
-<li><span class="math inline">|w|\geq p</span>,</li>
+<li><span class="math inline">|w|\geqslant p</span>,</li>
 <li><span class="math inline">w\in L</span>, and</li>
-<li>for every <span class="math inline">x,y,z\in \Sigma^*</span> s.t. <span class="math inline">w=xyz</span>, <span class="math inline">y\neq \varepsilon</span> and <span class="math inline">|xy|\leq p</span> there exist <span class="math inline">k\in \mathbb{N}</span> s.t. <span class="math inline">xy^kz\notin L</span>,</li>
+<li>for every <span class="math inline">x,y,z\in \Sigma^*</span> s.t. <span class="math inline">w=xyz</span>, <span class="math inline">y\neq \varepsilon</span> and <span class="math inline">|xy|\leqslant p</span> there exist <span class="math inline">k\in \mathbb{N}</span> s.t. <span class="math inline">xy^kz\notin L</span>,</li>
 </ul>
 <p>then <span class="math inline">L\notin\mathbf{Regular}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -709,9 +756,9 @@ Caution
 <p>Suppose, towards a contradiction, that <span class="math inline">L\in \mathbf{Regular}</span>. Then by <a href="regular_languages.html#def-regular" class="quarto-xref">Definition&nbsp;<span>13.1</span></a> and <a href="regular_languages.html#thm-regular" class="quarto-xref">Theorem&nbsp;<span>13.1</span></a>, there must exist a DFA <span class="math inline">A=(Q,\Sigma,\{q_0\},F,\delta)</span> s.t. <span class="math inline">\mathscr{L}(A)=L</span>.</p>
 <p>We want to show that the hypothesis of the lemma must be false, that is we want to show that</p>
 <blockquote class="blockquote">
-<p>there exists a <span class="math inline">p\in \mathbb N</span> s.t. for every word <span class="math inline">w\in\Sigma^*</span>, if <span class="math inline">|w|\geq p</span> and <span class="math inline">w\in L</span>, then there exist <span class="math inline">x,y,z\in \Sigma^*</span> s.t. <span class="math inline">w=xyz</span>, <span class="math inline">y\neq \varepsilon</span>, <span class="math inline">|xy|\leq p</span> and for every <span class="math inline">k\in \mathbb{N}</span> <span class="math inline">xy^kz\in L</span>.</p>
+<p>there exists a <span class="math inline">p\in \mathbb N</span> s.t. for every word <span class="math inline">w\in\Sigma^*</span>, if <span class="math inline">|w|\geqslant p</span> and <span class="math inline">w\in L</span>, then there exist <span class="math inline">x,y,z\in \Sigma^*</span> s.t. <span class="math inline">w=xyz</span>, <span class="math inline">y\neq \varepsilon</span>, <span class="math inline">|xy|\leqslant p</span> and for every <span class="math inline">k\in \mathbb{N}</span> <span class="math inline">xy^kz\in L</span>.</p>
 </blockquote>
-<p>Let <span class="math inline">p=|Q|</span> and <span class="math inline">w</span> be an arbitrary word s.t. <span class="math inline">w\in L</span> and <span class="math inline">|w|=n\geq p</span>. Let <span class="math inline">w[i]</span> be the <span class="math inline">i</span>-th symbol of <span class="math inline">w</span> (we start counting from <span class="math inline">1</span>) and <span class="math inline">w[i:j]</span> (with <span class="math inline">i\leq j</span>) be the concatenation of the symbols of <span class="math inline">w</span> between positions <span class="math inline">i</span> and <span class="math inline">j</span> included.</p>
+<p>Let <span class="math inline">p=|Q|</span> and <span class="math inline">w</span> be an arbitrary word s.t. <span class="math inline">w\in L</span> and <span class="math inline">|w|=n\geqslant p</span>. Let <span class="math inline">w[i]</span> be the <span class="math inline">i</span>-th symbol of <span class="math inline">w</span> (we start counting from <span class="math inline">1</span>) and <span class="math inline">w[i:j]</span> (with <span class="math inline">i\leqslant j</span>) be the concatenation of the symbols of <span class="math inline">w</span> between positions <span class="math inline">i</span> and <span class="math inline">j</span> included.</p>
 <p>Since <span class="math inline">w\in L</span>, there must exist a sequence of states <span class="math inline">q_0,q_1,\dots,q_n\in Q</span> s.t. <span class="math inline">q_n\in F</span> and for each <span class="math inline">i\in \{0,1,\dots,n-1\}</span>, <span class="math inline">\delta(q_i,w[i])=q_{i+1}</span>. The tuple of states <span class="math inline">q_0,\dots,q_n</span> has size <span class="math inline">n+1&gt;p=|Q|</span>, hence by the pigeonhole principle (see <a href="../ch0/proofs.html#sec-php" class="quarto-xref"><span>Section 2.2.1</span></a>), the states <span class="math inline">q_0,\dots,q_n</span> cannot be all distinct. Let <span class="math inline">\ell</span> be the first index in the sequence s.t. exists <span class="math inline">i&lt;\ell</span> with <span class="math inline">q_i=q_\ell</span>.</p>
 <p>Let <span class="math inline">x=w[1:i]</span> (if <span class="math inline">i=0</span> take <span class="math inline">x=\varepsilon</span>), <span class="math inline">y=w[i+1:\ell]</span>, and <span class="math inline">z=w[\ell+1:n]</span>. See <a href="../ch2/non-context-freeness.html#fig-pumping" class="quarto-xref">Figure&nbsp;<span>21.1</span></a> for a visual depiction of the paths giving <span class="math inline">x,y,z</span>.</p>
 <div id="fig-pumping" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -724,7 +771,7 @@ Figure&nbsp;14.1
 </figcaption>
 </figure>
 </div>
-<p>The states from <span class="math inline">q_0,\dots,q_{\ell-1}</span> must be all distinct, by the choice of <span class="math inline">\ell</span>. Hence <span class="math inline">\ell\leq |Q|=p</span> and <span class="math inline">|xy|=\ell\leq p</span>. It is also immediate to see that <span class="math inline">y\neq \varepsilon</span>.</p>
+<p>The states from <span class="math inline">q_0,\dots,q_{\ell-1}</span> must be all distinct, by the choice of <span class="math inline">\ell</span>. Hence <span class="math inline">\ell\leqslant|Q|=p</span> and <span class="math inline">|xy|=\ell\leqslant p</span>. It is also immediate to see that <span class="math inline">y\neq \varepsilon</span>.</p>
 <p>To conclude we need to show that for every <span class="math inline">k\in \mathbb N</span>, <span class="math inline">xy^k z\in L</span>. It is immediate to construct a path accepting the word <span class="math inline">xy^kz</span>: take the original path but repeat the cycle between the <span class="math inline">q_i</span> and <span class="math inline">q_\ell</span> <span class="math inline">k</span>-times.</p>
 </div>
 </div>
@@ -733,11 +780,11 @@ Figure&nbsp;14.1
 <p>The Pumping Lemma is essentially saying that <span class="orange"><strong>we</strong></span> can win the following game. Given a language <span class="math inline">L</span> <span class="orange"><strong>we</strong></span> want to prove is not regular:</p>
 <ul>
 <li>the “<em>adversary</em>” picks <span class="math inline">p\in \mathbb N</span> (<span class="math inline">p</span> is usually called the <span class="def">pumping length</span>);</li>
-<li><span class="orange"><strong>we</strong></span> choose a word <span class="math inline">w\in L</span> with <span class="math inline">|w|\geq p</span> (as a function of <span class="math inline">p</span>);</li>
+<li><span class="orange"><strong>we</strong></span> choose a word <span class="math inline">w\in L</span> with <span class="math inline">|w|\geqslant p</span> (as a function of <span class="math inline">p</span>);</li>
 <li>the adversary chooses <span class="math inline">x,y,z</span> s.t.
 <ul>
 <li><span class="math inline">w=xyz</span></li>
-<li><span class="math inline">|xy|\leq p</span></li>
+<li><span class="math inline">|xy|\leqslant p</span></li>
 <li><span class="math inline">y\neq \varepsilon</span></li>
 </ul></li>
 <li><span class="orange"><strong>we</strong></span> choose <span class="math inline">k\in \mathbb N</span> (as a function of <span class="math inline">n,x,y,z</span>)</li>
@@ -745,13 +792,13 @@ Figure&nbsp;14.1
 </ul>
 <p>Hence a “template” for a proof using the pumping lemma for regular languages is as follow:</p>
 <blockquote class="blockquote">
-<p>We prove that <span class="math inline">L</span> is non-regular using the pumping lemma. Let <span class="math inline">p</span> be the pumping length. Consider the word <span class="orange"><span class="math inline">w=....</span></span>. We have that <span class="math inline">|w|\geq p</span> and <span class="math inline">w\in L</span> <span class="orange">(this needs an argument, possibly trivial, but you need to check it)</span>. Given an arbitrary decomposition of <span class="math inline">w</span> as <span class="math inline">w=xyz</span>, with <span class="math inline">|xy|\leq p</span> and <span class="math inline">y\neq \varepsilon</span>, consider the natural number <span class="orange"><span class="math inline">k=....</span></span>. To conclude we need to prove that <span class="math inline">xy^kz\notin L</span> <span class="orange">(this needs an argument, usually quite non-trivial)</span>.</p>
+<p>We prove that <span class="math inline">L</span> is non-regular using the pumping lemma. Let <span class="math inline">p</span> be the pumping length. Consider the word <span class="orange"><span class="math inline">w=....</span></span>. We have that <span class="math inline">|w|\geqslant p</span> and <span class="math inline">w\in L</span> <span class="orange">(this needs an argument, possibly trivial, but you need to check it)</span>. Given an arbitrary decomposition of <span class="math inline">w</span> as <span class="math inline">w=xyz</span>, with <span class="math inline">|xy|\leqslant p</span> and <span class="math inline">y\neq \varepsilon</span>, consider the natural number <span class="orange"><span class="math inline">k=....</span></span>. To conclude we need to prove that <span class="math inline">xy^kz\notin L</span> <span class="orange">(this needs an argument, usually quite non-trivial)</span>.</p>
 </blockquote>
 <div id="exm-an_bn_non_regular_pumping" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14.5</strong></span> Following the template, above we show (again) that <span class="math display">
 L=\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n :n\in \mathbb N\}\notin \mathbf{Regular}\ .
 </span> We already saw a proof of this fact in <a href="#exm-an_bn_non_regular" class="quarto-xref">Example&nbsp;<span>14.1</span></a> using a fooling set.</p>
-<p>We prove that <span class="math inline">L</span> is non-regular using the pumping lemma. Let <span class="math inline">p</span> be the pumping length. Consider the word <span class="orange"><span class="math inline">w=\textcolor{darkred}{\mathtt{a}}^p\textcolor{darkred}{\mathtt{b}}^p</span></span>. We have that <span class="math inline">|w|\geq p</span> and <span class="orange">clearly</span> <span class="math inline">w\in L</span>. Given an arbitrary decomposition of <span class="math inline">w</span> as <span class="math inline">w=xyz</span>, with <span class="math inline">|xy|\leq p</span> and <span class="math inline">y\neq \varepsilon</span>, consider the natural number <span class="orange"><span class="math inline">k=0</span></span>. To conclude we need to prove that <span class="math inline">xy^kz\notin L</span>. <span class="orange">Since <span class="math inline">|xy|\leq p</span> it must be that <span class="math inline">x=\textcolor{darkred}{\mathtt{a}}^i</span>, <span class="math inline">y=\textcolor{darkred}{\mathtt{a}}^j</span> and <span class="math inline">z=\textcolor{darkred}{\mathtt{a}}^{p-i-j}\textcolor{darkred}{\mathtt{b}}^p</span>. Since <span class="math inline">y\neq \varepsilon</span>, then <span class="math inline">j&gt; 0</span>. The word <span class="math inline">xy^kz=\textcolor{darkred}{\mathtt{a}}^{p+j(k-1)}\textcolor{darkred}{\mathtt{b}}^p=\textcolor{darkred}{\mathtt{a}}^{p-j}\textcolor{darkred}{\mathtt{b}}^p</span>. Since <span class="math inline">j&gt;0</span>, then <span class="math inline">p-j\neq p</span> and <span class="math inline">xy^0z\notin L</span>.</span></p>
+<p>We prove that <span class="math inline">L</span> is non-regular using the pumping lemma. Let <span class="math inline">p</span> be the pumping length. Consider the word <span class="orange"><span class="math inline">w=\textcolor{darkred}{\mathtt{a}}^p\textcolor{darkred}{\mathtt{b}}^p</span></span>. We have that <span class="math inline">|w|\geqslant p</span> and <span class="orange">clearly</span> <span class="math inline">w\in L</span>. Given an arbitrary decomposition of <span class="math inline">w</span> as <span class="math inline">w=xyz</span>, with <span class="math inline">|xy|\leqslant p</span> and <span class="math inline">y\neq \varepsilon</span>, consider the natural number <span class="orange"><span class="math inline">k=0</span></span>. To conclude we need to prove that <span class="math inline">xy^kz\notin L</span>. <span class="orange">Since <span class="math inline">|xy|\leqslant p</span> it must be that <span class="math inline">x=\textcolor{darkred}{\mathtt{a}}^i</span>, <span class="math inline">y=\textcolor{darkred}{\mathtt{a}}^j</span> and <span class="math inline">z=\textcolor{darkred}{\mathtt{a}}^{p-i-j}\textcolor{darkred}{\mathtt{b}}^p</span>. Since <span class="math inline">y\neq \varepsilon</span>, then <span class="math inline">j&gt; 0</span>. The word <span class="math inline">xy^kz=\textcolor{darkred}{\mathtt{a}}^{p+j(k-1)}\textcolor{darkred}{\mathtt{b}}^p=\textcolor{darkred}{\mathtt{a}}^{p-j}\textcolor{darkred}{\mathtt{b}}^p</span>. Since <span class="math inline">j&gt;0</span>, then <span class="math inline">p-j\neq p</span> and <span class="math inline">xy^0z\notin L</span>.</span></p>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -769,7 +816,7 @@ L=\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n :n\in \ma
 <li>The word <span class="math inline">w</span> <strong>must</strong> depend on <span class="math inline">p</span>. If our choice of <span class="math inline">w</span> does not depend on <span class="math inline">p</span> then it is wrong.</li>
 <li>The word <span class="math inline">w</span> <strong>cannot</strong> depend on <span class="math inline">x,y,z</span>. If our choice of <span class="math inline">w</span> does depend on <span class="math inline">x,y,z</span> then it is wrong.</li>
 <li>The word <span class="math inline">w</span> does not need to have length exactly <span class="math inline">p</span>, it might be much much larger, for example <span class="math inline">p!</span>.</li>
-<li>Another common error is to choose <span class="math inline">x,y,z</span>. We cannot choose them! The only things we know about them is that <span class="math inline">w=xyz</span>, <span class="math inline">|xy|\leq p</span> and <span class="math inline">y\neq\varepsilon</span>. The adversary chooses <span class="math inline">x,y,z</span> with the given constraints, not us.</li>
+<li>Another common error is to choose <span class="math inline">x,y,z</span>. We cannot choose them! The only things we know about them is that <span class="math inline">w=xyz</span>, <span class="math inline">|xy|\leqslant p</span> and <span class="math inline">y\neq\varepsilon</span>. The adversary chooses <span class="math inline">x,y,z</span> with the given constraints, not us.</li>
 <li>Another common error is to assume <span class="math inline">x\neq\varepsilon</span>! It might be that <span class="math inline">x=\varepsilon</span>, the part we know it is non-empty is <span class="math inline">y</span>!</li>
 <li>Choosing <span class="math inline">k=1</span> will never work. Often <span class="math inline">k=0</span> is a good choice but not always. Remember that <span class="math inline">k</span> doesn’t need to be a fixed constant, it might depend on <span class="math inline">p</span> and <span class="math inline">x,y,z</span>.</li>
 </ul>

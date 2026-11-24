@@ -422,12 +422,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -453,7 +500,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch0/intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../ch0/functions_cardinality.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions and cardinality</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions and cardinality</span></h1>
+<h1 class="title"><span id="sec-functions-cardinality" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions and cardinality</span></span></h1>
 </div>
 
 
@@ -507,7 +554,7 @@ Important
 <p><span class="theorem-title"><strong>Definition 3.1 (cardinality)</strong></span> Two sets <span class="math inline">A</span> and <span class="math inline">B</span> have <span class="def">the same cardinality</span> (and we write <span class="math inline">|A|=|B|</span>) if there exists a one-to-one correspondence <span class="math inline">f: A\to B</span>.</p>
 </div>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.2 (countable)</strong></span> A set <span class="math inline">S</span> is <span class="def">finite</span> if there is some <span class="math inline">n\in \mathbb N</span> and <span class="math inline">S</span> has the same cardinality of the set <span class="math inline">\{m\in \mathbb N :m\leq n\}</span> or <span class="math inline">S=\emptyset</span>. A set is <span class="def">countably infinite</span> if it has the same cardinality of <span class="math inline">\mathbb{N}</span>. A set is <span class="def">countable</span> if it is either finite or countably infinite.</p>
+<p><span class="theorem-title"><strong>Definition 3.2 (countable)</strong></span> A set <span class="math inline">S</span> is <span class="def">finite</span> if there is some <span class="math inline">n\in \mathbb N</span> and <span class="math inline">S</span> has the same cardinality of the set <span class="math inline">\{m\in \mathbb N :m\leqslant n\}</span> or <span class="math inline">S=\emptyset</span>. A set is <span class="def">countably infinite</span> if it has the same cardinality of <span class="math inline">\mathbb{N}</span>. A set is <span class="def">countable</span> if it is either finite or countably infinite.</p>
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">

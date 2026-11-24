@@ -403,12 +403,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -764,7 +811,7 @@ S\ &amp;\boldsymbol{\to}&amp;\ SS\ \vert\ \textcolor{darkred}{\mathtt{(}}S\textc
 </div></div><div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 16.8</strong></span> Show that</p>
 <p><span class="math display">
-\mathsf{Dyck}\text{-}1=\{w\in \{\textcolor{darkred}{\mathtt{(}},\textcolor{darkred}{\mathtt{)}}\}^* :|w|_{\textcolor{darkred}{\mathtt{(}}}=|w|_{\textcolor{darkred}{\mathtt{)}}}\land \forall x,y (w=xy\implies |x|_{\textcolor{darkred}{\mathtt{(}}}\geq |x|_{\textcolor{darkred}{\mathtt{)}}})\}\ ,
+\mathsf{Dyck}\text{-}1=\{w\in \{\textcolor{darkred}{\mathtt{(}},\textcolor{darkred}{\mathtt{)}}\}^* :|w|_{\textcolor{darkred}{\mathtt{(}}}=|w|_{\textcolor{darkred}{\mathtt{)}}}\land \forall x,y (w=xy\implies |x|_{\textcolor{darkred}{\mathtt{(}}}\geqslant|x|_{\textcolor{darkred}{\mathtt{)}}})\}\ ,
 </span> that is <span class="math inline">w\in \mathsf{Dyck}\text{-}1</span> if and only if it has the same number of open and closed parentheses and in every prefix of <span class="math inline">w</span>, the number of open parentheses is always greater than or equal to the number of closed parentheses.</p>
 </div>
 <div id="exr-dyck-s" class="theorem exercise">
@@ -775,7 +822,7 @@ S\ &amp;\boldsymbol{\to}&amp;\ SS\ \vert\ \textcolor{darkred}{\mathtt{(}}S\textc
 <p><span class="theorem-title"><strong>Theorem 16.1 (Chomsky–Schützenberger representation theorem)</strong></span> A language <span class="math inline">L\subseteq \Sigma^*</span> is in <span class="math inline">\mathbf{CFL}</span> if and only if</p>
 <p><span class="math display">
 L=\sigma(\mathsf{Dyck}\text{-}s\cap R)\ ,
-</span> where <span class="math inline">s\geq 1</span>, <span class="math inline">R</span> is a regular language (over the alphabet of <span class="math inline">\mathsf{Dyck}\text{-}s</span> <span class="math inline">\Gamma_s</span>), and <span class="math inline">\sigma</span> is a homomorphism from <span class="math inline">\Gamma_s</span> to <span class="math inline">\Sigma^*</span>.</p>
+</span> where <span class="math inline">s\geqslant 1</span>, <span class="math inline">R</span> is a regular language (over the alphabet of <span class="math inline">\mathsf{Dyck}\text{-}s</span> <span class="math inline">\Gamma_s</span>), and <span class="math inline">\sigma</span> is a homomorphism from <span class="math inline">\Gamma_s</span> to <span class="math inline">\Sigma^*</span>.</p>
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">

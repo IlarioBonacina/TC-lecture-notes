@@ -50,6 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-f85d93d0a337325f4f7a52a7a65bbd82.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/quiz-1.0.0/quiz.js"></script>
+<link href="../site_libs/quarto-contrib/quiz-1.0.0/quiz.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -151,7 +153,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -403,12 +405,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -426,11 +475,17 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#tests" id="toc-tests" class="nav-link active" data-scroll-target="#tests"><span class="header-section-number">28.1</span> Tests</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch3/intro.html">Topics in Computability</a></li><li class="breadcrumb-item"><a href="../ch3/exercises.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">More Exercises</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -455,8 +510,149 @@ window.Quarto = {
 <p>% noend hides “end for”; drop it to keep them </p>
 </div>
 <p>For more exercises on this topic plese use the <a href="https://www.cs.upc.edu/tc/PS3.html">Problem set 3</a> on the main page of the course.</p>
+<section id="tests" class="level2 page-columns page-full" data-number="28.1">
+<h2 data-number="28.1" class="anchored" data-anchor-id="tests"><span class="header-section-number">28.1</span> Tests</h2>
+<p>Below there are some examples of multiple choice questions related to the topics of this part of the course. Obviously, looking into the html code of the page, you can read the answers before even trying to do the exercises, but this is not the point of the exercises, isn’t it?</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The explanations of wrong anwers are partially generated using AI tools. Please report any error.</p>
+</div>
+</div>
+</div></div><div id="exr-quiz-union-re" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 28.1 (A complement of a union)</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Let <span class="math inline">A</span>, <span class="math inline">B</span> and <span class="math inline">C</span> be languages such that <span class="math inline">A \in \mathbf{RE}\setminus \mathbf{R}</span> and <span class="math inline">A = \overline{B \cup C}</span>. Which of the following options for <span class="math inline">B</span> and <span class="math inline">C</span> is <strong>not</strong> possible?</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> <span class="math inline">B \in \mathbf{RE}</span> and <span class="math inline">C \in \mathbf{RE}</span>
+</div>
+<div class="quiz-explanation">
+<p><span class="math inline">\mathbf{RE}</span> is closed under union, so <span class="math inline">B \cup C \in \mathbf{RE}</span>. But <span class="math inline">B \cup C = \overline{A}</span>, so <span class="math inline">\overline{A} \in \mathbf{RE}</span>, which means <span class="math inline">A \in \mathbf{co}\mathbf{RE}</span>. Together with <span class="math inline">A \in \mathbf{RE}</span>, this gives <span class="math inline">A \in \mathbf{RE}\cap \mathbf{co}\mathbf{RE}= \mathbf{R}</span>, contradicting <span class="math inline">A \notin \mathbf{R}</span>. So this option is impossible.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> <span class="math inline">B \in \mathbf{RE}</span> or <span class="math inline">C \in \mathbf{RE}</span>
+</div>
+<div class="quiz-explanation">
+<p>This is possible. Take <span class="math inline">B = \emptyset</span> and <span class="math inline">C = \overline{A}</span>. Then <span class="math inline">\overline{B \cup C} = A</span>, and <span class="math inline">B = \emptyset \in \mathbf{RE}</span>. Only <em>one</em> of the two languages has to be in <span class="math inline">\mathbf{RE}</span>, so the argument for the correct answer does not apply.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">B \in \mathbf{co}\mathbf{RE}</span> or <span class="math inline">C \in \mathbf{co}\mathbf{RE}</span>
+</div>
+<div class="quiz-explanation">
+<p>This is possible. Since <span class="math inline">A \in \mathbf{RE}</span>, its complement <span class="math inline">\overline{A}</span> is in <span class="math inline">\mathbf{co}\mathbf{RE}</span>. Take <span class="math inline">B = \overline{A}</span> and <span class="math inline">C = \emptyset</span>. Then <span class="math inline">\overline{B \cup C} = A</span>, and <span class="math inline">B \in \mathbf{co}\mathbf{RE}</span>.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> <span class="math inline">B \in \mathbf{co}\mathbf{RE}</span> and <span class="math inline">C \in \mathbf{co}\mathbf{RE}</span>
+</div>
+<div class="quiz-explanation">
+<p>This is possible. Take again <span class="math inline">B = \overline{A} \in \mathbf{co}\mathbf{RE}</span> and <span class="math inline">C = \emptyset</span>, which is in <span class="math inline">\mathbf{co}\mathbf{RE}</span> because it is decidable. Then <span class="math inline">\overline{B \cup C} = A</span>. This is consistent: <span class="math inline">\mathbf{co}\mathbf{RE}</span> is closed under union, and indeed <span class="math inline">B \cup C = \overline{A} \in \mathbf{co}\mathbf{RE}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-quiz-twin-primes" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 28.2 (Twin primes)</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Let <span class="math display">
+L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and } p+2 \text{ are both prime} \,\}.
+</span> Which is the strongest statement you can guarantee for sure to be true?</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> <span class="math inline">L \in \mathbf{co}\mathbf{RE}</span>
+</div>
+<div class="quiz-explanation">
+<p>This is true, but it follows from a stronger statement (see the correct answer). Note that it is not obvious directly: to reject <span class="math inline">n</span>, we would have to be sure that there are no twin primes beyond <span class="math inline">n</span>, and no search can confirm that. The point is that <span class="math inline">L</span> is decidable, and every decidable language is in <span class="math inline">\mathbf{co}\mathbf{RE}</span>. The best answer is the strongest one we can guarantee.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> <span class="math inline">L \in \mathbf{RE}</span>
+</div>
+<div class="quiz-explanation">
+<p>This is true: on input <span class="math inline">n</span>, search <span class="math inline">p = n, n+1, n+2, \dots</span> and accept when <span class="math inline">p</span> and <span class="math inline">p+2</span> are both prime. If <span class="math inline">n \in L</span>, the search ends. But this only shows <span class="math inline">L \in \mathbf{RE}</span>, and we can say more: <span class="math inline">L</span> is decidable (see the correct answer). The best answer is the strongest one we can guarantee.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">L \in \mathbf{R}</span>
+</div>
+<div class="quiz-explanation">
+<p><span class="math inline">L</span> is closed downwards: if <span class="math inline">n \in L</span> and <span class="math inline">m \leqslant n</span>, then <span class="math inline">m \in L</span>. So there are only two possibilities. If there are infinitely many twin primes, then <span class="math inline">L = \mathbb{N}</span>. Otherwise, let <span class="math inline">p_0</span> be the largest prime such that <span class="math inline">p_0 + 2</span> is also prime, and then <span class="math inline">L = \{0, 1, \dots, p_0\}</span>. In both cases, <span class="math inline">L</span> is decidable: <span class="math inline">\mathbb{N}</span> is decided by a machine that always accepts, and <span class="math inline">\{0, \dots, p_0\}</span> by a machine that compares <span class="math inline">n</span> with the constant <span class="math inline">p_0</span>. We do not know <em>which</em> of these machines decides <span class="math inline">L</span>, because the twin prime conjecture is open, but we know that one of them does. Decidability asks for the <em>existence</em> of a decider, not for us to know which one it is.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> <span class="math inline">L \notin \mathbf{RE}\cup \mathbf{co}\mathbf{RE}</span>
+</div>
+<div class="quiz-explanation">
+<p>This is false. As explained in the correct answer, <span class="math inline">L</span> is either <span class="math inline">\mathbb{N}</span> or a finite set, and in both cases <span class="math inline">L \in \mathbf{R}\subseteq \mathbf{RE}\cap \mathbf{co}\mathbf{RE}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-quiz-false-statement" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 28.3 (Which statement is false?)</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Which of the following statements about languages <span class="math inline">A, B \subseteq \{0,1\}^*</span> is <strong>false</strong>?</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> If <span class="math inline">A = \mathcal{L}(M)</span> where <span class="math inline">M</span> is a Turing machine that does not halt on <span class="math inline">010</span>, then <span class="math inline">A \in \mathbf{RE}\setminus \mathbf{R}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is false. The fact that one particular machine <span class="math inline">M</span> for <span class="math inline">A</span> does not halt does not mean that <em>every</em> machine for <span class="math inline">A</span> fails to halt. For example, let <span class="math inline">M</span> accept every word except <span class="math inline">010</span>, and loop forever on <span class="math inline">010</span>. Then <span class="math inline">A = \mathcal{L}(M) = \{0,1\}^* \setminus \{010\}</span>. This language is decidable: another machine can check whether its input is <span class="math inline">010</span> and reject it, and accept everything else. So <span class="math inline">A \in \mathbf{R}</span>. Decidability is a property of the language, not of one machine that recognizes it.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> If <span class="math inline">A \notin \mathbf{R}</span>, then <span class="math inline">A \cup \{0101\} \notin \mathbf{R}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is true. Suppose <span class="math inline">A \cup \{0101\}</span> were decidable, with decider <span class="math inline">D</span>. Then <span class="math inline">A</span> would also be decidable. If <span class="math inline">0101 \in A</span>, then <span class="math inline">A = A \cup \{0101\}</span>. If <span class="math inline">0101 \notin A</span>, then <span class="math inline">A = (A \cup \{0101\}) \setminus \{0101\}</span>, which is decided by running <span class="math inline">D</span> and rejecting <span class="math inline">0101</span>. We may not know which case holds, but in both cases a decider for <span class="math inline">A</span> exists, contradicting <span class="math inline">A \notin \mathbf{R}</span>. Changing a language on finitely many words never affects decidability.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> If <span class="math inline">A \notin \mathbf{R}</span> and <span class="math inline">B</span> is finite, then <span class="math inline">A \cup B \notin \mathbf{R}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is true. It is the previous statement with <span class="math inline">\{0101\}</span> replaced by any finite set. If <span class="math inline">A \cup B</span> were decidable, then <span class="math inline">A = (A \cup B) \setminus (B \setminus A)</span> would be decidable too, because <span class="math inline">B \setminus A</span> is finite and a decider can store the finitely many words of <span class="math inline">B \setminus A</span> and reject them.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> If <span class="math inline">A \in \mathbf{RE}</span>, there are infinitely many Turing machines that recognize <span class="math inline">A</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is true. If <span class="math inline">M</span> recognizes <span class="math inline">A</span>, we can add any number of new states that are never reached, and we obtain infinitely many different machines that all recognize <span class="math inline">A</span>. This is the same padding trick that gives every machine infinitely many encodings, which we use in the proof of the time hierarchy theorem.</p>
+</div>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

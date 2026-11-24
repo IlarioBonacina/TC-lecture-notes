@@ -403,12 +403,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -473,7 +520,7 @@ window.Quarto = {
 <ol type="a">
 <li><span class="math inline">(xy)z = x(yz)</span>, that is the concatentation is associative.</li>
 <li><span class="math inline">\varepsilon x = x\varepsilon= w</span>, that is the empty word is the <em>identity element</em> for concatenation.</li>
-<li>if <span class="math inline">xy = yx</span> holds for every <span class="math inline">x,y\in \Sigma^*</span>, then <span class="math inline">|\Sigma|=1</span>. That is if <span class="math inline">|\Sigma|\geq 2</span> then the concatenation is <strong>not</strong> commutative.</li>
+<li>if <span class="math inline">xy = yx</span> holds for every <span class="math inline">x,y\in \Sigma^*</span>, then <span class="math inline">|\Sigma|=1</span>. That is if <span class="math inline">|\Sigma|\geqslant 2</span> then the concatenation is <strong>not</strong> commutative.</li>
 </ol>
 </div>
 <div id="exr-concatenation-length" class="theorem exercise">

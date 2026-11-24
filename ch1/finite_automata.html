@@ -403,12 +403,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -586,7 +633,7 @@ Figure&nbsp;9.4
 <div class="callout-body-container callout-body">
 <p>The language accepted by the <span class="math inline">\varepsilon</span>-NFA <span class="math inline">A</span> in <a href="#fig-NFA-lang-example" class="quarto-xref">Figure&nbsp;<span>9.4</span></a> is the empty word <span class="math inline">\varepsilon</span> together with the set of words in <span class="math inline">\{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}^*</span> that contain at least one occurrence of the word <span class="math inline">\textcolor{darkred}{\mathtt{ab}}</span>, that is</p>
 <p><span class="math display">
-\mathscr{L}(A)=\{\varepsilon\}\cup\{w\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}^* :|w|_{\textcolor{darkred}{\mathtt{ab}}}\geq 1 \}\ .
+\mathscr{L}(A)=\{\varepsilon\}\cup\{w\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}^* :|w|_{\textcolor{darkred}{\mathtt{ab}}}\geqslant 1 \}\ .
 </span></p>
 </div>
 </div>
@@ -764,7 +811,7 @@ Figure&nbsp;9.6
 </dd>
 <dt><span class="math inline">\mathscr{L}(C)\supseteq \mathscr{L}(B)</span></dt>
 <dd>
-<span class="math inline">w\in \mathscr{L}(B)</span> means that there exists a sequence <span class="math inline">S_1,\dots,S_{|w|}</span> of states s.t. <span class="math inline">S_1=I</span>, <span class="math inline">S_{|w|}</span> is a final state and for each <span class="math inline">i\leq |w|-1</span>, <span class="math inline">S_{i+1}=\delta(S_i,w[i])</span>. We want to find a sequence of states in <span class="math inline">C</span> witnessing the fact that <span class="math inline">w\in \mathscr{L}(C)</span>. Construct the sequence from the end: let <span class="math inline">q_{|w|}</span> be a state in <span class="math inline">S_{|w|}\cap F</span> (we know it exists since <span class="math inline">S_{|w|}</span> is a final state of <span class="math inline">B</span> and hence <span class="math inline">S_{|w|}\cap F\neq \emptyset</span>). Suppose now we already found the sequence <span class="math inline">q_{i+1},\dots,q_{|w|}</span> s.t. <span class="math inline">q_{i+1}\in S_{i+1}</span> and for each <span class="math inline">j</span> between <span class="math inline">i+1</span> and <span class="math inline">|w|-1</span>, the transition <span class="math inline">q_{j},q_{j+1}</span> is labeled with <span class="math inline">w[j]</span>. By construction <span class="math inline">\delta'(S_{i},w[i])=S_{i+1}</span>, that is there exists a <span class="math inline">q_i\in S_{i}</span> s.t. <span class="math inline">(q_i,w[i],q_{i+1})\in \delta</span>. This is exactly what was needed for the inductive argument to continue towards the construction of <span class="math inline">q_{1},\dots,q_{|w|}</span> with <span class="math inline">q_i\in S_1=I</span> witnessing the fact that <span class="math inline">w\in \mathscr{L}(C)</span>.
+<span class="math inline">w\in \mathscr{L}(B)</span> means that there exists a sequence <span class="math inline">S_1,\dots,S_{|w|}</span> of states s.t. <span class="math inline">S_1=I</span>, <span class="math inline">S_{|w|}</span> is a final state and for each <span class="math inline">i\leqslant|w|-1</span>, <span class="math inline">S_{i+1}=\delta(S_i,w[i])</span>. We want to find a sequence of states in <span class="math inline">C</span> witnessing the fact that <span class="math inline">w\in \mathscr{L}(C)</span>. Construct the sequence from the end: let <span class="math inline">q_{|w|}</span> be a state in <span class="math inline">S_{|w|}\cap F</span> (we know it exists since <span class="math inline">S_{|w|}</span> is a final state of <span class="math inline">B</span> and hence <span class="math inline">S_{|w|}\cap F\neq \emptyset</span>). Suppose now we already found the sequence <span class="math inline">q_{i+1},\dots,q_{|w|}</span> s.t. <span class="math inline">q_{i+1}\in S_{i+1}</span> and for each <span class="math inline">j</span> between <span class="math inline">i+1</span> and <span class="math inline">|w|-1</span>, the transition <span class="math inline">q_{j},q_{j+1}</span> is labeled with <span class="math inline">w[j]</span>. By construction <span class="math inline">\delta'(S_{i},w[i])=S_{i+1}</span>, that is there exists a <span class="math inline">q_i\in S_{i}</span> s.t. <span class="math inline">(q_i,w[i],q_{i+1})\in \delta</span>. This is exactly what was needed for the inductive argument to continue towards the construction of <span class="math inline">q_{1},\dots,q_{|w|}</span> with <span class="math inline">q_i\in S_1=I</span> witnessing the fact that <span class="math inline">w\in \mathscr{L}(C)</span>.
 </dd>
 </dl>
 </div>

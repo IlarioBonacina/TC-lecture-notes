@@ -422,12 +422,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -550,11 +597,11 @@ Figure&nbsp;11.1: Two non-isomorphic minimal NFAs accepting <span class="math in
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Towards a contradiction let <span class="math inline">A=(Q,\Sigma,I,F,\delta)</span> be an NFA s.t. <span class="math inline">\mathscr{L}(A)=L</span> with <span class="math inline">|Q|\leq 4</span>. For <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> let <span class="math inline">X_{\textcolor{darkred}{\mathtt{s}}}</span> be the set of states reachable in <span class="math inline">A</span> from an initial state reading <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span>, that is <span class="math display">
+<p>Towards a contradiction let <span class="math inline">A=(Q,\Sigma,I,F,\delta)</span> be an NFA s.t. <span class="math inline">\mathscr{L}(A)=L</span> with <span class="math inline">|Q|\leqslant 4</span>. For <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> let <span class="math inline">X_{\textcolor{darkred}{\mathtt{s}}}</span> be the set of states reachable in <span class="math inline">A</span> from an initial state reading <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span>, that is <span class="math display">
 X_{\textcolor{darkred}{\mathtt{s}}}=\{q\in Q:\exists q_0\in I\ (q_0,\textcolor{darkred}{\mathtt{s}},q)\in \delta\}\ .
 </span></p>
-<p>The sets <span class="math inline">I</span> and <span class="math inline">F</span> are non-empty and disjoint (since <span class="math inline">\varepsilon\notin L</span>), moreover for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">I\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since otherwise <span class="math inline">A</span> would accept words of length larger than <span class="math inline">2</span> and for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">F\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since otherwise <span class="math inline">A</span> would accept words of length <span class="math inline">1</span>. That is <span class="math inline">|X_{\textcolor{darkred}{\mathtt{a}}}\cup X_{\textcolor{darkred}{\mathtt{b}}}\cup X_{\textcolor{darkred}{\mathtt{c}}}|\leq 2</span>.</p>
-<p>It is easy to see that for three non-empty sets s.t. <span class="math inline">|X_{\textcolor{darkred}{\mathtt{a}}}\cup X_{\textcolor{darkred}{\mathtt{b}}}\cup X_{\textcolor{darkred}{\mathtt{c}}}|\leq 2</span>, at least two of them must be contained in each other, that is there are <span class="math inline">\textcolor{darkred}{\mathtt{s_1}},\textcolor{darkred}{\mathtt{s_2}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> with <span class="math inline">\textcolor{darkred}{\mathtt{s_1}}\neq \textcolor{darkred}{\mathtt{s_2}}</span> and <span class="math inline">X_{\textcolor{darkred}{\mathtt{s_1}}}\subseteq X_{\textcolor{darkred}{\mathtt{s_2}}}</span>. Then <span class="math inline">A</span> would accept both the word <span class="math inline">\textcolor{darkred}{\mathtt{s_1s_2}}</span> and the word <span class="math inline">\textcolor{darkred}{\mathtt{s_2s_2}}</span> but <span class="math inline">\textcolor{darkred}{\mathtt{s_2s_2}}\notin L</span>. This contradiction shows that an NFA <span class="math inline">A</span> with at most <span class="math inline">4</span> states accepting <span class="math inline">L</span> cannot exist.</p>
+<p>The sets <span class="math inline">I</span> and <span class="math inline">F</span> are non-empty and disjoint (since <span class="math inline">\varepsilon\notin L</span>), moreover for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">I\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since otherwise <span class="math inline">A</span> would accept words of length larger than <span class="math inline">2</span> and for each <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span>, <span class="math inline">F\cap X_{\textcolor{darkred}{\mathtt{s}}}=\emptyset</span> since otherwise <span class="math inline">A</span> would accept words of length <span class="math inline">1</span>. That is <span class="math inline">|X_{\textcolor{darkred}{\mathtt{a}}}\cup X_{\textcolor{darkred}{\mathtt{b}}}\cup X_{\textcolor{darkred}{\mathtt{c}}}|\leqslant 2</span>.</p>
+<p>It is easy to see that for three non-empty sets s.t. <span class="math inline">|X_{\textcolor{darkred}{\mathtt{a}}}\cup X_{\textcolor{darkred}{\mathtt{b}}}\cup X_{\textcolor{darkred}{\mathtt{c}}}|\leqslant 2</span>, at least two of them must be contained in each other, that is there are <span class="math inline">\textcolor{darkred}{\mathtt{s_1}},\textcolor{darkred}{\mathtt{s_2}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> with <span class="math inline">\textcolor{darkred}{\mathtt{s_1}}\neq \textcolor{darkred}{\mathtt{s_2}}</span> and <span class="math inline">X_{\textcolor{darkred}{\mathtt{s_1}}}\subseteq X_{\textcolor{darkred}{\mathtt{s_2}}}</span>. Then <span class="math inline">A</span> would accept both the word <span class="math inline">\textcolor{darkred}{\mathtt{s_1s_2}}</span> and the word <span class="math inline">\textcolor{darkred}{\mathtt{s_2s_2}}</span> but <span class="math inline">\textcolor{darkred}{\mathtt{s_2s_2}}\notin L</span>. This contradiction shows that an NFA <span class="math inline">A</span> with at most <span class="math inline">4</span> states accepting <span class="math inline">L</span> cannot exist.</p>
 </div>
 </div>
 </div>
@@ -641,9 +688,9 @@ Tip
 </div>
 <p>In the rest of the section consider fixed a DFA <span class="math inline">A=(Q,\Sigma,\{q_0\},F,\delta)</span> to minimize and assume <span class="math inline">\emptyset\subsetneq F\subsetneq Q</span> (otherwise as seen in <a href="#exr-min-trivial-cases" class="quarto-xref">Exercise&nbsp;<span>11.2</span></a> the minimization is trivial), also assume that <em>all</em> states in <span class="math inline">Q</span> are reachable from <span class="math inline">q_0</span>.</p>
 <p>The idea to find the equivalence classes of <span class="math inline">\sim</span>, that is all states that are distinguishable from each other, is to start approximating <span class="math inline">\sim</span> with finer and finer partitions corresponding to states distinguishable with words up to length <span class="math inline">0,1,2,\dots</span></p>
-<p>Formally, let <span class="math inline">\mathscr{L}(A)_{\leq k}</span> be the words of length at most <span class="math inline">k</span> accepted by <span class="math inline">A</span>. We say that <span class="math inline">q</span> and <span class="math inline">q'</span> are <span class="def"><span class="math inline">k</span>-equivalent</span> (<span class="math inline">q\sim_k q'</span>) if</p>
+<p>Formally, let <span class="math inline">\mathscr{L}(A)_{\leqslant k}</span> be the words of length at most <span class="math inline">k</span> accepted by <span class="math inline">A</span>. We say that <span class="math inline">q</span> and <span class="math inline">q'</span> are <span class="def"><span class="math inline">k</span>-equivalent</span> (<span class="math inline">q\sim_k q'</span>) if</p>
 <p><span id="eq-equiv"><span class="math display">
-\mathscr{L}(A_q)_{\leq k}=\mathscr{L}(A_{q'})_{\leq k}\ ,
+\mathscr{L}(A_q)_{\leqslant k}=\mathscr{L}(A_{q'})_{\leqslant k}\ ,
 \tag{11.2}</span></span></p>
 <p>where <span class="math inline">A_q</span> is the DFA obtained from <span class="math inline">A</span> marking the initial state of <span class="math inline">A</span> as a normal state and taking as new initial state <span class="math inline">q</span> (and similarly for <span class="math inline">A_{q'}</span>). Similarly as before let <span class="math inline">[q]_{k}=\{q'\in Q:q'\sim_k q\}</span>, that is <span class="math inline">[q]_{k}</span> is the set of all states <span class="math inline">k</span>-equivalent to <span class="math inline">q</span>.</p>
 <p>The equivalence classes of <span class="math inline">\sim_0</span> give a partition <span class="math display">
@@ -677,7 +724,7 @@ Tip
 </ul>
 <p>If <span class="math inline">s[q,\pi]\neq s[q',\pi]</span> it means that either <span class="math inline">q</span> and <span class="math inline">q'</span> do not belong to the same set of <span class="math inline">\pi</span> or that there exist a symbol <span class="math inline">\textcolor{darkred}{\mathtt{s_i}}\in \Sigma</span> s.t. <span class="math inline">\delta(q,\textcolor{darkred}{\mathtt{s_i}})</span> and <span class="math inline">\delta(q',\textcolor{darkred}{\mathtt{s_i}})</span> do not belong to the same set of <span class="math inline">\pi</span>. In either case <span class="math inline">q</span> and <span class="math inline">q'</span> cannot be equivalent.</p>
 <p>The idea is to keep refining the partition using the signature to mark states that cannot be equivalent until the partition stabilizes. When the partition does not change anymore we found the partition induced by <span class="math inline">\sim</span>, and stop the procedure.</p>
-<div class="pseudocode-container quarto-float" data-comment-delimiter="//" data-no-end="false" data-indent-lines="false" data-pseudocode-number="1" data-indent-size="1.2em" data-line-number="false" data-line-number-punc=":" data-caption-prefix="Algorithm">
+<div class="pseudocode-container quarto-float" data-pseudocode-number="1" data-comment-delimiter="//" data-no-end="false" data-caption-prefix="Algorithm" data-indent-size="1.2em" data-line-number="false" data-line-number-punc=":" data-indent-lines="false">
 <div class="pseudocode">
 \begin{algorithm} \caption{Computing the refined partition $\pi'$ from $\pi$} \begin{algorithmic} \ForAll{$q \in \{1,\ldots,n\}$} \State $s[q,\pi] \gets (\pi[q],\, \pi[\delta(q,\textcolor{darkred}{\mathtt{s_1}})],\, \ldots,\, \pi[\delta(q, \textcolor{darkred}{\mathtt{s_\ell}})])$ \EndFor \State compute the permutation $\sigma$ that sorts the states according to $s$ \State $i \gets 1$ \State $\pi'[\sigma(1)] \gets i$ \ForAll{$q \in \{2,\ldots,n\}$} \If{$s[\sigma(q),\pi] \ne s[\sigma(q-1),\pi]$} \State $i \gets i + 1$ \EndIf \State $\pi'[\sigma(q)] \gets i$ \EndFor \Return $\pi'$ \end{algorithmic} \end{algorithm}
 </div>

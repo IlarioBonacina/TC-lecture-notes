@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -36,7 +55,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="next">
+<link href="../ch4/search_vs_decision_vs_optimization.html" rel="next">
 <link href="../ch3/exercises.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -403,12 +422,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link active">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -426,8 +492,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -451,24 +524,37 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="hidden">
+<p>% noend hides “end for”; drop it to keep them </p>
 </div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The content of this part is still under development and will be updated during the course.</p>
-</div>
-</div>
+<p>In this part of the course we focus on <span class="def">computational complexity</span>. We group languages into <span class="def">complexity classes</span> by the resources (time, space, randomness, …) needed to decide them. We no longer ask whether a problem can be solved at all, but we focus on how much <span class="def">time</span> a Turing machine needs to solve it, mainly we focus on the classes <span class="math inline">\mathbf{P}</span>, <span class="math inline">\mathbf{NP}</span>, <span class="math inline">\mathbf{co}\mathbf{NP}</span> and <span class="math inline">\mathbf{EXP}</span>.</p>
+<p>The central open question is whether <span class="math inline">\mathbf{P}\stackrel{?}{=} \mathbf{NP}</span>. In this part of the course we study how to compare the difficulty of problems using polynomial-time reductions, why <span class="math inline">\mathtt{SAT}</span> plays a special role, and what we can (and cannot) prove about how the complexity classes relate to each other.</p>
+<section id="goals" class="level2">
+<h2 class="anchored" data-anchor-id="goals">Goals</h2>
+<p>At the end of this part of the course you should be able to:</p>
+<ul>
+<li>analyze the running time of a Turing machine and decide whether a language is in <span class="math inline">\mathbf{P}</span>, in <span class="math inline">\mathbf{NP}</span> (using certificates/verifiers or nondeterministic TMs) or in <span class="math inline">\mathbf{EXP}</span>;</li>
+<li>understand the relations <span class="math inline">\mathbf{P}\subseteq \mathbf{NP}\subseteq \mathbf{EXP}</span>, and use the time hierarchy theorem to show that <span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span>;</li>
+<li>construct polynomial-time many-one reductions between languages, and use them to prove that a language is <span class="math inline">\mathbf{NP}</span>-hard or <span class="math inline">\mathbf{NP}</span>-complete;</li>
+<li>understand the proof that <span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete (Cook–Levin theorem), and use <span class="math inline">\mathtt{SAT}</span> and its variants (<span class="math inline">3\mathtt{SAT}</span>, <span class="math inline">\mathtt{CLIQUE}</span>, <span class="math inline">\mathtt{VERTEX\text{-}COVER}</span>, …) as starting points for new reductions;</li>
+<li>define the polynomial hierarchy (<span class="math inline">\Sigma_k^p</span>, <span class="math inline">\Pi_k^p</span>, <span class="math inline">\mathbf{PH}</span>) and place languages (not too complicated) at the right level;</li>
+<li>state Ladner’s theorem and explain what it means: if <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, then there are languages in <span class="math inline">\mathbf{NP}</span> that are neither in <span class="math inline">\mathbf{P}</span> nor <span class="math inline">\mathbf{NP}</span>-complete.</li>
+</ul>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>The main reference for this part of the course is <span class="citation" data-cites="sipser2013introduction">(<a href="../references.html#ref-sipser2013introduction" role="doc-biblioref">Sipser 2013, 7, 9.1, 9.2</a>)</span>.</p>
 <!--
 [add something on the class [ELEMENTARY]{.problem}. This might be connected with regular expressions]{.TODO}
 -->
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-sipser2013introduction" class="csl-entry" role="listitem">
+Sipser, Michael. 2013. <em>Introduction to the Theory of Computation</em>. 3rd ed. Cengage Learning.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -880,8 +966,8 @@ Warning
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../references.html" class="pagination-link" aria-label="[**References**]{.brown}">
-        <span class="nav-page-text"><span class="brown"><strong>References</strong></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch4/search_vs_decision_vs_optimization.html" class="pagination-link" aria-label="Decision, search and optimization problems">
+        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

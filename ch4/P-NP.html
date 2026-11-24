@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>32&nbsp; \mathbf{P} vs \mathbf{NP} – TC lecture notes (*draft*)</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ch4/SAT.html" rel="next">
+<link href="../ch4/NP-PH.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f85d93d0a337325f4f7a52a7a65bbd82.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+    <style type="text/css">
+    .ps-root .ps-algorithm {
+      border-top: 2px solid;
+      border-bottom: 2px solid;
+    }
+    .pseudocode-container {
+      text-align: left;
+    }
+    .callout .pseudocode-container .ps-root {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .callout .pseudocode-container .ps-root .ps-algorithm p {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    </style>
+  
+      <style type="text/css">
+      .ps-algorithm > .ps-line {
+        text-align: left;
+      }
+      </style>
+    
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch4/intro.html">Topics in Complexity</a></li><li class="breadcrumb-item"><a href="../ch4/P-NP.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">TC lecture notes (<em>draft</em>)</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch0/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/proofs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proofs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/functions_cardinality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions and cardinality</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/words_and_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Words, languages, sets-of-languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/operations_on_words.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Operations on words</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/operations_on_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Operations on languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/closure_properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Closure properties</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch1/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regular Languages</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/finite_automata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/minimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Context-Free Languages</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/context_free_grammars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Context-Free Grammars</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/parsing_and_ambiguity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Parsing and Ambiguity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/chomsky_normal_form.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Chomsky Normal Form and CFG depuration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/pushdown_automata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Pushdown Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/experiment_with_CFGs_and_PDAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Experiment with CFGs and PDAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/non-context-freeness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Limitations of CFL</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch3/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Topics in Computability</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/turing_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Turing Machines</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/experiment_with_TMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Experiment with Turing Machines</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/church-turing-thesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">The Church-Turing Thesis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/R-RE-coRE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, <span class="math inline">\mathbf{coRE}</span> and beyond</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/reducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Many-One Reductions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="brown"><strong>References</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../credits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Credits &amp; Copyright</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#mathbfpstackrelmathbfnp-and-impagliazzos-five-worlds" id="toc-mathbfpstackrelmathbfnp-and-impagliazzos-five-worlds" class="nav-link active" data-scroll-target="#mathbfpstackrelmathbfnp-and-impagliazzos-five-worlds"><span class="header-section-number">32.1</span> <span class="math inline">\mathbf{P}\stackrel{?}{=}\mathbf{NP}</span> and Impagliazzo’s five worlds</a></li>
+  <li><a href="#poly-time-reductions-and-mathbfnp-completeness" id="toc-poly-time-reductions-and-mathbfnp-completeness" class="nav-link" data-scroll-target="#poly-time-reductions-and-mathbfnp-completeness"><span class="header-section-number">32.2</span> Poly-time reductions and <span class="math inline">\mathbf{NP}</span>-completeness</a></li>
+  <li><a href="#mathbfnp-intermediate-problems" id="toc-mathbfnp-intermediate-problems" class="nav-link" data-scroll-target="#mathbfnp-intermediate-problems"><span class="header-section-number">32.3</span> <span class="math inline">\mathbf{NP}</span>-intermediate problems</a></li>
+  <li><a href="#relativization" id="toc-relativization" class="nav-link" data-scroll-target="#relativization"><span class="header-section-number">32.4</span> Relativization</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch4/intro.html">Topics in Complexity</a></li><li class="breadcrumb-item"><a href="../ch4/P-NP.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+<p>% noend hides “end for”; drop it to keep them </p>
+</div>
+<p>In this chapter we introduce polynomial-time reductions and <span class="math inline">\mathbf{NP}</span>-completeness, the tools we use to compare the difficulty of problems in <span class="math inline">\mathbf{NP}</span>. We start with the question that motivates the whole theory, whether <span class="math inline">\mathbf{P}= \mathbf{NP}</span>, and with Impagliazzo’s description of what the world would look like under different answers. We then show that, if <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, there are problems in <span class="math inline">\mathbf{NP}</span> that are neither easy nor <span class="math inline">\mathbf{NP}</span>-complete (Ladner’s theorem). Finally, we explain why the diagonalization and simulation techniques from computability cannot settle the question (relativization).</p>
+<section id="mathbfpstackrelmathbfnp-and-impagliazzos-five-worlds" class="level2" data-number="32.1">
+<h2 data-number="32.1" class="anchored" data-anchor-id="mathbfpstackrelmathbfnp-and-impagliazzos-five-worlds"><span class="header-section-number">32.1</span> <span class="math inline">\mathbf{P}\stackrel{?}{=}\mathbf{NP}</span> and Impagliazzo’s five worlds</h2>
+<p>We know that <span class="math inline">\mathbf{P}\subseteq \mathbf{NP}</span>: a polynomial-time decider is a verifier that ignores its certificate. Whether the inclusion is strict is the most famous open problem in theoretical computer science, and one of the seven Millennium Prize Problems of the Clay Mathematics Institute.</p>
+<p>Informally, the question is: <span class="question"><em>if a solution can be checked quickly, can it also be found quickly?</em></span> Most researchers believe the answer is no, so that <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>. One reason is the lack of progress: decades of work on <span class="math inline">\mathbf{NP}</span>-complete problems in many different areas have never produced a polynomial-time algorithm for any of them. Another is that <span class="math inline">\mathbf{P}= \mathbf{NP}</span> would make many tasks that seem to need creativity, such as finding a proof of a theorem whose proof is short, as easy as checking a solution.</p>
+<p>There is also a third possibility: that the question has no answer in our usual axioms. Like the continuum hypothesis, the statement <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span> might be <span class="def">independent of <span class="math inline">\mathsf{ZFC}</span></span>, meaning that it can be neither proved nor disproved from the standard axioms of set theory. Some partial results point in this direction. For example, Hartmanis and Hopcroft (1976) constructed oracles <span class="math inline">A</span> for which the question “<span class="math inline">\mathbf{P}^A \stackrel{?}{=} \mathbf{NP}^A</span>” is independent of <span class="math inline">\mathsf{ZFC}</span> (we will see oracles at the end of this chapter). However, there is no evidence that the unrelativized question is independent, and most researchers expect it to be settled by an ordinary proof. Proving that it is independent would itself require techniques far beyond what we currently have.</p>
+<p><span class="math inline">\mathbf{P}</span> versus <span class="math inline">\mathbf{NP}</span> is a question about the worst case, and the two possible answers do not tell the whole story. In 1995, Russell Impagliazzo described five possible “worlds”, depending on how hard <span class="math inline">\mathbf{NP}</span> is <em>on average</em>, and on whether cryptography is possible:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>World</th>
+<th>What holds</th>
+<th>Consequences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Algorithmica</strong></td>
+<td><span class="math inline">\mathbf{P}= \mathbf{NP}</span>, or <span class="math inline">\mathbf{NP}</span> is easy in some practical sense.</td>
+<td>Search and optimization problems in <span class="math inline">\mathbf{NP}</span> become easy, and so does finding short proofs. Essentially no cryptography is possible.</td>
+</tr>
+<tr class="even">
+<td><strong>Heuristica</strong></td>
+<td><span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, but <span class="math inline">\mathbf{NP}</span> problems are easy <em>on average</em>.</td>
+<td>Hard instances exist, but it is as hard to find them as to solve them. In practice, this looks almost like Algorithmica.</td>
+</tr>
+<tr class="odd">
+<td><strong>Pessiland</strong></td>
+<td><span class="math inline">\mathbf{NP}</span> is hard on average, but <span class="def">one-way functions</span> do not exist.</td>
+<td>The worst of both worlds: we can create hard problems, but we cannot use them to build cryptography.</td>
+</tr>
+<tr class="even">
+<td><strong>Minicrypt</strong></td>
+<td>One-way functions exist, but public-key cryptography does not.</td>
+<td>Private-key encryption, pseudorandom generators and digital signatures are possible, but parties who have never met cannot agree on a secret key.</td>
+</tr>
+<tr class="odd">
+<td><strong>Cryptomania</strong></td>
+<td>Public-key cryptography exists.</td>
+<td>The world most researchers believe we live in, and the one modern cryptography relies on. Examples are RSA, which relies on factoring, and the post-quantum schemes based on lattices.</td>
+</tr>
+</tbody>
+</table>
+<p>The five worlds are listed from “most algorithms” to “most cryptography”. We do not know which one we live in. Even proving <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span> would only rule out Algorithmica.</p>
+</section>
+<section id="poly-time-reductions-and-mathbfnp-completeness" class="level2" data-number="32.2">
+<h2 data-number="32.2" class="anchored" data-anchor-id="poly-time-reductions-and-mathbfnp-completeness"><span class="header-section-number">32.2</span> Poly-time reductions and <span class="math inline">\mathbf{NP}</span>-completeness</h2>
+<p>To compare the difficulty of two problems, we use the polynomial-time version of the many-one reductions from computability.</p>
+<div id="def-ptime-reduction" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 32.1 (Polynomial-time reduction)</strong></span> Let <span class="math inline">L_1 \subseteq \Sigma_1^*</span> and <span class="math inline">L_2 \subseteq \Sigma_2^*</span>. A <span class="def">polynomial-time reduction</span> from <span class="math inline">L_1</span> to <span class="math inline">L_2</span> is a function <span class="math inline">f\colon \Sigma_1^* \to \Sigma_2^*</span>, computable in polynomial time, such that for every <span class="math inline">w \in \Sigma_1^*</span>, <span class="math display">
+w \in L_1 \iff f(w) \in L_2.
+</span> If such an <span class="math inline">f</span> exists, we write <span class="math inline">L_1 \leqslant_p L_2</span> and say that <span class="math inline">L_1</span> <span class="def">reduces</span> to <span class="math inline">L_2</span>.</p>
+</div>
+<p>We read <span class="math inline">L_1 \leqslant_p L_2</span> as “<span class="def"><span class="math inline">L_1</span> is not harder than <span class="math inline">L_2</span></span>”: to decide <span class="math inline">L_1</span>, translate the input with <span class="math inline">f</span> and then decide <span class="math inline">L_2</span>.</p>
+<div id="lem-reduction-properties" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 32.1</strong></span> Let <span class="math inline">L_1</span>, <span class="math inline">L_2</span> and <span class="math inline">L_3</span> be languages.</p>
+<ol type="1">
+<li>If <span class="math inline">L_1 \leqslant_p L_2</span> and <span class="math inline">L_2 \leqslant_p L_3</span>, then <span class="math inline">L_1 \leqslant_p L_3</span>.</li>
+<li>If <span class="math inline">L_1 \leqslant_p L_2</span> and <span class="math inline">L_2 \in \mathbf{P}</span>, then <span class="math inline">L_1 \in \mathbf{P}</span>.</li>
+<li>If <span class="math inline">L_1 \leqslant_p L_2</span> and <span class="math inline">L_2 \in \mathbf{NP}</span>, then <span class="math inline">L_1 \in \mathbf{NP}</span>.</li>
+</ol>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">f</span> be a reduction computable in time <span class="math inline">p(n)</span>, for some polynomial <span class="math inline">p</span>. A TM can write at most one symbol per step, so <span class="math inline">|f(w)| \leqslant p(|w|)</span>. For 1., if <span class="math inline">g</span> reduces <span class="math inline">L_2</span> to <span class="math inline">L_3</span> in time <span class="math inline">q(n)</span>, then <span class="math inline">g \circ f</span> reduces <span class="math inline">L_1</span> to <span class="math inline">L_3</span> in time <span class="math inline">p(n) + q(p(n))</span>, which is polynomial. For 2., to decide whether <span class="math inline">w \in L_1</span>, compute <span class="math inline">f(w)</span> and run a polynomial-time decider for <span class="math inline">L_2</span> on it. This takes time polynomial in <span class="math inline">|f(w)| \leqslant p(|w|)</span>, and hence in <span class="math inline">|w|</span>. The proof of 3. is the same, using a verifier for <span class="math inline">L_2</span> instead of a decider.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="def-np-complete" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 32.2 (<span class="math inline">\mathbf{NP}</span>-hard and <span class="math inline">\mathbf{NP}</span>-complete)</strong></span> A language <span class="math inline">L</span> is <span class="def"><span class="math inline">\mathbf{NP}</span>-hard</span> if <span class="math inline">L' \leqslant_p L</span> for every <span class="math inline">L' \in \mathbf{NP}</span>. It is <span class="def"><span class="math inline">\mathbf{NP}</span>-complete</span> if it is <span class="math inline">\mathbf{NP}</span>-hard and <span class="math inline">L \in \mathbf{NP}</span>.</p>
+</div>
+<p>The <span class="math inline">\mathbf{NP}</span>-complete languages are the hardest languages in <span class="math inline">\mathbf{NP}</span>. If any one of them can be decided in polynomial time, then all of <span class="math inline">\mathbf{NP}</span> can.</p>
+<div id="thm-npc-p" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 32.1</strong></span> Let <span class="math inline">L</span> be <span class="math inline">\mathbf{NP}</span>-complete. Then <span class="math inline">L \in \mathbf{P}</span> if and only if <span class="math inline">\mathbf{P}= \mathbf{NP}</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\mathbf{P}= \mathbf{NP}</span>, then <span class="math inline">L \in \mathbf{NP}= \mathbf{P}</span>. Conversely, suppose <span class="math inline">L \in \mathbf{P}</span>, and let <span class="math inline">L' \in \mathbf{NP}</span>. Then <span class="math inline">L' \leqslant_p L</span>, so <span class="math inline">L' \in \mathbf{P}</span> by <a href="#lem-reduction-properties" class="quarto-xref">Lemma&nbsp;<span>32.1</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>So, to prove <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, it is enough to show that a single <span class="math inline">\mathbf{NP}</span>-complete problem, such as <span class="math inline">\mathtt{SAT}</span>, has no polynomial-time algorithm. The difficulty is to find a first <span class="math inline">\mathbf{NP}</span>-complete problem. After that, transitivity does the rest.</p>
+<div id="cor-npc-recipe" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 32.1</strong></span> Let <span class="math inline">L_1</span> be <span class="math inline">\mathbf{NP}</span>-complete, and let <span class="math inline">L_2 \in \mathbf{NP}</span> be such that <span class="math inline">L_1 \leqslant_p L_2</span>. Then <span class="math inline">L_2</span> is <span class="math inline">\mathbf{NP}</span>-complete.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For every <span class="math inline">L \in \mathbf{NP}</span>, we have <span class="math inline">L \leqslant_p L_1 \leqslant_p L_2</span>, so <span class="math inline">L \leqslant_p L_2</span> by transitivity.</p>
+</div>
+</div>
+</div>
+</div>
+<p>This gives the standard way to prove that a new language <span class="math inline">L</span> is <span class="math inline">\mathbf{NP}</span>-complete:</p>
+<ol type="1">
+<li>Show that <span class="math inline">L \in \mathbf{NP}</span>, by giving a certificate and a polynomial-time verifier.</li>
+<li>Choose a known <span class="math inline">\mathbf{NP}</span>-complete language <span class="math inline">L'</span>, often <span class="math inline">3\mathtt{SAT}</span>.</li>
+<li>Give a polynomial-time reduction <span class="math inline">f</span> from <span class="math inline">L'</span> to <span class="math inline">L</span>. Note the direction: from the known problem <em>to</em> the new one.</li>
+<li>Prove that <span class="math inline">w \in L' \Rightarrow f(w) \in L</span> and that <span class="math inline">f(w) \in L \Rightarrow w \in L'</span>. Proving only one direction is a common mistake.</li>
+</ol>
+<p>The first <span class="math inline">\mathbf{NP}</span>-complete language comes from the Cook–Levin theorem (<a href="SAT.html#thm-cook-levin" class="quarto-xref">Theorem&nbsp;<span>33.1</span></a>), which shows that <span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete. Every other problem in <a href="#fig-reduction-tree" class="quarto-xref">Figure&nbsp;<span>32.1</span></a> is then shown to be <span class="math inline">\mathbf{NP}</span>-complete by a chain of reductions starting from it. Since Cook (1971), Karp (1972) and Levin (1973), thousands of problems from logic, graph theory, scheduling, biology and many other areas have been shown to be <span class="math inline">\mathbf{NP}</span>-complete in this way.</p>
+<div id="fig-reduction-tree" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reduction-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="P-NP_files/mediabag/fdcbd5de7bf980f0b183b1256bd1fa3446734d58.svg" class="img-fluid figure-img" data-additional-packages="\usepackage{amsmath}">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reduction-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;32.1: The <span class="math inline">\mathbf{NP}</span>-complete problems in this course. An arrow <span class="math inline">A \to B</span> means <span class="math inline">A \leqslant_p B</span>.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Remark: other kinds of reductions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Remark: other kinds of reductions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A many-one reduction calls the “algorithm” for <span class="math inline">L_2</span> only once, at the end, and must return its answer unchanged. A <span class="def">Turing reduction</span> (also called a <em>Cook reduction</em>) may call it many times and process the answers. With Turing reductions, <span class="math inline">\mathtt{SAT}</span> and its complement <span class="math inline">\overline{\mathtt{SAT}}</span> reduce to each other. Many-one reductions are finer: they can tell <span class="math inline">\mathbf{NP}</span> apart from <span class="math inline">\mathbf{co}\mathbf{NP}</span>. For example, if an <span class="math inline">\mathbf{NP}</span>-complete language were in <span class="math inline">\mathbf{co}\mathbf{NP}</span>, then <span class="math inline">\mathbf{NP}= \mathbf{co}\mathbf{NP}</span>.</p>
+</div>
+</div>
+</section>
+<section id="mathbfnp-intermediate-problems" class="level2" data-number="32.3">
+<h2 data-number="32.3" class="anchored" data-anchor-id="mathbfnp-intermediate-problems"><span class="header-section-number">32.3</span> <span class="math inline">\mathbf{NP}</span>-intermediate problems</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section contains parts that are more advanced. When you’ll get lost continue with the rest of the computability part of the course, and come back to this section on a second read.</p>
+</div>
+</div>
+<p>If <span class="math inline">\mathbf{P}= \mathbf{NP}</span>, the picture is simple. Every language in <span class="math inline">\mathbf{P}</span> other than <span class="math inline">\emptyset</span> and <span class="math inline">\Sigma^*</span> is <span class="math inline">\mathbf{NP}</span>-complete, since a reduction can solve the instance itself and output a fixed yes-instance or a fixed no-instance. If <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, then <span class="math inline">\mathbf{P}</span> and the <span class="math inline">\mathbf{NP}</span>-complete languages are disjoint subsets of <span class="math inline">\mathbf{NP}</span>, and it is natural to ask whether together they cover all of <span class="math inline">\mathbf{NP}</span> (<a href="#fig-np-world" class="quarto-xref">Figure&nbsp;<span>32.2</span></a>).</p>
+<div id="def-npi" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 32.3</strong></span> A language <span class="math inline">L</span> is <span class="def"><span class="math inline">\mathbf{NP}</span>-intermediate</span> if <span class="math inline">L \in \mathbf{NP}</span>, <span class="math inline">L \notin \mathbf{P}</span>, and <span class="math inline">L</span> is not <span class="math inline">\mathbf{NP}</span>-complete.</p>
+</div>
+<div id="fig-np-world" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-np-world-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="P-NP_files/mediabag/af48857b00f72fa02f6ecf2e359bcdff23517c8e.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-np-world-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;32.2: The structure of <span class="math inline">\mathbf{NP}</span> under the two possible answers to <span class="math inline">\mathbf{P}\stackrel{?}{=} \mathbf{NP}</span>. Ladner’s theorem shows that, if <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, the <span class="math inline">\mathbf{NP}</span>-intermediate region is not empty.
+</figcaption>
+</figure>
+</div>
+<p>Several natural problems are believed to be <span class="math inline">\mathbf{NP}</span>-intermediate:</p>
+<ul>
+<li><strong>Factoring.</strong> The decision version <span class="math inline">\{\langle n, k \rangle : n \text{ has a factor } d \text{ with } 1 &lt; d \leqslant k\}</span> is in <span class="math inline">\mathbf{NP}\cap \mathbf{co}\mathbf{NP}</span>. So it is not <span class="math inline">\mathbf{NP}</span>-complete unless <span class="math inline">\mathbf{NP}= \mathbf{co}\mathbf{NP}</span>, and no classical polynomial-time algorithm for it is known.</li>
+<li><strong>Graph isomorphism.</strong> Deciding whether two graphs are isomorphic is not <span class="math inline">\mathbf{NP}</span>-complete unless the polynomial hierarchy collapses. In 2015, Babai gave an algorithm for it that runs in quasi-polynomial time, <span class="math inline">2^{(\log n)^{O(1)}}</span>, but no polynomial-time algorithm is known.</li>
+<li><strong>Discrete logarithm.</strong> It has a status similar to factoring, and is also used in cryptography.</li>
+</ul>
+<p>None of these is <em>proved</em> to be <span class="math inline">\mathbf{NP}</span>-intermediate. A proof would in particular show that <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>. What we can prove is that, if <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, some <span class="math inline">\mathbf{NP}</span>-intermediate language exists.</p>
+<div id="thm-ladner" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 32.2 (Ladner, 1975)</strong></span> If <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, then there is a language <span class="math inline">L \in \mathbf{NP}</span> that is <span class="math inline">\mathbf{NP}</span>-intermediate: <span class="math inline">L \notin \mathbf{P}</span>, and <span class="math inline">L</span> is not <span class="math inline">\mathbf{NP}</span>-complete.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof (Sketch)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The idea is to “<em>blow holes</em>” in <span class="math inline">\mathtt{SAT}</span> by <span class="def">padding</span> its instances. With little padding, the result is still as hard as <span class="math inline">\mathtt{SAT}</span>. With a lot of padding, it becomes easy, because a polynomial in the padded length can be exponential in the original length. Ladner’s trick is to choose the amount of padding so that neither happens.</p>
+<p>For a function <span class="math inline">H\colon \mathbb{N} \to \mathbb{N}</span>, let <span class="math display">
+\mathtt{SAT}_H = \{\, \langle F \rangle\, \textcolor{darkred}{\mathtt{\$}}\, \textcolor{darkred}{\mathtt{1}}^{n^{H(n)}} : \langle F \rangle \in \mathtt{SAT}\text{ and } n = |\langle F \rangle| \,\},
+</span> where <span class="math inline">\textcolor{darkred}{\mathtt{\$}}</span> is a new symbol. Fix an enumeration <span class="math inline">M_1, M_2, \dots</span> of all TMs in which every TM appears infinitely often, and define <span class="math inline">H(n)</span> as follows:</p>
+<blockquote class="blockquote">
+<p><span class="math inline">H(n)</span> is the smallest <span class="math inline">i &lt; \log \log n</span> such that, for every <span class="math inline">x</span> with <span class="math inline">|x| \leqslant\log n</span>, the machine <span class="math inline">M_i</span> decides correctly whether <span class="math inline">x \in \mathtt{SAT}_H</span> within <span class="math inline">i|x|^i</span> steps. If there is no such <span class="math inline">i</span>, then <span class="math inline">H(n) = \log \log n</span>.</p>
+</blockquote>
+<p>This definition is recursive: to decide whether <span class="math inline">x \in \mathtt{SAT}_H</span> for <span class="math inline">|x| \leqslant\log n</span>, we only need the values <span class="math inline">H(m)</span> with <span class="math inline">m \leqslant\log n</span>. One checks that <span class="math inline">H(n)</span> can be computed in time polynomial in <span class="math inline">n</span>. It follows that <span class="math inline">\mathtt{SAT}_H \in \mathbf{NP}</span>: check that the padding has the right length, and guess a satisfying assignment of <span class="math inline">F</span>.</p>
+<p><em>Claim 1: if <span class="math inline">\mathtt{SAT}_H \in \mathbf{P}</span>, then <span class="math inline">\mathtt{SAT}\in \mathbf{P}</span>.</em> Suppose some TM <span class="math inline">M</span> decides <span class="math inline">\mathtt{SAT}_H</span> in time <span class="math inline">c n^c</span>. Then <span class="math inline">M = M_i</span> for some <span class="math inline">i \geqslant c</span>. For all large <span class="math inline">n</span>, the machine <span class="math inline">M_i</span> passes the test in the definition, so <span class="math inline">H(n) \leqslant i</span>. Hence <span class="math inline">H</span> is bounded by a constant <span class="math inline">C</span>. The map <span class="math inline">\langle F \rangle \mapsto \langle F \rangle\, \textcolor{darkred}{\mathtt{\$}}\, \textcolor{darkred}{\mathtt{1}}^{n^{H(n)}}</span> adds padding of length at most <span class="math inline">n^C</span>, so it is a polynomial-time reduction from <span class="math inline">\mathtt{SAT}</span> to <span class="math inline">\mathtt{SAT}_H</span>. Therefore <span class="math inline">\mathtt{SAT}\in \mathbf{P}</span>.</p>
+<p><em>Claim 2: if <span class="math inline">\mathtt{SAT}_H \notin \mathbf{P}</span>, then <span class="math inline">H(n) \to \infty</span>.</em> Each <span class="math inline">M_i</span> fails to decide <span class="math inline">\mathtt{SAT}_H</span> within time <span class="math inline">i|x|^i</span> on some input <span class="math inline">x</span>. Once <span class="math inline">\log n \geqslant|x|</span> (and <span class="math inline">\log \log n &gt; i</span>), we have <span class="math inline">H(n) \neq i</span>. This holds for every <span class="math inline">i</span>, so <span class="math inline">H(n) \to \infty</span>.</p>
+<p><em>Claim 3: if <span class="math inline">\mathtt{SAT}_H</span> is <span class="math inline">\mathbf{NP}</span>-complete, then <span class="math inline">\mathtt{SAT}\in \mathbf{P}</span>.</em> Suppose <span class="math inline">f</span> reduces <span class="math inline">\mathtt{SAT}</span> to <span class="math inline">\mathtt{SAT}_H</span> in time <span class="math inline">n^c</span>, so <span class="math inline">|f(\langle F \rangle)| \leqslant n^c</span> where <span class="math inline">n = |\langle F \rangle|</span>. By Claim 1, we may assume <span class="math inline">\mathtt{SAT}_H \notin \mathbf{P}</span>, since otherwise <span class="math inline">\mathtt{SAT}\in \mathbf{P}</span> already. So <span class="math inline">H(m) \to \infty</span> by Claim 2, and <span class="math inline">H(m) &gt; 2c</span> for all <span class="math inline">m</span> larger than some constant. If <span class="math inline">f(\langle F \rangle)</span> does not have the form <span class="math inline">\langle F' \rangle\, \textcolor{darkred}{\mathtt{\$}}\, \textcolor{darkred}{\mathtt{1}}^{m^{H(m)}}</span>, then <span class="math inline">F \notin \mathtt{SAT}</span>. Otherwise <span class="math inline">m^{H(m)} \leqslant n^c</span>, so for large <span class="math inline">m</span> we get <span class="math inline">m \leqslant\sqrt{n}</span>. Then <span class="math inline">F</span> is satisfiable if and only if <span class="math inline">F'</span> is, and <span class="math inline">F'</span> is a formula of length at most <span class="math inline">\sqrt{n}</span>. Repeating this, the length goes from <span class="math inline">n</span> to <span class="math inline">\sqrt{n}</span>, to <span class="math inline">n^{1/4}</span>, and so on, and reaches a constant after <span class="math inline">\mathcal{O}(\log \log n)</span> rounds. At that point, we solve the instance by brute force. This gives a polynomial-time algorithm for <span class="math inline">\mathtt{SAT}</span>.</p>
+<p><em>Conclusion.</em> Assume <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>. Then <span class="math inline">\mathtt{SAT}\notin \mathbf{P}</span>, so <span class="math inline">\mathtt{SAT}_H \notin \mathbf{P}</span> by Claim 1, and <span class="math inline">\mathtt{SAT}_H</span> is not <span class="math inline">\mathbf{NP}</span>-complete by Claim 3. Since <span class="math inline">\mathtt{SAT}_H \in \mathbf{NP}</span>, it is <span class="math inline">\mathbf{NP}</span>-intermediate.</p>
+</div>
+</div>
+</div>
+</div>
+<p>The language <span class="math inline">\mathtt{SAT}_H</span> is very artificial. Whether there is a <em>natural</em> <span class="math inline">\mathbf{NP}</span>-intermediate problem, assuming <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, is still open.</p>
+</section>
+<section id="relativization" class="level2" data-number="32.4">
+<h2 data-number="32.4" class="anchored" data-anchor-id="relativization"><span class="header-section-number">32.4</span> Relativization</h2>
+<p>In computability, we proved that <span class="math inline">\mathtt{HALT}</span> is undecidable by diagonalization. In complexity theory, we use the same technique to prove the time hierarchy theorem. It is natural to try it on <span class="math inline">\mathbf{P}</span> versus <span class="math inline">\mathbf{NP}</span>. This section explains why that cannot work.</p>
+<p>An <span class="def">oracle Turing machine</span> with oracle <span class="math inline">A \subseteq \Sigma^*</span> is a TM with an extra tape, the <em>oracle tape</em>, and a special <em>query state</em>. When the machine enters the query state with a word <span class="math inline">y</span> on the oracle tape, it learns in a single step whether <span class="math inline">y \in A</span>. We write <span class="math inline">\mathbf{P}^A</span> and <span class="math inline">\mathbf{NP}^A</span> for the classes of languages decided by polynomial-time deterministic and nondeterministic oracle TMs with oracle <span class="math inline">A</span>.</p>
+<p>Diagonalization and simulation treat machines as black boxes: they run them, count their steps and flip their answers. All of this works just as well for oracle machines. Such arguments <span class="def">relativize</span>: if they prove a statement about <span class="math inline">\mathbf{P}</span> and <span class="math inline">\mathbf{NP}</span>, the same argument proves it about <span class="math inline">\mathbf{P}^A</span> and <span class="math inline">\mathbf{NP}^A</span> for <em>every</em> oracle <span class="math inline">A</span>. The next theorem shows that no relativizing argument can settle <span class="math inline">\mathbf{P}</span> versus <span class="math inline">\mathbf{NP}</span>.</p>
+<div id="thm-bgs" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 32.3 (Baker, Gill, Solovay, 1975)</strong></span> There are oracles <span class="math inline">A</span> and <span class="math inline">B</span> such that <span class="math display">
+\mathbf{P}^A = \mathbf{NP}^A \qquad\text{and}\qquad \mathbf{P}^B \neq \mathbf{NP}^B.
+</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof (Sketch)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>The oracle <span class="math inline">A</span>.</em> Let <span class="math inline">A = \{\langle M, x, 1^n \rangle : M \text{ accepts } x \text{ within } 2^n \text{ steps}\}</span>. With a single query to <span class="math inline">A</span>, a polynomial-time machine can answer any question that can be decided in exponential time, so <span class="math inline">\mathbf{EXP}\subseteq \mathbf{P}^A</span>. Conversely, a polynomial-time nondeterministic machine with oracle <span class="math inline">A</span> has at most <span class="math inline">2^{\mathrm{poly}(n)}</span> computation paths. Each of its queries has polynomial length, and can be answered by a simulation that takes time <span class="math inline">2^{\mathrm{poly}(n)}</span>. So <span class="math inline">\mathbf{NP}^A \subseteq \mathbf{EXP}</span>. Hence <span class="math display">
+\mathbf{P}^A \subseteq \mathbf{NP}^A \subseteq \mathbf{EXP}\subseteq \mathbf{P}^A,
+</span> and all of these classes are equal.</p>
+<p><em>The oracle <span class="math inline">B</span>.</em> For any oracle <span class="math inline">B</span>, let <span class="math display">
+U_B = \{\, 1^n : B \text{ contains a word of length } n \,\}.
+</span> Then <span class="math inline">U_B \in \mathbf{NP}^B</span>: guess a word of length <span class="math inline">n</span> and query <span class="math inline">B</span> about it. We build <span class="math inline">B</span> so that <span class="math inline">U_B \notin \mathbf{P}^B</span>. Let <span class="math inline">M_1, M_2, \dots</span> be an enumeration of deterministic oracle TMs, where <span class="math inline">M_i</span> is stopped after <span class="math inline">n^i</span> steps. We build <span class="math inline">B</span> in stages. In stage <span class="math inline">i</span>:</p>
+<ol type="1">
+<li>Choose <span class="math inline">n</span> larger than the length of every word queried in earlier stages, and with <span class="math inline">2^n &gt; n^i</span>.</li>
+<li>Run <span class="math inline">M_i</span> on <span class="math inline">1^n</span>. Whenever it queries a word whose membership in <span class="math inline">B</span> is already decided, answer accordingly. Otherwise answer “no”, and decide that the word is not in <span class="math inline">B</span>.</li>
+<li>If <span class="math inline">M_i</span> accepts, put no word of length <span class="math inline">n</span> in <span class="math inline">B</span>, so <span class="math inline">1^n \notin U_B</span>. If <span class="math inline">M_i</span> rejects, put into <span class="math inline">B</span> a word of length <span class="math inline">n</span> that <span class="math inline">M_i</span> did not query. Such a word exists, because <span class="math inline">M_i</span> made at most <span class="math inline">n^i &lt; 2^n</span> queries. Then <span class="math inline">1^n \in U_B</span>.</li>
+</ol>
+<p>In both cases, <span class="math inline">M_i</span> gives the wrong answer about <span class="math inline">1^n</span>, and later stages do not change this, because they only use longer words. Every polynomial-time oracle machine appears in the enumeration with a large enough time bound <span class="math inline">n^i</span>, so no polynomial-time machine with oracle <span class="math inline">B</span> decides <span class="math inline">U_B</span>. Hence <span class="math inline">U_B \in \mathbf{NP}^B \setminus \mathbf{P}^B</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>So a proof that <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span> cannot relativize, since it would also show that <span class="math inline">\mathbf{P}^A \neq \mathbf{NP}^A</span>. A proof that <span class="math inline">\mathbf{P}= \mathbf{NP}</span> cannot relativize either, since it would show that <span class="math inline">\mathbf{P}^B = \mathbf{NP}^B</span>. Any solution must use some property of computation that is lost when machines are given an oracle. Two other barriers of the same kind are known: <em>natural proofs</em> (Razborov and Rudich, 1994) and <em>algebrization</em> (Aaronson and Wigderson, 2008). Each of them rules out a large family of proof techniques, which helps explain why the problem is still open.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../ch4/NP-PH.html" class="pagination-link" aria-label="$\mathbf{NP}$ and $\mathbf{PH}$">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../ch4/SAT.html" class="pagination-link" aria-label="$\mathtt{SAT}$ is $\mathbf{NP}$-complete">
+        <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+    <script type="text/javascript">
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let pseudocodeOptions = {
+          indentSize: el.dataset.indentSize,
+          commentDelimiter: " " + el.dataset.commentDelimiter + " ",
+          lineNumber: el.dataset.lineNumber.toLowerCase() === "true",
+          lineNumberPunc: el.dataset.lineNumberPunc,
+          noEnd: el.dataset.noEnd.toLowerCase() === "true",
+          scopeLines: el.dataset.indentLines.toLowerCase() === "true",
+          titlePrefix: el.dataset.captionPrefix,
+        };
+        pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+      });
+    })(document);
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+        if (captionSpan !== null) {
+          let captionPrefix = el.dataset.captionPrefix + " ";
+          let captionNumber = "";
+          if (el.dataset.pseudocodeNumber) {
+            captionNumber = el.dataset.pseudocodeNumber + " ";
+            if (el.dataset.chapterLevel) {
+              captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+            }
+          }
+          captionSpan.innerHTML = captionPrefix + captionNumber;
+        }
+      });
+    })(document);
+    </script>
+  
+
+
+
+
+</body></html>

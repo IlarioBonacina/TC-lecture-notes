@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>34&nbsp; \mathbf{NP}-complete problems on graphs – TC lecture notes (*draft*)</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../references.html" rel="next">
+<link href="../ch4/SAT.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f85d93d0a337325f4f7a52a7a65bbd82.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
+    <style type="text/css">
+    .ps-root .ps-algorithm {
+      border-top: 2px solid;
+      border-bottom: 2px solid;
+    }
+    .pseudocode-container {
+      text-align: left;
+    }
+    .callout .pseudocode-container .ps-root {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .callout .pseudocode-container .ps-root .ps-algorithm p {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    </style>
+  
+      <style type="text/css">
+      .ps-algorithm > .ps-line {
+        text-align: left;
+      }
+      </style>
+    
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch4/intro.html">Topics in Complexity</a></li><li class="breadcrumb-item"><a href="../ch4/other-NP-complete.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">TC lecture notes (<em>draft</em>)</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch0/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/proofs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Proofs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/functions_cardinality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Functions and cardinality</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/words_and_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Words, languages, sets-of-languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/operations_on_words.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Operations on words</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/operations_on_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Operations on languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/closure_properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Closure properties</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch0/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch1/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regular Languages</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/finite_automata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/experiment_with_DFAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Experiment with Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/minimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Minimization of DFAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regular expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/regular_languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{Regular}</span> – the set of all regular languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/non_regularity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Non-regularity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch1/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Context-Free Languages</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/context_free_grammars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Context-Free Grammars</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/parsing_and_ambiguity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Parsing and Ambiguity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/chomsky_normal_form.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Chomsky Normal Form and CFG depuration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/pushdown_automata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Pushdown Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/experiment_with_CFGs_and_PDAs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Experiment with CFGs and PDAs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/non-context-freeness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Limitations of CFL</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch2/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch3/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Topics in Computability</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/turing_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Turing Machines</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/experiment_with_TMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Experiment with Turing Machines</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/church-turing-thesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">The Church-Turing Thesis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/R-RE-coRE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, <span class="math inline">\mathbf{coRE}</span> and beyond</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/reducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Many-One Reductions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch3/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">More Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/time-hierarchy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/non-determinism.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Non-determinism and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/other-NP-complete.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="brown"><strong>References</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../credits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Credits &amp; Copyright</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#encoding-of-graphs" id="toc-encoding-of-graphs" class="nav-link active" data-scroll-target="#encoding-of-graphs"><span class="header-section-number">34.1</span> Encoding of graphs</a></li>
+  <li><a href="#mathttclique" id="toc-mathttclique" class="nav-link" data-scroll-target="#mathttclique"><span class="header-section-number">34.2</span> <span class="math inline">\mathtt{CLIQUE}</span></a></li>
+  <li><a href="#mathttcoloring" id="toc-mathttcoloring" class="nav-link" data-scroll-target="#mathttcoloring"><span class="header-section-number">34.3</span> <span class="math inline">\mathtt{COLORING}</span></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch4/intro.html">Topics in Complexity</a></li><li class="breadcrumb-item"><a href="../ch4/other-NP-complete.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+<p>% noend hides “end for”; drop it to keep them </p>
+</div>
+<p>The first <span class="math inline">\mathbf{NP}</span>-complete problems we have seen are about formulas. Many problems on graphs turn out to be just as hard. In this chapter we study two classic examples: finding a large clique, and coloring the vertices of a graph with few colors.</p>
+<section id="encoding-of-graphs" class="level2" data-number="34.1">
+<h2 data-number="34.1" class="anchored" data-anchor-id="encoding-of-graphs"><span class="header-section-number">34.1</span> Encoding of graphs</h2>
+<p>All graphs in this section are <span class="def">simple</span> and <span class="def">undirected</span>. A graph is a pair <span class="math inline">G = (V, E)</span>, where <span class="math inline">V = \{1, 2, \dots, n\}</span> and <span class="math inline">E</span> is a set of edges. Each edge is a set <span class="math inline">\{u, v\}</span> of two distinct vertices <span class="math inline">u, v \in V</span>.</p>
+<p>We encode a graph by its <span class="def">adjacency matrix</span>, the <span class="math inline">n \times n</span> matrix <span class="math inline">A = (a_{uv})</span> with <span class="math display">
+a_{uv} = \begin{cases} 1 &amp; \text{if } \{u,v\} \in E, \\ 0 &amp; \text{otherwise.} \end{cases}
+</span> We write <span class="math inline">A</span> row by row over the alphabet <span class="math inline">\Sigma_G = \{\textcolor{darkred}{\mathtt{0}}, \textcolor{darkred}{\mathtt{1}}, \textcolor{darkred}{\mathtt{\#}}\}</span>, with a <span class="math inline">\textcolor{darkred}{\mathtt{\#}}</span> between rows: <span class="math display">
+\langle G \rangle = a_{11} a_{12} \cdots a_{1n}\, \textcolor{darkred}{\mathtt{\#}}\, a_{21} a_{22} \cdots a_{2n}\, \textcolor{darkred}{\mathtt{\#}}\, \cdots\, \textcolor{darkred}{\mathtt{\#}}\, a_{n1} a_{n2} \cdots a_{nn}.
+</span> A word over <span class="math inline">\Sigma_G</span> encodes a graph if and only if it consists of <span class="math inline">n</span> blocks of <span class="math inline">n</span> bits each, and the matrix they form is symmetric with zeros on the diagonal. This can be checked in polynomial time. The encoding of a graph with <span class="math inline">n</span> vertices has length <span class="math inline">n^2 + n - 1</span>.</p>
+<p>When a problem also takes a number <span class="math inline">k</span> as input, we write it in binary after the graph: <span class="math display">
+\langle G, k \rangle = \langle G \rangle\, \textcolor{darkred}{\mathtt{\#\#}}\, \mathrm{bin}(k).
+</span></p>
+<div id="exm-graph" class="theorem example">
+<p><span class="theorem-title"><strong>Example 34.1</strong></span> Let <span class="math inline">G</span> be the graph with <span class="math inline">V = \{1,2,3,4\}</span> and <span class="math inline">E = \{\{1,2\}, \{1,3\}, \{2,3\}, \{3,4\}\}</span>. This is a triangle on <span class="math inline">1, 2, 3</span>, together with an extra edge from <span class="math inline">3</span> to <span class="math inline">4</span>.</p>
+<div id="fig-" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="other-NP-complete_files/mediabag/18ce7d8e6c65dc2006497d4ac49ee92224b199ac.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34.1
+</figcaption>
+</figure>
+</div>
+<p>Its adjacency matrix is <span class="math display">
+A = \begin{pmatrix} 0 &amp; 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 1 &amp; 0 \\ 1 &amp; 1 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{pmatrix},
+</span> so <span class="math inline">\langle G \rangle = \textcolor{darkred}{\mathtt{0110\#1010\#1101\#0010}}</span> and <span class="math inline">\langle G, 3 \rangle = \textcolor{darkred}{\mathtt{0110\#1010\#1101\#0010\#\#11}}</span>.</p>
+</div>
+<p>Another natural encoding is the <span class="def">edge list</span>: the number of vertices, followed by the list of edges, each written as a pair of vertices in binary. For sparse graphs, this is shorter than the adjacency matrix. However, we must write the number of vertices <span class="math inline">n</span> in <span class="def">unary</span>, or list every vertex. Otherwise, a graph with <span class="math inline">n</span> vertices and no edges would have an encoding of length <span class="math inline">\mathcal{O}(\log n)</span>, while its adjacency matrix has length about <span class="math inline">n^2</span>, which is exponentially longer.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 34.1</strong></span> Show that the two encodings (adjacency matrix and edge list with <span class="math inline">n</span> written in unary) have polynomially related lengths, and each can be computed from the other in polynomial time. So it doesn’t matter which one we use when we ask whether a graph problem is in <span class="math inline">\mathbf{P}</span>, in <span class="math inline">\mathbf{NP}</span>, or <span class="math inline">\mathbf{NP}</span>-complete.</p>
+</div>
+<p>As with formulas, the number <span class="math inline">k</span> must be written in binary or another base <span class="math inline">b \geqslant 2</span>, never in unary, unless we say otherwise. For <span class="math inline">\mathtt{CLIQUE}</span> and <span class="math inline">\mathtt{COLORING}</span> this makes no difference, because the only interesting values of <span class="math inline">k</span> satisfy <span class="math inline">k \leqslant n</span>. For problems with numbers in the input, such as <span class="math inline">\mathtt{SUBSET\text{-}SUM}</span>, it matters a lot.</p>
+</section>
+<section id="mathttclique" class="level2" data-number="34.2">
+<h2 data-number="34.2" class="anchored" data-anchor-id="mathttclique"><span class="header-section-number">34.2</span> <span class="math inline">\mathtt{CLIQUE}</span></h2>
+<p>Let <span class="math inline">G = (V, E)</span> be a graph. A <span class="def">clique</span> in <span class="math inline">G</span> is a set of vertices <span class="math inline">K \subseteq V</span> in which every two distinct vertices are joined by an edge: <span class="math inline">\{u, v\} \in E</span> for all distinct <span class="math inline">u, v \in K</span>. A clique with <span class="math inline">k</span> vertices is a <span class="def"><span class="math inline">k</span>-clique</span>. We define <span class="math display">
+\mathtt{CLIQUE}= \{\, \langle G, k \rangle : G \text{ has a } k\text{-clique} \,\}.
+</span></p>
+<p>Cliques model groups of objects that are all pairwise compatible, such as people who all know each other in a social network, or tasks that can all be done together.</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 34.2</strong></span> Let <span class="math inline">G</span> be the graph from <a href="#exm-graph" class="quarto-xref">Example&nbsp;<span>34.1</span></a>. The set <span class="math inline">\{1,2,3\}</span> is a <span class="math inline">3</span>-clique, so <span class="math inline">\langle G, 3 \rangle \in \mathtt{CLIQUE}</span>. The vertex <span class="math inline">4</span> is not adjacent to <span class="math inline">1</span> or <span class="math inline">2</span>, so <span class="math inline">G</span> has no <span class="math inline">4</span>-clique and <span class="math inline">\langle G, 4 \rangle \notin \mathtt{CLIQUE}</span>.</p>
+</div>
+<p>In <span class="math inline">\mathtt{CLIQUE}</span>, the number <span class="math inline">k</span> is part of the input, this is important, as the next exercise shows. <span class="math inline">\mathtt{CLIQUE}</span> is hard only because <span class="math inline">k</span> can grow with the size of the graph.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 34.2</strong></span> Show that for each <em>fixed</em> constant <span class="math inline">k</span>, the language <span class="math inline">\{\langle G \rangle : G \text{ has a } k\text{-clique}\}</span> is in <span class="math inline">\mathbf{P}</span>.</p>
+</div>
+<div id="thm-clique-NP-complete" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 34.1</strong></span> <span class="math inline">\mathtt{CLIQUE}</span> is <span class="math inline">\mathbf{NP}</span>-complete.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong><span class="math inline">\mathtt{CLIQUE}\in \mathbf{NP}</span>.</strong> A certificate for <span class="math inline">\langle G, k \rangle</span> is a set <span class="math inline">K</span> of <span class="math inline">k</span> vertices. A verifier checks that <span class="math inline">|K| = k</span> and that <span class="math inline">\{u, v\} \in E</span> for every pair of distinct <span class="math inline">u, v \in K</span>. This takes <span class="math inline">O(k^2)</span> lookups in the adjacency matrix, which is polynomial time.</p>
+<p><strong><span class="math inline">\mathtt{CLIQUE}</span> is <span class="math inline">\mathbf{NP}</span>-hard.</strong> We show that <span class="math inline">3\mathtt{SAT}\leqslant_p \mathtt{CLIQUE}</span>. Let <span class="math display">
+F = C_1 \land C_2 \land \cdots \land C_m, \qquad C_j = \ell_{j,1} \lor \ell_{j,2} \lor \ell_{j,3},
+</span> be a <span class="math inline">3</span>-CNF formula. We construct a graph <span class="math inline">G_F</span> and output <span class="math inline">\langle G_F, m \rangle</span>.</p>
+<p><em>Vertices.</em> For every clause <span class="math inline">C_j</span> and every position <span class="math inline">i \in \{1,2,3\}</span>, the graph <span class="math inline">G_F</span> has a vertex <span class="math inline">(j,i)</span>, labeled with the literal <span class="math inline">\ell_{j,i}</span>. So <span class="math inline">G_F</span> has <span class="math inline">3m</span> vertices, in <span class="math inline">m</span> groups of three, one group per clause. If the same literal occurs in several clauses, each occurrence gets its own vertex.</p>
+<p><em>Edges.</em> Two vertices <span class="math inline">(j,i)</span> and <span class="math inline">(j',i')</span> are joined by an edge if and only if</p>
+<ol type="1">
+<li>they come from <strong>different clauses</strong>, that is, <span class="math inline">j \neq j'</span>, and</li>
+<li>their literals are <strong>not complementary</strong>: it is not the case that one of them is <span class="math inline">x</span> and the other is <span class="math inline">\lnot x</span>.</li>
+</ol>
+<p>Two literals are <span class="def">consistent</span> if they are not complementary, which means that some assignment makes both of them true. So an edge joins two literals from different clauses that can be true at the same time. <a href="#fig-clique-rules" class="quarto-xref">Figure&nbsp;<span>34.2</span></a> shows the three possible cases.</p>
+<div id="fig-clique-rules" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-clique-rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="other-NP-complete_files/mediabag/d48fbc90bf0c740baea02e3feac1633fcfc2ef47.svg" class="img-fluid figure-img" data-additional-packages="\usetikzlibrary{fit,backgrounds}">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-clique-rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34.2: When two vertices of <span class="math inline">G_F</span> are joined by an edge.
+</figcaption>
+</figure>
+</div>
+<p><em>Running time.</em> The graph <span class="math inline">G_F</span> has <span class="math inline">3m</span> vertices. Each entry of its adjacency matrix is obtained by comparing two literals of <span class="math inline">F</span>, which takes time polynomial in <span class="math inline">|\langle F \rangle|</span>. So <span class="math inline">\langle G_F, m \rangle</span> can be computed from <span class="math inline">\langle F \rangle</span> in polynomial time.</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 34.3</strong></span> Consider <span class="math display">
+F = \underbrace{(x_1 \lor x_2 \lor x_3)}_{C_1} \land \underbrace{(\lnot x_1 \lor \lnot x_2 \lor x_3)}_{C_2} \land \underbrace{(x_1 \lor \lnot x_2 \lor \lnot x_3)}_{C_3}.
+</span> <a href="#fig-clique-graph" class="quarto-xref">Figure&nbsp;<span>34.3</span></a> shows the graph <span class="math inline">G_F</span>. There are no edges inside a group. Between two groups, all edges are present except those joining complementary literals. For example, <span class="math inline">x_1</span> in <span class="math inline">C_1</span> is not joined to <span class="math inline">\lnot x_1</span> in <span class="math inline">C_2</span>.</p>
+<div id="fig-clique-graph" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-clique-graph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="other-NP-complete_files/mediabag/1ed7846e7875aa932540ba2294f3a76652c978a5.svg" class="img-fluid figure-img" data-additional-packages="\usetikzlibrary{fit,backgrounds}">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-clique-graph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34.3: The graph <span class="math inline">G_F</span> for <span class="math inline">F = (x_1 \lor x_2 \lor x_3) \land (\lnot x_1 \lor \lnot x_2 \lor x_3) \land (x_1 \lor \lnot x_2 \lor \lnot x_3)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>We now show that <span class="math display">
+F \text{ is satisfiable} \iff G_F \text{ has an } m\text{-clique}.
+</span></p>
+<p>(<span class="math inline">\Rightarrow</span>) Let <span class="math inline">\alpha</span> be a satisfying assignment. Every clause <span class="math inline">C_j</span> contains at least one true literal under <span class="math inline">\alpha</span>. Pick one such literal in each clause, and let <span class="math inline">K</span> be the set of the corresponding <span class="math inline">m</span> vertices, one from each group. Any two vertices of <span class="math inline">K</span> come from different clauses. They are also consistent, because both of their literals are true under <span class="math inline">\alpha</span>, and a literal and its negation cannot both be true. So every two vertices of <span class="math inline">K</span> are joined by an edge, and <span class="math inline">K</span> is an <span class="math inline">m</span>-clique.</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 34.4</strong></span> <a href="#fig-clique-sat" class="quarto-xref">Figure&nbsp;<span>34.4</span></a> shows this for the example above, with the assignment <span class="math inline">x_1 = 1</span>, <span class="math inline">x_2 = 0</span>, <span class="math inline">x_3 = 1</span>.</p>
+<div id="fig-clique-sat" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-clique-sat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="other-NP-complete_files/mediabag/a685b2abc04d11bfb1e72a68ac79b3ccbb5b5813.svg" class="img-fluid figure-img" data-additional-packages="\usetikzlibrary{fit,backgrounds}">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-clique-sat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34.4
+</figcaption>
+</figure>
+</div>
+<p>The assignment <span class="math inline">x_1 = 1</span>, <span class="math inline">x_2 = 0</span>, <span class="math inline">x_3 = 1</span> makes <span class="math inline">x_1</span> true in <span class="math inline">C_1</span>, <span class="math inline">\lnot x_2</span> true in <span class="math inline">C_2</span> and <span class="math inline">x_1</span> true in <span class="math inline">C_3</span>. These three vertices form a <span class="math inline">3</span>-clique.</p>
+</div>
+<p>(<span class="math inline">\Leftarrow</span>) Let <span class="math inline">K</span> be an <span class="math inline">m</span>-clique in <span class="math inline">G_F</span>. There are no edges inside a group, so <span class="math inline">K</span> contains at most one vertex from each group. Since <span class="math inline">K</span> has <span class="math inline">m</span> vertices and there are <span class="math inline">m</span> groups, it contains <em>exactly one</em> vertex from each group. Let <span class="math inline">L</span> be the set of literals labeling the vertices of <span class="math inline">K</span>. Every two literals in <span class="math inline">L</span> are joined by an edge, so they are consistent, and hence <span class="math inline">L</span> never contains both <span class="math inline">x</span> and <span class="math inline">\lnot x</span>. So we can define an assignment <span class="math inline">\alpha</span> that makes every literal in <span class="math inline">L</span> true, giving any value to the variables that do not appear in <span class="math inline">L</span>. Every clause <span class="math inline">C_j</span> contains a literal of <span class="math inline">L</span>, which is true under <span class="math inline">\alpha</span>. Hence <span class="math inline">\alpha</span> satisfies <span class="math inline">F</span>.</p>
+<p>Therefore <span class="math inline">3\mathtt{SAT}\leqslant_p \mathtt{CLIQUE}</span>. Since <span class="math inline">3\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete, <span class="math inline">\mathtt{CLIQUE}</span> is <span class="math inline">\mathbf{NP}</span>-hard, and hence <span class="math inline">\mathbf{NP}</span>-complete.</p>
+</div>
+</div>
+</div>
+</div>
+<p>In the proof of <a href="#thm-clique-NP-complete" class="quarto-xref">Theorem&nbsp;<span>34.1</span></a> we built a graph from a formula: we constructed small subgraphs, called <span class="def">gadgets</span>, that represent variables and clauses, and connect them so that the formula is satisfiable exactly when the graph has the required property. In the proof of <a href="#thm-3COL-NP-complete" class="quarto-xref">Theorem&nbsp;<span>34.2</span></a> we will do the same, but with a different gadget.</p>
+</section>
+<section id="mathttcoloring" class="level2" data-number="34.3">
+<h2 data-number="34.3" class="anchored" data-anchor-id="mathttcoloring"><span class="header-section-number">34.3</span> <span class="math inline">\mathtt{COLORING}</span></h2>
+<p>Let <span class="math inline">k \geqslant 1</span>. A <span class="def"><span class="math inline">k</span>-coloring</span> of a graph <span class="math inline">G = (V, E)</span> is a map <span class="math inline">c\colon V \to \{1, \dots, k\}</span> such that adjacent vertices get different colors: <span class="math inline">c(u) \neq c(v)</span> for every edge <span class="math inline">\{u, v\} \in E</span>. We say <span class="math inline">G</span> is <span class="def"><span class="math inline">k</span>-colorable</span> if it has a <span class="math inline">k</span>-coloring, and for each fixed <span class="math inline">k</span> we define <span class="math display">
+k\text{-}\mathtt{COLORING} = \{\, \langle G \rangle : G \text{ is } k\text{-colorable} \,\}.
+</span></p>
+<p>Colorings model conflicts. Take the vertices to be exams, put an edge between two exams that share a student, and take the colors to be time slots. Then a <span class="math inline">k</span>-coloring is an exam timetable with <span class="math inline">k</span> slots in which no student has two exams at the same time. Register allocation in compilers and assigning frequencies to radio transmitters lead to the same kind of problem.</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 34.5</strong></span> Let <span class="math inline">G</span> be the graph from <a href="#exm-graph" class="quarto-xref">Example&nbsp;<span>34.1</span></a>. The map <span class="math inline">c(1) = 1</span>, <span class="math inline">c(2) = 2</span>, <span class="math inline">c(3) = 3</span>, <span class="math inline">c(4) = 1</span> is a <span class="math inline">3</span>-coloring, so <span class="math inline">\langle G \rangle \in 3\text{-}\mathtt{COLORING}</span>. The vertices of a clique must all get different colors, and the triangle <span class="math inline">\{1,2,3\}</span> is a clique, so <span class="math inline">G</span> has no <span class="math inline">2</span>-coloring and <span class="math inline">\langle G \rangle \notin 2\text{-}\mathtt{COLORING}</span>.</p>
+</div>
+<p>The example uses a general fact.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 34.3</strong></span> Show that if <span class="math inline">\langle G,k\rangle\in \mathtt{CLIQUE}</span>, then <span class="math inline">\langle G\rangle\notin(k-1)\text{-}\mathtt{COLORING}</span>. Show that the converse is false.</p>
+</div>
+<p>The hardness of <span class="math inline">k\text{-}\mathtt{COLORING}</span> depends on <span class="math inline">k</span>:</p>
+<ul>
+<li><span class="math inline">1\text{-}\mathtt{COLORING}</span> is trivial: <span class="math inline">G</span> is <span class="math inline">1</span>-colorable if and only if it has no edges.</li>
+<li><span class="math inline">2\text{-}\mathtt{COLORING} \in \mathbf{P}</span>. A graph is <span class="math inline">2</span>-colorable if and only if it is bipartite, and this can be checked with a breadth-first search.</li>
+<li><span class="math inline">3\text{-}\mathtt{COLORING}</span> is <span class="math inline">\mathbf{NP}</span>-complete, and so is <span class="math inline">k\text{-}\mathtt{COLORING}</span> for every fixed <span class="math inline">k \geqslant 3</span>.</li>
+</ul>
+<div id="thm-3COL-NP-complete" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 34.2</strong></span> <span class="math inline">k\text{-}\mathtt{COLORING}</span> is <span class="math inline">\mathbf{NP}</span>-complete.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong><span class="math inline">3\text{-}\mathtt{COLORING} \in \mathbf{NP}</span>.</strong> A certificate for <span class="math inline">\langle G \rangle</span> is a map <span class="math inline">c\colon V \to \{1,2,3\}</span>. A verifier checks that <span class="math inline">c(u) \neq c(v)</span> for every edge <span class="math inline">\{u,v\} \in E</span>, which takes polynomial time.</p>
+<p><strong><span class="math inline">3\text{-}\mathtt{COLORING}</span> is <span class="math inline">\mathbf{NP}</span>-hard.</strong> We show that <span class="math inline">3\mathtt{SAT}\leqslant_p 3\text{-}\mathtt{COLORING}</span>. Let <span class="math inline">F = C_1 \land \cdots \land C_m</span> be a <span class="math inline">3</span>-CNF formula with variables <span class="math inline">x_1, \dots, x_n</span>. We build a graph <span class="math inline">G_F</span> from three kinds of pieces.</p>
+<p><em>1. The palette.</em> <span class="math inline">G_F</span> contains a triangle on three vertices <span class="math inline">\mathsf{T}</span>, <span class="math inline">\mathsf{F}</span>, <span class="math inline">\mathsf{B}</span> (for <em>true</em>, <em>false</em> and <em>base</em>). In every <span class="math inline">3</span>-coloring, these three vertices get three different colors. So, after renaming the colors if necessary, we may assume that <span class="math inline">\mathsf{T}</span> has color <span class="math inline">\mathsf{T}</span>, <span class="math inline">\mathsf{F}</span> has color <span class="math inline">\mathsf{F}</span> and <span class="math inline">\mathsf{B}</span> has color <span class="math inline">\mathsf{B}</span>. We then say a vertex is <em>true</em> if it has color <span class="math inline">\mathsf{T}</span>, and <em>false</em> if it has color <span class="math inline">\mathsf{F}</span>.</p>
+<p><em>2. Variable gadgets.</em> For each variable <span class="math inline">x_i</span>, <span class="math inline">G_F</span> contains two vertices <span class="math inline">x_i</span> and <span class="math inline">\lnot x_i</span>, which form a triangle with <span class="math inline">\mathsf{B}</span> (<a href="#fig-3col-vars" class="quarto-xref">Figure&nbsp;<span>34.5</span></a>). Since every literal vertex is adjacent to <span class="math inline">\mathsf{B}</span>, it gets color <span class="math inline">\mathsf{T}</span> or <span class="math inline">\mathsf{F}</span>. Since <span class="math inline">x_i</span> and <span class="math inline">\lnot x_i</span> are adjacent, exactly one of them is true. So a <span class="math inline">3</span>-coloring of these vertices is the same thing as an assignment of the variables.</p>
+<div id="fig-3col-vars" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3col-vars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="other-NP-complete_files/mediabag/3003b3fd6fc05fb0cd4fc14825db3a35c21498d5.svg" class="img-fluid figure-img" data-additional-packages="\usetikzlibrary{fit,backgrounds}">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3col-vars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34.5: The palette and the variable gadgets for <span class="math inline">x_1, x_2, x_3</span>, colored according to the assignment <span class="math inline">x_1 = 1</span>, <span class="math inline">x_2 = 0</span>, <span class="math inline">x_3 = 1</span>.
+</figcaption>
+</figure>
+</div>
+<p><em>3. Clause gadgets.</em> These are built from an <span class="def">OR gadget</span>. It has two input vertices <span class="math inline">a, b</span>, three new vertices <span class="math inline">p, q, o</span> forming a triangle, and the edges <span class="math inline">a - p</span> and <span class="math inline">b - q</span>. The vertex <span class="math inline">o</span> is the output. The OR gadget behaves like the <span class="math inline">\lor</span> of its inputs (<a href="#fig-3col-or" class="quarto-xref">Figure&nbsp;<span>34.6</span></a>):</p>
+<ul>
+<li><strong>(i)</strong> In every <span class="math inline">3</span>-coloring in which <span class="math inline">a</span> and <span class="math inline">b</span> are both false, <span class="math inline">o</span> is false. Indeed, <span class="math inline">p</span> and <span class="math inline">q</span> cannot have color <span class="math inline">\mathsf{F}</span> (because of <span class="math inline">a</span> and <span class="math inline">b</span>), and they must differ, so <span class="math inline">\{p, q\}</span> get the colors <span class="math inline">\{\mathsf{T}, \mathsf{B}\}</span>. This leaves only <span class="math inline">\mathsf{F}</span> for <span class="math inline">o</span>.</li>
+<li><strong>(ii)</strong> If <span class="math inline">a</span> or <span class="math inline">b</span> is true, then any coloring of <span class="math inline">a</span> and <span class="math inline">b</span> can be extended to <span class="math inline">p, q, o</span> with <span class="math inline">o</span> true. Say <span class="math inline">a</span> is true. Color <span class="math inline">p</span> and <span class="math inline">q</span> with <span class="math inline">\mathsf{F}</span> and <span class="math inline">\mathsf{B}</span>, in the order that gives <span class="math inline">q</span> a different color from <span class="math inline">b</span>, and color <span class="math inline">o</span> with <span class="math inline">\mathsf{T}</span>. The case where <span class="math inline">b</span> is true is symmetric.</li>
+</ul>
+<div id="fig-3col-or" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3col-or-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="other-NP-complete_files/mediabag/00ee8fdd9266d23680f7d58b2e9c7160a37adf66.svg" class="img-fluid figure-img" data-additional-packages="\usetikzlibrary{fit,backgrounds}">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3col-or-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34.6: The OR gadget with inputs <span class="math inline">a, b</span> and output <span class="math inline">o</span>.
+</figcaption>
+</figure>
+</div>
+<p>For each clause <span class="math inline">C_j = \ell_1 \lor \ell_2 \lor \ell_3</span>, we add two OR gadgets, with <span class="math inline">6</span> new vertices in total. The first computes <span class="math inline">o_1 = \mathrm{OR}(\ell_1, \ell_2)</span>, the second computes <span class="math inline">o_2 = \mathrm{OR}(o_1, \ell_3)</span>, and we add the edges <span class="math inline">o_2 - \mathsf{F}</span> and <span class="math inline">o_2 - \mathsf{B}</span>. These two edges force <span class="math inline">o_2</span> to be true (<a href="#fig-3col-clause" class="quarto-xref">Figure&nbsp;<span>34.7</span></a>). Here <span class="math inline">\ell_1, \ell_2, \ell_3</span> are the literal vertices of the variable gadgets. So, unlike in the reduction to <span class="math inline">\mathtt{CLIQUE}</span>, a literal that occurs in several clauses is a single vertex, shared by all of their gadgets.</p>
+<div id="fig-3col-clause" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3col-clause-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="other-NP-complete_files/mediabag/02aff121b8276145fe5a394f35e3325810e803e5.svg" class="img-fluid figure-img" data-additional-packages="\usetikzlibrary{fit,backgrounds}">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3col-clause-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34.7: The gadget for a clause <span class="math inline">\ell_1 \lor \ell_2 \lor \ell_3</span>, colored for the case where <span class="math inline">\ell_1, \ell_2</span> are false and <span class="math inline">\ell_3</span> is true. The first OR gadget outputs false, but <span class="math inline">\ell_3</span> makes the second one output true, as required.
+</figcaption>
+</figure>
+</div>
+<p><em>Running time.</em> <span class="math inline">G_F</span> has <span class="math inline">3 + 2n + 6m</span> vertices: the palette, two vertices per variable and six per clause. Moreover its edges are given by fixed patterns, so <span class="math inline">\langle G_F \rangle</span> can be computed from <span class="math inline">\langle F \rangle</span> in polynomial time.</p>
+<p>We now show that <span class="math display">
+F \text{ is satisfiable} \iff G_F \text{ is } 3\text{-colorable}.
+</span></p>
+<p>(<span class="math inline">\Rightarrow</span>) Let <span class="math inline">\alpha</span> be a satisfying assignment. Color the palette with <span class="math inline">\mathsf{T}, \mathsf{F}, \mathsf{B}</span>, and color each literal vertex <span class="math inline">\mathsf{T}</span> or <span class="math inline">\mathsf{F}</span> according to its value under <span class="math inline">\alpha</span>. Now take a clause <span class="math inline">C_j = \ell_1 \lor \ell_2 \lor \ell_3</span>.</p>
+<ul>
+<li>If <span class="math inline">\ell_1</span> or <span class="math inline">\ell_2</span> is true, use (ii) to color the first OR gadget with <span class="math inline">o_1</span> true. Then use (ii) again to color the second OR gadget with <span class="math inline">o_2</span> true.</li>
+<li>Otherwise <span class="math inline">\ell_3</span> is true. Color the first OR gadget with <span class="math inline">p_1 = \mathsf{T}</span>, <span class="math inline">q_1 = \mathsf{B}</span>, <span class="math inline">o_1 = \mathsf{F}</span>, and use (ii) to color the second OR gadget with <span class="math inline">o_2</span> true.</li>
+</ul>
+<p>In both cases <span class="math inline">o_2</span> has color <span class="math inline">\mathsf{T}</span>, which is compatible with its edges to <span class="math inline">\mathsf{F}</span> and <span class="math inline">\mathsf{B}</span>. Different clause gadgets share only literal and palette vertices, which are already colored, so these colorings fit together into a <span class="math inline">3</span>-coloring of <span class="math inline">G_F</span>.</p>
+<p>(<span class="math inline">\Leftarrow</span>) Take a <span class="math inline">3</span>-coloring of <span class="math inline">G_F</span>, with the colors renamed so that the palette vertices have colors <span class="math inline">\mathsf{T}, \mathsf{F}, \mathsf{B}</span>. As we saw above, every literal vertex is true or false, and <span class="math inline">x_i</span> and <span class="math inline">\lnot x_i</span> have different colors. Define <span class="math inline">\alpha(x_i) = 1</span> if and only if <span class="math inline">x_i</span> has color <span class="math inline">\mathsf{T}</span>. Then a literal is true under <span class="math inline">\alpha</span> if and only if its vertex has color <span class="math inline">\mathsf{T}</span>.</p>
+<p>Suppose, for a contradiction, that some clause <span class="math inline">C_j</span> has all three literals false. By (i), <span class="math inline">o_1</span> is false. Then both inputs of the second OR gadget are false, so by (i) again, <span class="math inline">o_2</span> is false. But <span class="math inline">o_2</span> is adjacent to <span class="math inline">\mathsf{F}</span>, which is a contradiction (<a href="#fig-3col-conflict" class="quarto-xref">Figure&nbsp;<span>34.8</span></a>). Hence every clause has a true literal, and <span class="math inline">\alpha</span> satisfies <span class="math inline">F</span>.</p>
+<div id="fig-3col-conflict" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3col-conflict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="other-NP-complete_files/mediabag/244237e6f7cd42647439d6810893395e0ce29f10.svg" class="img-fluid figure-img" data-additional-packages="\usetikzlibrary{fit,backgrounds}">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3col-conflict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34.8: If all three literals are false, then <span class="math inline">o_1</span> and then <span class="math inline">o_2</span> are forced to be false. But <span class="math inline">o_2</span> is adjacent to <span class="math inline">\mathsf{F}</span>, so no <span class="math inline">3</span>-coloring exists.
+</figcaption>
+</figure>
+</div>
+<p>Therefore <span class="math inline">3\mathtt{SAT}\leqslant_p 3\text{-}\mathtt{COLORING}</span>, and <span class="math inline">3\text{-}\mathtt{COLORING}</span> is <span class="math inline">\mathbf{NP}</span>-complete.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 34.4</strong></span> Show that <span class="math inline">k\text{-}\mathtt{COLORING}</span> is <span class="math inline">\mathbf{NP}</span>-complete, for every <span class="math inline">k\geqslant 3</span>.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../ch4/SAT.html" class="pagination-link" aria-label="$\mathtt{SAT}$ is $\mathbf{NP}$-complete">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../references.html" class="pagination-link" aria-label="[**References**]{.brown}">
+        <span class="nav-page-text"><span class="brown"><strong>References</strong></span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+    <script type="text/javascript">
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let pseudocodeOptions = {
+          indentSize: el.dataset.indentSize,
+          commentDelimiter: " " + el.dataset.commentDelimiter + " ",
+          lineNumber: el.dataset.lineNumber.toLowerCase() === "true",
+          lineNumberPunc: el.dataset.lineNumberPunc,
+          noEnd: el.dataset.noEnd.toLowerCase() === "true",
+          scopeLines: el.dataset.indentLines.toLowerCase() === "true",
+          titlePrefix: el.dataset.captionPrefix,
+        };
+        pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+      });
+    })(document);
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+        if (captionSpan !== null) {
+          let captionPrefix = el.dataset.captionPrefix + " ";
+          let captionNumber = "";
+          if (el.dataset.pseudocodeNumber) {
+            captionNumber = el.dataset.pseudocodeNumber + " ";
+            if (el.dataset.chapterLevel) {
+              captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+            }
+          }
+          captionSpan.innerHTML = captionPrefix + captionNumber;
+        }
+      });
+    })(document);
+    </script>
+  
+
+
+
+
+</body></html>

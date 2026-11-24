@@ -403,12 +403,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -461,7 +508,24 @@ window.Quarto = {
 <p>% noend hides “end for”; drop it to keep them </p>
 </div>
 <p>In this chapter we introduce the classes of languages <span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{co}\mathbf{RE}</span> (for the meaning of the <span class="math inline">\mathbf{co}</span> prefix see <a href="#eq-co-class" class="quarto-xref">Equation&nbsp;<span>26.1</span></a>) and we prove some basic properties of them.</p>
-<p>Recall that for a Turing machine <span class="math inline">M</span> and input <span class="math inline">x</span>,</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Added after class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>a figure after the proof of <a href="#thm-K-not-in-R" class="quarto-xref">Theorem&nbsp;<span>26.2</span></a> illustrating the diagonalization argument</li>
+</ul>
+</div>
+</div>
+</div></div><p>Recall that for a Turing machine <span class="math inline">M</span> and input <span class="math inline">x</span>,</p>
 <ul>
 <li><span class="math inline">M(x)\!\downarrow</span> means that the machine <span class="math inline">M</span> on input <span class="math inline">x</span> halts (either accepting or rejecting);</li>
 <li><span class="math inline">M(x)\!\uparrow</span> means that the machine <span class="math inline">M</span> on input <span class="math inline">x</span> does not halt.</li>
@@ -501,7 +565,7 @@ window.Quarto = {
 <div id="thm-Rec-equals-RE-cap-coRE" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 26.1</strong></span> <span class="math inline">\mathbf{R}= \mathbf{RE}\cap \mathbf{co}\mathbf{RE}</span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -510,7 +574,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We show separately the two containments:</p>
 <p><span class="math inline">(\subseteq)</span> This is <a href="#exr-Rec-in-RE-and-coRE" class="quarto-xref">Exercise&nbsp;<span>26.1</span></a> above.</p>
@@ -535,7 +599,7 @@ window.Quarto = {
 <div id="thm-K-not-in-R" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 26.2</strong></span> <span class="math inline">\mathtt{K}=\{x:M_x(x)\!\downarrow\}\notin \mathbf{R}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -544,7 +608,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Suppose, towards a contradiction, that <span class="math inline">\mathtt{K}\in \mathbf{R}</span>. That is, there is a Turing machine <span class="math inline">D</span> that decides <span class="math inline">\mathtt{K}</span>: on every input <span class="math inline">x</span>, <span class="math inline">D</span> halts, and it accepts if and only if <span class="math inline">x\in\mathtt{K}</span>. Let <span class="math inline">N</span> be the Turing machine that on input <span class="math inline">x</span> runs <span class="math inline">D(x)</span> and</p>
 <ul>
@@ -562,6 +626,102 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>The argument used in the proof above is called <span class="def">diagonalization</span> and it is essentially the same idea we saw in <a href="../ch0/functions_cardinality.html" class="quarto-xref"><span>Chapter 3</span></a>. Visually, the table below highlights visually the argument in the proof of <a href="#thm-K-not-in-R" class="quarto-xref">Theorem&nbsp;<span>26.2</span></a>.</p>
+<div id="tbl-diagonal-K" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-diagonal-K-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;26.1: The diagonal argument for <span class="math inline">\mathtt{K}\notin\mathbf{R}</span>. Row <span class="math inline">x</span>, column <span class="math inline">y</span> shows whether <span class="math inline">M_x(y)</span> halts. <span class="math inline">N</span> reverses the diagonal, so it differs from every <span class="math inline">M_x</span> at column <span class="math inline">x</span>, yet <span class="math inline">N=M_p</span> for some <span class="math inline">p</span>.
+</figcaption>
+<div aria-describedby="tbl-diagonal-K-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">0</span></th>
+<th><span class="math inline">1</span></th>
+<th><span class="math inline">2</span></th>
+<th><span class="math inline">3</span></th>
+<th><span class="math inline">\cdots</span></th>
+<th><span class="math inline">p</span></th>
+<th><span class="math inline">\cdots</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">M_0</span></td>
+<td><span class="red"><span class="math inline">\downarrow</span></span></td>
+<td><span class="math inline">\uparrow</span></td>
+<td><span class="math inline">\downarrow</span></td>
+<td><span class="math inline">\downarrow</span></td>
+<td></td>
+<td><span class="math inline">\uparrow</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">M_1</span></td>
+<td><span class="math inline">\uparrow</span></td>
+<td><span class="red"><span class="math inline">\uparrow</span></span></td>
+<td><span class="math inline">\downarrow</span></td>
+<td><span class="math inline">\uparrow</span></td>
+<td></td>
+<td><span class="math inline">\downarrow</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">M_2</span></td>
+<td><span class="math inline">\downarrow</span></td>
+<td><span class="math inline">\downarrow</span></td>
+<td><span class="red"><span class="math inline">\downarrow</span></span></td>
+<td><span class="math inline">\uparrow</span></td>
+<td></td>
+<td><span class="math inline">\downarrow</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">M_3</span></td>
+<td><span class="math inline">\uparrow</span></td>
+<td><span class="math inline">\downarrow</span></td>
+<td><span class="math inline">\uparrow</span></td>
+<td><span class="red"><span class="math inline">\downarrow</span></span></td>
+<td></td>
+<td><span class="math inline">\uparrow</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\vdots</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\ddots</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">N=M_p</span></td>
+<td><span class="math inline">\uparrow</span></td>
+<td><span class="math inline">\downarrow</span></td>
+<td><span class="math inline">\uparrow</span></td>
+<td><span class="math inline">\uparrow</span></td>
+<td><span class="math inline">\cdots</span></td>
+<td><span class="red">?</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 <p>The fact that <span class="math inline">\mathtt{K}\notin \mathbf{R}</span> is a fact that we will exploit in a systematic way to show that many more natural languages are not in <span class="math inline">\mathbf{R}</span> either (see <a href="reducibility.html" class="quarto-xref"><span>Chapter 27</span></a>).</p>
 <div id="cor-" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 26.1</strong></span> The classes of languages <span class="math inline">\mathbf{R}</span>, <span class="math inline">\mathbf{RE}</span>, and <span class="math inline">\mathbf{co}\mathbf{RE}</span> are all distinct. In particular <span class="math inline">\mathtt{K}\in \mathbf{RE}\setminus \mathbf{co}\mathbf{RE}</span> and <span class="math inline">\overline{\mathtt{K}}\in \mathbf{co}\mathbf{RE}\setminus \mathbf{RE}</span>.</p>
@@ -575,7 +735,7 @@ window.Quarto = {
 </div></div><div id="thm-RE-projection" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 26.3</strong></span> A language <span class="math inline">A\in \mathbf{RE}</span> if and only if there exists a language <span class="math inline">B\in \mathbf{R}</span> s.t. <span class="math inline">A=\{y:\exists x_1,\dots,x_n \langle x_1,\dots,x_n,y\rangle\in B\}</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -584,7 +744,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>(<span class="math inline">\Rightarrow</span>) Let <span class="math inline">A\in\mathbf{RE}</span> and let <span class="math inline">M</span> be a Turing machine that recognizes <span class="math inline">A</span>, i.e.&nbsp;<span class="math inline">\mathscr{L}(M)=A</span>. Define <span class="math display">
 B=\{\langle t,y\rangle :M \text{ accepts } y \text{ within } t \text{ steps}\}.
@@ -642,7 +802,7 @@ y\in A \iff M \text{ accepts } y \iff \exists t\ \langle t,y\rangle\in B,
 \mathbf{co}\mathcal{C}=\{A:\overline A\in\mathcal{C}\}.
 \tag{26.1}</span></span></p>
 <div id="def-arithmetic-hierarchy" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 26.4 (<span class="math inline">\Sigma^0_k</span>, <span class="math inline">\Pi^0_k</span>, <span class="math inline">\Delta^0_k</span>)</strong></span> The classes <span class="def"><span class="math inline">\Sigma^0_k</span></span>, <span class="def"><span class="math inline">\Pi^0_k</span></span> and <span class="def"><span class="math inline">\Delta^0_k</span></span>, for <span class="math inline">k\geq 1</span>, are defined recursively as follows. <span class="math inline">\Sigma^0_1:=\mathbf{RE}</span>, <span class="math inline">\Pi^0_1:=\mathbf{co}\mathbf{RE}</span>, and for <span class="math inline">k\geq 1</span>,</p>
+<p><span class="theorem-title"><strong>Definition 26.4 (<span class="math inline">\Sigma^0_k</span>, <span class="math inline">\Pi^0_k</span>, <span class="math inline">\Delta^0_k</span>)</strong></span> The classes <span class="def"><span class="math inline">\Sigma^0_k</span></span>, <span class="def"><span class="math inline">\Pi^0_k</span></span> and <span class="def"><span class="math inline">\Delta^0_k</span></span>, for <span class="math inline">k\geqslant 1</span>, are defined recursively as follows. <span class="math inline">\Sigma^0_1:=\mathbf{RE}</span>, <span class="math inline">\Pi^0_1:=\mathbf{co}\mathbf{RE}</span>, and for <span class="math inline">k\geqslant 1</span>,</p>
 <ul>
 <li><span class="math inline">A\in\Sigma^0_{k+1}</span> if there exists a language <span class="math inline">B\in\Pi^0_k</span> such that<br>
 <span class="math display">A=\{y:\exists x\ \langle x,y\rangle\in B\};</span></li>

@@ -424,12 +424,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -633,9 +680,9 @@ Important
 <p><span class="theorem-title"><strong>Exercise 17.7</strong></span> Show that for a grammar <span class="math inline">G</span> of the form above any production of a non-empty word of length <span class="math inline">n</span> consists of the application of exactly <span class="math inline">2n-1</span> productions.</p>
 </div>
 <p>By the special form of the grammar, if <span class="math inline">w=\varepsilon</span> it is trivial to check whether <span class="math inline">w\in \mathscr{L}(G)</span>. So we can also assume <span class="math inline">w\neq \varepsilon</span>. Let <span class="math inline">n=|w|</span>.</p>
-<p>The idea of the algorithm is not only to decide whether <span class="math inline">w\in \mathscr{L}(G)</span>, but for each subword of <span class="math inline">w</span> to know what variables can generate it. To store this information we can use Boolean variables <span class="math inline">P[i,\ell,A]</span>, for <span class="math inline">1\leq i\leq n</span>, <span class="math inline">1\leq \ell\leq n-i+1</span> and <span class="math inline">A\in V</span>, with intended meaning the truth value of “<em>the subword of <span class="math inline">w</span> starting in position <span class="math inline">i</span> and of length <span class="math inline">\ell</span> can be generated from the variable <span class="math inline">A</span></em>”. (As usual, we use the convention that <span class="math inline">w[1]</span> is the first symbol of <span class="math inline">w</span>, that is <span class="math inline">w=w[1]w[2]\cdots w[n]</span>.)</p>
+<p>The idea of the algorithm is not only to decide whether <span class="math inline">w\in \mathscr{L}(G)</span>, but for each subword of <span class="math inline">w</span> to know what variables can generate it. To store this information we can use Boolean variables <span class="math inline">P[i,\ell,A]</span>, for <span class="math inline">1\leqslant i\leqslant n</span>, <span class="math inline">1\leqslant\ell\leqslant n-i+1</span> and <span class="math inline">A\in V</span>, with intended meaning the truth value of “<em>the subword of <span class="math inline">w</span> starting in position <span class="math inline">i</span> and of length <span class="math inline">\ell</span> can be generated from the variable <span class="math inline">A</span></em>”. (As usual, we use the convention that <span class="math inline">w[1]</span> is the first symbol of <span class="math inline">w</span>, that is <span class="math inline">w=w[1]w[2]\cdots w[n]</span>.)</p>
 <p>Our goal is to compute the truth value of <span class="math inline">P[1,n,S]</span> since <span class="math inline">P[1,n,S]=1</span> if and only if <span class="math inline">w\in \mathscr{L}(G)</span> by construction.</p>
-<p>It is immediate to know the values of <span class="math inline">P[i,1,A]</span> for each <span class="math inline">i\leq n</span> and <span class="math inline">A\in V</span>. <span class="question">How?</span></p>
+<p>It is immediate to know the values of <span class="math inline">P[i,1,A]</span> for each <span class="math inline">i\leqslant n</span> and <span class="math inline">A\in V</span>. <span class="question">How?</span></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -665,7 +712,7 @@ Important
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>For a fixed <span class="math inline">i</span> with <span class="math inline">1\leq i\leq n</span>, <span class="math inline">P[i,\ell,A]=1</span> if and only if exists <span class="math inline">1\leq k\leq \ell-1</span> and a production <span class="math inline">A\ \boldsymbol{\to}\ BC</span>, where both <span class="math inline">P[i,k,B]</span> and <span class="math inline">P[i+k,\ell-k,C]</span> are both true.</p>
+<p>For a fixed <span class="math inline">i</span> with <span class="math inline">1\leqslant i\leqslant n</span>, <span class="math inline">P[i,\ell,A]=1</span> if and only if exists <span class="math inline">1\leqslant k\leqslant\ell-1</span> and a production <span class="math inline">A\ \boldsymbol{\to}\ BC</span>, where both <span class="math inline">P[i,k,B]</span> and <span class="math inline">P[i+k,\ell-k,C]</span> are both true.</p>
 </div>
 </div>
 </div>
@@ -682,7 +729,7 @@ B\ &amp;\boldsymbol{\to}&amp;\ \textcolor{darkred}{\mathtt{b}}
 </span></p>
 </div>
 <p>Following this approach, a possible pseudocode implementing the CYK algorithm is the following.</p>
-<div id="alg-cyk" class="pseudocode-container quarto-float" data-no-end="true" data-line-number="false" data-caption-prefix="Algorithm" data-indent-size="1.2em" data-indent-lines="false" data-pseudocode-number="1" data-line-number-punc=":" data-comment-delimiter="//">
+<div id="alg-cyk" class="pseudocode-container quarto-float" data-indent-size="1.2em" data-comment-delimiter="//" data-pseudocode-number="1" data-no-end="true" data-caption-prefix="Algorithm" data-indent-lines="false" data-line-number="false" data-line-number-punc=":">
 <div class="pseudocode">
 \begin{algorithm} \caption{CYK Algorithm}\begin{algorithmic} \Input{A non-empty word $w = w[1] \cdots w[n]$ and a grammar $G=(V,\Sigma,R,S)$ meeting the assumptions above} \Output{The answer to the question: $w\in \mathscr{L}(G)$?} \State{Initialize all $P[i,\ell,A]$ to $0$} \For{$i = 1$ to $n$} \Comment{Initialization: setting all $P[i,1,A]$s} \ForAll{$A \in V$} \If{$(A \to w[i]) \in R$} \State $P[i,1,A] = 1$ \EndIf \EndFor \EndFor \For{$\ell = 2$ to $n$} \Comment{Fill the table in increasing order of substring length} \For{$i = 1$ to $n-\ell+1$} \For{$k = 1$ to $\ell-1$} \ForAll{$(A \to BC) \in R$} \If{$P[i,k,B] \land P[i+k,\ell-k,C]$} \State $P[i,\ell,A] = 1$ \EndIf \EndFor \EndFor \EndFor \EndFor \State \Return $P[1,n,S]$ \end{algorithmic} \end{algorithm}
 </div>

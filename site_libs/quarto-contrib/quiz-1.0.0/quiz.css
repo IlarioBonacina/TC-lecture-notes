@@ -1,0 +1,18 @@
+.quiz { margin: 1.5em 0; }
+.quiz-options { display: flex; flex-direction: column; gap: 0.5em; }
+.quiz-option {
+  border: 1px solid #ced4da; border-radius: 0.4em;
+  padding: 0.6em 0.9em; cursor: pointer;
+  transition: background-color 0.15s;
+}
+.quiz-option:hover, .quiz-option:focus { background-color: rgba(0, 0, 0, 0.04); outline: none; }
+.quiz-option p:last-child { margin-bottom: 0; }
+.quiz-letter { font-weight: bold; margin-right: 0.3em; }
+.quiz-explanation { display: none; margin-top: 0.5em; padding-top: 0.5em; border-top: 1px solid rgba(0, 0, 0, 0.15); }
+.quiz-chosen .quiz-explanation { display: block; }
+.quiz-right { border-color: #198754; background-color: rgba(25, 135, 84, 0.10); }
+.quiz-wrong { border-color: #dc3545; background-color: rgba(220, 53, 69, 0.08); }
+.quiz-right:hover, .quiz-right:focus { background-color: rgba(25, 135, 84, 0.16); }
+.quiz-wrong:hover, .quiz-wrong:focus { background-color: rgba(220, 53, 69, 0.14); }
+.quiz-chosen.quiz-right .quiz-explanation > :first-child::before { content: "Correct! "; font-weight: bold; color: #198754; }
+.quiz-chosen.quiz-wrong .quiz-explanation > :first-child::before { content: "Not quite. "; font-weight: bold; color: #dc3545; }

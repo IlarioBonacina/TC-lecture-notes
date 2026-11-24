@@ -403,12 +403,59 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ch4/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Topics in Complexity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/search_vs_decision_vs_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Decision, search and optimization problems</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-EXP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}\subsetneq \mathbf{EXP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-PH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span> and <span class="math inline">\mathbf{PH}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/P-NP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{P}</span> vs <span class="math inline">\mathbf{NP}</span></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/SAT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathtt{SAT}</span> is <span class="math inline">\mathbf{NP}</span>-complete</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/NP-complete-on-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><span class="math inline">\mathbf{NP}</span>-complete problems on graphs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ch4/exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">More exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -540,8 +587,8 @@ Figure&nbsp;21.3: The diagram corresponding to pumping with <span class="math in
 </figcaption>
 </figure>
 </div>
-<p>What do we know about <span class="math inline">u,v,w,x,y</span>? By the choice of <span class="math inline">A</span>, the depth of <span class="math inline">T_1</span> is at most <span class="math inline">N</span> and hence <span class="math inline">|vwx|\leq 2^N</span>. Moreover, since the parsing tree is binary, <span class="math inline">T_1\neq T_2</span>, which means <span class="math inline">|vx|\geq 1</span> since the grammar does not allow <span class="math inline">\varepsilon</span>-productions (apart from <span class="math inline">S\ \boldsymbol{\to}\ \varepsilon</span>) and the repeated variable cannot be <span class="math inline">S</span>.</p>
-<p>We can take <span class="math inline">i=0</span>, that is the word <span class="math inline">uwy</span> and show it cannot belong to <span class="math inline">L</span>. Since <span class="math inline">|vwx|\leq 2^N</span> this word cannot contain <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span>s, <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>s, and <span class="math inline">\textcolor{darkred}{\mathtt{c}}</span>s at the same time. Since a subword of <span class="math inline">\textcolor{darkred}{\mathtt{a}}^{2^N}\textcolor{darkred}{\mathtt{b}}^{2^N}\textcolor{darkred}{\mathtt{c}}^{2^N}</span> that contains $s, <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>s, and <span class="math inline">\textcolor{darkred}{\mathtt{c}}</span> must contain all <span class="math inline">\textcolor{darkred}{\mathtt{b}}^{2^N}</span> and some <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span>s and <span class="math inline">\textcolor{darkred}{\mathtt{c}}</span>s, that is it must have length at leat <span class="math inline">2+2^N&gt;|vwx|</span>. No matter what <span class="math inline">vwx</span> is there is always at least one symbol <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> not contained in <span class="math inline">vwx</span> and hence modifying <span class="math inline">vwx</span> into <span class="math inline">w</span> will not change the <span class="math inline">\textcolor{darkred}{\mathtt{s}}^{2^N}</span> part of <span class="math inline">z</span>. But <span class="math inline">|vx|\geq 1</span>, so going from <span class="math inline">vwx</span> to <span class="math inline">w</span> we removed at least one symbol different from <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span>. Hence it is impossible that <span class="math inline">uwy</span> has the form <span class="math inline">\textcolor{darkred}{\mathtt{a}}^k\textcolor{darkred}{\mathtt{b}}^k\textcolor{darkred}{\mathtt{c}}^k</span> for some <span class="math inline">k</span>, that is <span class="math inline">uwy\notin L</span>. Contradiction.</p>
+<p>What do we know about <span class="math inline">u,v,w,x,y</span>? By the choice of <span class="math inline">A</span>, the depth of <span class="math inline">T_1</span> is at most <span class="math inline">N</span> and hence <span class="math inline">|vwx|\leqslant 2^N</span>. Moreover, since the parsing tree is binary, <span class="math inline">T_1\neq T_2</span>, which means <span class="math inline">|vx|\geqslant 1</span> since the grammar does not allow <span class="math inline">\varepsilon</span>-productions (apart from <span class="math inline">S\ \boldsymbol{\to}\ \varepsilon</span>) and the repeated variable cannot be <span class="math inline">S</span>.</p>
+<p>We can take <span class="math inline">i=0</span>, that is the word <span class="math inline">uwy</span> and show it cannot belong to <span class="math inline">L</span>. Since <span class="math inline">|vwx|\leqslant 2^N</span> this word cannot contain <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span>s, <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>s, and <span class="math inline">\textcolor{darkred}{\mathtt{c}}</span>s at the same time. Since a subword of <span class="math inline">\textcolor{darkred}{\mathtt{a}}^{2^N}\textcolor{darkred}{\mathtt{b}}^{2^N}\textcolor{darkred}{\mathtt{c}}^{2^N}</span> that contains $s, <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>s, and <span class="math inline">\textcolor{darkred}{\mathtt{c}}</span> must contain all <span class="math inline">\textcolor{darkred}{\mathtt{b}}^{2^N}</span> and some <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span>s and <span class="math inline">\textcolor{darkred}{\mathtt{c}}</span>s, that is it must have length at leat <span class="math inline">2+2^N&gt;|vwx|</span>. No matter what <span class="math inline">vwx</span> is there is always at least one symbol <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> not contained in <span class="math inline">vwx</span> and hence modifying <span class="math inline">vwx</span> into <span class="math inline">w</span> will not change the <span class="math inline">\textcolor{darkred}{\mathtt{s}}^{2^N}</span> part of <span class="math inline">z</span>. But <span class="math inline">|vx|\geqslant 1</span>, so going from <span class="math inline">vwx</span> to <span class="math inline">w</span> we removed at least one symbol different from <span class="math inline">\textcolor{darkred}{\mathtt{s}}</span>. Hence it is impossible that <span class="math inline">uwy</span> has the form <span class="math inline">\textcolor{darkred}{\mathtt{a}}^k\textcolor{darkred}{\mathtt{b}}^k\textcolor{darkred}{\mathtt{c}}^k</span> for some <span class="math inline">k</span>, that is <span class="math inline">uwy\notin L</span>. Contradiction.</p>
 </div>
 </div>
 </div>
@@ -619,33 +666,33 @@ Figure&nbsp;21.3: The diagram corresponding to pumping with <span class="math in
 <div id="lem-puming-CFL" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 21.1 (Pumping Lemma for CFL)</strong></span> Let <span class="math inline">L\subseteq \Sigma^*</span>. If for every <span class="math inline">n\in \mathbb{N}</span>, there exist a word <span class="math inline">z\in \Sigma^*</span> s.t.</p>
 <ul>
-<li><span class="math inline">|z|\geq n</span>,</li>
+<li><span class="math inline">|z|\geqslant n</span>,</li>
 <li><span class="math inline">z\in L</span>, and</li>
-<li>for every <span class="math inline">u,v,w,x,y\in \Sigma^*</span> s.t. <span class="math inline">z=uvwxy</span> with <span class="math inline">|vwx|\leq n</span> and <span class="math inline">|vx|\geq 1</span>, there exists <span class="math inline">i\in \mathbb N</span> s.t. <span class="math inline">uv^iwx^iy\notin L</span>,</li>
+<li>for every <span class="math inline">u,v,w,x,y\in \Sigma^*</span> s.t. <span class="math inline">z=uvwxy</span> with <span class="math inline">|vwx|\leqslant n</span> and <span class="math inline">|vx|\geqslant 1</span>, there exists <span class="math inline">i\in \mathbb N</span> s.t. <span class="math inline">uv^iwx^iy\notin L</span>,</li>
 </ul>
 <p>then <span class="math inline">L\notin \mathbf{CFL}</span>.</p>
 </div>
 <p>As for the pumping lemma for regular languages (<a href="../ch1/non_regularity.html#lem-pumping-lemma-regular" class="quarto-xref">Lemma&nbsp;<span>14.1</span></a>), the use of the pumping lemma for context-free languages is essentially describing a winning strategy for the following game. Given a language we want to prove is not context-free:</p>
 <ul>
 <li>the “<em>adversary</em>” picks <span class="math inline">n\in \mathbb N</span>;</li>
-<li><span class="orange">we choose a word <span class="math inline">z\in L</span> with <span class="math inline">|z|\geq n</span> (as a function of <span class="math inline">n</span>)</span>;</li>
+<li><span class="orange">we choose a word <span class="math inline">z\in L</span> with <span class="math inline">|z|\geqslant n</span> (as a function of <span class="math inline">n</span>)</span>;</li>
 <li>the adversary chooses <span class="math inline">u,v,w,x,y</span> s.t.
 <ul>
 <li><span class="math inline">z=uvwxy</span></li>
-<li><span class="math inline">|vwx|\leq n</span></li>
-<li><span class="math inline">|vx|\geq 1</span></li>
+<li><span class="math inline">|vwx|\leqslant n</span></li>
+<li><span class="math inline">|vx|\geqslant 1</span></li>
 </ul></li>
 <li><span class="orange">we choose <span class="math inline">i\in \mathbb N</span> (as a function of <span class="math inline">n,u,v,w,x,y</span>)</span></li>
 <li>if <span class="orange">we prove that <span class="math inline">uv^iwx^iy\notin L</span></span> we win (<em>i.e.</em> we proved <span class="math inline">L</span> is not context-free).</li>
 </ul>
 <p>Hence a “template” for a proof using the pumping lemma for context-free languages is as follow:</p>
 <blockquote class="blockquote">
-<p>We prove that <span class="math inline">L</span> is not context-free using the pumping lemma for context-free languages. Let <span class="math inline">n</span> be the pumping-lemma constant. Consider the word <span class="orange"><span class="math inline">z=....</span></span>. We have that <span class="math inline">|z|\geq n</span> and <span class="math inline">z\in L</span> <span class="orange">(this needs an argument, possibly trivial, but you need to check it)</span>. Given an arbitrary decomposition of <span class="math inline">z</span> as <span class="math inline">z=uvwxy</span>, with <span class="math inline">|vwx|\leq n</span> and <span class="math inline">|vx|\geq 1</span>, consider <span class="orange"><span class="math inline">i=....</span></span>. We prove that <span class="math inline">uv^iwx^iy\notin L</span> <span class="orange">(this needs an argument, usually quite non-trivial)</span>.</p>
+<p>We prove that <span class="math inline">L</span> is not context-free using the pumping lemma for context-free languages. Let <span class="math inline">n</span> be the pumping-lemma constant. Consider the word <span class="orange"><span class="math inline">z=....</span></span>. We have that <span class="math inline">|z|\geqslant n</span> and <span class="math inline">z\in L</span> <span class="orange">(this needs an argument, possibly trivial, but you need to check it)</span>. Given an arbitrary decomposition of <span class="math inline">z</span> as <span class="math inline">z=uvwxy</span>, with <span class="math inline">|vwx|\leqslant n</span> and <span class="math inline">|vx|\geqslant 1</span>, consider <span class="orange"><span class="math inline">i=....</span></span>. We prove that <span class="math inline">uv^iwx^iy\notin L</span> <span class="orange">(this needs an argument, usually quite non-trivial)</span>.</p>
 </blockquote>
 <div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Example 21.2</strong></span> As an example, see how the template is filled following the argument we saw for <a href="#exm-an-bn-cn-not-CFL" class="quarto-xref">Example&nbsp;<span>21.1</span></a>:</p>
 <blockquote class="blockquote">
-<p>We prove that <span class="math inline">L</span> is not context-free using the pumping lemma for context-free languages. Let <span class="math inline">n</span> be the pumping-lemma contant. Consider the word <span class="orange"><span class="math inline">z=\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\textcolor{darkred}{\mathtt{c}}^n</span></span>. <span class="orange">It is immediate to check</span> that <span class="math inline">|z|\geq n</span> and <span class="math inline">z\in L</span>. Given an arbitrary decomposition of <span class="math inline">z</span> as <span class="math inline">z=uvwxy</span>, with <span class="math inline">|vwx|\leq n</span> and <span class="math inline">|vx|\geq 1</span>, consider <span class="orange"><span class="math inline">i=0</span></span>. We prove that <span class="math inline">uv^iwx^iy\notin L</span>. <span class="orange">Since <span class="math inline">|vwx|\leq n</span> this word cannot mention <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span>s, <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>s, and <span class="math inline">\textcolor{darkred}{\mathtt{c}}</span>s at the same time. Since otherwise it must contain all copues of <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>s and some <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span>s and <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>s, that is it must have length at least <span class="math inline">n+2&gt;|vwx|</span>. No matter what <span class="math inline">vwx</span> is there is always at least one symbol <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> not mentioned in <span class="math inline">vwx</span> and hence modifying <span class="math inline">vwx</span> into <span class="math inline">w</span> will not change the <span class="math inline">\textcolor{darkred}{\mathtt{s}}^n</span> part of <span class="math inline">z</span>. But <span class="math inline">|vx|\geq 1</span>, so going from <span class="math inline">vwx</span> to <span class="math inline">w</span> we removed at least one symbol different from <span class="math inline">s</span>. Hence it is impossible that <span class="math inline">uwy</span> has the form <span class="math inline">\textcolor{darkred}{\mathtt{a}}^k\textcolor{darkred}{\mathtt{b}}^k\textcolor{darkred}{\mathtt{c}}^k</span> for some <span class="math inline">k</span>, that is <span class="math inline">uv^0wx^0y=uwy\notin L</span>.</span></p>
+<p>We prove that <span class="math inline">L</span> is not context-free using the pumping lemma for context-free languages. Let <span class="math inline">n</span> be the pumping-lemma contant. Consider the word <span class="orange"><span class="math inline">z=\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\textcolor{darkred}{\mathtt{c}}^n</span></span>. <span class="orange">It is immediate to check</span> that <span class="math inline">|z|\geqslant n</span> and <span class="math inline">z\in L</span>. Given an arbitrary decomposition of <span class="math inline">z</span> as <span class="math inline">z=uvwxy</span>, with <span class="math inline">|vwx|\leqslant n</span> and <span class="math inline">|vx|\geqslant 1</span>, consider <span class="orange"><span class="math inline">i=0</span></span>. We prove that <span class="math inline">uv^iwx^iy\notin L</span>. <span class="orange">Since <span class="math inline">|vwx|\leqslant n</span> this word cannot mention <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span>s, <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>s, and <span class="math inline">\textcolor{darkred}{\mathtt{c}}</span>s at the same time. Since otherwise it must contain all copues of <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>s and some <span class="math inline">\textcolor{darkred}{\mathtt{a}}</span>s and <span class="math inline">\textcolor{darkred}{\mathtt{b}}</span>s, that is it must have length at least <span class="math inline">n+2&gt;|vwx|</span>. No matter what <span class="math inline">vwx</span> is there is always at least one symbol <span class="math inline">\textcolor{darkred}{\mathtt{s}}\in \{\textcolor{darkred}{\mathtt{a}},\textcolor{darkred}{\mathtt{b}},\textcolor{darkred}{\mathtt{c}}\}</span> not mentioned in <span class="math inline">vwx</span> and hence modifying <span class="math inline">vwx</span> into <span class="math inline">w</span> will not change the <span class="math inline">\textcolor{darkred}{\mathtt{s}}^n</span> part of <span class="math inline">z</span>. But <span class="math inline">|vx|\geqslant 1</span>, so going from <span class="math inline">vwx</span> to <span class="math inline">w</span> we removed at least one symbol different from <span class="math inline">s</span>. Hence it is impossible that <span class="math inline">uwy</span> has the form <span class="math inline">\textcolor{darkred}{\mathtt{a}}^k\textcolor{darkred}{\mathtt{b}}^k\textcolor{darkred}{\mathtt{c}}^k</span> for some <span class="math inline">k</span>, that is <span class="math inline">uv^0wx^0y=uwy\notin L</span>.</span></p>
 </blockquote>
 </div>
 <p>Although the overall structure is similar, usually applications of the pumping-lemma for context-free languages (<a href="#lem-puming-CFL" class="quarto-xref">Lemma&nbsp;<span>21.1</span></a>) require a more detailed case analysis than the pumping lemma for regular languages (<a href="../ch1/non_regularity.html#lem-pumping-lemma-regular" class="quarto-xref">Lemma&nbsp;<span>14.1</span></a>). This typically leads to quite “inelegant” proofs, and as in the case of regular languages often it is possible to prove the non-context-freeness of languages using closure properties and the known fact that some notable language is not context-free.</p>
@@ -682,7 +729,7 @@ Figure&nbsp;21.3: The diagram corresponding to pumping with <span class="math in
 <p><span class="theorem-title"><strong>Exercise 21.7</strong></span> Only using that <span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\textcolor{darkred}{\mathtt{c}}^n :n\in \mathbb{N}\}\notin\mathbf{CFL}</span> and the closure properties of <span class="math inline">\mathbf{CFL}</span> show that the following languages are also not in <span class="math inline">\mathbf{CFL}</span>:</p>
 <ol type="a">
 <li>(<span class="math inline">🌱</span>) <span class="math inline">\{\textcolor{darkred}{\mathtt{0}}^n\textcolor{darkred}{\mathtt{1}}^n\textcolor{darkred}{\mathtt{2}}^n :n\in \mathbb{N}\}</span></li>
-<li><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\textcolor{darkred}{\mathtt{c}}^n :n\in \mathbb{N} \land n\geq 1\}</span></li>
+<li><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\textcolor{darkred}{\mathtt{c}}^n :n\in \mathbb{N} \land n\geqslant 1\}</span></li>
 <li><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\textcolor{darkred}{\mathtt{c}}^n\textcolor{darkred}{\mathtt{d}}^n :n\in \mathbb{N}\}</span></li>
 <li><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^{2n}\textcolor{darkred}{\mathtt{b}}^n \textcolor{darkred}{\mathtt{c}}^n:n\in \mathbb{N}\}</span></li>
 <li><span class="math inline">\{\textcolor{darkred}{\mathtt{a}}^n\textcolor{darkred}{\mathtt{b}}^n\textcolor{darkred}{\mathtt{c}}^n :n\in 2\mathbb{N}\}</span></li>
