@@ -534,7 +534,7 @@ Important
 <p>Consider the problem <span class="math inline">\mathtt{TRIANGLEFREE}</span>: given an undirected graph <span class="math inline">G</span>, encoded as an adjacency matrix, decide whether <span class="math inline">G</span> contains no triangle. A <span class="def">triangle</span> is a set of three vertices <span class="math inline">u, v, w</span> that are pairwise connected: <span class="math inline">\{u,v\}, \{v,w\}, \{w,u\} \in E(G)</span>. Let <span class="math inline">n = |V(G)|</span>. What can we say about the algorithm that considers every set of three vertices and, for each one, checks whether they form a triangle?</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> It is <span class="math inline">\mathcal{O}(3n) = \mathcal{O}(n)</span>.
 </div>
@@ -542,7 +542,7 @@ Important
 <p>The algorithm looks at every <em>set</em> of three vertices, and there are <span class="math inline">\binom{n}{3} = \frac{n(n-1)(n-2)}{6}</span> of them. The <span class="math inline">3</span> is the size of each set, not a factor in front of <span class="math inline">n</span>. Since <span class="math inline">\binom{n}{3}</span> grows like <span class="math inline">n^3/6</span>, the algorithm is <span class="math inline">\mathcal{O}(n^3)</span>, not <span class="math inline">\mathcal{O}(n)</span>.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="true" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> It is <span class="math inline">\mathcal{O}(n^3)</span>, but it is not clear how to decide <span class="math inline">\mathtt{TRIANGLEFREE}</span> in linear time.
 </div>
@@ -550,7 +550,7 @@ Important
 <p>There are <span class="math inline">\binom{n}{3} = \mathcal{O}(n^3)</span> sets of three vertices, and each one is checked with three lookups in the adjacency matrix, so the algorithm runs in time <span class="math inline">\mathcal{O}(n^3)</span>. The input is an <span class="math inline">n \times n</span> matrix, so its size is <span class="math inline">N = n^2</span>, and linear time means <span class="math inline">\mathcal{O}(n^2)</span>. The best known algorithms reduce triangle detection to matrix multiplication and take about <span class="math inline">\mathcal{O}(n^{2.37})</span>. Whether time <span class="math inline">\mathcal{O}(n^2)</span> is possible is an open problem.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> It is <span class="math inline">\mathcal{O}(3^n)</span>, and it is not clear how to decide <span class="math inline">\mathtt{TRIANGLEFREE}</span> in polynomial time.
 </div>
@@ -558,7 +558,7 @@ Important
 <p>The number of sets of three vertices is <span class="math inline">\binom{n}{3} \leqslant n^3</span>, which is <em>polynomial</em> in <span class="math inline">n</span>, not exponential. Exponentially many subsets appear only when the size of the subsets is part of the input, as in <span class="math inline">\mathtt{CLIQUE}</span>. Here the size is fixed at <span class="math inline">3</span>, so the brute-force algorithm already runs in polynomial time.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> None of the other answers is correct.
 </div>
@@ -576,7 +576,7 @@ Important
 </span> for every <span class="math inline">k \geqslant 4</span>. Which of the following ideas leads to a correct reduction? Given an undirected graph <span class="math inline">G</span> as input, we build a graph <span class="math inline">G'</span> consisting of</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> the disjoint union of <span class="math inline">G</span> and a <span class="math inline">k</span>-clique.
 </div>
@@ -584,7 +584,7 @@ Important
 <p>The <span class="math inline">k</span>-clique can be colored with <span class="math inline">k</span> colors on its own, and since it is not connected to <span class="math inline">G</span>, it puts no constraint on <span class="math inline">G</span>. So <span class="math inline">G'</span> is <span class="math inline">k</span>-colorable if and only if <span class="math inline">G</span> is <span class="math inline">k</span>-colorable, which is a different question from whether <span class="math inline">G</span> is <span class="math inline">3</span>-colorable. For example, take <span class="math inline">k = 4</span> and <span class="math inline">G = K_4</span>. Then <span class="math inline">G</span> is not <span class="math inline">3</span>-colorable, but <span class="math inline">G'</span> is <span class="math inline">4</span>-colorable, so the reduction maps a no-instance to a yes-instance.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> the union of <span class="math inline">G</span> and a <span class="math inline">k</span>-clique, plus all possible edges between the copy of <span class="math inline">G</span> and the <span class="math inline">k</span>-clique.
 </div>
@@ -592,7 +592,7 @@ Important
 <p>The <span class="math inline">k</span>-clique uses all <span class="math inline">k</span> colors, and every vertex of <span class="math inline">G</span> is adjacent to all of them. So, as soon as <span class="math inline">G</span> has a vertex, <span class="math inline">G'</span> contains a <span class="math inline">(k+1)</span>-clique and is never <span class="math inline">k</span>-colorable. The reduction maps every graph, including the <span class="math inline">3</span>-colorable ones, to a no-instance.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> the disjoint union of <span class="math inline">G</span> and a <span class="math inline">(k-3)</span>-clique.
 </div>
@@ -600,7 +600,7 @@ Important
 <p>Since the <span class="math inline">(k-3)</span>-clique is not connected to <span class="math inline">G</span>, it does not restrict the colors available to <span class="math inline">G</span>. So <span class="math inline">G'</span> is <span class="math inline">k</span>-colorable if and only if <span class="math inline">G</span> is <span class="math inline">k</span>-colorable, not <span class="math inline">3</span>-colorable. The same counterexample as before works: <span class="math inline">G = K_4</span> with <span class="math inline">k = 4</span> is not <span class="math inline">3</span>-colorable, but <span class="math inline">G'</span> is <span class="math inline">4</span>-colorable.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="true" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> the union of <span class="math inline">G</span> and a <span class="math inline">(k-3)</span>-clique, plus all possible edges between the copy of <span class="math inline">G</span> and the <span class="math inline">(k-3)</span>-clique.
 </div>
@@ -616,7 +616,7 @@ Important
 <p>Since the relation <span class="math inline">\equiv_m^p</span> is an equivalence relation, it divides the class <span class="math inline">\mathbf{P}</span> into equivalence classes. How many?</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> 1
 </div>
@@ -624,7 +624,7 @@ Important
 <p>Not every language in <span class="math inline">\mathbf{P}</span> is equivalent to every other. The language <span class="math inline">\emptyset</span> only reduces to itself: if <span class="math inline">L \leqslant_m^p \emptyset</span>, then <span class="math inline">w \in L \iff f(w) \in \emptyset</span>, so <span class="math inline">L = \emptyset</span>. In the same way, only <span class="math inline">\Sigma^*</span> reduces to <span class="math inline">\Sigma^*</span>. So <span class="math inline">\emptyset</span> and <span class="math inline">\Sigma^*</span> are each alone in their class.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> 2
 </div>
@@ -632,7 +632,7 @@ Important
 <p>The two trivial languages <span class="math inline">\emptyset</span> and <span class="math inline">\Sigma^*</span> are not equivalent to each other, nor to any other language: the only language that reduces to <span class="math inline">\emptyset</span> is <span class="math inline">\emptyset</span> itself, and the only one that reduces to <span class="math inline">\Sigma^*</span> is <span class="math inline">\Sigma^*</span>. Together with the class of all the remaining languages in <span class="math inline">\mathbf{P}</span>, this gives more than two classes.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="true" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> 3
 </div>
@@ -640,7 +640,7 @@ Important
 <p>The classes are <span class="math inline">\{\emptyset\}</span>, <span class="math inline">\{\Sigma^*\}</span> and all the other languages in <span class="math inline">\mathbf{P}</span>. If <span class="math inline">L_1, L_2 \in \mathbf{P}</span> and <span class="math inline">L_2 \neq \emptyset, \Sigma^*</span>, then <span class="math inline">L_1 \leqslant_m^p L_2</span>: fix a word <span class="math inline">y \in L_2</span> and a word <span class="math inline">n \notin L_2</span>, and let <span class="math inline">f(w) = y</span> if <span class="math inline">w \in L_1</span> and <span class="math inline">f(w) = n</span> otherwise. This <span class="math inline">f</span> is computable in polynomial time, because the reduction can decide <span class="math inline">L_1</span> by itself. So all nontrivial languages in <span class="math inline">\mathbf{P}</span> are equivalent. On the other hand, only <span class="math inline">\emptyset</span> reduces to <span class="math inline">\emptyset</span> and only <span class="math inline">\Sigma^*</span> reduces to <span class="math inline">\Sigma^*</span>.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> <span class="math inline">\infty</span>
 </div>
@@ -657,7 +657,7 @@ Important
 <img src="exercises_files/mediabag/704089e65cd6cc2924aa53703322702b486c7697.svg" class="img-fluid">
 </div>
 <div class="quiz-options">
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> (a) and (b)
 </div>
@@ -665,7 +665,7 @@ Important
 <p>In graph (b), the vertices <span class="math inline">6</span>, <span class="math inline">8</span> and <span class="math inline">10</span> form a triangle. Graph (a) is the Petersen graph, which has no triangles (it has no cycles of length less than <span class="math inline">5</span>). An isomorphism maps triangles to triangles, so (a) and (b) are not isomorphic. Also, (b) has two vertices of degree <span class="math inline">4</span>, while every vertex of (a) has degree <span class="math inline">3</span>.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> (c) and (d)
 </div>
@@ -673,7 +673,7 @@ Important
 <p>Graph (d) contains cycles of length <span class="math inline">4</span>, for example <span class="math inline">1, 2, 7, 6</span>. Graph (c) has no cycle of length less than <span class="math inline">5</span>. An isomorphism maps <span class="math inline">4</span>-cycles to <span class="math inline">4</span>-cycles, so (c) and (d) are not isomorphic, even though both have <span class="math inline">10</span> vertices of degree <span class="math inline">3</span> and <span class="math inline">15</span> edges.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="true" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> (a) and (c)
 </div>
@@ -683,7 +683,7 @@ Important
 </span> sends every edge of (a) to an edge of (c), and both graphs have <span class="math inline">15</span> edges, so it is an isomorphism. Note how different the two drawings look. In general, no polynomial-time algorithm for graph isomorphism is known, although it is not believed to be <span class="math inline">\mathbf{NP}</span>-complete.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> (b) and (d)
 </div>
@@ -703,7 +703,7 @@ Important
 <p>What can we say about this problem?</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> It is equivalent to <span class="math inline">\mathtt{GI}</span>.
 </div>
@@ -711,7 +711,7 @@ Important
 <p><span class="math inline">\mathtt{GI}</span> reduces to <span class="math inline">\mathtt{SGI}</span>: two graphs with the same number of vertices and edges are isomorphic if and only if one is isomorphic to a subgraph of the other. But <span class="math inline">\mathtt{SGI}</span> is <span class="math inline">\mathbf{NP}</span>-complete, so if it reduced to <span class="math inline">\mathtt{GI}</span>, then <span class="math inline">\mathtt{GI}</span> would be <span class="math inline">\mathbf{NP}</span>-complete too, which is believed to be false. So we cannot claim that the two problems are equivalent.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> It is in <span class="math inline">\mathbf{P}</span>.
 </div>
@@ -719,7 +719,7 @@ Important
 <p><span class="math inline">\mathtt{SGI}</span> is <span class="math inline">\mathbf{NP}</span>-complete (see the correct answer), so it is in <span class="math inline">\mathbf{P}</span> only if <span class="math inline">\mathbf{P}= \mathbf{NP}</span>. We cannot claim this.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="true" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> It is <span class="math inline">\mathbf{NP}</span>-complete.
 </div>
@@ -727,7 +727,7 @@ Important
 <p><span class="math inline">\mathtt{SGI} \in \mathbf{NP}</span>: a certificate is the subgraph of <span class="math inline">G</span> together with the isomorphism, and both can be checked in polynomial time. It is <span class="math inline">\mathbf{NP}</span>-hard because <span class="math inline">\mathtt{CLIQUE}\leqslant_m^p \mathtt{SGI}</span>: map <span class="math inline">\langle G, k \rangle</span> to <span class="math inline">\langle G, K_k \rangle</span>, where <span class="math inline">K_k</span> is the complete graph on <span class="math inline">k</span> vertices. A subgraph of <span class="math inline">G</span> isomorphic to <span class="math inline">K_k</span> is exactly a <span class="math inline">k</span>-clique in <span class="math inline">G</span>. Unlike <span class="math inline">\mathtt{GI}</span>, which is a candidate <span class="math inline">\mathbf{NP}</span>-intermediate problem, <span class="math inline">\mathtt{SGI}</span> is as hard as any problem in <span class="math inline">\mathbf{NP}</span>.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> None of the above.
 </div>
@@ -741,11 +741,11 @@ Important
 <p><span class="theorem-title"><strong>Exercise 35.6 (Minimal formulas)</strong></span> &nbsp;</p>
 <div class="quiz-question">
 <p>Two Boolean formulas <span class="math inline">F</span> and <span class="math inline">F'</span> over <span class="math inline">n</span> variables are <span class="def">equivalent</span> if <span class="math inline">F(\alpha) = F'(\alpha)</span> for every <span class="math inline">\alpha \in \{0,1\}^n</span>. We define the problem <span class="math display">
-\mathtt{MIN}\text{-}\mathtt{DNF} = \{\, \langle F \rangle : F \text{ is a Boolean formula with no smaller equivalent formula} \,\}.
-</span> Which class can we guarantee that <span class="math inline">\mathtt{MIN}\text{-}\mathtt{DNF}</span> belongs to?</p>
+\mathtt{MIN}\text{-}\mathtt{FRM} = \{\, \langle F \rangle : F \text{ is a Boolean formula with no smaller equivalent formula} \,\}.
+</span> Which class can we guarantee that <span class="math inline">\mathtt{MIN}\text{-}\mathtt{FRM}</span> belongs to?</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> <span class="math inline">\mathbf{NP}</span>
 </div>
@@ -753,7 +753,7 @@ Important
 <p>To show that <span class="math inline">F</span> is minimal, it is not enough to exhibit one object: we must rule out <em>every</em> smaller formula. A short certificate for “no smaller formula is equivalent” is not known. What is easy to certify is the opposite, that <span class="math inline">F</span> is <em>not</em> minimal, and even that needs two quantifiers (see the correct answer).</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> <span class="math inline">\mathbf{co}\mathbf{NP}</span>
 </div>
@@ -761,22 +761,146 @@ Important
 <p>The statement “for every smaller formula <span class="math inline">F'</span>, <span class="math inline">F'</span> is not equivalent to <span class="math inline">F</span>” starts with a universal quantifier, but “not equivalent” is itself an existential statement: there is an <span class="math inline">\alpha</span> with <span class="math inline">F(\alpha) \neq F'(\alpha)</span>. So the definition has the form <span class="math inline">\forall F'\, \exists \alpha</span>, with two quantifiers, and a single <span class="math inline">\forall</span> followed by a polynomial-time check is not known to suffice.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="false" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> <span class="math inline">\Sigma_2^p</span>
 </div>
 <div class="quiz-explanation">
-<p>It is the <em>complement</em> of <span class="math inline">\mathtt{MIN}\text{-}\mathtt{DNF}</span> that is in <span class="math inline">\Sigma_2^p</span>: <span class="math inline">F</span> is not minimal if and only if <span class="math inline">\exists F'\, \forall \alpha\, \big[\, |F'| &lt; |F| \text{ and } F'(\alpha) = F(\alpha) \,\big]</span>. <span class="math inline">\mathtt{MIN}\text{-}\mathtt{DNF}</span> itself has the form <span class="math inline">\forall\, \exists</span>, and it is not known to be in <span class="math inline">\Sigma_2^p</span>.</p>
+<p>It is the <em>complement</em> of <span class="math inline">\mathtt{MIN}\text{-}\mathtt{FRM}</span> that is in <span class="math inline">\Sigma_2^p</span>: <span class="math inline">F</span> is not minimal if and only if <span class="math inline">\exists F'\, \forall \alpha\, \big[\, |F'| &lt; |F| \text{ and } F'(\alpha) = F(\alpha) \,\big]</span>. <span class="math inline">\mathtt{MIN}\text{-}\mathtt{FRM}</span> itself has the form <span class="math inline">\forall\, \exists</span>, and it is not known to be in <span class="math inline">\Sigma_2^p</span>.</p>
 </div>
 </div>
-<div class="quiz-option" data-correct="true" role="button" tabindex="0">
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> <span class="math inline">\Pi_2^p</span>
 </div>
 <div class="quiz-explanation">
 <p>By definition, <span class="math display">
-\langle F \rangle \in \mathtt{MIN}\text{-}\mathtt{DNF} \iff \forall F'\ \exists \alpha\ \big[\, |F'| &lt; |F| \Rightarrow F'(\alpha) \neq F(\alpha) \,\big].
-</span> Both <span class="math inline">F'</span> and <span class="math inline">\alpha</span> have length at most <span class="math inline">|\langle F \rangle|</span>, and the condition in brackets can be checked in polynomial time by evaluating both formulas. This is a <span class="math inline">\forall\, \exists</span> statement followed by a polynomial-time check, so <span class="math inline">\mathtt{MIN}\text{-}\mathtt{DNF} \in \Pi_2^p</span>.</p>
+\langle F \rangle \in \mathtt{MIN}\text{-}\mathtt{FRM} \iff \forall F'\ \exists \alpha\ \big[\, |F'| &lt; |F| \Rightarrow F'(\alpha) \neq F(\alpha) \,\big].
+</span> Both <span class="math inline">F'</span> and <span class="math inline">\alpha</span> have length at most <span class="math inline">|\langle F \rangle|</span>, and the condition in brackets can be checked in polynomial time by evaluating both formulas. This is a <span class="math inline">\forall\, \exists</span> statement followed by a polynomial-time check, so <span class="math inline">\mathtt{MIN}\text{-}\mathtt{FRM} \in \Pi_2^p</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-pe2-exact-vc" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 35.7 (Exact vertex cover (Partial exam 2, 05/06/2026))</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>A <span class="def">vertex cover</span> of a graph <span class="math inline">G</span> is a subset of its vertices that includes at least one endpoint of every edge of <span class="math inline">G</span>. Consider the <span class="math inline">\mathsf{EXACT\ VERTEX\ COVER}</span> problem: “given a graph <span class="math inline">G</span> and an integer <span class="math inline">k</span>, is the <em>minimum</em> size of a vertex cover of <span class="math inline">G</span> exactly <span class="math inline">k</span>?”</p>
+<p>With the theory seen in this course, you can prove that three of the following four statements are true. Which is the remaining one?</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> <span class="math inline">\mathsf{EXACT\ VERTEX\ COVER} \in \Sigma_1^p \cup \Pi_1^p</span>.
+</div>
+<div class="quiz-explanation">
+<p>This is the statement we cannot prove. “The minimum is exactly <span class="math inline">k</span>” says two things: there <em>is</em> a vertex cover of size <span class="math inline">k</span>, which is an <span class="math inline">\mathbf{NP}</span> condition, and there is <em>no</em> vertex cover of size <span class="math inline">k-1</span>, which is a <span class="math inline">\mathbf{co}\mathbf{NP}</span> condition. So the problem is the intersection of a language in <span class="math inline">\mathbf{NP}= \Sigma_1^p</span> and a language in <span class="math inline">\mathbf{co}\mathbf{NP}= \Pi_1^p</span>. Nothing seen in the course shows that it is in <span class="math inline">\mathbf{NP}</span> or in <span class="math inline">\mathbf{co}\mathbf{NP}</span>, and this is believed to be false.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> The complement of <span class="math inline">\mathsf{EXACT\ VERTEX\ COVER}</span> belongs to <span class="math inline">\Pi_2^p</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is true. <span class="math inline">\mathsf{EXACT\ VERTEX\ COVER} \in \Sigma_2^p</span>: <span class="math display">
+\langle G, k \rangle \in \mathsf{EXACT\ VERTEX\ COVER} \iff \exists C\ \forall C'\ \big[\, C \text{ is a vertex cover of size } k, \text{ and } C' \text{ is not a vertex cover of size } k-1 \,\big],
+</span> and both conditions can be checked in polynomial time. Taking complements swaps <span class="math inline">\Sigma_2^p</span> and <span class="math inline">\Pi_2^p</span>, so the complement is in <span class="math inline">\Pi_2^p</span>.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">\mathsf{EXACT\ VERTEX\ COVER} \in \Sigma_3^p</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is true. As shown in the previous option, <span class="math inline">\mathsf{EXACT\ VERTEX\ COVER} \in \Sigma_2^p</span>, and <span class="math inline">\Sigma_2^p \subseteq \Sigma_3^p</span>, because a verifier can ignore an extra certificate.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> If <span class="math inline">\mathsf{EXACT\ VERTEX\ COVER} \notin \Sigma_1^p</span>, then <span class="math inline">\Sigma_1^p \neq \Pi_1^p</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is true. Consider the contrapositive: if <span class="math inline">\Sigma_1^p = \Pi_1^p</span>, then the polynomial hierarchy collapses to <span class="math inline">\Sigma_1^p</span>, so <span class="math inline">\Sigma_2^p = \Sigma_1^p</span>. Since <span class="math inline">\mathsf{EXACT\ VERTEX\ COVER} \in \Sigma_2^p</span>, it would then be in <span class="math inline">\Sigma_1^p</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-pe2-planar-coloring" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 35.8 (Coloring planar graphs (Partial exam 2, 05/06/2026))</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Most computer scientists believe that <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>. Under this belief, one of the following statements is false. Which one?</p>
+<p>Recall that all planar graphs are <span class="math inline">4</span>-colorable, and that a <span class="math inline">4</span>-coloring can be computed in polynomial time. Moreover, given a planar graph <span class="math inline">G</span>, deciding whether <span class="math inline">G</span> is <span class="math inline">3</span>-colorable is known to be <span class="math inline">\mathbf{NP}</span>-hard.</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> There is some planar graph which is not <span class="math inline">3</span>-colorable.
+</div>
+<div class="quiz-explanation">
+<p>This statement is true. The complete graph <span class="math inline">K_4</span> is planar (draw a triangle with one vertex in the middle, joined to the three corners), and it is not <span class="math inline">3</span>-colorable, because its four vertices are pairwise adjacent and need four different colors.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> Given a graph <span class="math inline">G</span> and a <span class="math inline">4</span>-coloring of it, deciding whether <span class="math inline">G</span> is <span class="math inline">3</span>-colorable is a problem in <span class="math inline">\mathbf{P}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is false under the assumption <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>. The last option shows that this problem is <span class="math inline">\mathbf{NP}</span>-hard. An <span class="math inline">\mathbf{NP}</span>-hard problem in <span class="math inline">\mathbf{P}</span> would give <span class="math inline">\mathbf{P}= \mathbf{NP}</span>. Knowing a <span class="math inline">4</span>-coloring does not help to find a <span class="math inline">3</span>-coloring.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> Given a graph <span class="math inline">G</span> with <span class="math inline">n</span> vertices, deciding whether <span class="math inline">G</span> is <span class="math inline">n</span>-colorable is a problem in <span class="math inline">\mathbf{P}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is true, and the problem is trivial: every graph with <span class="math inline">n</span> vertices is <span class="math inline">n</span>-colorable, by giving each vertex a different color. So the algorithm always answers yes. This does not contradict the hardness of <span class="math inline">3\text{-}\mathtt{COLORING}</span>, because here the number of colors grows with the graph.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> Given a graph <span class="math inline">G</span> and a <span class="math inline">4</span>-coloring of it, deciding whether <span class="math inline">G</span> is <span class="math inline">3</span>-colorable is <span class="math inline">\mathbf{NP}</span>-hard.
+</div>
+<div class="quiz-explanation">
+<p>This statement is true. We reduce <span class="math inline">3</span>-colorability of planar graphs, which is <span class="math inline">\mathbf{NP}</span>-hard, to this problem. Map a planar graph <span class="math inline">G</span> to the pair <span class="math inline">(G, c)</span>, where <span class="math inline">c</span> is a <span class="math inline">4</span>-coloring of <span class="math inline">G</span>. Since <span class="math inline">G</span> is planar, <span class="math inline">c</span> exists and can be computed in polynomial time. Clearly, <span class="math inline">G</span> is <span class="math inline">3</span>-colorable if and only if <span class="math inline">(G, c)</span> is a yes-instance.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-pe2-dichotomy" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 35.9 (A dichotomy for <span class="math inline">\mathbf{NP}</span> (Partial exam 2, 05/06/2026))</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Suppose that every problem in <span class="math inline">\mathbf{NP}</span> is either in <span class="math inline">\mathbf{P}</span> or <span class="math inline">\mathbf{NP}</span>-complete. Which of the following statements is true?</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> <span class="math inline">\mathbf{P}= \mathbf{NP}</span> and <span class="math inline">\mathbf{NP}= \mathbf{EXP}</span>
+</div>
+<div class="quiz-explanation">
+<p>The two equalities together would give <span class="math inline">\mathbf{P}= \mathbf{EXP}</span>. This contradicts the time hierarchy theorem, which shows that <span class="math inline">\mathbf{P}\neq \mathbf{EXP}</span>, whatever we assume about <span class="math inline">\mathbf{NP}</span>.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span> and <span class="math inline">\mathbf{NP}= \mathbf{EXP}</span>
+</div>
+<div class="quiz-explanation">
+<p>By Ladner’s theorem, if <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, then there is a problem in <span class="math inline">\mathbf{NP}</span> that is neither in <span class="math inline">\mathbf{P}</span> nor <span class="math inline">\mathbf{NP}</span>-complete. This contradicts the assumption, so <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span> is impossible here.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">\mathbf{P}= \mathbf{NP}</span> and <span class="math inline">\mathbf{NP}\neq \mathbf{EXP}</span>
+</div>
+<div class="quiz-explanation">
+<p>If we had <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span>, Ladner’s theorem would give an <span class="math inline">\mathbf{NP}</span>-intermediate problem, contradicting the assumption. So <span class="math inline">\mathbf{P}= \mathbf{NP}</span>. Then <span class="math inline">\mathbf{NP}= \mathbf{P}\neq \mathbf{EXP}</span> by the time hierarchy theorem. In general, <span class="math inline">\mathbf{P}\subseteq \mathbf{NP}\subseteq \mathbf{EXP}</span> and at least one inclusion is strict. Here the assumption forces the first inclusion to be an equality, so the second must be strict.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span> and <span class="math inline">\mathbf{NP}\neq \mathbf{EXP}</span>
+</div>
+<div class="quiz-explanation">
+<p>By Ladner’s theorem, <span class="math inline">\mathbf{P}\neq \mathbf{NP}</span> would imply the existence of an <span class="math inline">\mathbf{NP}</span>-intermediate problem, contradicting the assumption that every problem in <span class="math inline">\mathbf{NP}</span> is in <span class="math inline">\mathbf{P}</span> or <span class="math inline">\mathbf{NP}</span>-complete. So <span class="math inline">\mathbf{P}= \mathbf{NP}</span>, and this option is false.</p>
 </div>
 </div>
 </div>

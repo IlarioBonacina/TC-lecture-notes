@@ -650,6 +650,173 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 </div>
 </div>
 </div>
+<div id="exr-pe2-right-moving" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 28.4 (Right-moving Turing machines (Partial exam 2, 05/06/2026))</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>A Turing machine is called <span class="def">right-moving</span> if its head can never move to the left or stay in the same position (that is, it can only move to the right). What is the class of languages accepted by right-moving Turing machines?</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> The languages in <span class="math inline">\mathbf{P}</span>.
+</div>
+<div class="quiz-explanation">
+<p><span class="math inline">\mathbf{P}</span> contains non-regular languages such as <span class="math inline">\{0^n 1^n :n \geqslant 0\}</span>, which a right-moving TM cannot accept. Such a machine reads each input symbol exactly once, from left to right, and can never come back to anything it has written. So the only memory it has is its finite set of states, and it cannot count the <span class="math inline">0</span>s in order to compare them with the <span class="math inline">1</span>s.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> The context-free languages.
+</div>
+<div class="quiz-explanation">
+<p>A right-moving TM cannot even accept the context-free language <span class="math inline">\{0^n 1^n :n \geqslant 0\}</span>. Unlike a pushdown automaton, it has no stack: everything it writes is left behind, to the left of the head, and it can never read it again. Its only memory is its finite set of states.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> The recursive languages.
+</div>
+<div class="quiz-explanation">
+<p>Being able to move left is essential for a TM to use its tape as memory. A right-moving TM reads each input symbol once and never revisits a cell, so it behaves like a finite automaton. It cannot accept non-regular decidable languages such as <span class="math inline">\{0^n 1^n :n \geqslant 0\}</span>.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> The regular languages.
+</div>
+<div class="quiz-explanation">
+<p>A right-moving TM scans its input from left to right, one symbol per step, and whatever it writes lands in cells it will never visit again. So its behaviour depends only on its current state and the current input symbol, exactly like a DFA. After the input, it only reads blanks, and its behaviour from then on depends only on the state in which it left the input, so a DFA can tell in advance whether it will eventually accept. Conversely, every DFA is a right-moving TM. Hence right-moving TMs accept exactly the regular languages.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-pe2-halting-set" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 28.5 (Where a machine does not halt (Partial exam 2, 05/06/2026))</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Let <span class="math inline">M</span> be a Turing machine, let <span class="math inline">A = \mathcal{L}(M)</span> be the language recognized by <span class="math inline">M</span>, and let <span class="math inline">B = \{w :M(w)\uparrow\}</span> be the set of words on which <span class="math inline">M</span> does not halt. Which of the following statements is <strong>false</strong> for some <span class="math inline">M</span>?</p>
+<p>Recall that <span class="math inline">\mathbf{R}</span> is the class of all decidable languages, and that a set <span class="math inline">S</span> is <span class="def">cofinite</span> if <span class="math inline">\overline{S}</span> is finite.</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> If <span class="math inline">B</span> is cofinite, then <span class="math inline">A \in \mathbf{R}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is always true. <span class="math inline">M</span> can only accept words on which it halts, so <span class="math inline">A \subseteq \overline{B}</span>. If <span class="math inline">B</span> is cofinite, then <span class="math inline">\overline{B}</span> is finite, so <span class="math inline">A</span> is finite, and every finite language is decidable.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> If <span class="math inline">B</span> is finite, then <span class="math inline">A \in \mathbf{R}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is always true. If <span class="math inline">B</span> is finite, a decider for <span class="math inline">A</span> can store the finitely many words of <span class="math inline">B</span>. On input <span class="math inline">w</span>, it rejects if <span class="math inline">w \in B</span>, because <span class="math inline">M</span> does not halt on <span class="math inline">w</span> and so does not accept it. Otherwise, it simulates <span class="math inline">M</span> on <span class="math inline">w</span>, which is guaranteed to halt, and gives the same answer.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">A \in \mathbf{RE}</span> independently of <span class="math inline">B</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is always true. By definition, <span class="math inline">A = \mathcal{L}(M)</span> is recognized by the Turing machine <span class="math inline">M</span>, so <span class="math inline">A \in \mathbf{RE}</span>, whatever <span class="math inline">B</span> is.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> If <span class="math inline">B</span> is infinite, then <span class="math inline">A \in \mathbf{R}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement fails for some <span class="math inline">M</span>. Let <span class="math inline">K = \{p :M_p(p)\downarrow\}</span>. Then <span class="math inline">K \in \mathbf{RE}</span>, so <span class="math inline">K = \mathcal{L}(M)</span> for some TM <span class="math inline">M</span>, and we can take <span class="math inline">A = K</span>. We know that <span class="math inline">K \notin \mathbf{R}</span>. Moreover, <span class="math inline">B</span> is infinite: there are infinitely many programs <span class="math inline">p</span> with <span class="math inline">M_p(p)\uparrow</span>, and on each of them <span class="math inline">M</span> does not halt. So <span class="math inline">B</span> is infinite but <span class="math inline">A \notin \mathbf{R}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-pe2-finite-image" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 28.6 (Programs with finite image (Partial exam 2, 05/06/2026))</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Consider the language <span class="math inline">L = \{\, p :\mathrm{Im}(\varphi_p) \text{ is finite} \,\}</span>, where <span class="math inline">\varphi_p</span> is the function computed by the program <span class="math inline">p</span>. Which of the following is true?</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> <span class="math inline">L \in \mathbf{co}\mathbf{RE}\setminus \mathbf{R}</span>
+</div>
+<div class="quiz-explanation">
+<p><span class="math inline">L</span> is not in <span class="math inline">\mathbf{co}\mathbf{RE}</span>, because <span class="math inline">K \leqslant_m L</span>. Given <span class="math inline">x</span>, build a program <span class="math inline">p_x</span> that, on input <span class="math inline">y</span>, outputs <span class="math inline">1</span> if <span class="math inline">M_x(x)</span> halts within <span class="math inline">|y|</span> steps, and outputs <span class="math inline">y</span> otherwise. If <span class="math inline">M_x(x)\downarrow</span> in <span class="math inline">t</span> steps, then <span class="math inline">p_x</span> outputs <span class="math inline">1</span> on all inputs of length at least <span class="math inline">t</span>, so its image is finite. If <span class="math inline">M_x(x)\uparrow</span>, then <span class="math inline">p_x</span> computes the identity, whose image is infinite. So <span class="math inline">x \in K \iff p_x \in L</span>, and since <span class="math inline">K \notin \mathbf{co}\mathbf{RE}</span>, also <span class="math inline">L \notin \mathbf{co}\mathbf{RE}</span>.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> <span class="math inline">L \in \mathbf{R}</span>
+</div>
+<div class="quiz-explanation">
+<p><span class="math inline">L</span> is not decidable. By Rice’s theorem, “the image of <span class="math inline">\varphi_p</span> is finite” is a nontrivial semantic property, so <span class="math inline">L \notin \mathbf{R}</span>. In fact, <span class="math inline">L</span> is not even in <span class="math inline">\mathbf{RE}\cup \mathbf{co}\mathbf{RE}</span> (see the correct answer).</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> <span class="math inline">L \in \mathbf{RE}\setminus \mathbf{R}</span>
+</div>
+<div class="quiz-explanation">
+<p><span class="math inline">L</span> is not in <span class="math inline">\mathbf{RE}</span>, because <span class="math inline">\overline{K} \leqslant_m L</span>. Given <span class="math inline">x</span>, build a program <span class="math inline">q_x</span> that, on input <span class="math inline">y</span>, first runs <span class="math inline">M_x(x)</span> and then outputs <span class="math inline">y</span>. If <span class="math inline">M_x(x)\downarrow</span>, then <span class="math inline">q_x</span> computes the identity, whose image is infinite. If <span class="math inline">M_x(x)\uparrow</span>, then <span class="math inline">q_x</span> never outputs anything, so its image is empty, and hence finite. So <span class="math inline">x \in \overline{K} \iff q_x \in L</span>, and since <span class="math inline">\overline{K} \notin \mathbf{RE}</span>, also <span class="math inline">L \notin \mathbf{RE}</span>.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> <span class="math inline">L \notin \mathbf{RE}\cup \mathbf{co}\mathbf{RE}</span>
+</div>
+<div class="quiz-explanation">
+<p>We give two reductions.</p>
+<ul>
+<li><span class="math inline">\overline{K} \leqslant_m L</span>: map <span class="math inline">x</span> to a program that runs <span class="math inline">M_x(x)</span> and then outputs its input <span class="math inline">y</span>. Its image is empty if <span class="math inline">M_x(x)\uparrow</span> and infinite if <span class="math inline">M_x(x)\downarrow</span>. Hence <span class="math inline">L \notin \mathbf{RE}</span>.</li>
+<li><span class="math inline">K \leqslant_m L</span>: map <span class="math inline">x</span> to a program that, on input <span class="math inline">y</span>, outputs <span class="math inline">1</span> if <span class="math inline">M_x(x)</span> halts within <span class="math inline">|y|</span> steps, and outputs <span class="math inline">y</span> otherwise. Its image is finite if <span class="math inline">M_x(x)\downarrow</span> and infinite if <span class="math inline">M_x(x)\uparrow</span>. Hence <span class="math inline">L \notin \mathbf{co}\mathbf{RE}</span>.</li>
+</ul>
+<p>So <span class="math inline">L</span> is neither in <span class="math inline">\mathbf{RE}</span> nor in <span class="math inline">\mathbf{co}\mathbf{RE}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-pe2-reductions" class="quiz theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 28.7 (Many-one reductions and complexity classes (Partial exam 2, 05/06/2026))</strong></span> &nbsp;</p>
+<div class="quiz-question">
+<p>Which of the following statements is correct?</p>
+<p>Recall that <span class="math inline">\mathbf{P}</span> is the class of languages decidable in polynomial time, and that <span class="math inline">A \leqslant_m B</span> means that there is a many-one reduction from <span class="math inline">A</span> to <span class="math inline">B</span>, <em>not necessarily computable in polynomial time</em>.</p>
+</div>
+<div class="quiz-options">
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">A.</span> If <span class="math inline">B \in \mathbf{P}</span> and <span class="math inline">A \leqslant_m B</span>, then <span class="math inline">A \in \mathbf{P}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is false, because the reduction may take much more than polynomial time. Take any language <span class="math inline">A \in \mathbf{EXP}\setminus \mathbf{P}</span>, which exists by the time hierarchy theorem, and let <span class="math inline">B = \{1\}</span>. The reduction decides <span class="math inline">A</span> by itself, in exponential time, and outputs <span class="math inline">1</span> if <span class="math inline">w \in A</span> and <span class="math inline">0</span> otherwise. So <span class="math inline">A \leqslant_m B</span> and <span class="math inline">B \in \mathbf{P}</span>, but <span class="math inline">A \notin \mathbf{P}</span>. This property only holds for <em>polynomial-time</em> reductions.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="true">
+<div class="quiz-answer">
+<span class="quiz-letter">B.</span> If <span class="math inline">A \in \mathbf{R}</span>, there is a language <span class="math inline">B \in \mathbf{P}</span> such that <span class="math inline">A \leqslant_m B</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is true. Take <span class="math inline">B = \{1\}</span>, which is in <span class="math inline">\mathbf{P}</span>. The reduction <span class="math inline">f</span> decides <span class="math inline">A</span>, which is possible because <span class="math inline">A \in \mathbf{R}</span>, and outputs <span class="math inline">f(w) = 1</span> if <span class="math inline">w \in A</span> and <span class="math inline">f(w) = 0</span> otherwise. Then <span class="math inline">w \in A \iff f(w) \in B</span>, and <span class="math inline">f</span> is computable (although perhaps very slowly). So, without a time bound on the reduction, every decidable language reduces to a trivial language in <span class="math inline">\mathbf{P}</span>.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">C.</span> If <span class="math inline">B \in \mathbf{P}</span> and <span class="math inline">A \leqslant_m B</span>, then <span class="math inline">A</span> might not belong to <span class="math inline">\mathbf{R}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is false. If <span class="math inline">A \leqslant_m B</span> and <span class="math inline">B \in \mathbf{R}</span>, then <span class="math inline">A \in \mathbf{R}</span>: to decide whether <span class="math inline">w \in A</span>, compute <span class="math inline">f(w)</span> and decide whether <span class="math inline">f(w) \in B</span>. Since <span class="math inline">\mathbf{P}\subseteq \mathbf{R}</span>, every language that reduces to a language in <span class="math inline">\mathbf{P}</span> is decidable. Equivalently, if <span class="math inline">A \notin \mathbf{R}</span> and <span class="math inline">A \leqslant_m B</span>, then <span class="math inline">B \notin \mathbf{R}</span>.</p>
+</div>
+</div>
+<div class="quiz-option" role="button" tabindex="0" data-correct="false">
+<div class="quiz-answer">
+<span class="quiz-letter">D.</span> If <span class="math inline">B \in \mathbf{NP}</span> and <span class="math inline">A \leqslant_m B</span>, then <span class="math inline">A \in \mathbf{NP}</span>.
+</div>
+<div class="quiz-explanation">
+<p>This statement is false, for the same reason as the first option. By the time hierarchy theorem, there is a decidable language <span class="math inline">A</span> that is not in <span class="math inline">\mathbf{EXP}</span>, for example one decidable in doubly exponential time. Since <span class="math inline">\mathbf{NP}\subseteq \mathbf{EXP}</span>, <span class="math inline">A \notin \mathbf{NP}</span>. But <span class="math inline">A \leqslant_m \{1\}</span> by the reduction that decides <span class="math inline">A</span> and outputs <span class="math inline">1</span> or <span class="math inline">0</span>, and <span class="math inline">\{1\} \in \mathbf{P}\subseteq \mathbf{NP}</span>. Closure of <span class="math inline">\mathbf{NP}</span> under reductions only holds for polynomial-time reductions.</p>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
