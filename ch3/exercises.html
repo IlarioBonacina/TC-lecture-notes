@@ -526,7 +526,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The explanations of wrong anwers are partially generated using AI tools. Please report any error.</p>
+<p>The explanations of wrong answers are partially generated using AI tools. Please report any error.</p>
 </div>
 </div>
 </div></div><div id="exr-quiz-union-re" class="quiz theorem exercise">
@@ -535,7 +535,7 @@ Important
 <p>Let <span class="math inline">A</span>, <span class="math inline">B</span> and <span class="math inline">C</span> be languages such that <span class="math inline">A \in \mathbf{RE}\setminus \mathbf{R}</span> and <span class="math inline">A = \overline{B \cup C}</span>. Which of the following options for <span class="math inline">B</span> and <span class="math inline">C</span> is <strong>not</strong> possible?</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" role="button" data-correct="true" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> <span class="math inline">B \in \mathbf{RE}</span> and <span class="math inline">C \in \mathbf{RE}</span>
 </div>
@@ -543,7 +543,7 @@ Important
 <p><span class="math inline">\mathbf{RE}</span> is closed under union, so <span class="math inline">B \cup C \in \mathbf{RE}</span>. But <span class="math inline">B \cup C = \overline{A}</span>, so <span class="math inline">\overline{A} \in \mathbf{RE}</span>, which means <span class="math inline">A \in \mathbf{co}\mathbf{RE}</span>. Together with <span class="math inline">A \in \mathbf{RE}</span>, this gives <span class="math inline">A \in \mathbf{RE}\cap \mathbf{co}\mathbf{RE}= \mathbf{R}</span>, contradicting <span class="math inline">A \notin \mathbf{R}</span>. So this option is impossible.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> <span class="math inline">B \in \mathbf{RE}</span> or <span class="math inline">C \in \mathbf{RE}</span>
 </div>
@@ -551,7 +551,7 @@ Important
 <p>This is possible. Take <span class="math inline">B = \emptyset</span> and <span class="math inline">C = \overline{A}</span>. Then <span class="math inline">\overline{B \cup C} = A</span>, and <span class="math inline">B = \emptyset \in \mathbf{RE}</span>. Only <em>one</em> of the two languages has to be in <span class="math inline">\mathbf{RE}</span>, so the argument for the correct answer does not apply.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> <span class="math inline">B \in \mathbf{co}\mathbf{RE}</span> or <span class="math inline">C \in \mathbf{co}\mathbf{RE}</span>
 </div>
@@ -559,7 +559,7 @@ Important
 <p>This is possible. Since <span class="math inline">A \in \mathbf{RE}</span>, its complement <span class="math inline">\overline{A}</span> is in <span class="math inline">\mathbf{co}\mathbf{RE}</span>. Take <span class="math inline">B = \overline{A}</span> and <span class="math inline">C = \emptyset</span>. Then <span class="math inline">\overline{B \cup C} = A</span>, and <span class="math inline">B \in \mathbf{co}\mathbf{RE}</span>.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> <span class="math inline">B \in \mathbf{co}\mathbf{RE}</span> and <span class="math inline">C \in \mathbf{co}\mathbf{RE}</span>
 </div>
@@ -577,7 +577,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 </span> Which is the strongest statement you can guarantee for sure to be true?</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> <span class="math inline">L \in \mathbf{co}\mathbf{RE}</span>
 </div>
@@ -585,7 +585,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This is true, but it follows from a stronger statement (see the correct answer). Note that it is not obvious directly: to reject <span class="math inline">n</span>, we would have to be sure that there are no twin primes beyond <span class="math inline">n</span>, and no search can confirm that. The point is that <span class="math inline">L</span> is decidable, and every decidable language is in <span class="math inline">\mathbf{co}\mathbf{RE}</span>. The best answer is the strongest one we can guarantee.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> <span class="math inline">L \in \mathbf{RE}</span>
 </div>
@@ -593,7 +593,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This is true: on input <span class="math inline">n</span>, search <span class="math inline">p = n, n+1, n+2, \dots</span> and accept when <span class="math inline">p</span> and <span class="math inline">p+2</span> are both prime. If <span class="math inline">n \in L</span>, the search ends. But this only shows <span class="math inline">L \in \mathbf{RE}</span>, and we can say more: <span class="math inline">L</span> is decidable (see the correct answer). The best answer is the strongest one we can guarantee.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="true" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> <span class="math inline">L \in \mathbf{R}</span>
 </div>
@@ -601,7 +601,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p><span class="math inline">L</span> is closed downwards: if <span class="math inline">n \in L</span> and <span class="math inline">m \leqslant n</span>, then <span class="math inline">m \in L</span>. So there are only two possibilities. If there are infinitely many twin primes, then <span class="math inline">L = \mathbb{N}</span>. Otherwise, let <span class="math inline">p_0</span> be the largest prime such that <span class="math inline">p_0 + 2</span> is also prime, and then <span class="math inline">L = \{0, 1, \dots, p_0\}</span>. In both cases, <span class="math inline">L</span> is decidable: <span class="math inline">\mathbb{N}</span> is decided by a machine that always accepts, and <span class="math inline">\{0, \dots, p_0\}</span> by a machine that compares <span class="math inline">n</span> with the constant <span class="math inline">p_0</span>. We do not know <em>which</em> of these machines decides <span class="math inline">L</span>, because the twin prime conjecture is open, but we know that one of them does. Decidability asks for the <em>existence</em> of a decider, not for us to know which one it is.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> <span class="math inline">L \notin \mathbf{RE}\cup \mathbf{co}\mathbf{RE}</span>
 </div>
@@ -617,7 +617,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>Which of the following statements about languages <span class="math inline">A, B \subseteq \{0,1\}^*</span> is <strong>false</strong>?</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" role="button" data-correct="true" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> If <span class="math inline">A = \mathcal{L}(M)</span> where <span class="math inline">M</span> is a Turing machine that does not halt on <span class="math inline">010</span>, then <span class="math inline">A \in \mathbf{RE}\setminus \mathbf{R}</span>.
 </div>
@@ -625,7 +625,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This statement is false. The fact that one particular machine <span class="math inline">M</span> for <span class="math inline">A</span> does not halt does not mean that <em>every</em> machine for <span class="math inline">A</span> fails to halt. For example, let <span class="math inline">M</span> accept every word except <span class="math inline">010</span>, and loop forever on <span class="math inline">010</span>. Then <span class="math inline">A = \mathcal{L}(M) = \{0,1\}^* \setminus \{010\}</span>. This language is decidable: another machine can check whether its input is <span class="math inline">010</span> and reject it, and accept everything else. So <span class="math inline">A \in \mathbf{R}</span>. Decidability is a property of the language, not of one machine that recognizes it.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> If <span class="math inline">A \notin \mathbf{R}</span>, then <span class="math inline">A \cup \{0101\} \notin \mathbf{R}</span>.
 </div>
@@ -633,7 +633,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This statement is true. Suppose <span class="math inline">A \cup \{0101\}</span> were decidable, with decider <span class="math inline">D</span>. Then <span class="math inline">A</span> would also be decidable. If <span class="math inline">0101 \in A</span>, then <span class="math inline">A = A \cup \{0101\}</span>. If <span class="math inline">0101 \notin A</span>, then <span class="math inline">A = (A \cup \{0101\}) \setminus \{0101\}</span>, which is decided by running <span class="math inline">D</span> and rejecting <span class="math inline">0101</span>. We may not know which case holds, but in both cases a decider for <span class="math inline">A</span> exists, contradicting <span class="math inline">A \notin \mathbf{R}</span>. Changing a language on finitely many words never affects decidability.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> If <span class="math inline">A \notin \mathbf{R}</span> and <span class="math inline">B</span> is finite, then <span class="math inline">A \cup B \notin \mathbf{R}</span>.
 </div>
@@ -641,7 +641,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This statement is true. It is the previous statement with <span class="math inline">\{0101\}</span> replaced by any finite set. If <span class="math inline">A \cup B</span> were decidable, then <span class="math inline">A = (A \cup B) \setminus (B \setminus A)</span> would be decidable too, because <span class="math inline">B \setminus A</span> is finite and a decider can store the finitely many words of <span class="math inline">B \setminus A</span> and reject them.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> If <span class="math inline">A \in \mathbf{RE}</span>, there are infinitely many Turing machines that recognize <span class="math inline">A</span>.
 </div>
@@ -657,7 +657,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>A Turing machine is called <span class="def">right-moving</span> if its head can never move to the left or stay in the same position (that is, it can only move to the right). What is the class of languages accepted by right-moving Turing machines?</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> The languages in <span class="math inline">\mathbf{P}</span>.
 </div>
@@ -665,7 +665,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p><span class="math inline">\mathbf{P}</span> contains non-regular languages such as <span class="math inline">\{0^n 1^n :n \geqslant 0\}</span>, which a right-moving TM cannot accept. Such a machine reads each input symbol exactly once, from left to right, and can never come back to anything it has written. So the only memory it has is its finite set of states, and it cannot count the <span class="math inline">0</span>s in order to compare them with the <span class="math inline">1</span>s.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> The context-free languages.
 </div>
@@ -673,7 +673,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>A right-moving TM cannot even accept the context-free language <span class="math inline">\{0^n 1^n :n \geqslant 0\}</span>. Unlike a pushdown automaton, it has no stack: everything it writes is left behind, to the left of the head, and it can never read it again. Its only memory is its finite set of states.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> The recursive languages.
 </div>
@@ -681,7 +681,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>Being able to move left is essential for a TM to use its tape as memory. A right-moving TM reads each input symbol once and never revisits a cell, so it behaves like a finite automaton. It cannot accept non-regular decidable languages such as <span class="math inline">\{0^n 1^n :n \geqslant 0\}</span>.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="true" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> The regular languages.
 </div>
@@ -698,7 +698,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>Recall that <span class="math inline">\mathbf{R}</span> is the class of all decidable languages, and that a set <span class="math inline">S</span> is <span class="def">cofinite</span> if <span class="math inline">\overline{S}</span> is finite.</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> If <span class="math inline">B</span> is cofinite, then <span class="math inline">A \in \mathbf{R}</span>.
 </div>
@@ -706,7 +706,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This statement is always true. <span class="math inline">M</span> can only accept words on which it halts, so <span class="math inline">A \subseteq \overline{B}</span>. If <span class="math inline">B</span> is cofinite, then <span class="math inline">\overline{B}</span> is finite, so <span class="math inline">A</span> is finite, and every finite language is decidable.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> If <span class="math inline">B</span> is finite, then <span class="math inline">A \in \mathbf{R}</span>.
 </div>
@@ -714,7 +714,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This statement is always true. If <span class="math inline">B</span> is finite, a decider for <span class="math inline">A</span> can store the finitely many words of <span class="math inline">B</span>. On input <span class="math inline">w</span>, it rejects if <span class="math inline">w \in B</span>, because <span class="math inline">M</span> does not halt on <span class="math inline">w</span> and so does not accept it. Otherwise, it simulates <span class="math inline">M</span> on <span class="math inline">w</span>, which is guaranteed to halt, and gives the same answer.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> <span class="math inline">A \in \mathbf{RE}</span> independently of <span class="math inline">B</span>.
 </div>
@@ -722,7 +722,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This statement is always true. By definition, <span class="math inline">A = \mathcal{L}(M)</span> is recognized by the Turing machine <span class="math inline">M</span>, so <span class="math inline">A \in \mathbf{RE}</span>, whatever <span class="math inline">B</span> is.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="true" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> If <span class="math inline">B</span> is infinite, then <span class="math inline">A \in \mathbf{R}</span>.
 </div>
@@ -738,7 +738,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>Consider the language <span class="math inline">L = \{\, p :\mathrm{Im}(\varphi_p) \text{ is finite} \,\}</span>, where <span class="math inline">\varphi_p</span> is the function computed by the program <span class="math inline">p</span>. Which of the following is true?</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> <span class="math inline">L \in \mathbf{co}\mathbf{RE}\setminus \mathbf{R}</span>
 </div>
@@ -746,7 +746,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p><span class="math inline">L</span> is not in <span class="math inline">\mathbf{co}\mathbf{RE}</span>, because <span class="math inline">K \leqslant_m L</span>. Given <span class="math inline">x</span>, build a program <span class="math inline">p_x</span> that, on input <span class="math inline">y</span>, outputs <span class="math inline">1</span> if <span class="math inline">M_x(x)</span> halts within <span class="math inline">|y|</span> steps, and outputs <span class="math inline">y</span> otherwise. If <span class="math inline">M_x(x)\downarrow</span> in <span class="math inline">t</span> steps, then <span class="math inline">p_x</span> outputs <span class="math inline">1</span> on all inputs of length at least <span class="math inline">t</span>, so its image is finite. If <span class="math inline">M_x(x)\uparrow</span>, then <span class="math inline">p_x</span> computes the identity, whose image is infinite. So <span class="math inline">x \in K \iff p_x \in L</span>, and since <span class="math inline">K \notin \mathbf{co}\mathbf{RE}</span>, also <span class="math inline">L \notin \mathbf{co}\mathbf{RE}</span>.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> <span class="math inline">L \in \mathbf{R}</span>
 </div>
@@ -754,7 +754,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p><span class="math inline">L</span> is not decidable. By Rice’s theorem, “the image of <span class="math inline">\varphi_p</span> is finite” is a nontrivial semantic property, so <span class="math inline">L \notin \mathbf{R}</span>. In fact, <span class="math inline">L</span> is not even in <span class="math inline">\mathbf{RE}\cup \mathbf{co}\mathbf{RE}</span> (see the correct answer).</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> <span class="math inline">L \in \mathbf{RE}\setminus \mathbf{R}</span>
 </div>
@@ -762,7 +762,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p><span class="math inline">L</span> is not in <span class="math inline">\mathbf{RE}</span>, because <span class="math inline">\overline{K} \leqslant_m L</span>. Given <span class="math inline">x</span>, build a program <span class="math inline">q_x</span> that, on input <span class="math inline">y</span>, first runs <span class="math inline">M_x(x)</span> and then outputs <span class="math inline">y</span>. If <span class="math inline">M_x(x)\downarrow</span>, then <span class="math inline">q_x</span> computes the identity, whose image is infinite. If <span class="math inline">M_x(x)\uparrow</span>, then <span class="math inline">q_x</span> never outputs anything, so its image is empty, and hence finite. So <span class="math inline">x \in \overline{K} \iff q_x \in L</span>, and since <span class="math inline">\overline{K} \notin \mathbf{RE}</span>, also <span class="math inline">L \notin \mathbf{RE}</span>.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="true" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> <span class="math inline">L \notin \mathbf{RE}\cup \mathbf{co}\mathbf{RE}</span>
 </div>
@@ -784,7 +784,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>Recall that <span class="math inline">\mathbf{P}</span> is the class of languages decidable in polynomial time, and that <span class="math inline">A \leqslant_m B</span> means that there is a many-one reduction from <span class="math inline">A</span> to <span class="math inline">B</span>, <em>not necessarily computable in polynomial time</em>.</p>
 </div>
 <div class="quiz-options">
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">A.</span> If <span class="math inline">B \in \mathbf{P}</span> and <span class="math inline">A \leqslant_m B</span>, then <span class="math inline">A \in \mathbf{P}</span>.
 </div>
@@ -792,7 +792,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This statement is false, because the reduction may take much more than polynomial time. Take any language <span class="math inline">A \in \mathbf{EXP}\setminus \mathbf{P}</span>, which exists by the time hierarchy theorem, and let <span class="math inline">B = \{1\}</span>. The reduction decides <span class="math inline">A</span> by itself, in exponential time, and outputs <span class="math inline">1</span> if <span class="math inline">w \in A</span> and <span class="math inline">0</span> otherwise. So <span class="math inline">A \leqslant_m B</span> and <span class="math inline">B \in \mathbf{P}</span>, but <span class="math inline">A \notin \mathbf{P}</span>. This property only holds for <em>polynomial-time</em> reductions.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="true" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="true">
 <div class="quiz-answer">
 <span class="quiz-letter">B.</span> If <span class="math inline">A \in \mathbf{R}</span>, there is a language <span class="math inline">B \in \mathbf{P}</span> such that <span class="math inline">A \leqslant_m B</span>.
 </div>
@@ -800,7 +800,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This statement is true. Take <span class="math inline">B = \{1\}</span>, which is in <span class="math inline">\mathbf{P}</span>. The reduction <span class="math inline">f</span> decides <span class="math inline">A</span>, which is possible because <span class="math inline">A \in \mathbf{R}</span>, and outputs <span class="math inline">f(w) = 1</span> if <span class="math inline">w \in A</span> and <span class="math inline">f(w) = 0</span> otherwise. Then <span class="math inline">w \in A \iff f(w) \in B</span>, and <span class="math inline">f</span> is computable (although perhaps very slowly). So, without a time bound on the reduction, every decidable language reduces to a trivial language in <span class="math inline">\mathbf{P}</span>.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">C.</span> If <span class="math inline">B \in \mathbf{P}</span> and <span class="math inline">A \leqslant_m B</span>, then <span class="math inline">A</span> might not belong to <span class="math inline">\mathbf{R}</span>.
 </div>
@@ -808,7 +808,7 @@ L = \{\, n \in \mathbb{N} :\exists p \geqslant n \text{ such that } p \text{ and
 <p>This statement is false. If <span class="math inline">A \leqslant_m B</span> and <span class="math inline">B \in \mathbf{R}</span>, then <span class="math inline">A \in \mathbf{R}</span>: to decide whether <span class="math inline">w \in A</span>, compute <span class="math inline">f(w)</span> and decide whether <span class="math inline">f(w) \in B</span>. Since <span class="math inline">\mathbf{P}\subseteq \mathbf{R}</span>, every language that reduces to a language in <span class="math inline">\mathbf{P}</span> is decidable. Equivalently, if <span class="math inline">A \notin \mathbf{R}</span> and <span class="math inline">A \leqslant_m B</span>, then <span class="math inline">B \notin \mathbf{R}</span>.</p>
 </div>
 </div>
-<div class="quiz-option" role="button" data-correct="false" tabindex="0">
+<div class="quiz-option" tabindex="0" role="button" data-correct="false">
 <div class="quiz-answer">
 <span class="quiz-letter">D.</span> If <span class="math inline">B \in \mathbf{NP}</span> and <span class="math inline">A \leqslant_m B</span>, then <span class="math inline">A \in \mathbf{NP}</span>.
 </div>
